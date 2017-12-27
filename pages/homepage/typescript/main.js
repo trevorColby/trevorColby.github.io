@@ -8,4 +8,4 @@ function paintBackground(){
 	console.log("background loaded");
 }
 
-window.onload = alert("Not Working");
+window.onload = paintBackground();
