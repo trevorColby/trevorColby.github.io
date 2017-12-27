@@ -3,6 +3,9 @@ body {
     margin: 60px auto;
     width: 70%;
     background-image: url("https://trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';

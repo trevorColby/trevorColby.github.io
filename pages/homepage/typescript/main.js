@@ -3,8 +3,6 @@
 //Main Typescript for homepage of dartmouth.life
 
 function paintBackground(){
-	alert("Function Called");
-	document.body.style.backgroundImage = "url('https://trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg')";
 	console.log("background loaded");
 }
 
