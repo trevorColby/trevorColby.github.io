@@ -56,12 +56,12 @@ footer ul li a:hover {
     color: #ffffff;
 }
 
-a[href="/about"]{
+p a[href="/about"]{
     text-decoration: none;
     color: #737373;
 }
 
-a[href="/about"]:hover {
+p a[href="/about"]:hover {
     color: #ffffff;
     text-decoration: underline;
 }
