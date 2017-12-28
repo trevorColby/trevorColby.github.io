@@ -127,7 +127,7 @@ footer ul li a:hover {
 .sticky {
     position: fixed;
     top: 0;
-    margin: 0px 60px 60px 60px;
+    margin: auto;
 }
 
 .sticky + .starWarsContainer{
