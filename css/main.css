@@ -5,19 +5,33 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-color: #000000;
 }
-nav ul, footer ul {
+footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
-    background-color: #grey;
+    background-color: #333;
 }
 
-nav ul li, footer ul li {
+nav ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+    background-color: #333;
+}
+
+nav ul li {
     display: inline;
     margin-right: 20px;
-    float: left;
+    /* float: left; */
+}
+
+footer ul li{
+    display: inline;
+    margin-right: 20px;
 }
 a {
     text-decoration: none;
