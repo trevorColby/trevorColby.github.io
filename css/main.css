@@ -12,7 +12,6 @@ nav ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
-    margin: 10px;
 }
 
 footer ul {
@@ -33,19 +32,33 @@ footer ul li {
     margin-right: 20px;
 }
 
-nav ul li a {
+nav ul li a { 
+    text-decoration: none;
+    color: #999;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    
+    /* background-color: #333; */
+}
+
+footer ul li a {
     text-decoration: none;
     color: #999;
 }
 
-nav ul li a:hover {
-    /* text-decoration: underline; */
-    background-color: #333;
+footer ul li a:hover {
+    color: #ffffff;
 }
 
 a[href="/about"]{
     text-decoration: none;
-    color: rgb(230,230,230);
+    color: #737373;
 }
 
 a[href="/about"]:hover {
