@@ -22,6 +22,7 @@ body {
 
 /* all nav bar css *******************************/
 nav {
+    top: 9px;
     height: 25px;
 }
 
