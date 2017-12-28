@@ -4,9 +4,9 @@ body {
     background-image: url("https://trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    /* background-position: center center; */
     background-color: #000;
-    /* background-attachment: fixed; */
+    background-attachment: fixed;
 }
 
 
