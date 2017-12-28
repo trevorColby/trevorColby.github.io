@@ -12,6 +12,7 @@ nav ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    margin: 10px;
 }
 
 footer ul {
@@ -54,11 +55,13 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     color: #ffffff;
+    margin-left: 10px;
 }
 p {
     font-size: 1.5em;
     line-height: 1.4em;
     color: rgb(230, 230, 230);
+    margin-left: 10px;
 }
 footer {
     border-top: 1px solid #d5d5d5;
