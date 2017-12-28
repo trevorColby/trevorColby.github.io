@@ -5,6 +5,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-color: #000;
 }
 nav ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -30,14 +31,24 @@ footer ul li {
     margin-right: 20px;
 }
 
-a {
+nav ul li a {
     text-decoration: none;
     color: #999;
 }
 
-a:hover {
-    text-decoration: underline;
+nav ul li a:hover {
+    /* text-decoration: underline; */
     background-color: #333;
+}
+
+a[href="/about"]{
+    text-decoration: none;
+    color: rgb(230,230,230);
+}
+
+a[href="/about"]:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 h1 {
     font-size: 3em;
@@ -47,7 +58,7 @@ h1 {
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #333;
+    color: rgb(230, 230, 230);
 }
 footer {
     border-top: 1px solid #d5d5d5;
@@ -65,5 +76,7 @@ ul.posts li {
 
 #textBox {
  background-color: rgba(64,64,64,.75);
+ border-color: rgb(64,64,64);
+ border-radius: 25px;
 }
 
