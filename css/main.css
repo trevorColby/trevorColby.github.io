@@ -7,6 +7,13 @@ body {
     background-position: center center;
     background-color: #000;
 }
+
+#textBox {
+ background-color: rgba(64,64,64,.75);
+ border-color: rgb(64,64,64);
+ border-radius: 25px;
+}
+
 nav {
     margin: 10px;
 }
@@ -54,6 +61,7 @@ nav ul li a:hover {
 footer ul li a {
     text-decoration: none;
     color: #999;
+    margin-left: 10px;
 }
 
 footer ul li a:hover {
@@ -95,9 +103,5 @@ ul.posts li {
     list-style: none;
 }
 
-#textBox {
- background-color: rgba(64,64,64,.75);
- border-color: rgb(64,64,64);
- border-radius: 25px;
-}
+
 
