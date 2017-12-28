@@ -128,3 +128,15 @@ footer ul li a:hover {
     position: fixed;
     top: 0;
 }
+
+/*css for the start wars style scrolling paragraphs **********************/
+.starWarsContainer {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	font-size: 49px;
+}
+
+.starWarsBar p {
+	color: #ffffff;
+}
