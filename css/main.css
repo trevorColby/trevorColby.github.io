@@ -39,6 +39,7 @@ nav ul li {
 }
 
 nav ul li a { 
+    margin-top: 10px;
     text-decoration: none;
     color: #999;
     /* margin-top: 10px; */
@@ -114,7 +115,6 @@ footer ul li {
 }
 
 footer ul li a {
-    margin-top: 10px;
     text-decoration: none;
     color: #999;
     /* margin-left: 10px; */
