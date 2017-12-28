@@ -8,7 +8,9 @@ function scrollEffect(){
 
 // window.onload = scrollEffect();
 window.addEventListener('scroll',function(e){
-	stickTextBox();
+	var textBox = document.getElementById("textBox");
+	var displacement = textBox.offsetTop;
+	stickTextBox(displacement);
 });
 
 function calcScrollFactor(){
@@ -16,10 +18,9 @@ function calcScrollFactor(){
 	var offset = window.pageYoffset;
 }
 
-function stickTextBox(){
-	var textBox = document.getElementById("textBox");
-	var displacement = textBox.offsetTop;
-	console.log(displacement);
+function stickTextBox(displacement){
+		console.log("Displacement: " + displacement);
+		console.log("Page Y Offset: " + window.pageYoffset);
 		if(window.pageYoffset >= displacement){
 			alert("condition met");
 			textBox.classList.add("sticky");
