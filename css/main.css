@@ -122,4 +122,9 @@ footer ul li a:hover {
     color: #ffffff;
 }
 
+/* sticky class to add when txtbox hits top */
 
+.sticky {
+    position: fixed;
+    top: 0;
+}
