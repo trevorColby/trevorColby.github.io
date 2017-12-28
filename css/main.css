@@ -39,7 +39,8 @@ nav ul li {
 }
 
 nav ul li a { 
-    margin-top: 10px;
+    position: relative;
+    position-top: 10px;
     text-decoration: none;
     color: #999;
     /* margin-top: 10px; */
