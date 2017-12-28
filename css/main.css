@@ -16,7 +16,7 @@ body {
  border-color: rgb(64,64,64);
  border-radius: 25px;
  border-width: 10px;
- height: 230px;
+ height: 220px;
 }
 
 
@@ -130,7 +130,7 @@ footer ul li a:hover {
 
 .sticky {
     position: fixed;
-    top: 20;
+    top: 0;
     width:70%;
     margin-top: 0px;
 }
