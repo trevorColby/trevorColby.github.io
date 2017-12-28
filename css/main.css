@@ -29,11 +29,11 @@ body {
 
 /* all nav bar css *******************************/
 nav {
-    top: 9px;
     height: 25px;
 }
 
 nav ul {
+    position: relative;
     top: 9px;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
@@ -139,6 +139,7 @@ footer ul li a:hover {
     top: 0;
     width:70%;
     margin-top: -8px;
+    height: 228px;
 }
 
 /*css for the start wars style scrolling paragraphs **********************/
