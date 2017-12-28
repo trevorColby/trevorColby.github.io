@@ -20,6 +20,9 @@ a {
     text-decoration: none;
     color: #999;
 }
+#nav{
+    background-color: #fff
+}
 a:hover {
     text-decoration: underline;
 }
