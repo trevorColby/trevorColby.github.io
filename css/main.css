@@ -9,7 +9,7 @@ body {
     background-attachment: fixed;
 }
 
-body > div:first-child > p:first-child { margin-top: 0; }
+/* body > div:first-child > p:first-child { margin-top: 0; } */
 
 
 /* main container for text area ********************/
@@ -140,7 +140,7 @@ footer ul li a:hover {
     position: fixed;
     top: 0;
     width:70%;
-    margin-top: 0px;
+    margin-top: -20px;
 }
 
 /*css for the start wars style scrolling paragraphs **********************/
