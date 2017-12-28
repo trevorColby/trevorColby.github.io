@@ -21,7 +21,7 @@ function transformText(){
 function stickTextBox(displacement){
 		console.log("Displacement: " + displacement);
 		console.log("Page Y Offset: " + window.pageYOffset);
-		if(window.pageYOffset >= displacement+10){
+		if(window.pageYOffset +10 >= displacement){
 			textBox.classList.add("sticky");
 		}
 		else {
