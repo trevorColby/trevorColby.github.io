@@ -125,9 +125,10 @@ footer ul li a:hover {
 /* sticky class to add when txtbox hits top */
 
 .sticky {
-    position: fixed;
-    top: 0;
-    margin: auto;
+    /* position: fixed; */
+    /* top: 0; */
+    /* margin: auto; */
+    -webkit-transform: translateZ(0);
 }
 
 .sticky + .starWarsContainer{
