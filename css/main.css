@@ -139,7 +139,9 @@ footer ul li a:hover {
     top: 0;
     width:70%;
     margin-top: -8px;
-    height: 228px;
+}
+.sticky + footer {
+	
 }
 
 /*css for the start wars style scrolling paragraphs **********************/
