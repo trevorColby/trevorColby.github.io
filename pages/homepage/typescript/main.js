@@ -7,8 +7,9 @@ function scrollEffect(){
 }
 
 // window.onload = scrollEffect();
-window.addEventListener('scroll',function(){
+window.addEventListener('scroll',function(e){
 	stickTextBox();
+	alert("Func Called");
 }
 
 function calcScrollFactor(){
@@ -18,7 +19,7 @@ function calcScrollFactor(){
 
 function stickTextBox(){
 	var textBox = document.getElementById("textBox");
-	var displacement = textBox.offSetTop;
+	var displacement = textBox.offsetTop;
 		if(window.pageYoffset >= displacement){
 			textBox.classList.add("sticky");
 		}
