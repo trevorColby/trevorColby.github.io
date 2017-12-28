@@ -20,8 +20,8 @@ function calcScrollFactor(){
 
 function stickTextBox(displacement){
 		console.log("Displacement: " + displacement);
-		console.log("Page Y Offset: " + window.pageYoffset);
-		if(window.pageYoffset >= displacement){
+		console.log("Page Y Offset: " + window.pageYOffset);
+		if(window.pageYOffset >= displacement){
 			alert("condition met");
 			textBox.classList.add("sticky");
 		}
