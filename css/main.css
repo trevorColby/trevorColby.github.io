@@ -14,7 +14,6 @@ body {
  background-color: rgba(64,64,64,.75);
  border-color: rgb(64,64,64);
  border-radius: 25px;
- margin: 10px;
 }
 
 
@@ -99,7 +98,7 @@ footer ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
-    /* margin-left: 10px; */
+    margin-left: 20px;
 
 }
 
