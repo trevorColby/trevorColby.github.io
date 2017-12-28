@@ -129,7 +129,7 @@ footer ul li a:hover {
     top: 0;
 }
 
-.sticky + .starWarsBar p{
+.sticky + .starWarsContainer{
 	  padding-top: 300px;
 }
 
