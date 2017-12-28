@@ -10,7 +10,7 @@ function scrollEffect(){
 window.addEventListener('scroll',function(e){
 	stickTextBox();
 	alert("Func Called");
-}
+});
 
 function calcScrollFactor(){
 	//var textOffset = window.offset.top(); alternet?
