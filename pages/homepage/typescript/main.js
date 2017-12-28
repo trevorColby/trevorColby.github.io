@@ -22,7 +22,6 @@ function stickTextBox(displacement){
 		console.log("Displacement: " + displacement);
 		console.log("Page Y Offset: " + window.pageYOffset);
 		if(window.pageYOffset >= displacement){
-			alert("condition met");
 			textBox.classList.add("sticky");
 		}
 		else {
