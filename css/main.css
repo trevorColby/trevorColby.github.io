@@ -11,20 +11,27 @@ nav ul, footer ul {
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    background-color: #333;
 }
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
+    float: left;
 }
 a {
     text-decoration: none;
-    color: #999;
-}
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
 #navigation{
-    background-color: #fff
+    background-color: #fffa
 }
 a:hover {
     text-decoration: underline;
+    background-color: #111;
 }
 h1 {
     font-size: 3em;
