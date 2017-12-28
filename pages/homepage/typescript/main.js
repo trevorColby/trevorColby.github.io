@@ -28,3 +28,11 @@ function stickTextBox(displacement){
 			textBox.classList.remove("sticky");
 		}
 }
+
+function addNumberToPixel(pixNum,numberToAdd){
+	numStr = str.slice(0, -2);
+	numStr = parseInt(numStr);
+	numStr += numberToAdd;
+	numStr + "px";
+	return numStr;
+}
