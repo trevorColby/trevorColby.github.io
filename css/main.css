@@ -1,6 +1,6 @@
 body {
     margin: 60px auto;
-    /* width: 70%; */
+    width: 70%;
     background-image: url("https://trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -133,6 +133,7 @@ footer ul li a:hover {
     top: 0;
     width:70%;
     height: 230px;
+    margin: 0px;
 }
 
 .sticky + .starWarsContainer{
