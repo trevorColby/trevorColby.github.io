@@ -11,6 +11,10 @@ body {
 
 
 /* main container for text area ********************/
+#textBoxWrapper {
+    height: 220px;
+}
+
 #textBox {
  background-color: rgba(64,64,64,.75);
  border-color: rgb(64,64,64);
@@ -20,6 +24,7 @@ body {
  -webkit-transform: translate3d(0, 0, 0);
  transform : translate3d(0, 0, 0);
 }
+
 
 
 /* all nav bar css *******************************/
@@ -145,11 +150,6 @@ footer ul li a:hover {
     width:70%;
     margin-top: 0px;
 }
-
-.sticky + .starWarsContainer{
-	  padding-top: 250px;
-}
-
 
 /*css for the start wars style scrolling paragraphs **********************/
 .starWarsContainer {
