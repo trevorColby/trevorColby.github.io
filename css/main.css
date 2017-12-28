@@ -1,5 +1,4 @@
 body {
-    margin: 60px auto;
     width: 70%;
     background-image: url("https://trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg");
     background-size: cover;
@@ -7,7 +6,6 @@ body {
     background-position: center center;
     background-color: #000;
     background-attachment: fixed;
-    -webkit-transform: translateZ(0);
 }
 
 
