@@ -13,8 +13,8 @@ window.addEventListener('scroll',function(e){
 	stickTextBox(displacement);
 });
 
-function calcScrollFactor(){
-	//var textOffset = window.offset.top(); alternet?
+function transformText(){
+	var allText = document.querySelectorAll(".starWarsBar p");
 	var offset = window.pageYoffset;
 }
 
