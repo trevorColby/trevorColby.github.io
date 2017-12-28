@@ -42,7 +42,7 @@ a:hover {
 h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    color: green;
+    color: #ffffff;
 }
 p {
     font-size: 1.5em;
@@ -61,5 +61,9 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+}
+
+#textBox {
+ background-color: rgba(64,64,64,.75);
 }
 
