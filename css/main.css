@@ -138,6 +138,10 @@ footer ul li a:hover {
     margin-top: -8px;
 }
 
+.sticky + .starWarsContainer {
+	padding-top: 100px;
+}
+
 /*css for the start wars style scrolling paragraphs **********************/
 .starWarsContainer {
 	height: 100%;
