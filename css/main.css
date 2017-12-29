@@ -14,13 +14,15 @@ body {
 
 /* main container for text area ********************/
 #textBoxWrapper {
+	height: 250px;
 }
 
 #textBox {
- background-color: rgba(64,64,64,.75);
- border-color: rgb(64,64,64);
- border-radius: 25px;
- border-width: 10px;
+ 	background-color: rgba(64,64,64,.75);
+ 	border-color: rgb(64,64,64);
+ 	border-radius: 25px;
+ 	border-width: 10px;
+	height: 250px;
 }
 
 
@@ -138,9 +140,9 @@ footer ul li a:hover {
     margin-top: -8px;
 }
 
-.sticky + .starWarsContainer {
-	padding-top: 100px;
-}
+/* .sticky + .starWarsContainer { */
+/* 	padding-top: 150px; */
+/* } */
 
 /*css for the start wars style scrolling paragraphs **********************/
 .starWarsContainer {
