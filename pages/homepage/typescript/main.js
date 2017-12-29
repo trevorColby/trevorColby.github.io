@@ -7,7 +7,8 @@ var displacement = textBox.offsetTop;
 var prevPos = window.pageYOffset || document.documentElement.scrollTop;
 var allText = document.querySelectorAll(".starWarsBar p");
 var firstText = document.querySelector(".starWarsBar p");
-var firstTextPosition = firstText.getBoundingClientRect.top;
+var firstTextRect = firstText.getBoundingClientRect();
+var firstTextPosition = firstTextRect.top;
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
@@ -69,9 +70,12 @@ function setupText(){
 
 function scrollUp(){
 	console.log("scroll Up");
-	console.log(firstTextPosition);
+	console.log("First pos: " + firstTextPosition);
+	console.log("allText length: " + allText.length);
+	console.log("");
 	for(i=0;i<allText.length;i++){
-		var curTextPos = allText[i].getBoundingClientRect.top;
+		var curTextRect = allText[i].getBoundingClientRect();
+		var curTextPos = curTextRect.top;
 		console.log("cur: " + curTextPos);
 
 		//above acceptable range
@@ -110,7 +114,8 @@ function scrollUp(){
 function scrollDown() {
 	console.log("scroll Down");
 	for(i=0;i<allText.length;i++){
-		var curTextPos = allText[i].getBoundingClientRect.top;
+		var curTextRect = allText[i].getBoundingClientRect();
+		var curTextPos = curTextRect.top;
 
 		//above acceptable range
 		if(curTextPos <= firstTextPosition-300){
