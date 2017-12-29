@@ -5,9 +5,6 @@
 var textBox = document.getElementById("textBox");
 var displacement = textBox.offsetTop;
 
-function scrollEffect(){
-
-}
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
@@ -32,6 +29,25 @@ function stickTextBox(displacement){
 		}
 }
 
+
+//star wars text animation ******************************
+window.onload = setupText;
+
+//set initial state of star wars text
+function setupText(){
+	alert("setup Launched");
+	var allText = document.querySelectorAll(".starWarsBar p");
+	var opac = 1;
+	var skew = 1;
+	var translate = 0;
+	for(i=0;i<allText.length;i++){
+		allText[i].style.opacity = opac; 
+		allText[i].style.transform = "translate(0%, "+translate+"%) matrix("+skew+", 0, 0,"+ skew+", 0, 0)";
+		skew -= .1;
+		opac -= .25;
+		translate += 100;
+	}
+}
 //func to control star wars animation of text
 function transformText(){
 	var allText = document.querySelectorAll(".starWarsBar p");
@@ -46,3 +62,4 @@ function addNumberToPixel(pixNum,numberToAdd){
 	numStr + "px";
 	return numStr;
 }
+
