@@ -14,7 +14,7 @@ body {
 
 /* main container for text area ********************/
 #textBoxWrapper {
-    height: 220px;
+    height: 20%;;
 }
 
 #textBox {
@@ -113,7 +113,6 @@ footer ul {
     font-weight: bold;
     margin-left: 20px;
     margin-top: 5px;
-    height: 20px;
 
 }
 
@@ -139,9 +138,6 @@ footer ul li a:hover {
     top: 0;
     width:70%;
     margin-top: -8px;
-}
-.sticky + footer {
-	
 }
 
 /*css for the start wars style scrolling paragraphs **********************/
