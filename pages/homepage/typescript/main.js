@@ -51,6 +51,10 @@ function setupText(){
 		translate += 100;
 		// translate(0%, "+translate+"%) //place this in front of matrix if needed (think it simulates scrolling since their page never actually scrolls)
 	}
+	//set wrapper size
+	var textBoxHeight = document.getElementById("textBox").clientHeight;
+	var textBoxWrapper = document.getElementById("textBoxWrapper");
+	textBoxWrapper.style.height = textBoxHeight;
 }
 
 //call apropriate function based on scroll direction

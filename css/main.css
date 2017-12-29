@@ -14,8 +14,6 @@ body {
 
 /* main container for text area ********************/
 #textBoxWrapper {
- 	border-radius: 25px;
- 	border-width: 10px;
 	/* height: 190px; */
 }
 
