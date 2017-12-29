@@ -26,6 +26,7 @@ function stickTextBox(displacement){
 		}
 		else {
 			textBox.classList.remove("sticky");
+			alert("remove");
 		}
 }
 
