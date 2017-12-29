@@ -70,36 +70,32 @@ function setupText(){
 
 function scrollUp(){
 	console.log("scroll Up");
-	console.log("First pos: " + firstTextPosition);
-	console.log("allText length: " + allText.length);
-	console.log("");
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
 		var curTextPos = curTextRect.top;
-		console.log("cur: " + curTextPos);
 
 		//above acceptable range
-		if(curTextPos <= firstTextPosition-300){
-			allText[i].style.opacity -= .01;
+		if(curTextPos <= firstTextPosition-100){
+			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(2)";			
 		}
 
 		//below acceptable range
-		else if(curTextPos >= firstTextPosition+300){
+		else if(curTextPos >= firstTextPosition+400){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(.2)";
 		}
 
 		//within target top
-		else if(curTextPos >= firstTextPosition-30){
-			allText[i].style.opacity -= .01;
-			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+		else if(curTextPos >= firstTextPosition-50){
+			allText[i].style.opacity += .02;
+			TweenLite.to(allText[i],.05, {scale: "-=.01"});
 		}
 
 		//within target bottom
-		else if(curTextPos <= firstTextPosition+30){
-			allText[i].style.opacity += .01;
-			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+		else if(curTextPos <= firstTextPosition+50){
+			allText[i].style.opacity -= .02;
+			TweenLite.to(allText[i],.05, {scale: "-=.01"});
 		}
 
 		//in target middle
@@ -118,8 +114,8 @@ function scrollDown() {
 		var curTextPos = curTextRect.top;
 
 		//above acceptable range
-		if(curTextPos <= firstTextPosition-300){
-			allText[i].style.opacity -= .01;
+		if(curTextPos <= firstTextPosition-100){
+			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(2)";			
 		}
 
@@ -130,15 +126,15 @@ function scrollDown() {
 		}
 
 		//within target top
-		else if(curTextPos >= firstTextPosition-30){
-			allText[i].style.opacity += .01;
-			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+		else if(curTextPos >= firstTextPosition-50){
+			allText[i].style.opacity -= .01;
+			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 
 		//within target bottom
-		else if(curTextPos <= firstTextPosition+30){
-			allText[i].style.opacity -= .01;
-			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+		else if(curTextPos <= firstTextPosition+50){
+			allText[i].style.opacity += .01;
+			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 
 		//in target middle
