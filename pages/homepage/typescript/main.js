@@ -75,7 +75,7 @@ function scrollUp(){
 		//above acceptable range
 		if(curTextPos <= firstTextPosition-300){
 			allText[i].style.opacity -= .01;
-			allText[i].style.transform = "scale(2);			
+			allText[i].style.transform = "scale(2)";			
 		}
 
 		//below acceptable range
@@ -113,7 +113,7 @@ function scrollDown() {
 		//above acceptable range
 		if(curTextPos <= firstTextPosition-300){
 			allText[i].style.opacity -= .01;
-			allText[i].style.transform = "scale(2);			
+			allText[i].style.transform = "scale(2)";			
 		}
 
 		//below acceptable range
