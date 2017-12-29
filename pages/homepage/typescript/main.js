@@ -75,7 +75,7 @@ function scrollUp(){
 
 
 function scrollDown() {
-	console.log("scroll Down");'
+	console.log("scroll Down");
 	for(i=0;i<allText.length;i++){
 		allText[i].style.opacity -= .001;
 		TweenLite.to(allText[i],.05, {scale: "+=.01"});
