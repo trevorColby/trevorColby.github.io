@@ -6,7 +6,7 @@ var textBox = document.getElementById("textBox");
 var displacement = textBox.offsetTop;
 var prevPos = window.pageYOffset || document.documentElement.scrollTop;
 var allText = document.querySelectorAll(".starWarsBar p");
-var firstText = document.querySelector(".starWarsBar p";
+var firstText = document.querySelector(".starWarsBar p");
 var firstTextPosition = firstText.getBoundingClientRect.top;
 
 //control scroll animations
