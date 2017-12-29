@@ -35,7 +35,6 @@ window.onload = setupText;
 
 //set initial state of star wars text
 function setupText(){
-	alert("setup Launched");
 	var allText = document.querySelectorAll(".starWarsBar p");
 	var opac = 1;
 	var skew = 1;
