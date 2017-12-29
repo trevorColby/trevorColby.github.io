@@ -6,6 +6,8 @@ var textBox = document.getElementById("textBox");
 var displacement = textBox.offsetTop;
 var prevPos = window.pageYOffset || document.documentElement.scrollTop;
 var allText = document.querySelectorAll(".starWarsBar p");
+var firstText = document.querySelector(".starWarsBar p";
+var firstTextPosition = firstText.getBoundingClientRect.top;
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
@@ -51,25 +53,54 @@ function setupText(){
 }
 
 //call apropriate function based on scroll direction
-function textAnimation(){
-	var curPos = window.pageYOffset || document.documentElement.scrollTop;
+ function textAnimation(){
+ 	var curPos = window.pageYOffset || document.documentElement.scrollTop;
         	
-	if (prevPos > curPos){
-		scrollUp();
-	}
-	else {
-		scrollDown();
-	}
-	prevPos = curPos;
-}
+ 	if (prevPos > curPos){
+ 		scrollUp();
+ 	}
+ 	else {
+ 		scrollDown();
+ 	}
+ 	prevPos = curPos;
+ }
+
 
 
 function scrollUp(){
 	console.log("scroll Up");
 	for(i=0;i<allText.length;i++){
-		allText[i].style.opacity += .001;
-		TweenLite.to(allText[i],.05, {scale: "-=.01"});
-		// TweenLite.to(allText[i],.05, {scaleY: "-=.01"});
+		var curTextPos = allText[i].getBoundingClientRect.top;
+
+		//above acceptable range
+		if(curTextPos <= firstTextPosition-300){
+			allText[i].style.opacity -= .01;
+			allText[i].style.transform = "scale(2);			
+		}
+
+		//below acceptable range
+		else if(curTextPos >= firstTextPosition+300){
+			allText[i].style.opacity = 0;
+			allText[i].style.transform = "scale(.2)";
+		}
+
+		//within target top
+		else if(curTextPos >= firstTextPosition-30){
+			allText[i].style.opacity -= .01;
+			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+		}
+
+		//within target bottom
+		else if(curTextPos <= firstTextPosition+30){
+			allText[i].style.opacity += .01;
+			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+		}
+
+		//in target middle
+		else {
+			allText[i].style.opacity = 1;
+			allText[i].style.transform = "scale(1)";	
+		}
 	}
 }
 
@@ -77,9 +108,37 @@ function scrollUp(){
 function scrollDown() {
 	console.log("scroll Down");
 	for(i=0;i<allText.length;i++){
-		allText[i].style.opacity -= .001;
-		TweenLite.to(allText[i],.05, {scale: "+=.01"});
-		// TweenLite.to(allText[i],.05, {scaleY: "+=.01"});
+		var curTextPos = allText[i].getBoundingClientRect.top;
+
+		//above acceptable range
+		if(curTextPos <= firstTextPosition-300){
+			allText[i].style.opacity -= .01;
+			allText[i].style.transform = "scale(2);			
+		}
+
+		//below acceptable range
+		else if(curTextPos >= firstTextPosition+300){
+			allText[i].style.opacity = 0;
+			allText[i].style.transform = "scale(.2)";
+		}
+
+		//within target top
+		else if(curTextPos >= firstTextPosition-30){
+			allText[i].style.opacity += .01;
+			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+		}
+
+		//within target bottom
+		else if(curTextPos <= firstTextPosition+30){
+			allText[i].style.opacity -= .01;
+			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+		}
+
+		//in target middle
+		else {
+			allText[i].style.opacity = 1;
+			allText[i].style.transform = "scale(1)";	
+		}
 	}
 }
 //func to control star wars animation of text
