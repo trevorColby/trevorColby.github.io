@@ -21,12 +21,14 @@ function stickTextBox(displacement){
 		// console.log("Page Y Offset: " + window.pageYOffset);
 		if(window.pageYOffset  >= displacement){
 			textBox.classList.add("sticky");
+			$('#myAccordion').collapse('hide');
 			//in the future may way to add navbar transformation here which stretches textBox to 100$ width and removes text box leaving only navbar
 			//just fade out opacity as percent width increases then remove elements after opacity disappears / considering switching with angular/bootsrap
 			//to make it a drop down and simply activate accordion effect when sticky hits
 		}
 		else {
 			textBox.classList.remove("sticky");
+			$('#myAccordion').collapse('show');
 		}
 }
 
