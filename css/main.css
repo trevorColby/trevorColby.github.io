@@ -16,7 +16,7 @@ body {
 #textBoxWrapper {
  	border-radius: 25px;
  	border-width: 10px;
-	height: 230px;
+	height: 210px;
 }
 
 #textBox {
@@ -24,7 +24,7 @@ body {
  	border-color: rgb(64,64,64);
  	border-radius: 25px;
  	border-width: 10px;
-	height: 230px;
+	height: 210px;
 }
 
 #spacer {
