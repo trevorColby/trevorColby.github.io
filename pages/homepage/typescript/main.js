@@ -99,14 +99,14 @@ function scrollUp(){
 		//within target top
 		else if(curTextPos >= firstTextPosition-50){
 			allText[i].style.opacity += .1;
-			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+			TweenLite.to(allText[i],.05, {scale: "-=.03"});
 		}
 
 		//within target bottom
 		// else if(curTextPos <= firstTextPosition+100){
 		else {
 			allText[i].style.opacity -= .1;
-			TweenLite.to(allText[i],.05, {scale: "-=.01"});
+			TweenLite.to(allText[i],.05, {scale: "-=.03"});
 		}
 	}
 }
@@ -138,14 +138,14 @@ function scrollDown() {
 		//within target top
 		else if(curTextPos >= firstTextPosition-50){
 			allText[i].style.opacity -= .1;
-			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+			TweenLite.to(allText[i],.05, {scale: "+=.03"});
 		}
 
 		//within target bottom
 		// else if(curTextPos <= firstTextPosition+100){
 		else {
 			allText[i].style.opacity += .1;
-			TweenLite.to(allText[i],.05, {scale: "+=.01"});
+			TweenLite.to(allText[i],.05, {scale: "+=.03"});
 		}
 	}
 }
