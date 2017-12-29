@@ -4,12 +4,12 @@
 
 var textBox = document.getElementById("textBox");
 var displacement = textBox.offsetTop;
-
+var prevPos = window.pageYOffset || document.documentElement.scrollTop;
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
 	stickTextBox(displacement); //function to toggle sticky class on textBox/navbar
-	transformText(); //funciton to control transformations on star wars text
+	textAnimation(); //funciton to control transformations on star wars text
 });
 
 //function that toggles stick class depending on scroll location
@@ -47,6 +47,29 @@ function setupText(){
 		translate += 100;
 		// translate(0%, "+translate+"%) //place this in front of matrix if needed (think it simulates scrolling since their page never actually scrolls)
 	}
+}
+
+//call apropriate function based on scroll direction
+function textAnimation(){
+	var curPos = window.pageYOffset || document.documentElement.scrollTop;
+	
+	if (prevPos > curPos){
+		scrollUp();
+	}
+	else {
+		scrollDown();
+	}
+	prevPos = curPos;
+}
+
+
+function scrollUp(){
+	console.log("scroll Up");
+}
+
+
+function scrollDown() {
+	console.log("scroll Down");
 }
 //func to control star wars animation of text
 function transformText(){
