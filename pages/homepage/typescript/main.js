@@ -126,13 +126,13 @@ function scrollDown() {
 		}
 
 		//below acceptable range
-		else if(curTextPos >= firstTextPosition+300){
+		else if(curTextPos >= firstTextPosition+400){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(.2)";
 		}
 
 		//within target top
-		else if(curTextPos >= firstTextPosition-50){
+		else if(curTextPos >= firstTextPosition-100){
 			allText[i].style.opacity -= .01;
 			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
