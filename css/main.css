@@ -14,7 +14,7 @@ body {
 
 /* main container for text area ********************/
 #textBoxWrapper {
-	height: 250px;
+	height: 230px;
 }
 
 #textBox {
@@ -22,7 +22,7 @@ body {
  	border-color: rgb(64,64,64);
  	border-radius: 25px;
  	border-width: 10px;
-	height: 250px;
+	height: 230px;
 }
 
 
