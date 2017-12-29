@@ -41,10 +41,11 @@ function setupText(){
 	var translate = 0;
 	for(i=0;i<allText.length;i++){
 		allText[i].style.opacity = opac; 
-		allText[i].style.transform = "translate(0%, "+translate+"%) matrix("+skew+", 0, 0,"+ skew+", 0, 0)";
+		allText[i].style.transform = "matrix("+skew+", 0, 0,"+ skew+", 0, 0)";
 		skew -= .1;
 		opac -= .25;
 		translate += 100;
+		// translate(0%, "+translate+"%) //place this in front of matrix if needed (think it simulates scrolling since their page never actually scrolls)
 	}
 }
 //func to control star wars animation of text
