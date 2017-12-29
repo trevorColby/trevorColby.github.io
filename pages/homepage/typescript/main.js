@@ -13,10 +13,10 @@ window.addEventListener('scroll',function(e){
 	stickTextBox(displacement);
 });
 
-function transformText(){
-	var allText = document.querySelectorAll(".starWarsBar p");
-	var offset = window.pageYoffset;
-}
+// function transformText(){
+// 	var allText = document.querySelectorAll(".starWarsBar p");
+// 	var offset = window.pageYoffset;
+// }
 
 function stickTextBox(displacement){
 		console.log("Displacement: " + displacement);
@@ -26,7 +26,6 @@ function stickTextBox(displacement){
 		}
 		else {
 			textBox.classList.remove("sticky");
-			alert("remove");
 		}
 }
 
