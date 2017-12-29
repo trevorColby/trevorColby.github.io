@@ -169,8 +169,5 @@ footer ul li a:hover {
 
 .starWarsBar p {
     color: #ffffff;
-    background-color: rgba(230,230,230,.6);
-    border-radius: 40px;
-    border-width: 5px;
-    border-color: rgba(230,230,230);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
