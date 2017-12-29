@@ -2,14 +2,17 @@
 //12.26.2017
 //Main Typescript for homepage of dartmouth.life
 
-function scrollEffect(){
+// load position so it knows when to turn sticky on/off
+var textBox = document.getElementById("textBox");
+var displacement = textBox.offsetTop;
 
-}
+// function scrollEffect(){
+
+// }
+
 
 // window.onload = scrollEffect();
 window.addEventListener('scroll',function(e){
-	var textBox = document.getElementById("textBox");
-	var displacement = textBox.offsetTop;
 	stickTextBox(displacement);
 });
 
