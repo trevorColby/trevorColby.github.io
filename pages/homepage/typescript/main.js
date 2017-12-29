@@ -9,6 +9,10 @@ var allText = document.querySelectorAll(".starWarsBar p");
 var firstText = document.querySelector(".starWarsBar p");
 var firstTextRect = firstText.getBoundingClientRect();
 var firstTextPosition = firstTextRect.top;
+//set wrapper size
+var textBoxRect = document.getElementById("textBox").getBoundingClientRect();
+var textBoxWrapper = document.getElementById("textBoxWrapper");
+
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
@@ -23,6 +27,7 @@ function stickTextBox(displacement){
 		if(window.pageYOffset  >= displacement){
 			textBox.classList.add("sticky");
 			$('#myAccordion').collapse('hide');
+			textBoxWrapper.style.height = textBoxRect.height;
 			//in the future may way to add navbar transformation here which stretches textBox to 100$ width and removes text box leaving only navbar
 			//just fade out opacity as percent width increases then remove elements after opacity disappears / considering switching with angular/bootsrap
 			//to make it a drop down and simply activate accordion effect when sticky hits
@@ -51,10 +56,6 @@ function setupText(){
 		translate += 100;
 		// translate(0%, "+translate+"%) //place this in front of matrix if needed (think it simulates scrolling since their page never actually scrolls)
 	}
-	//set wrapper size
-	var textBoxRect = document.getElementById("textBox").getBoundingClientRect();
-	var textBoxWrapper = document.getElementById("textBoxWrapper");
-	textBoxWrapper.style.height = textBoxRect.height;
 }
 
 //call apropriate function based on scroll direction
