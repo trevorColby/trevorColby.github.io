@@ -75,7 +75,7 @@ function scrollUp(){
 		var curTextPos = curTextRect.top;
 		
 		//in desired range
-		if(curTextPos-firstTextPosition < 100 && curTextPos - firstTextPosition > -100){
+		if(curTextPos-firstTextPosition < 50 && curTextPos - firstTextPosition > -50){
 			allText[i].style.opacity = 1;
 			allText[i].style.transform = "scale("+1/allText[i].scale+")";
 		}
@@ -92,15 +92,15 @@ function scrollUp(){
 		}
 
 		//within target top
-		else if(curTextPos >= firstTextPosition-100){
-			allText[i].style.opacity += .02;
+		else if(curTextPos >= firstTextPosition-50){
+			allText[i].style.opacity += .1;
 			TweenLite.to(allText[i],.05, {scale: "-=.01"});
 		}
 
 		//within target bottom
 		// else if(curTextPos <= firstTextPosition+100){
 		else {
-			allText[i].style.opacity -= .02;
+			allText[i].style.opacity -= .1;
 			TweenLite.to(allText[i],.05, {scale: "-=.01"});
 		}
 	}
@@ -114,7 +114,7 @@ function scrollDown() {
 		var curTextPos = curTextRect.top;
 		
 		//in desired range
-		if(curTextPos-firstTextPosition < 100 && curTextPos - firstTextPosition > -100){
+		if(curTextPos-firstTextPosition < 50 && curTextPos - firstTextPosition > -50){
 			allText[i].style.opacity = 1;
 			allText[i].style.transform = "scale("+1/allText[i].scale+")";
 		}
@@ -131,15 +131,15 @@ function scrollDown() {
 		}
 
 		//within target top
-		else if(curTextPos >= firstTextPosition-100){
-			allText[i].style.opacity -= .02;
+		else if(curTextPos >= firstTextPosition-50){
+			allText[i].style.opacity -= .1;
 			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 
 		//within target bottom
 		// else if(curTextPos <= firstTextPosition+100){
 		else {
-			allText[i].style.opacity += .02;
+			allText[i].style.opacity += .1;
 			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 	}
