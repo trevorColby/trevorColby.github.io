@@ -69,8 +69,10 @@ function setupText(){
 
 function scrollUp(){
 	console.log("scroll Up");
+	console.log(firstTextPosition);
 	for(i=0;i<allText.length;i++){
 		var curTextPos = allText[i].getBoundingClientRect.top;
+		console.log("cur: " + curTextPos);
 
 		//above acceptable range
 		if(curTextPos <= firstTextPosition-300){
