@@ -73,7 +73,7 @@ function setupText(){
 
 
 
-function scrollUp(){
+function scrollUp(){   //simplify see text to self
 	console.log("scroll Up");
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
@@ -112,7 +112,7 @@ function scrollUp(){
 }
 
 
-function scrollDown() {
+function scrollDown() { //simplify see text to self
 	console.log("scroll Down");
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
