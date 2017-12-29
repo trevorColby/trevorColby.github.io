@@ -5,6 +5,7 @@
 var textBox = document.getElementById("textBox");
 var displacement = textBox.offsetTop;
 var prevPos = window.pageYOffset || document.documentElement.scrollTop;
+var allText = document.querySelectorAll(".starWarsBar p");
 
 //control scroll animations
 window.addEventListener('scroll',function(e){
@@ -35,7 +36,7 @@ window.onload = setupText;
 
 //set initial state of star wars text
 function setupText(){
-	var allText = document.querySelectorAll(".starWarsBar p");
+	// var allText = document.querySelectorAll(".starWarsBar p");
 	var opac = 1;
 	var skew = 1;
 	var translate = 0;
@@ -52,7 +53,7 @@ function setupText(){
 //call apropriate function based on scroll direction
 function textAnimation(){
 	var curPos = window.pageYOffset || document.documentElement.scrollTop;
-	
+        	
 	if (prevPos > curPos){
 		scrollUp();
 	}
@@ -65,11 +66,21 @@ function textAnimation(){
 
 function scrollUp(){
 	console.log("scroll Up");
+	for(i=0;i<allText.length;i++){
+		allText[i].style.opacity += .001;
+		TweenLite.to(allText[i],.05, {scale: "-=.01"});
+		// TweenLite.to(allText[i],.05, {scaleY: "-=.01"});
+	}
 }
 
 
 function scrollDown() {
-	console.log("scroll Down");
+	console.log("scroll Down");'
+	for(i=0;i<allText.length;i++){
+		allText[i].style.opacity -= .001;
+		TweenLite.to(allText[i],.05, {scale: "+=.01"});
+		// TweenLite.to(allText[i],.05, {scaleY: "+=.01"});
+	}
 }
 //func to control star wars animation of text
 function transformText(){
