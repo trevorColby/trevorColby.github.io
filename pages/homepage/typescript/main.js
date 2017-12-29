@@ -77,16 +77,16 @@ function scrollUp(){
 		//in desired range
 		if(curTextPos-firstTextPosition < 100 && curTextPos - firstTextPosition > -100){
 			allText[i].style.opacity = 1;
-			allText[i].style.transform = "scale(1)";	
+			allText[i].style.transform = "scale("+1/allText[i].scale+")";
 		}
 		//above acceptable range
-		else if(curTextPos <= firstTextPosition-300){
+		else if(curTextPos <= firstTextPosition-400){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(2)";			
 		}
 
 		//below acceptable range
-		else if(curTextPos >= firstTextPosition+400){
+		else if(curTextPos >= firstTextPosition+600){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(.2)";
 		}
@@ -112,35 +112,34 @@ function scrollDown() {
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
 		var curTextPos = curTextRect.top;
-	
-		//desired range
+		
+		//in desired range
 		if(curTextPos-firstTextPosition < 100 && curTextPos - firstTextPosition > -100){
 			allText[i].style.opacity = 1;
-			allText[i].style.transform = "scale(1)";	
+			allText[i].style.transform = "scale("+1/allText[i].scale+")";
 		}
-
 		//above acceptable range
-		else if(curTextPos <= firstTextPosition-300){
+		else if(curTextPos <= firstTextPosition-400){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(2)";			
 		}
 
 		//below acceptable range
-		else if(curTextPos >= firstTextPosition+400){
+		else if(curTextPos >= firstTextPosition+600){
 			allText[i].style.opacity = 0;
 			allText[i].style.transform = "scale(.2)";
 		}
 
 		//within target top
 		else if(curTextPos >= firstTextPosition-100){
-			allText[i].style.opacity -= .01;
+			allText[i].style.opacity -= .02;
 			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 
 		//within target bottom
-		// else if(curTextPos <= firstTextPosition+50){
+		// else if(curTextPos <= firstTextPosition+100){
 		else {
-			allText[i].style.opacity += .01;
+			allText[i].style.opacity += .02;
 			TweenLite.to(allText[i],.05, {scale: "+=.01"});
 		}
 	}
