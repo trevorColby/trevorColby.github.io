@@ -27,7 +27,7 @@ function stickTextBox(displacement){
 			textBox.classList.add("sticky");
 			$('#myAccordion').collapse('hide');
 			textBoxWrapper.style.height = textBoxRect.height;
-			console.log('stuck');
+			// console.log('stuck');
 			//in the future may way to add navbar transformation here which stretches textBox to 100$ width and removes text box leaving only navbar
 			//just fade out opacity as percent width increases then remove elements after opacity disappears / considering switching with angular/bootsrap
 			//to make it a drop down and simply activate accordion effect when sticky hits
@@ -74,7 +74,7 @@ function setupText(){
 
 
 function scrollUp(){   //simplify see text to self
-	console.log("scroll Up");
+	// console.log("scroll Up");
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
 		var curTextPos = curTextRect.top;
@@ -113,7 +113,7 @@ function scrollUp(){   //simplify see text to self
 
 
 function scrollDown() { //simplify see text to self
-	console.log("scroll Down");
+	// console.log("scroll Down");
 	for(i=0;i<allText.length;i++){
 		var curTextRect = allText[i].getBoundingClientRect();
 		var curTextPos = curTextRect.top;
@@ -169,5 +169,3 @@ function paintBackground(){
 	document.body.style.backgroundImage = 'trevorColby.github.io/media/homepage/pictures/HopPhoto.jpg'
 	console.log("background loaded");
 }
-
-// window.onload = alert("Not Working");
