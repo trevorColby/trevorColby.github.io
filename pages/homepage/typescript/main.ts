@@ -25,8 +25,9 @@ function stickTextBox(displacement){
 		// console.log("Page Y Offset: " + window.pageYOffset);
 		if(window.pageYOffset  >= displacement){
 			textBox.classList.add("sticky");
-			$('#myAccordion').collapse('hide');
-			textBoxWrapper.style.height = textBoxRect.height;
+			document.getElementById('#myAccordion').collapse('hide');
+			
+			textBoxWrapper.style.height = textBoxRect.height.toString();
 			// console.log('stuck');
 			//in the future may way to add navbar transformation here which stretches textBox to 100$ width and removes text box leaving only navbar
 			//just fade out opacity as percent width increases then remove elements after opacity disappears / considering switching with angular/bootsrap

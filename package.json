@@ -1,0 +1,31 @@
+{
+  "name": "trevorcolby.github.io",
+  "version": "1.0.0",
+  "description": "Prototype of website for the development of a coding portfolio and showcase.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trevorColby/trevorColby.github.io.git"
+  },
+  "keywords": [
+    "Trevor",
+    "Colby",
+    "Dartmouth",
+    "Life",
+    "Coding",
+    "Portfolio",
+    "Showcase"
+  ],
+  "author": "Trevor Colby",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trevorColby/trevorColby.github.io/issues"
+  },
+  "homepage": "https://github.com/trevorColby/trevorColby.github.io#readme",
+  "dependencies": {
+    "angular-sticky-plugin": "^0.4.2"
+  }
+}
