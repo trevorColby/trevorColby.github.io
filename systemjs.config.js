@@ -50,8 +50,7 @@ System.config({
   },
   packages: {
     // Thirdparty barrels.
-    // 'rxjs': { main: 'index' },
-    'rxjs': { main: 'main' },
+    'rxjs': { main: 'index' },
   }
 });
 
