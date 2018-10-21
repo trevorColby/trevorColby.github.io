@@ -52,7 +52,49 @@ body, html {
 }
 </style>
 <body>
+<!-- PHP code to enable sending emails from page -->
+<?php
+	// define variables and set to empty values
+	$nameErr = $emailErr = $nameErr  = "";
+	$name = $email = $name = $comment  = "";
 
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	  if (empty($_POST["name"])) {
+	    $nameErr = "Name is required";
+	  } else {
+	    $name = test_input($_POST["name"]);
+	    // check if name only contains letters and whitespace
+	    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+	      $nameErr = "Only letters and white space allowed"; 
+	    }
+	  }
+	  
+	  if (empty($_POST["email"])) {
+	    $emailErr = "Email is required";
+	  } else {
+	    $email = test_input($_POST["Email"]);
+	    // check if e-mail address is well-formed
+	    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	      $emailErr = "Invalid email format"; 
+	    }
+	  }
+
+	  if (empty($_POST["Message"])) {
+	    $comment = "";
+	  } else {
+	    $comment = test_input($_POST["Message"]);
+	  }
+
+	}
+
+	function test_input($data) {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
+?>
+<!-- end php code for sending emails -->
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
@@ -236,7 +278,26 @@ body, html {
     </div>
   </div>
 </div>
-
+<!-- use php to send our email entries validated up top -->
+<?php
+	//if "email" variable is filled out, send email
+	  if (isset($_REQUEST['email']))  {
+	  
+	  //Email information
+	  $admin_email = "trevor.j.colby.19@dartmouth.edu";
+	  $email = $_REQUEST['email'];
+	  //$subject = $_REQUEST['subject'];
+	  $subject = 'Dartmouth Life: Message'; 
+	  $comment = $_REQUEST['Message'];
+	  
+	  //send email
+	  mail($admin_email, "$subject", $comment, "From:" . $email);
+	  
+	  //Email response
+	  echo "Thank you for contacting us!";
+	  }
+	  
+?>
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="javascript:void(0);" onclick="easingScrollAction(home,2000)" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
