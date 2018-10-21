@@ -61,7 +61,8 @@ body, html {
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <!-- <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a> -->
+    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,4)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
@@ -104,16 +105,16 @@ body, html {
         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   </div>
-  <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
+  <p class="w3-large w3-center w3-padding-16">Im really passionate about:</p>
+  <p class="w3-wide"><i class="fa fa-camera"></i>Web Design</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
   </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+  <p class="w3-wide"><i class="fa fa-laptop"></i>Engineering</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
   </div>
-  <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
+  <p class="w3-wide"><i class="fa fa-photo"></i>Photography</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
   </div>
@@ -217,9 +218,9 @@ body, html {
     </div>
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mail@mail.com<br>
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Hanover, NH<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 604-455-5101<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: Trevor.J.Colby.19@dartmouth.edu<br>
       </div>
       <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
       <form action="/action_page.php" target="_blank">
@@ -300,6 +301,78 @@ function toggleFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+//Program to control the scrolling motion of the webpage.
+//Abstraction of the motion components. Uses cubic functions
+//to ease into and out of scrolling action.
+//Also, detects proximity to bottom of the page to prevent 
+//abrupt stop when a large element at the bottom of the page
+//is selected.
+
+//business logic and animation of scrolling
+//takes target obj and duration of scrolling as parameters
+//returns nothing
+export function easingScrollAction(target,scrollDuration){ //for intro.js adaptation will want to add padding so it doesn't scroll to top, add to  availspace calculation as well as destination calculation (place in function call)
+	var elementPos = findPos(target);  //for intro.js adaptation will leverage there find
+	var initialPos = window.pageYOffset; //page starting point 
+	var availableSpace = document.body.scrollHeight - elementPos; //dist from top of obj to bot of page
+	//point that is length of view window from bottom, used if
+	//initial destination is too close to bottom
+	var alternateDest = document.body.scrollHeight - window.innerHeight;
+	//acount for the bottom of the page edge case
+	var yDestination = availableSpace < window.innerHeight ? alternateDest : elementPos;
+	//total distance to scroll
+	var distance = yDestination - initialPos;
+	var startTime;
+
+	// Inspired by:  https://gist.github.com/gre/1650294
+	// modified mapping for smoother enter/exit with more satisfying approach
+	//Trevor Explanation: up until .5 eases in with 4t^3 cubic (inflection point at 0
+	//then eases off (slowing ROC) using  second cubic with inflection point at 1.
+	//may want to alter more to slow/speed first half perhaps make into hybrid of quartic/cubic
+	var easingFunc = function (t) { return t<.5 ? 5*t*t*t : 2.42*(t+(-1.055))*(t+(-1.055))*(t+(-1.055))+1 }
+	
+
+	//animation: call before each frame
+	window.requestAnimationFrame(function nextFrame(timestamp) {
+		//check if start is undefined (first call)
+		//if first call set to currentTime
+		if(!startTime) startTime = timestamp;
+
+		var timeEllapsed = timestamp - startTime;
+
+		//Progress towards completion (percent)
+		var progress = Math.min(timeEllapsed / scrollDuration, 1);
+		//apply our easing function to our proportional progress value
+		progress = easingFunc(progress);
+		//scroll to a percent of goal
+		window.scrollTo(0, initialPos + (distance * progress)); 
+		
+		//continue frame updating until scroll duration reached
+		if(timeEllapsed < scrollDuration){
+			window.requestAnimationFrame(nextFrame);
+		}
+	});
+}
+
+//helper function
+//Finds y value of given object
+//Input: object, suggested find using ID
+//	i.e) document.getElementById("");
+//Output: var number containing Y pos of element 
+//for intro.js compatability would leverage their find func
+
+function findPos(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj == obj.offsetParent);
+    return [curtop];
+    }
+}
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 <!--
