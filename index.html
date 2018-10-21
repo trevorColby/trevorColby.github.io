@@ -52,49 +52,6 @@ body, html {
 }
 </style>
 <body>
-<!-- PHP code to enable sending emails from page -->
-<?php
-	// define variables and set to empty values
-	$nameErr = $emailErr = $nameErr  = "";
-	$name = $email = $name = $comment  = "";
-
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	  if (empty($_POST["name"])) {
-	    $nameErr = "Name is required";
-	  } else {
-	    $name = test_input($_POST["name"]);
-	    // check if name only contains letters and whitespace
-	    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-	      $nameErr = "Only letters and white space allowed"; 
-	    }
-	  }
-	  
-	  if (empty($_POST["email"])) {
-	    $emailErr = "Email is required";
-	  } else {
-	    $email = test_input($_POST["Email"]);
-	    // check if e-mail address is well-formed
-	    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-	      $emailErr = "Invalid email format"; 
-	    }
-	  }
-
-	  if (empty($_POST["Message"])) {
-	    $comment = "";
-	  } else {
-	    $comment = test_input($_POST["Message"]);
-	  }
-
-	}
-
-	function test_input($data) {
-	  $data = trim($data);
-	  $data = stripslashes($data);
-	  $data = htmlspecialchars($data);
-	  return $data;
-	}
-?>
-<!-- end php code for sending emails -->
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
@@ -261,7 +218,8 @@ body, html {
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: Trevor.J.Colby.19@dartmouth.edu<br>
       </div>
       <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-      <form action="/action_page.php" target="_blank">
+      <!-- <form action="/action_page.php" target="_blank"> -->
+      <form action="action_page.php" method="get">
         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
           <div class="w3-half">
             <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">

@@ -1,4 +1,5 @@
 <?php
+	echo "Hello world!";
 	// define variables and set to empty values
 	$nameErr = $emailErr = $nameErr  = "";
 	$Name = $Email  = $Message  = "";
