@@ -312,7 +312,7 @@ function toggleFunction() {
 //business logic and animation of scrolling
 //takes target obj and duration of scrolling as parameters
 //returns nothing
-export function easingScrollAction(target,scrollDuration){ //for intro.js adaptation will want to add padding so it doesn't scroll to top, add to  availspace calculation as well as destination calculation (place in function call)
+function easingScrollAction(target,scrollDuration){ //for intro.js adaptation will want to add padding so it doesn't scroll to top, add to  availspace calculation as well as destination calculation (place in function call)
 	var elementPos = findPos(target);  //for intro.js adaptation will leverage there find
 	var initialPos = window.pageYOffset; //page starting point 
 	var availableSpace = document.body.scrollHeight - elementPos; //dist from top of obj to bot of page
