@@ -60,11 +60,11 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <!-- <a href="#home" class="w3-bar-item w3-button">HOME</a> -->
-    <a href="javascript:void(0);" onclick="easingScrollAction(home,4)" class="w3-bar-item w3-button">HOME</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(home,2000)" class="w3-bar-item w3-button">HOME</a>
     <!-- <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a> -->
-    <a href="javascript:void(0);" onclick="easingScrollAction(about,4)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(about,2000)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
     <!-- <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a> -->
-    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,4)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
@@ -316,7 +316,6 @@ function toggleFunction() {
 //returns nothing
 function easingScrollAction(target,scrollDuration){ //for intro.js adaptation will want to add padding so it doesn't scroll to top, add to  availspace calculation as well as destination calculation (place in function call)
 	var elementPos = findPos(target);  //for intro.js adaptation will leverage there find
-	console.log("Element pos" + elementPos);
 	var initialPos = window.pageYOffset; //page starting point 
 	var availableSpace = document.body.scrollHeight - elementPos; //dist from top of obj to bot of page
 	//point that is length of view window from bottom, used if
