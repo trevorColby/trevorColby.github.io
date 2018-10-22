@@ -217,24 +217,28 @@ body, html {
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: Trevor.J.Colby.19@dartmouth.edu<br>
       </div>
       <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-      <!-- <form action="/action_page.php" target="_blank"> -->
-<!-- <form action="http://formspree.io/trevor.j.colby.19@dartmouth.edu"><input type="email" name="_replyto"><textarea   name="body"></textarea><input type="submit" value="Send"> -->
-<!-- </form> -->
       <!-- <form action="action_page.php" method="get"> -->
-      <form action="http://formspree.io/trevor.j.colby.19@dartmouth.edu" method="get">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-          </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-          </div>
-        </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
+      <!--   <div class="w3-row-padding" style="margin:0 -16px 8px -16px"> -->
+      <!--     <div class="w3-half"> -->
+      <!--       <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"> -->
+      <!--     </div> -->
+      <!--     <div class="w3-half"> -->
+      <!--       <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"> -->
+      <!--     </div> -->
+      <!--   </div> -->
+      <!--   <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"> -->
+      <!--   <button class="w3-button w3-black w3-right w3-section" type="submit"> -->
+      <!--     <i class="fa fa-paper-plane"></i> SEND MESSAGE -->
+      <!--   </button> -->
+      <!-- </form> -->
+    <form name="input" method="POST" action="http://formspree.io/trevor.j.colby.19@dartmouth.edu">
+	    Name: <input type="text" name="Name" placeholder = "Your name">
+	    Email: <input type="email" name="_replyto" placeholder = "Your email">
+	    Message: <textarea name="message" placeholder = "Type your message"> </textarea>
+	    <input type="submit" value="Send">
+	    <input type="hidden" name="_subject" value="Enter your subject here" />
+	    <!-- <input type="hidden" name="_next" value="thanks.html" /> -->
+    </form> 
     </div>
   </div>
 </div>
