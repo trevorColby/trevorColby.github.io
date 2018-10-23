@@ -20,7 +20,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
   </div>
 </div>
 
@@ -51,7 +51,9 @@ and is wrapped around the whole page content, except for the footer in this exam
       <p>This is a project programmed in C++ for my computer graphics course taught by Wojciech Jarosz. It revolves around creating a photorealistic scene with multiple light sources as well as a variety of spheres with various texture properties. These varied textures demonstrate different photoreactive tendencies of materials. i.e how ideal mirrored surfaces reflect light vs. how ideal matte surfaces scatter light vs. how semi-transparent or translucent surfaces refract light.</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  <a style="text-decoration:none" href="projects/rayTracing.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
@@ -73,7 +75,9 @@ and is wrapped around the whole page content, except for the footer in this exam
       <p> This project, written in JavaScript leveraging WebGl, showcased different skinning techniques. It started off with a simple demonstration of rigid skinning then it progressed to a more complex vertex weight calculation applied to a singular joint for the purpose of linear blend skinning. Finally, I moved to designing a more complicated mesh built out around a skeleton consisting of 12 bones. Linear blend skinning was applied to this mesh to generate the image pictured above. UI controls enable users to move each joint independently of its parent's but each joint's motion propagates to its child nodes to create life like motion. This is achieved by means of a recursive hierarchy traversal function. This function applies the matrix transformation of each joint's local matrix to its successive children before converting them into the world space and rendering them.</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  <a style="text-decoration:none" href="projects/skinning.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
@@ -94,7 +98,9 @@ and is wrapped around the whole page content, except for the footer in this exam
       <p>This is a project programmed in JavaScript guided by Wojciech Jarosz. Given an array of vertices and faces that comprise the input mesh (consisting of n-gons i.e could be any combination of triangles, quadrilaterals, both, etc.) The Catmull-Clark subdivision algorithm is applied a new subdivided mesh is returned. A hash-map is used to make sure that a vertex is not inserted more than once. The UI of this project allows the "depth" of the subdivision to be specified so that users can dictate linear, cubic or other such subdivisions to occur. The Catmull-Clark subdivision functionality was abstracted into three parts to minimize bugs and maximize readability as well as unit testing capabilities. First, a linear subdivision is applied (first unit test used here to make sure that the shape of the mesh doesn't actually change but each face is confirmed to have subdivided). Next, averaging is implemented so that vertices with four neighboring faces are "smoothed". Finally, a correction step is applied which essentially translates the smoothed vertex along the path between its "smoothed" location and its previous location by an interpolated factor η.</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  <a style="text-decoration:none" href="projects/catmull.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
@@ -116,7 +122,9 @@ and is wrapped around the whole page content, except for the footer in this exam
       <p></p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  <a style="text-decoration:none" href="projects/bezier.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
@@ -200,6 +208,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 	  <a style="text-decoration:none" href="projects_p2.html" >
 		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
 	  </a>
+  <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
 </footer>
 <script>
 
