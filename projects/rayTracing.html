@@ -16,13 +16,13 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <i class="fa fa-bars"></i>
     </a>
     <a href="../" class="w3-bar-item w3-button">HOME</a>
-    <a href="../projects_p1.html" class="w3-bar-item w3-button">PROJECTS</a>
+    <a href="../projects_p1.html#rayTracing" class="w3-bar-item w3-button">PROJECTS</a>
   </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
-    <a href="../projects_p1.html" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
+    <a href="../projects_p1.html#rayTracing" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
   </div>
 </div>
 
@@ -33,7 +33,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32"> 
   <h1><b>Ray Tracing</b></h1>
-  <p>A brief explanation of project specifics.</p>
+  <p>Credit to Professor Wojciech Jarosz for providing instruction, insight, and guidance for this project.</p>
 </header>
 
 <!-- Grid -->
@@ -44,12 +44,29 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
     <div class="w3-container">
-      <h3><b>Work In Progress</b></h3>
-      <h5><span class="w3-opacity"></span></h5>
+      <h3><b>Ongoing Project:</b> Ray Tracing</h3>
     </div>
-
     <div class="w3-container">
-      <p> </p>
+	<p>
+      	<b>Advantages</b>
+		<ul>
+		<li>Wide range of applications and general applicability to anything that can be intersected by an array.</li>
+		<li>Recursion can be easily implemented to create shadows, reflections, etc. simply as a biproduct of the general logic.</li>
+		<li>Spatial antialiasing i.e removal of aliasing distortion artifacts of representing high-res images at low res.</li>
+		<li>Selective improvment of image quality where it is needed.</li>
+		</ul>
+      	<b>Disadvantages</b>
+		<ul>
+		<li>Difficult to implment in hardware because unlike other traditional algorithms it does not utilize data coherence but rather treats each ray independently</li>
+		<li>Performance, and notably variable peformance dependening primarily on scene complexity as well as the number of pixels on screen</li>
+		<li>Traditional ray tracing is not the most photorealistic and increases of photorealism, while certainly achievable, come at a hefty toll in performance</li>
+		</ul>
+	<b>Project Motivation</b><br>
+	Nvidia’s new Turing GPUs have the potential to make the simulation cost, which limits ray tracing performance, obsolete. This will make real time ray tracing possible and we will most likely see a much stronger presence of it in upcoming video games. It is highly probable that it will gradually be used in parallel with other methods as it is worked into places where its strengths are well utilized within the industry.  <br><br>
+	<b>Description</b><br>
+	In this project I am building a ray tracer utilizing the DIRT (Dartmouth Introuctary ray tracer). This is c++ code purposed to provide a framework which allows students to focus on the logic and mathematical basework behind ray tracing rather than spending their time on creating supporting code and busy work.
+		
+      </p>
       <div class="w3-row">
       </div>
     </div>
@@ -67,7 +84,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-	  <a style="text-decoration:none" href="../projects_p1.html" >
+	  <a style="text-decoration:none" href="../projects_p1.html#rayTracing" >
 		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">« Projects</button>
 	  </a>
 </footer>
