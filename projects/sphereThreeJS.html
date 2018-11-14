@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor's Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+#SphereContainer {
+	background-color: #000000;
+	width: 80vw; 
+	height: 100vh; 
+	display: block;
+	margin: auto;
+	overflow: auto;
+}
+
+</style>
+<body class="w3-light-grey">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="../" class="w3-bar-item w3-button">HOME</a>
+    <a href="../projects_p1.html#threeJSSphere" class="w3-bar-item w3-button">PROJECTS</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+    <a href="../projects_p1.html#threeJSSphere" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
+  </div>
+</div>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Jumping Into ThreeJS</b></h1>
+  <p>A brief explanation of project specifics.</p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div>
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>ThreeJS: Particle Cloud With Adaptive Connections</b></h3>
+      <h5><span class="w3-opacity"></span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p> </p>
+      <div class="w3-row">
+      </div>
+    </div>
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+
+<!-- 3D Sphere Content -->
+<div id="SphereContainer">
+	<div id="SphereControls"></div>
+	<script src="sphereThreeJS/js/dat.gui.min.js"></script>
+	<script src="sphereThreeJS/js/three.min.js"></script>
+	<script src="sphereThreeJS/js/OrbitControls.js"></script>
+	<script src="sphereThreeJS/js/stats.min.js"></script>
+	<script src="sphereThreeJS/index.js"></script>
+</div>
+<!-- Footer -->
+<div>
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+	  <a style="text-decoration:none" href="../projects_p1.html#threeJSSphere" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">« Projects</button>
+	  </a>
+</footer>
+</div>
+<script>
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    navbar.style.position = "absolute";
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+</script>
+
+</body>
+</html>
