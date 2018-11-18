@@ -9,6 +9,10 @@ var resolution = 'low'; //this is switch to choose our resolution ('high'/'low')
 var hudWidth, hudHeight;
 var container, stats;
 var fullScreenState = 1;
+//these are used for scaling our mountains and then converting their values 
+//back into real world measurments for display
+var firstX = firstY = 0; 
+var firstZ = 0;
 var points,
     gui,
     controls, 
@@ -44,7 +48,7 @@ var currentPos = [3700,-100,4500];
 
 //the stored values for our GUI
 var sceneController = {
-	Texture: 3,
+	Texture: 0,
 	Background: 0,
 	Fullscreen: false
 };
@@ -131,7 +135,7 @@ function init() {
 	var vertices = geometry.attributes.position.array;
 	for ( var i = 0, j = 0, l = points.length; i < l; i ++, j += 3 ) {
 		//need to figure out a precise scale factor
-		vertices[ j + 1 ] = (points[ i ].z / mapHeight) * 600;
+		vertices[ j + 1 ] = (points[ i ].z / mapHeight) * 700;
 	}
 
 	//set our first texture for geometry 
@@ -429,7 +433,8 @@ function animate() {
 	
 	//Our Position data
 	bitMap.fillStyle = 'black';
-	bitMap.fillText('  Elevation: ['+ camera.position.y.toFixed(0) + ']', hudWidth-140, hudHeight-40);
+	//here we perform the conversion back into meters and project our camera's height onto the screen
+	bitMap.fillText('  Elevation: ['+ ((firstZ*1 + (camera.position.y/700)*mapHeight)).toFixed(0) + ']', hudWidth-140, hudHeight-40);
 	bitMap.fillText('Coordinates: ['+ camera.position.x.toFixed(0) + ', '+ camera.position.z.toFixed(0) + ']', hudWidth-120, hudHeight-10);
 
 	//Compass
@@ -508,9 +513,9 @@ function createVertices(values) {
 	var verticesArray = [];
 	//here we need to modify our xyz to be relative to our first point
 	// console.log(values[1].d[0]);
-	var firstX = values[1].d[0].a;
-	var firstY = values[1].d[0].b;
-	var firstZ = values[1].d[0].c;
+	firstX = values[1].d[0].a;
+	firstY = values[1].d[0].b;
+	firstZ = values[1].d[0].c;
 	var yPrev = firstY;
 	var xDim = 0;
 	var yDim = 0;
