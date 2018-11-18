@@ -1,0 +1,25 @@
+{
+  "name": "tibet",
+  "version": "1.0.0",
+  "description": "A 3d artistic representation of a map of a mountain range in the Quinghai province of China.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "Tibet",
+    "Quinghai",
+    "Map",
+    "Earth",
+    "Mountains",
+    "Art"
+  ],
+  "author": "Trevor Colby",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "json-optimize": "^0.1.0",
+    "three": "^0.98.0"
+  }
+}

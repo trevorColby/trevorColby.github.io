@@ -55,10 +55,6 @@ function initGUI() {
 	gui.domElement.style.position = "absolute";
 	gui.domElement.style.right = 0;
 	gui.domElement.style.top = 0;
-	// gui.domElement.style.zIndex = 600;
-	//make sure our navbar gets placed over this sphere
-	var navBar = document.getElementById("myNavbar");
-	// navBar.style.zIndex = 700;
 	guiContainer.appendChild(gui.domElement);
 }
 function init() {
@@ -191,6 +187,7 @@ function onWindowResize() {
 
 //function to make sure we can just drop our 3JS demo in a webpage
 function resizeCanvasToDisplaySize() {
+	//need to mess with this to make sure that it is compat with older browsers (may need to use window instead of client)
   const canvas = renderer.domElement;
   // look up the size the canvas is being displayed
   const width = canvas.clientWidth;
