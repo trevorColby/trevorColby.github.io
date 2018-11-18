@@ -21,3 +21,7 @@ Usage:
 - A warning will most likely pop-up: click `advanced`
   - Click proceed to localhost
   - NOTE: We are just doing this to access our node server in a controlled local environment
+
+
+NOTE: 
+- Pictures for cube map texturing from Hazel Whorley. 

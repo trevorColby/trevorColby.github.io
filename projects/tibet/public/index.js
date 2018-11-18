@@ -3,6 +3,7 @@
 // This project is working to load in local data from a text file and use it to render a 3D navigable map that represents the Qinghai region of China.
 // For texturing this map will use a projection of the artistic rendering of the region painted by a tibetan nomad.
 
+//NOTE: THE HIGH RESOLUTION ONLY WORKS LOCALLY, GITHUB CAN'T HOST LARGE ENOUGH FILES FOR HIGH RESOLUTION
 var resolution = 'low'; //this is switch to choose our resolution ('high'/'low')
 //variables we need to be global
 var hudWidth, hudHeight;
@@ -12,52 +13,58 @@ var points,
     gui,
     controls, 
     texture, 
-    group, 
     camera, 
     scene, 
     renderer, 
     mapWidth, 
     mapDepth, 
     mapHeight, 
-    lightHeight, 
-    scaleFactor,
     screenGeometry,
     hudScene,
     hudCamera,
-    bitMap,
-    north,
-    east,
-    south,
-    west,
-    direction; 
-// var compass = new Image();
-// compass.src = 'tibet/public/media/compass.png';
+    bitMap;
 
+//Our Compass Point Colors
+//These indicate which key is being pressed
+var north = 'black';
+var east = 'black';
+var south = 'black';
+var west = 'black';
+
+//allow real time texture choice
 var material = new THREE.MeshBasicMaterial();
-var clock = new THREE.Clock();
-var currentPos = [1500,-2000,-1000];
-var sceneController = {//the stored values for our GUI
+
+//allow real time background choice
+var skyBoxMaterial = new THREE.ShaderMaterial();
+var skyTextureLoader = new THREE.CubeTextureLoader();
+skyTextureLoader.setPath('tibet/public/media/' );
+
+//our starting position
+var currentPos = [3700,-100,4500];
+
+//the stored values for our GUI
+var sceneController = {
 	Texture: 3,
+	Background: 0,
 	Fullscreen: false
 };
-
-// if ( WEBGL.isWebGLAvailable() === false ) {
-// 	document.body.appendChild( WEBGL.getWebGLErrorMessage() );
-// }
-
 
 init();
 animate();
 function initGUI() {
+	//turn off autoplace so we can put it relative to our canvas
 	gui = new dat.GUI({ autoPlace: false });
-	// var gui = new dat.GUI();
 	gui.add( sceneController, 'Texture',{ Mesh: 0, Gradient: 1, Satelite: 2, Artwork: 3 }  ).onChange((value) => {
 		updateTexture(value);	
+	});
+	gui.add( sceneController, 'Background',{ Blue: 0, Altitude: 1, Aurora: 2, Sunset: 3 , Snow: 4}  ).onChange((value) => {
+		updateBackground(value);	
 	});
 	gui.add( sceneController, 'Fullscreen').onChange((value) =>{
 		goFullScreen(value);
 	});
-	var guiContainer = document.getElementById("MapControls");	
+	var guiContainer = document.getElementById("MapControls");
+	//format our GUI's position
 	guiContainer.style.position = "relative";
 	gui.domElement.style.position = "absolute";
 	gui.domElement.style.right = 0;
@@ -66,20 +73,21 @@ function initGUI() {
 }
 
 function init() {
+	//launch a modal with instructions for the user on how to navigate the map
 	launchInstructionModal();
 	initGUI();
+
 	//This is our container to hold our canvas
 	container = document.getElementById( "MapContainer" );	
-
 	var url;
-	// may be able to just use github pages to just get the json
+	
 	if (resolution == 'high'){
-		 // url ='tibet/public/data/xyz_MetersHighRes.json'; //high res
+		 // url ='tibet/public/data/xyz_MetersHighRes.json'; //high res //github couldn't handle this
 	}else{
 		 url ='tibet/public/data/xyz_MetersLowResOptimized.json'; //low res
 	}
-	texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' ); // <---	
 
+	//use jquery ajax request to get json data
 	var pointData = (function () {
 	    var json = null;
 	    $.ajax({
@@ -97,22 +105,17 @@ function init() {
 	// camera
 	camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
 
-	//create an array from our vertices that we read in	
+	//create an array from our vertices that we read in from compressed json	
 	points = createVertices(pointData); 
 	
 	//initialize our scene basics
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color( 0xbfd1e5 );
-
-	// controls = new THREE.PointerLockControls(camera);
 	controls = new THREE.OrbitControls(camera, container);
-	// controls = new THREE.FirstPersonControls( camera );
-	// controls.movementSpeed = 1000;
-	// controls.lookSpeed = 0.1;
-
 	camera.position.y = currentPos[0];
 	camera.position.x = currentPos[1];
 	camera.position.z = currentPos[2];
+
 	var geometry;
 	if(resolution == 'high'){
 		//this is sampled at 30m intervals ergo we are multiplying by 3 here to preserve the proportion
@@ -123,36 +126,59 @@ function init() {
 		geometry = new THREE.PlaneBufferGeometry(mapWidth*12, mapDepth*12, mapWidth, mapDepth);//for low res
 	}
 	geometry.rotateX( - Math.PI / 2 );
-	
+
+	//walk through all of our vertices and scale our height
 	var vertices = geometry.attributes.position.array;
 	for ( var i = 0, j = 0, l = points.length; i < l; i ++, j += 3 ) {
 		//need to figure out a precise scale factor
 		vertices[ j + 1 ] = (points[ i ].z / mapHeight) * 600;
 	}
-	texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' ); // <---	
+
+	//set our first texture for geometry 
+	texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' );	
 	//Below is in case our image isn't power of 2 (supress warning)	
 	texture.generateMipmaps = false;
 	texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
 	texture.minFilter = THREE.LinearFilter;
-
-	material.map = texture; //<---
+	material.map = texture; 
 	material.wireframe = false;
 	material.color = null;
-
+	//create a mesh with our new texture
 	mesh = new THREE.Mesh( geometry, material );
-
 	scene.add(mesh);
-	scene.add(new THREE.AmbientLight(0xeeeeee));
-	var pointLight = new THREE.PointLight( 0xff0000, 1);
-	pointLight.position.set( mapWidth, mapDepth, lightHeight );
-	scene.add( pointLight );
+	//set our actual first texture (after initialized) to be a black mesh
+	material.wireframe = true;
+	material.color = new THREE.Color(0,0,0);
 	
+	//generate a cube textured skybox: we will use the ssme "material swapping" technique as with the mesh to change textures in realtime
+	var skyTexture = skyTextureLoader.load( [
+		'turquoise.jpg', 'turquoise.jpg',
+		'turquoise.jpg', 'turquoise.jpg',
+		'turquoise.jpg', 'turquoise.jpg',
+	] );
+	var skyShader = THREE.ShaderLib[ 'cube' ];
+	skyShader.uniforms[ 'tCube' ].value = skyTexture;
+	skyBoxMaterial = new THREE.ShaderMaterial( {
+		fragmentShader: skyShader.fragmentShader,
+		vertexShader: skyShader.vertexShader,
+		uniforms: skyShader.uniforms,
+		side: THREE.BackSide
+	} );
+	var skyBox = new THREE.Mesh( new THREE.BoxBufferGeometry( mapWidth * 50, mapWidth * 50, mapWidth * 50), skyBoxMaterial );
+	scene.add( skyBox );
+	// light
+	var amLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+	scene.add( amLight );
+	var dirLight = new THREE.DirectionalLight( 0xffffff, 0.6 );
+	dirLight.position.set( - 1, 1, 1 );
+	scene.add( dirLight );
+	
+	//generate our renderer
 	renderer = new THREE.WebGLRenderer({antialias: false});
 	renderer.setPixelRatio( window.devicePixelRatio );
 	renderer.setSize( container.clientWidth, container.clientHeight );
 	renderer.autoClear = false;	
 	container.innerHTML = "";
-	
 	renderer.gammaInput = true;
 	renderer.gammaOutput = true;
 	container.appendChild( renderer.domElement );
@@ -187,20 +213,145 @@ function init() {
 
 	var hudMat = new THREE.MeshBasicMaterial({map: hudTexture});
 	hudMat.transparent = true;
-	
 	var screenGeometry = new THREE.PlaneGeometry(hudWidth, hudHeight);
-	// var screenGeometry = new THREE.PlaneGeometry(hudHeight, hudWidth);//original
 	var hudMesh = new THREE.Mesh(screenGeometry, hudMat);
-	// hudMesh.visible = false;
 	hudScene.add(hudMesh);
 
+	//Window Event Listeners
 	window.addEventListener( 'resize', onWindowResize, false );
 	window.addEventListener( 'reload', onWindowReload, false );
-	
+
+	//Document Event Listenrs: Detect 'esc' click leaving fullscreen
 	document.addEventListener('fullscreenchange', exitHandler);
 	document.addEventListener('webkitfullscreenchange', exitHandler);
 	document.addEventListener('mozfullscreenchange', exitHandler);
 	document.addEventListener('MSFullscreenChange', exitHandler);
+
+	document.addEventListener('keydown', function (e) {
+	    if (e.defaultPrevented) {
+		//don't want to trigger if default is supposed to be prevented	
+		return;
+	    }
+	
+	    //key either our key or keyCode if the key doesn't exist
+	    var keyPressed = e.key || e.keyCode;
+
+	    if (keyPressed === 'w' ||
+		keyPressed === 'keyW' ||
+                keyPressed === 97) {
+		north = 'red'; 
+		east = south = west = 'black';
+	    }
+	    if (keyPressed === 's' ||
+		keyPressed === 'keyS' ||
+                keyPressed === 83) {
+		south = 'red'; 
+		east = north = west = 'black';
+	    }
+	    if (keyPressed === 'a' ||
+		keyPressed === 'keyA' ||
+                keyPressed === 65) {
+		west = 'red'; 
+		east = south = north = 'black';
+	    }
+	    if (keyPressed === 'd' ||
+		keyPressed === 'keyD' ||
+                keyPressed === 68) {
+		east = 'red'; 
+		north = south = north = 'black';
+	    }
+	});
+	document.addEventListener('keyup', function (e) {
+	    if (e.defaultPrevented) {
+		//don't want to trigger if default is supposed to be prevented	
+		return;
+	    }
+	
+	    //key either our key or keyCode if the key doesn't exist
+	    var keyPressed = e.key || e.keyCode;
+
+	    if (keyPressed === 'w' ||
+		keyPressed === 'keyW' ||
+                keyPressed === 97) {
+		north = east = south = west = 'black';
+	    }
+	    if (keyPressed === 's' ||
+		keyPressed === 'keyS' ||
+                keyPressed === 83) {
+		south = east = north = west = 'black';
+	    }
+	    if (keyPressed === 'a' ||
+		keyPressed === 'keyA' ||
+                keyPressed === 65) {
+		west = east = south = north = 'black';
+	    }
+	    if (keyPressed === 'd' ||
+		keyPressed === 'keyD' ||
+                keyPressed === 68) {
+		east = north = south = west = 'black';
+	    }
+	});
+}
+
+function updateBackground(backgroundChoice){
+	//ALL OF OUR TEXTURING OPTIONS 
+	switch(backgroundChoice){
+		case '4':
+			var skyTexture = skyTextureLoader.load( [
+				'snow/frozen_rt.jpg', 'snow/frozen_lf.jpg',
+				'snow/frozen_up.jpg', 'snow/frozen_dn.jpg',
+				'snow/frozen_bk.jpg', 'snow/frozen_ft.jpg',
+			] );
+			var skyShader = THREE.ShaderLib[ 'cube' ];
+			skyShader.uniforms[ 'tCube' ].value = skyTexture;
+			skyBoxMaterial.uniforms = skyShader.uniforms;
+			break;
+		case '3':
+			var skyTexture = skyTextureLoader.load( [
+				'spires/spires_rt.jpg', 'spires/spires_lf.jpg',
+				'spires/spires_up.jpg', 'spires/spires_dn.jpg',
+				'spires/spires_bk.jpg', 'spires/spires_ft.jpg',
+			] );
+			var skyShader = THREE.ShaderLib[ 'cube' ];
+			skyShader.uniforms[ 'tCube' ].value = skyTexture;
+			skyBoxMaterial.uniforms = skyShader.uniforms;
+			break;
+		case '2': 
+			var skyTexture = skyTextureLoader.load( [
+				'aurora/midnight-silence_rt.jpg', 'aurora/midnight-silence_lf.jpg',
+				'aurora/midnight-silence_up.jpg', 'aurora/midnight-silence_dn.jpg',
+				'aurora/midnight-silence_bk.jpg', 'aurora/midnight-silence_ft.jpg',
+			] );
+			var skyShader = THREE.ShaderLib[ 'cube' ];
+			skyShader.uniforms[ 'tCube' ].value = skyTexture;
+			skyBoxMaterial.uniforms = skyShader.uniforms;
+			break;
+		case '1': 
+			var skyTexture = skyTextureLoader.load( [
+				'glacier/glacier_rt.jpg', 'glacier/glacier_lf.jpg',
+				'glacier/glacier_up.jpg', 'glacier/glacier_dn.jpg',
+				'glacier/glacier_bk.jpg', 'glacier/glacier_ft.jpg',
+			] );
+			var skyShader = THREE.ShaderLib[ 'cube' ];
+			skyShader.uniforms[ 'tCube' ].value = skyTexture;
+			skyBoxMaterial.uniforms = skyShader.uniforms;
+			break;
+		case '0':
+			var skyTexture = skyTextureLoader.load( [
+				'turquoise.jpg', 'turquoise.jpg',
+				'turquoise.jpg', 'turquoise.jpg',
+				'turquoise.jpg', 'turquoise.jpg',
+			] );
+			// var skyTexture = skyTextureLoader.load( [
+			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
+			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
+			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
+			// ] );
+			var skyShader = THREE.ShaderLib[ 'cube' ];
+			skyShader.uniforms[ 'tCube' ].value = skyTexture;
+			skyBoxMaterial.uniforms = skyShader.uniforms;
+			break;
+	}
 }
 
 function updateTexture(textureChoice){
@@ -276,37 +427,10 @@ function animate() {
 	//update our Heads Up Display
 	bitMap.clearRect(0,0,hudWidth,hudHeight);
 	
-	// compass.onload = function (){
-	// 	bitMap.drawImage(this,0,0);
-	// };
-	// compass.src = 'tibet/public/media/compass.png';
 	//Our Position data
-	bitMap.fillText('  Elevation: ['+ camera.position.z.toFixed(0) * -1 + ']', hudWidth-140, hudHeight-40);
-	bitMap.fillText('Coordinates: ['+camera.position.x.toFixed(0)+', '+ camera.position.y.toFixed(0) + ']', hudWidth-120, hudHeight-10);
-
-	//Determine which direction we are facing, will need to cross reference this later
-	north = 'black';
-	east = 'black';
-	south = 'black';
-	west = 'black';
-	// camera.getWorldDirection(direction);
-	direction = null;
-	if(direction){	
-		var angle = Math.atan2(direction.x,direction.z);
-		if(angle >= 45 && angle <= 315 ){
-			if(angle < 45){
-				east = 'red';
-			}else{
-				north = 'red';
-			}
-		}else{
-			if(angle > 225){
-				south = 'red';	
-			}else{
-				west = 'red';
-			}
-		}
-	}
+	bitMap.fillStyle = 'black';
+	bitMap.fillText('  Elevation: ['+ camera.position.y.toFixed(0) + ']', hudWidth-140, hudHeight-40);
+	bitMap.fillText('Coordinates: ['+ camera.position.x.toFixed(0) + ', '+ camera.position.z.toFixed(0) + ']', hudWidth-120, hudHeight-10);
 
 	//Compass
 	bitMap.beginPath();
@@ -337,7 +461,7 @@ function animate() {
 	bitMap.lineTo( 65, hudHeight - 20 );
 	bitMap.lineTo( 45, hudHeight - 20 );
 	bitMap.lineTo( 55, hudHeight - 5 );//close triangle
-	bitMap.fillStyle = east;
+	bitMap.fillStyle = south;
 	bitMap.fill();
 
 	//West
@@ -346,7 +470,7 @@ function animate() {
 	bitMap.lineTo( 20, hudHeight - 65 );
 	bitMap.lineTo( 20, hudHeight - 45 );
 	bitMap.lineTo( 5, hudHeight - 55 );//close triangle
-	bitMap.fillStyle = east;
+	bitMap.fillStyle = west;
 	bitMap.fill();
 	//connectinglines
 	bitMap.beginPath();
@@ -373,8 +497,7 @@ function animate() {
 	requestAnimationFrame( animate );
 }
 function render() {
-	controls.update( clock.getDelta() );
-	// controls.update();
+	controls.update();
 	renderer.render( scene, camera );
 	
 	//render HUD ontop of our other scene
@@ -446,6 +569,14 @@ function launchInstructionModal(){
 function goFullScreen(value){
 	var elem = document.getElementById('fullscreenContainer');
 	if(value){
+		//Move stats to different location
+		stats.domElement.style.left = '0px';
+		stats.domElement.style.top = '0px';
+		stats.domElement.style.bottom = null;
+		stats.domElement.style.right = null;
+		console.log("going fullscreen");
+		container.style.width = '100vw';
+
 		  if (elem.requestFullscreen) {
 		    elem.requestFullscreen();
 		  } else if (elem.mozRequestFullScreen) { /* Firefox */
@@ -455,12 +586,18 @@ function goFullScreen(value){
 		  } else if (elem.msRequestFullscreen) { /* IE/Edge */
 		    elem.msRequestFullscreen();
 		  }
-		container.style.width = '100vw';
 	}else{
-		console.log("GUI detected change");
-		container.style.width = '80vw';
-		exitFullScreen();	
-		onWindowResize();
+		if(fullScreenState < 0){
+			// Move stats to different location
+			stats.domElement.style.left = null;
+			stats.domElement.style.top = null;
+			stats.domElement.style.bottom = '0px';
+			stats.domElement.style.right = '10px';
+			//fix container size for canvas	
+			container.style.width = '80vw';
+			exitFullScreen();	
+			onWindowResize();
+		}
 	}
 }
 
@@ -481,9 +618,15 @@ function exitFullScreen(){
 function exitHandler(){
 	fullScreenState = fullScreenState * -1;
 	if(fullScreenState > 0){
+		//Move stats to different location
+		stats.domElement.style.left = null;
+		stats.domElement.style.top = null;
+		stats.domElement.style.bottom = '0px';
+		stats.domElement.style.right = '10px';
+		//resize canvas	
 		container.style.width = '80vw';
 		sceneController.Fullscreen = false;
-		gui.__controllers[1].updateDisplay();
+		gui.__controllers[2].updateDisplay();
 		onWindowResize();
 	}
 }

@@ -33,11 +33,11 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	// How far you can dolly in and out ( PerspectiveCamera only )
 	this.minDistance = 0;
-	this.maxDistance = Infinity;
+	this.maxDistance = 15000;
 
 	// How far you can zoom in and out ( OrthographicCamera only )
 	this.minZoom = 0;
-	this.maxZoom = Infinity;
+	this.maxZoom = 15000;
 
 	// How far you can orbit vertically, upper and lower limits.
 	// Range is 0 to Math.PI radians.
@@ -151,11 +151,13 @@ THREE.OrbitControls = function ( object, domElement ) {
 			//here we check if keypresses triggered flags and perform transformations if they did 
 			var actualMoveSpeed = delta * scope.movementSpeed;
 
-			// if ( scope.moveForward || ( scope.autoForward && ! scope.moveBackward ) ) scope.object.translateZ( - ( actualMoveSpeed + scope.autoSpeedFactor ) );
-			if ( scope.moveForward || ( scope.autoForward && ! scope.moveBackward ) ) pan( 0, scope.keyPanSpeed );
-			if ( scope.moveBackward ) pan( 0, - scope.keyPanSpeed );
-			if ( scope.moveLeft ) pan( scope.keyPanSpeed, 0 );
-			if ( scope.moveRight ) pan( - scope.keyPanSpeed, 0 );
+			var distanceFromOrigin = Math.sqrt(Math.pow((scope.object.position.x),2) + 
+						 Math.pow((scope.object.position.y),2) +
+						 Math.pow((scope.object.position.z),2));
+			if ((scope.moveForward || ( scope.autoForward && ! scope.moveBackward )) && (distanceFromOrigin < this.maxDistance)) pan( 0, scope.keyPanSpeed );
+			if ( scope.moveBackward && distanceFromOrigin < this.maxDistance) pan( 0, - scope.keyPanSpeed );
+			if ( scope.moveLeft && distanceFromOrigin < this.maxDistance) pan( scope.keyPanSpeed, 0 );
+			if ( scope.moveRight && distanceFromOrigin < this.maxDistance) pan( - scope.keyPanSpeed, 0 );
 			// if ( scope.moveUp ) scope.object.translateY( actualMoveSpeed );
 			// if ( scope.moveDown ) scope.object.translateY( - actualMoveSpeed );
 
