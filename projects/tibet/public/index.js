@@ -30,8 +30,8 @@ var points,
     south,
     west,
     direction; 
-var compass = new Image();
-compass.src = 'tibet/public/media/compass.png';
+// var compass = new Image();
+// compass.src = 'tibet/public/media/compass.png';
 
 var material = new THREE.MeshBasicMaterial();
 var clock = new THREE.Clock();
@@ -276,10 +276,10 @@ function animate() {
 	//update our Heads Up Display
 	bitMap.clearRect(0,0,hudWidth,hudHeight);
 	
-	compass.onload = function (){
-		bitMap.drawImage(this,0,0);
-	};
-	compass.src = 'tibet/public/media/compass.png';
+	// compass.onload = function (){
+	// 	bitMap.drawImage(this,0,0);
+	// };
+	// compass.src = 'tibet/public/media/compass.png';
 	//Our Position data
 	bitMap.fillText('  Elevation: ['+ camera.position.z.toFixed(0) * -1 + ']', hudWidth-140, hudHeight-40);
 	bitMap.fillText('Coordinates: ['+camera.position.x.toFixed(0)+', '+ camera.position.y.toFixed(0) + ']', hudWidth-120, hudHeight-10);
