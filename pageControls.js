@@ -46,7 +46,8 @@ function toggleFunction() {
         	navbar.className = "w3-bar" + " w3-card" + " w3-white";
 	} else {
         	navbar.className = navbar.className.replace(" w3-white", "");
-        	navbar.style.backgroundColor = "transparent";
+		alert(navbar.className);
+        	// navbar.style.backgroundColor = "transparent";
 	}
     }
 }
