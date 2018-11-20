@@ -16,6 +16,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 	overflow: auto;
 }
 
+#myNavbar {
+    position: absolute;
+}
+
 </style>
 <body class="w3-light-grey">
 <!-- Navbar (sit on top) -->
@@ -90,20 +94,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 	  </a>
 </footer>
 </div>
-<script>
+<script src="../pageControls.js"></script>
 
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    navbar.style.position = "absolute";
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-</script>
 
 </body>
 </html>

@@ -7,17 +7,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+#myNavbar {
+    position: absolute;
+}
 </style>
 <body class="w3-light-grey">
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
     <a href="../" class="w3-bar-item w3-button">HOME</a>
   </div>
-
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
@@ -258,19 +258,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 	  </a>
   <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
 </footer>
-<script>
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-</script>
+<script src="pageControls.js"></script>
 
 </body>
 </html>

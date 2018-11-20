@@ -8,10 +8,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
+body, html { 
     height: 100%;
     color: #777;
     line-height: 1.8;
+}
+
+#myNavbar {
+    position: absolute;
 }
 
 /* Create a Parallax Effect */
@@ -66,9 +70,10 @@ body, html {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="javascript:void(0);" onclick="easingScrollAction(about,2000)" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000)" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="javascript:void(0);" onclick="easingScrollAction(contact,2000)" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(home,2000);" class="w3-bar-item w3-button">.  </a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(about,2000); toggleFunction()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000); toggleFunction()" class="w3-bar-item w3-button">PORTFOLIO</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(contact,2000); toggleFunction()" class="w3-bar-item w3-button">CONTACT</a>
   </div>
 </div>
 
@@ -257,12 +262,6 @@ body, html {
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="javascript:void(0);" onclick="easingScrollAction(home,2000)" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
-    <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i> -->
-    <!-- <i class="fa fa-instagram w3-hover-opacity"></i> -->
-    <!-- <i class="fa fa-snapchat w3-hover-opacity"></i> -->
-    <!-- <i class="fa fa-pinterest-p w3-hover-opacity"></i> -->
-    <!-- <i class="fa fa-twitter w3-hover-opacity"></i> -->
-    <!-- <i class="fa fa-linkedin w3-hover-opacity"></i> -->
   </div>
 </footer>
  
@@ -290,27 +289,6 @@ function onClick(element) {
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
 }
 
 //Program to control the scrolling motion of the webpage.
@@ -386,6 +364,7 @@ function findPos(obj) {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRa0Oe05eVbvhS9wOsHKyKEELFwAeyJZs&callback=myMap"></script>
+<script src="pageControls.js"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
