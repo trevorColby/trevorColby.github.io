@@ -70,7 +70,7 @@ body, html {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="javascript:void(0);" onclick="easingScrollAction(home,2000);" class="w3-bar-item w3-button">.  </a>
+    <a class="w3-bar-item w3-button">.  </a>
     <a href="javascript:void(0);" onclick="easingScrollAction(about,2000); toggleFunction()" class="w3-bar-item w3-button">ABOUT</a>
     <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000); toggleFunction()" class="w3-bar-item w3-button">PORTFOLIO</a>
     <a href="javascript:void(0);" onclick="easingScrollAction(contact,2000); toggleFunction()" class="w3-bar-item w3-button">CONTACT</a>
@@ -170,37 +170,37 @@ body, html {
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/rocks.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Pebbles">
+      <img src="media/homepage/pictures/rocks.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Pebbles">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/window.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Room With a View">
+      <img src="media/homepage/pictures/window.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Room With a View">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/silhouette.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Dreaming">
+      <img src="media/homepage/pictures/silhouette.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Dreaming">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/sunsets.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Divine Intervention">
+      <img src="media/homepage/pictures/sunsets.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Divine Intervention">
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/rainforrest.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Rainforrest">
+      <img src="media/homepage/pictures/rainforrest.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Rainforrest">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/rainier.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Mt. Rainier">
+      <img src="media/homepage/pictures/rainier.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Mt. Rainier">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/treeHugger.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Tree Hugging">
+      <img src="media/homepage/pictures/treeHugger.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Tree Hugging">
     </div>
 
     <div class="w3-col m3">
-      <img src="media/homepage/pictures/lookout.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Spray Falls">
+      <img src="media/homepage/pictures/lookout.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Spray Falls">
     </div>
     <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
   </div>
@@ -210,7 +210,7 @@ body, html {
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
   <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
   <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
+    <img id="fullScreenImage" class="w3-image">
     <p id="caption" class="w3-opacity w3-large"></p>
   </div>
 </div>
@@ -265,104 +265,24 @@ body, html {
   </div>
 </footer>
  
-<!-- Add Google Maps -->
+<!-- Google Maps Fucntion needs to be in the page -->
 <script>
-function myMap()
-{
-  myCenter=new google.maps.LatLng(43.704628, -72.294713);
-  var mapOptions= {
-    center:myCenter,
-    zoom:12, scrollwheel: false, draggable: true,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myCenter,
-  });
-  marker.setMap(map);
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-//Program to control the scrolling motion of the webpage.
-//Abstraction of the motion components. Uses cubic functions
-//to ease into and out of scrolling action.
-//Also, detects proximity to bottom of the page to prevent 
-//abrupt stop when a large element at the bottom of the page
-//is selected.
-
-//business logic and animation of scrolling
-//takes target obj and duration of scrolling as parameters
-//returns nothing
-function easingScrollAction(target,scrollDuration){ //for intro.js adaptation will want to add padding so it doesn't scroll to top, add to  availspace calculation as well as destination calculation (place in function call)
-	var elementPos = findPos(target);  //for intro.js adaptation will leverage there find
-	var initialPos = window.pageYOffset; //page starting point 
-	var availableSpace = document.body.scrollHeight - elementPos; //dist from top of obj to bot of page
-	//point that is length of view window from bottom, used if
-	//initial destination is too close to bottom
-	var alternateDest = document.body.scrollHeight - window.innerHeight;
-	//acount for the bottom of the page edge case
-	var yDestination = availableSpace < window.innerHeight ? alternateDest : elementPos;
-	//total distance to scroll
-	var distance = yDestination - initialPos;
-	var startTime;
-
-	// Inspired by:  https://gist.github.com/gre/1650294
-	// modified mapping for smoother enter/exit with more satisfying approach
-	//Trevor Explanation: up until .5 eases in with 4t^3 cubic (inflection point at 0
-	//then eases off (slowing ROC) using  second cubic with inflection point at 1.
-	//may want to alter more to slow/speed first half perhaps make into hybrid of quartic/cubic
-	var easingFunc = function (t) { return t<.5 ? 5*t*t*t : 2.42*(t+(-1.055))*(t+(-1.055))*(t+(-1.055))+1 }
+function myMap() {
+	myCenter=new google.maps.LatLng(43.704628, -72.294713);
+	var mapOptions= {
+		center:myCenter,
+		zoom:12, scrollwheel: false, draggable: true,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	};
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
 	
-
-	//animation: call before each frame
-	window.requestAnimationFrame(function nextFrame(timestamp) {
-		//check if start is undefined (first call)
-		//if first call set to currentTime
-		if(!startTime) startTime = timestamp;
-
-		var timeEllapsed = timestamp - startTime;
-
-		//Progress towards completion (percent)
-		var progress = Math.min(timeEllapsed / scrollDuration, 1);
-		//apply our easing function to our proportional progress value
-		progress = easingFunc(progress);
-		//scroll to a percent of goal
-		window.scrollTo(0, initialPos + (distance * progress)); 
-		
-		//continue frame updating until scroll duration reached
-		if(timeEllapsed < scrollDuration){
-			window.requestAnimationFrame(nextFrame);
-		}
+	var marker = new google.maps.Marker({
+		position: myCenter,
 	});
+	marker.setMap(map);
 }
-
-//helper function
-//Finds y value of given object
-//Input: object, suggested find using ID
-//	i.e) document.getElementById("");
-//Output: var number containing Y pos of element 
-//for intro.js compatability would leverage their find func
-
-function findPos(obj) {
-    var curtop = 0;
-    if (obj.offsetParent) {
-        do {
-            curtop += obj.offsetTop;
-        } while (obj == obj.offsetParent);
-    return [curtop];
-    }
-}
-
-
 </script>
+<!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRa0Oe05eVbvhS9wOsHKyKEELFwAeyJZs&callback=myMap"></script>
 <script src="pageControls.js"></script>
 <!--
