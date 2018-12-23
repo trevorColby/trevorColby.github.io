@@ -127,7 +127,7 @@ function init() {
 	}
 	else{
 		//this is sampled at 120m intervals ergo we are multiplying by 12 here to preserve the proportion
-		geometry = new THREE.PlaneBufferGeometry(mapWidth*12, mapDepth*12, mapWidth, mapDepth);//for low res
+		geometry = new THREE.PlaneBufferGeometry(mapWidth*12 * 0.8888, mapDepth*12 * 0.68175, mapWidth, mapDepth);//for low res
 	}
 	geometry.rotateX( - Math.PI / 2 );
 
@@ -140,13 +140,30 @@ function init() {
 
 	//set our first texture for geometry 
 	texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' );	
+	// texture.repeat.x = 0.8888889;	
+	// texture.repeat.y = 0.68175;
+	// texture.repeat.x = 0.000146297457621;
+	// texture.repeat.y = -0.000146298747745;
+	// texture.offset.y = 33.315727779381810;
+	// texture.offset.x = 96.361874853131368;
 	//Below is in case our image isn't power of 2 (supress warning)	
-	texture.generateMipmaps = false;
+	// texture.generateMipmaps = false;
 	texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+	// texture.wrapS = 0.000146297457621;
+	// texture.wrapT = -0.000146298747745;
+	// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
+			// texture.transformUv(new THREE.Vector2(0.000146297457621,-0.000146298747745));	
+			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
+	
+	
 	texture.minFilter = THREE.LinearFilter;
+	texture.needsUpdate = true;
+	// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
 	material.map = texture; 
 	material.wireframe = false;
 	material.color = null;
+	
 	//create a mesh with our new texture
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add(mesh);
@@ -365,13 +382,41 @@ function updateTexture(textureChoice){
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
 			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
-			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );	
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
+			// texture.wrapS = 0.000146297457621;
+			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
+			texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
+			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
+			// texture.wrapT = -0.000146298747745;
+			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// texture.wrapS = 0.000146297457621;
+			// texture.wrapT = -0.000146298747745;
+			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// texture.repeat.x = 0.000146297457621;
+			// texture.repeat.y = -0.000146298747745;
+			// texture.offset.y = 33.315727779381810;
+			// texture.offset.x = 96.361874853131368;
+
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );	
 			material.map = texture; //<---
+			// material.mapping = texture; //<---
 			break;
 		case '2': 
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
 			texture = new THREE.TextureLoader().load( 'tibet/public/media/dem_as_image.jpg' );	
+			// texture.repeat.x = 0.8888889;	
+			// texture.repeat.x = 1.125;
+			// texture.repeat.y = 1.466;
+			// texture.repeat.y = 0.68175;
+			// texture.wrapS = 0.000146297457621;
+			// texture.wrapT = -0.000146298747745;
+			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
+			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// texture.repeat.x = 0.000146297457621;
+			// texture.repeat.y = -0.000146298747745;
+			// texture.offset.y = 33.315727779381810;
+			// texture.offset.x = 96.361874853131368;
 			material.map = texture; //<---
 			break;
 		case '1': 
@@ -539,7 +584,9 @@ function createVertices(values) {
 			zMax = firstZ - obj.c;
 		}
 
-		verticesArray.push(new THREE.Vector3((obj.c - firstX)/120, -1*(obj.b - firstY)/120, -(firstZ - obj.c))); 
+		// verticesArray.push(new THREE.Vector3((obj.c - firstX)/120, -1*(obj.b - firstY)/120, -(firstZ - obj.c))); 
+		verticesArray.push(new THREE.Vector3((obj.c - firstX)/30, -(obj.b - firstY)/30, -(firstZ - obj.c))); 
+		// verticesArray.push(new THREE.Vector3(-(obj.c - firstX)/30, -(obj.b - firstY)/30, -(firstZ - obj.c))); 
     });
 	mapDepth = xDim;
 	mapWidth = yDim-1;
