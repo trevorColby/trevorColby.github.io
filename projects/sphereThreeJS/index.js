@@ -3,6 +3,8 @@ var container, stats;
 var particlesData = [];
 var camera, scene, renderer;
 var positions, colors, colorsV;
+var fullScreenState = 1;
+var gui;
 
 //our dynamic color controls for RGB
 var rColor = 0.5; 
@@ -30,13 +32,14 @@ var effectController = {
 	minDistance: 150,
 	limitConnections: false,
 	maxConnections: 20,
-	particleCount: 500
+	particleCount: 500,
+	Fullscreen: false
 };
 init();
 animate();
 function initGUI() {
 	// var gui = new dat.GUI();
-	var gui = new dat.GUI({ autoPlace: false });
+	gui = new dat.GUI({ autoPlace: false });
 	gui.add( effectController, "showDots" ).onChange( function ( value ) {
 		pointCloud.visible = value;
 	} );
@@ -50,6 +53,9 @@ function initGUI() {
 		particleCount = parseInt( value );
 		particles.setDrawRange( 0, particleCount );
 	} );
+	gui.add( effectController, 'Fullscreen').onChange((value) =>{
+		goFullScreen(value);
+	});
 	var guiContainer = document.getElementById("SphereControls");
 	guiContainer.style.position = "relative";
 	gui.domElement.style.position = "absolute";
@@ -176,6 +182,11 @@ function init() {
 	container.appendChild( renderer.domElement );
 	//
 	window.addEventListener( 'resize', onWindowResize, false );
+	//Document Event Listenrs: Detect 'esc' click leaving fullscreen
+	document.addEventListener('fullscreenchange', exitHandler);
+	document.addEventListener('webkitfullscreenchange', exitHandler);
+	document.addEventListener('mozfullscreenchange', exitHandler);
+	document.addEventListener('MSFullscreenChange', exitHandler);
 }
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -337,4 +348,70 @@ function render() {
 	var time = Date.now() * 0.001;
 	group.rotation.y = time * 0.1;
 	renderer.render( scene, camera );
+}
+
+//go fullscreen with an object, takes element as argument
+function goFullScreen(value){
+	var elem = document.getElementById('fullscreenContainer');
+	if(value){
+		//Move stats to different location
+		stats.domElement.style.left = '0px';
+		stats.domElement.style.top = '0px';
+		stats.domElement.style.bottom = null;
+		stats.domElement.style.right = null;
+		console.log("going fullscreen");
+		container.style.width = '100vw';
+
+		  if (elem.requestFullscreen) {
+		    elem.requestFullscreen();
+		  } else if (elem.mozRequestFullScreen) { /* Firefox */
+		    elem.mozRequestFullScreen();
+		  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+		    elem.webkitRequestFullscreen();
+		  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+		    elem.msRequestFullscreen();
+		  }
+	}else{
+		if(fullScreenState < 0){
+			// Move stats to different location
+			stats.domElement.style.left = null;
+			stats.domElement.style.top = null;
+			stats.domElement.style.bottom = '0px';
+			stats.domElement.style.right = '10px';
+			//fix container size for canvas	
+			container.style.width = '80vw';
+			exitFullScreen();	
+			onWindowResize();
+		}
+	}
+}
+
+//function to exit fullscreen in all browsers
+function exitFullScreen(){	
+	if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+      	}
+}
+
+//handle if the user hits escape instead of using our UI
+function exitHandler(){
+	fullScreenState = fullScreenState * -1;
+	if(fullScreenState > 0){
+		//Move stats to different location
+		stats.domElement.style.left = null;
+		stats.domElement.style.top = null;
+		stats.domElement.style.bottom = '0px';
+		stats.domElement.style.right = '10px';
+		//resize canvas	
+		container.style.width = '80vw';
+		effectController.Fullscreen = false;
+		gui.__controllers[6].updateDisplay();
+		onWindowResize();
+	}
 }
