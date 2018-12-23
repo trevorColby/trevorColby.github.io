@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor's Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+#myNavbar {
+    position: absolute;
+}
+</style>
+<body class="w3-light-grey">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="../" class="w3-bar-item w3-button">HOME</a>
+    <a href="../projects_p1.html#acceleration" class="w3-bar-item w3-button">PROJECTS</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+    <a href="../projects_p1.html#acceleration" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
+  </div>
+</div>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Accleration Structures</b></h1>
+  <p>Credit to Professor Wojciech Jarosz for providing instruction, insight, and guidance for this project.</p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div>
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3>Acceleration Structures</h3>
+    </div>
+    <div class="w3-container">
+    <img src="../media/projects/bunnyDragons.png" alt="Bunny Dragons" style="width:100%">
+	<p>
+      	<b>Advantages</b>
+		<ul>
+		<li>Wide range of applications and general applicability to anything that can be intersected by an array.</li>
+		<li>Recursion can be easily implemented to create shadows, reflections, etc. simply as a biproduct of the general logic.</li>
+		<li>Spatial antialiasing i.e removal of aliasing distortion artifacts of representing high-res images at low res.</li>
+		<li>Selective improvment of image quality where it is needed.</li>
+		</ul>
+      	<b>Disadvantages</b>
+		<ul>
+		<li>Difficult to implment in hardware because unlike other traditional algorithms it does not utilize data coherence but rather treats each ray independently</li>
+		<li>Performance, and notably variable peformance dependening primarily on scene complexity as well as the number of pixels on screen</li>
+		<li>Traditional ray tracing is not the most photorealistic and increases of photorealism, while certainly achievable, come at a hefty toll in performance</li>
+		</ul>
+	<b>Project Motivation</b><br>
+	Nvidia’s new Turing GPUs have the potential to make the simulation cost, which limits ray tracing performance, obsolete. This will make real time ray tracing possible and we will most likely see a much stronger presence of it in upcoming video games. It is highly probable that it will gradually be used in parallel with other methods as it is worked into places where its strengths are well utilized within the industry.  <br><br>
+	<b>Description</b><br>
+	In this project I am building a ray tracer utilizing the DIRT (Dartmouth Introuctary ray tracer). This is c++ code purposed to provide a framework which allows students to focus on the logic and mathematical basework behind ray tracing rather than spending their time on creating supporting code and busy work.
+		
+      </p>
+      <div class="w3-row">
+      </div>
+    </div>
+    <img src="../media/projects/buddhaCornellBox.png" alt="Buddha Box" style="width:100%">
+    <img src="../media/projects/sponzaBuddha.png" alt="Sponza Buddha" style="width:100%">
+  </div>
+<!-- END BLOG ENTRIES -->
+</div>
+
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+	  <a style="text-decoration:none" href="../projects_p1.html#acceleration" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">« Projects</button>
+	  </a>
+</footer>
+<script src="../pageControls.js"></script>
+
+</body>
+</html>
+
+
