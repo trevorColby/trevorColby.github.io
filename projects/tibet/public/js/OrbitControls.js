@@ -730,6 +730,12 @@ THREE.OrbitControls = function ( object, domElement ) {
 	//
 
 	function onMouseDown( event ) {
+			scope.moveForward = false;
+			scope.moveLeft = false;
+			scope.moveBackward = false;
+			scope.moveRight = false;
+			scope.moveUp = false;
+			scope.moveDown = false;
 
 		if ( scope.enabled === false ) return;
 
@@ -784,6 +790,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		if ( state !== STATE.NONE ) {
 
 			document.addEventListener( 'mousemove', onMouseMove, false );
+			// document.addEventListener( 'mousemove', onMouseMove, false );
 			document.addEventListener( 'mouseup', onMouseUp, false );
 
 			scope.dispatchEvent( startEvent );
