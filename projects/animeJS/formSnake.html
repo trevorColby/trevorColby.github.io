@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor Colby</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html { 
+    height: 100%;
+    line-height: 1.8;
+}
+
+#myNavbar {
+    position: absolute;
+}
+::selection {
+  background: #2D2F36;
+}
+::-webkit-selection {
+  background: #2D2F36;
+}
+::-moz-selection {
+  background: #2D2F36;
+}
+body {
+  background: white;
+  font-family: 'Inter UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+.page {
+  background: #e2e2e5;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  position: absolute;
+  place-content: center;
+  width: calc(100% - 40px);
+}
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+.container {
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+.left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+.login {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+.eula {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+.right {
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
+  color: #F1F1F2;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 350px;
+  }
+}
+svg {
+  position: absolute;
+  width: 320px;
+}
+path {
+  fill: none;
+  stroke: url(#linearGradient);
+  stroke-dasharray: 145 1000;
+  stroke-dashoffset: -10;
+}
+.form {
+  margin: 40px;
+  position: absolute;
+}
+label {
+  color:  #c2c2c5;
+  display: block;
+  font-size: 14px;
+  height: 16px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+input {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
+input::-moz-focus-inner { 
+  border: 0; 
+}
+#submit {
+  color: #707075;
+  margin-top: 20px;
+  transition: color 300ms;
+}
+#submit:focus {
+  color: #f2f2f2;
+}
+#submit:active {
+  color: #d0d0d2;
+}
+
+
+</style>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="../../../../" class="w3-bar-item w3-button">HOME</a>
+    <a href="../../../projects_p2.html#formSnake" class="w3-bar-item w3-button">PROJECTS</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../../../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+    <a href="../../../projects_p2.html#formSnake" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
+  </div>
+</div>
+	
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">Form Animation</h3>
+  <p class="w3-center"><em>AnimeJS SVG Line Animation</em></p>
+<div class="right">
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <!-- Add Google Maps -->
+      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Hanover, NH<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 604-455-5101<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: Trevor.J.Colby.19@dartmouth.edu<br>
+      </div>
+      <p>Shoot me an email  <i class="fa fa-send"></i>, or leave me a message here:</p>
+
+<!-- this is the svg layer that we use for form animation -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg viewBox="0 0 210 297"
+   height="167mm"
+   width="200mm">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient4943">
+      <stop
+         id="stop4939"
+         offset="0"
+         style="stop-color:#ab37c8;stop-opacity:1" />
+      <stop
+         id="stop4941"
+         offset="1"
+         style="stop-color:#ff0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="translate(-3.367596,-74.087113)"
+       gradientUnits="userSpaceOnUse"
+       y2="127.243"
+       x2="190.65982"
+       y1="127.243"
+       x1="4.7354485"
+       id="linearGradient4945"
+       xlink:href="#linearGradient4943" />
+  </defs>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <path
+       id="path4726-7-7"
+       d="M 16.060595,1.3999263 H 172.46671 l 1.1693,-10e-7 c 5.38186,0.118176 7.48512,2.595064 10.56465,7.068171 3.0475,5.3778677 3.50582,12.9035847 0.92604,18.5208307 -2.02316,4.40524 -6.64423,8.80809 -11.49069,8.91393 -0.42722,0.009 -0.77953,0 -1.1693,0 H 15.382399 c -5.963894,0.19345 -10.0076076,4.37398 -12.1688758,8.91393 -2.65694593,5.58116 -2.1214615,13.14296 0.92604,18.52083 2.0889243,3.68629 5.7640028,7.27002 10.5646398,7.06818 l 1.356394,-1e-5 H 172.4667 c 0.50712,0 1.01957,10e-4 1.52135,0 4.237,-0.0125 8.47572,3.38189 10.56464,7.06818 3.0475,5.37787 3.50582,12.90358 0.92604,18.52083 -2.02316,4.405243 -6.64353,8.847203 -11.49068,8.913933 -0.52111,0.007 -1.01423,-1e-5 -1.52135,-1e-5 -52.13537,-1.7e-4 -156.406102,0 -156.406102,0 0,0 -1.231195,0.003 -1.852083,0 -2.908927,-0.52039 -6.194356,-2.47409 -7.6377986,-5.193493 -1.9080352,-3.59469 -1.9972726,-8.64738 -0.028282,-12.20904 1.8359966,-3.3211 6.5177136,-5.76422 9.6548386,-6.03234 0.462264,-0.0265 1.389062,0 1.389062,0 l 147.203065,-0.003 c 4.47189,0.0254 7.15875,0.79231 9.01249,3.41633 2.99676,4.24198 2.9497,11.08894 0.33684,15.577593 -1.5681,2.69385 -4.07499,4.56876 -8.22924,4.4409"
+       style="fill:none;stroke:url(#linearGradient4945);stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
+  </g>
+</svg>
+ <div class="form">
+        <label for="name">Name</label>
+        <input type="name" id="name">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <label for="message">Message</label>
+        <input type="message" id="message">
+	<div>
+        <input type="submit" id="submit" value="Submit">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+</footer>
+
+<!-- External Javascript --> 
+<script src="../../../pageControls.js"></script>
+<script src="animationControls.js"></script>
+<script src="node_modules/animejs/anime.js"></script>
+
+</body>
+</html>
+
+
