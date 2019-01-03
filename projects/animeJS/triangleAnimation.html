@@ -10,24 +10,24 @@
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html { 
     height: 100%;
-    line-height: 1.8;
     background-color: black;
-
 }
 
 #myNavbar {
     position: absolute;
+    color: white;
 }
 svg{
-    position: relative;
+    height: 50%; 
+    width: 50%;
+    position: block;
     margin: 0 auto;
-
 }
 
 path {
   fill: none;
   stroke: white;
-  stroke-width: 4;
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -38,7 +38,7 @@ path {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+    <a class="w3-bar-item w3-button w3-white w3-hover-white w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
     <a href="../../../../" class="w3-bar-item w3-button">HOME</a>
@@ -47,7 +47,7 @@ path {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="../../../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+    <a href="../../../../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
     <a href="../../../projects_p2.html#triAnimation" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
   </div>
 </div>
@@ -60,7 +60,7 @@ path {
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   id="svg6784"
+   id="svgElem"
    version="1.1"
    viewBox="0 0 210 297"
    height="297mm"
@@ -392,6 +392,7 @@ path {
 <!-- External Javascript --> 
 <script src="node_modules/animejs/anime.js"></script>
 <script src="triAnimation.js"></script>
+<script src="../../../pageControls.js"></script>
 
 </body>
 </html>
