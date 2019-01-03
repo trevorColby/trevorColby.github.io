@@ -1,3 +1,15 @@
+//Need to check if we are on mobile or desktop to set our appropriate zoom for svg
+function isMobileDevice() {
+	    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+var svgElement = document.getElementById('svgElem');
+if(isMobileDevice()) {
+	svgElement.style.height = "100%";
+	svgElement.style.width = "100%";
+}else{
+	svgElement.style.height = "50%";
+	svgElement.style.width = "50%";
+}
 var paths = [
        {id:"#path7340", d: "M62.006529,54.853808L57.997486,89.86611400000001L72.430041,95.74604500000001Z"},
        {id:"#path7346", d: "M62.006529,54.853808L73.766388,67.950013L79.913587,90.667924Z"},
@@ -84,7 +96,7 @@ paths.forEach(function(path, index) {
     targets: path.id,
     d: {
       value: path.d,
-      duration: 1000,
+      duration: 700,
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
@@ -96,7 +108,7 @@ timeline
     targets: 'path:first-child',
     opacity: {
       value: 1,
-      duration: 1000,
+      duration: 700,
       easing: 'easeInOutQuad'
     },
     offset: 2000 + 10 * paths.length
