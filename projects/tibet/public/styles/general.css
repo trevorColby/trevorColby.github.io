@@ -1,0 +1,86 @@
+#MapContainer {
+	background-color: #bfd1e5;
+	width: 80vw; 
+	height: 100vh; 
+	display: block;
+	margin: auto;
+	overflow: auto;
+}
+#MapControls {
+	right: 10vw; 
+}
+#infoContainer {
+	height: 100%;
+	width: 100%; 
+	position: fixed;
+	pointer-events: none;
+	display: none;
+}
+#info{
+	height: 60vh;
+	width: 20vw;
+	position: absolute; 
+	top: 10vh; 
+	left: 0;
+	pointer-events: auto;
+	overflow: scroll;
+}
+.guide{
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  font-color: red;
+  margin-top: 10px; 
+  margin-left: 25px; 
+  height: 10%;
+}
+.list {
+  margin: 0 !important;
+  color: #555;
+  font-size: 15px;
+  padding: 0 !important;
+  width: 100%;
+  font-family: courier, monospace;
+  border: 1px solid #dedede;
+}
+.list li {
+  list-style: none;
+  border-bottom: 1px dotted #ccc;
+  text-indent: 5px;
+  height: auto;
+  padding: 5px;
+  text-transform: capitalize;
+}
+/* .list li:hover { */
+.list li.whiteNote:hover {
+  background-color: #f0f0f0; 
+  -webkit-transition: all 0.2s;
+  -moz-transition:    all 0.2s;
+  -ms-transition:     all 0.2s;
+  -o-transition:      all 0.2s;
+}
+.lines {
+  border-left: 1px solid #ffaa9f;
+  border-right: 1px solid #ffaa9f;
+  width: 2px;
+  float: left;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.whiteNote {
+    background-color:white;
+}
+
+.focusedNote {
+    background-color:#f0f0f0;
+}
