@@ -13,6 +13,7 @@ var fullScreenState = 1;
 //back into real world measurments for display
 var firstX = firstY = 0; 
 var firstZ = 0;
+var open = 0; //this allows us to keep track of guide as open/closed
 var points,
     gui,
     controls, 
@@ -53,15 +54,58 @@ var sceneController = {
 	Fullscreen: false
 };
 
+
+// ------ Marker object ------------------------------------------------
+function Marker() {
+    THREE.Object3D.call(this);
+
+    // var radius = 0.005;
+    // var sphereRadius = 0.02;
+    // var height = 0.05;
+    var radius = 5;
+    var sphereRadius = 50;
+    var height = 100;
+
+    // var material = new THREE.MeshPhongMaterial({ color: 0xbab68f });
+    var silverMat = new THREE.MeshPhongMaterial({ color: 0xC0C0C0 });
+    var redMat = new THREE.MeshPhongMaterial({ color: 0x8A0707 });
+
+    var cone = new THREE.Mesh(new THREE.ConeBufferGeometry(radius, height, 8, 1, true), silverMat);
+    cone.position.y = height * 0.5;
+    cone.rotation.x = Math.PI;
+
+    var sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(sphereRadius, 16, 8), redMat);
+    sphere.position.y = height * 0.95 + sphereRadius;
+
+    this.add(cone, sphere);
+}
+
+Marker.prototype = Object.create(THREE.Object3D.prototype);
+
+var createMarker = function (lat, lon, scene) {
+	//for proof of concept just going to hard code z value
+	var z = -160;
+    var marker = new Marker();
+    var latRad = lat * (Math.PI / 180);
+    var lonRad = -lon * (Math.PI / 180);
+    // var r = this.userData.radius;
+
+    // marker.position.set(Math.cos(latRad) * Math.cos(lonRad) * r, Math.sin(latRad) * r, Math.cos(latRad) * Math.sin(lonRad) * r);
+    // marker.position.set(x,y,z);
+    marker.position.set(lon,z,lat);
+    // marker.rotation.set(0.0, -lonRad, latRad - Math.PI * 0.5); //eventaully may need to calc rotation for side of mtns. and such
+
+    scene.add(marker);
+};
 init();
 animate();
 function initGUI() {
 	//turn off autoplace so we can put it relative to our canvas
 	gui = new dat.GUI({ autoPlace: false });
-	gui.add( sceneController, 'Texture',{ Mesh: 0, Gradient: 1, Satelite: 2, Artwork: 3 }  ).onChange((value) => {
+	gui.add( sceneController, 'Texture',{ Mesh: 0, Matlab: 1, Terrain: 2, Map: 3, Corona: 4}  ).onChange((value) => {
 		updateTexture(value);	
 	});
-	gui.add( sceneController, 'Background',{ Blue: 0, Altitude: 1, Aurora: 2, Sunset: 3 , Snow: 4}  ).onChange((value) => {
+	gui.add( sceneController, 'Background',{ Blue: 0, Mountains: 1, Night: 2, Clouds: 3 , Peaks: 4}  ).onChange((value) => {
 		updateBackground(value);	
 	});
 	gui.add( sceneController, 'Fullscreen').onChange((value) =>{
@@ -127,7 +171,11 @@ function init() {
 	}
 	else{
 		//this is sampled at 120m intervals ergo we are multiplying by 12 here to preserve the proportion
-		geometry = new THREE.PlaneBufferGeometry(mapWidth*12 * 0.8888, mapDepth*12 * 0.68175, mapWidth, mapDepth);//for low res
+		// geometry = new THREE.PlaneBufferGeometry(mapWidth*12 * 0.8888, mapDepth*12 * 0.68175, mapWidth, mapDepth);//for low res
+		// geometry = new THREE.PlaneBufferGeometry(mapWidth*12, mapDepth*12*1.0225, mapWidth, mapDepth);//for low res
+		// geometry = new THREE.PlaneBufferGeometry( 2478* 2, 3003 *2, mapWidth, mapDepth);//for low res
+		// geometry = new THREE.PlaneBufferGeometry( 3003* 2, 2478 *2, mapWidth, mapDepth);//for low res
+		geometry = new THREE.PlaneBufferGeometry(2048*2, 2048*2, mapWidth, mapDepth);//for low res
 	}
 	geometry.rotateX( - Math.PI / 2 );
 
@@ -139,7 +187,8 @@ function init() {
 	}
 
 	//set our first texture for geometry 
-	texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' );	
+	// texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' );	 //uncomment this one
+	texture = new THREE.TextureLoader().load( 'tibet/public/media/corona_imagery_300dpi.jpg' );	 //uncomment this one
 	// texture.repeat.x = 0.8888889;	
 	// texture.repeat.y = 0.68175;
 	// texture.repeat.x = 0.000146297457621;
@@ -148,7 +197,7 @@ function init() {
 	// texture.offset.x = 96.361874853131368;
 	//Below is in case our image isn't power of 2 (supress warning)	
 	// texture.generateMipmaps = false;
-	texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+	texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping; //uncomment this one
 	// texture.wrapS = 0.000146297457621;
 	// texture.wrapT = -0.000146298747745;
 	// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
@@ -167,6 +216,13 @@ function init() {
 	//create a mesh with our new texture
 	mesh = new THREE.Mesh( geometry, material );
 	scene.add(mesh);
+
+	//************* MARKERS *************
+	//also need to add our markers to our mesh
+//1st left/right
+//2nd elevation
+	var mark = createMarker(0,0,scene);
+	
 	//set our actual first texture (after initialized) to be a black mesh
 	material.wireframe = true;
 	material.color = new THREE.Color(0,0,0);
@@ -257,6 +313,13 @@ function init() {
 	    //key either our key or keyCode if the key doesn't exist
 	    var keyPressed = e.key || e.keyCode;
 
+	    if (keyPressed === 'g' ||
+		keyPressed === 'keyG' ||
+                keyPressed === 71) {
+		console.log("Toggle Guide\n");
+		toggleGuide();
+
+	    }
 	    if (keyPressed === 'w' ||
 		keyPressed === 'keyW' ||
                 keyPressed === 97) {
@@ -290,7 +353,6 @@ function init() {
 	
 	    //key either our key or keyCode if the key doesn't exist
 	    var keyPressed = e.key || e.keyCode;
-
 	    if (keyPressed === 'w' ||
 		keyPressed === 'keyW' ||
                 keyPressed === 97) {
@@ -378,14 +440,43 @@ function updateBackground(backgroundChoice){
 function updateTexture(textureChoice){
 	//ALL OF OUR TEXTURING OPTIONS 
 	switch(textureChoice){
+		case '4':
+			material.color = new THREE.Color(1,1,1);
+			material.wireframe = false;
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/corona_imagery_300dpi.jpg' );
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );
+			console.log("Rotate");
+			// texture.flipY = false;
+			// texture.wrapS = 0.000146297457621;
+			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
+			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
+			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
+			// texture.wrapT = -0.000146298747745;
+			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// texture.wrapS = 0.000146297457621;
+			// texture.wrapT = -0.000146298747745;
+			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
+			// texture.repeat.x = 0.000146297457621;
+			// texture.repeat.y = -0.000146298747745;
+			// texture.offset.y = 33.315727779381810;
+			// texture.offset.x = 96.361874853131368;
+
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );	
+			material.map = texture; //<---
+			// material.mapping = texture; //<---
+			break;
 		case '3':
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
 			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
-			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/original_map_cropped.jpg' );
+			// texture.flipY = false;
 			// texture.wrapS = 0.000146297457621;
 			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
-			texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
+			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
 			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
 			// texture.wrapT = -0.000146298747745;
 			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
@@ -545,6 +636,7 @@ function animate() {
 	render();
 	stats.update();
 	requestAnimationFrame( animate );
+	objectInView(0,0);	
 }
 function render() {
 	controls.update();
@@ -626,7 +718,6 @@ function goFullScreen(value){
 		stats.domElement.style.top = '0px';
 		stats.domElement.style.bottom = null;
 		stats.domElement.style.right = null;
-		console.log("going fullscreen");
 		container.style.width = '100vw';
 
 		  if (elem.requestFullscreen) {
@@ -680,5 +771,67 @@ function exitHandler(){
 		sceneController.Fullscreen = false;
 		gui.__controllers[2].updateDisplay();
 		onWindowResize();
+	}
+}
+
+function objectInView(x,y,z){
+	camera.updateMatrix();
+	camera.updateMatrixWorld();
+	var frustum = new THREE.Frustum();
+	frustum.setFromMatrix(new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse));
+
+		//here we would need to iterate through all of our objects to check which point is within view, for our proof of concept we will just use one.
+		var pos = new THREE.Vector3(x,y,z);
+		var list = document.getElementById("siteList");
+		if(!frustum.containsPoint(pos)){
+			if(open == 1){
+				toggleNoteFocus(list);
+			}
+			list.firstChild.innerHTML = '.';
+			open = 0;
+		}else if(open == 0){
+			list.firstChild.innerHTML = ". Religious Site";	
+		}
+}
+
+function updateInfoMenu(){
+//width: 80vw;	
+	var list = document.getElementById("siteList");	
+}
+
+function toggleGuide(){
+	var guide = document.getElementById("infoContainer");
+	if(guide.style.display == "block"){
+		console.log("None Switch");
+		guide.style.display = "none";
+	}else{
+		guide.style.display = "block";
+	}
+}
+
+function toggleExpandItem(item){
+	var list = document.getElementById("siteList");
+	if(item == 'Religious Site' && list.firstChild.innerHTML != '.'){
+		if(open == 0){
+			open = 1;
+			toggleNoteFocus(list);
+			list.firstChild.innerHTML = '. ' + item + ": This is a very import site for religious activity in the region. It represents a cultural gathering place for worship, meditation, and community building.";
+		}else{
+			toggleNoteFocus(list);
+			list.firstChild.innerHTML = '. ' + item;
+			open = 0;
+		}	
+	}
+}
+
+function toggleNoteFocus(list){
+	var item = document.getElementById("siteList").firstChild;
+	// if(list.firstChild.classList.contains('focusedNote')){
+	if(item.classList.contains('focusedNote')){
+		item.classList.remove('focusedNote');
+		item.classList.add('whiteNote');
+	}else if(item.classList.contains('whiteNote')){
+		item.classList.remove('whiteNote');
+		item.classList.add('focusedNote');
 	}
 }
