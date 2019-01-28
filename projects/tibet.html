@@ -4,22 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../webpage.css">
+<link rel="stylesheet" href="tibet/public/styles/general.css">
 <link rel="stylesheet" href="tibet/public/styles/modalStyles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-#MapContainer {
-	background-color: #bfd1e5;
-	width: 80vw; 
-	height: 100vh; 
-	display: block;
-	margin: auto;
-	overflow: auto;
-}
-#MapControls {
-	right: 10vw; 
-}
-
 </style>
 <body class="w3-light-grey">
 <!-- Navbar (sit on top) -->
@@ -29,7 +18,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <i class="fa fa-bars"></i>
     </a>
     <a href="../" class="w3-bar-item w3-button">HOME</a>
-    <a href="../projects_p1.html#tibet" class="w3-bar-item w3-button">PROJECTS</a>
+    <a href="../../projects_p1.html#tibet" class="w3-bar-item w3-button">PROJECTS</a>
   </div>
 
   <!-- Navbar on small screens -->
@@ -38,6 +27,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="../projects_p1.html#tibet" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
   </div>
 </div>
+
 	
 <!-- This is modal that will popup with instructions on how to use the page on init() -->
 <!-- The Instruction Modal -->
@@ -55,6 +45,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   		<li>Pan Right: <b>D</b></li>
   		<li>Zoom In: <b>Scroll Action Up</b></li>
   		<li>Zoom Out: <b>Scroll Action Down</b></li>
+  		<li>Toggle Travel Guide: <b>G</b></li>
 	</ul>
     </p>
   </div>
@@ -94,12 +85,33 @@ and is wrapped around the whole page content, except for the footer in this exam
 </div>
 
 <!-- END GRID -->
-</div><br>
+</div>
 
 <!-- END w3-content -->
 
 <!-- 3D Map Content -->
 <div id='fullscreenContainer'>
+<!-- Our Floating Information Modal -->
+<div id="infoContainer"> 
+  <!-- Modal content -->
+  <div id="info" class="w3-card w3-margin w3-white">
+<div class="lines"></div>
+	<div class= "guide noselect">Travel Guide: </div>
+	<ul id="siteList" class="list"><li class="whiteNote" onclick="toggleExpandItem('Religious Site')">. Religious Site</li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	  <li class="whiteNote">. </li>
+	</ul>
+  </div>
+</div>
 <div id="MapControls"></div>
 <div id="MapContainer"></div>
 	<script src="tibet/public/js/dat.gui.min.js"></script>
