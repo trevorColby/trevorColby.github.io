@@ -470,9 +470,9 @@ function updateTexture(textureChoice){
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
 			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
 			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );
-			texture = new THREE.TextureLoader().load( 'tibet/public/media/original_map_cropped.jpg' );
+			// texture = new THREE.TextureLoader().load( 'tibet/public/media/original_map_cropped.jpg' );
 			// texture.flipY = false;
 			// texture.wrapS = 0.000146297457621;
 			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
