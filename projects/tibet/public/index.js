@@ -84,7 +84,7 @@ Marker.prototype = Object.create(THREE.Object3D.prototype);
 
 var createMarker = function (lat, lon, scene) {
 	//for proof of concept just going to hard code z value
-	var z = -160;
+	var z = -125;
     var marker = new Marker();
     var latRad = lat * (Math.PI / 180);
     var lonRad = -lon * (Math.PI / 180);
@@ -102,7 +102,7 @@ animate();
 function initGUI() {
 	//turn off autoplace so we can put it relative to our canvas
 	gui = new dat.GUI({ autoPlace: false });
-	gui.add( sceneController, 'Texture',{ Mesh: 0, Matlab: 1, Terrain: 2, Map: 3, Corona: 4}  ).onChange((value) => {
+	gui.add( sceneController, 'Texture',{ Mesh: 0, Matlab: 1, Terrain: 2, Map: 3, Corona: 4, Overlay: 5}  ).onChange((value) => {
 		updateTexture(value);	
 	});
 	gui.add( sceneController, 'Background',{ Blue: 0, Mountains: 1, Night: 2, Clouds: 3 , Peaks: 4}  ).onChange((value) => {
@@ -221,7 +221,7 @@ function init() {
 	//also need to add our markers to our mesh
 //1st left/right
 //2nd elevation
-	var mark = createMarker(0,0,scene);
+	var mark = createMarker(200,-140,scene);
 	
 	//set our actual first texture (after initialized) to be a black mesh
 	material.wireframe = true;
@@ -279,7 +279,8 @@ function init() {
 	bitMap = HUD.getContext('2d');
 	bitMap.font = "Normal 20px Palatino";
 	bitMap.textAlign = 'center';
-	bitMap.fillStyle = 'rgba(0, 0, 0, 0.75)';
+	// bitMap.fillStyle = 'rgba(0, 0, 0, 0.75)';
+	bitMap.fillStyle = 'rgba(0, 0, 0, 1.0)';
 	bitMap.fillText('Jarvis booting up ...', hudWidth/2, hudHeight/2);
 
 	hudCamera = new THREE.OrthographicCamera(-hudWidth/2, hudWidth/2, hudHeight/2, -hudHeight/2, 0, 30);
@@ -440,31 +441,17 @@ function updateBackground(backgroundChoice){
 function updateTexture(textureChoice){
 	//ALL OF OUR TEXTURING OPTIONS 
 	switch(textureChoice){
+		case '5':
+			material.color = new THREE.Color(1,1,1);
+			material.wireframe = false;
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetOverlay1.png' );
+			material.map = texture; //<---
+			break;
 		case '4':
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
 			texture = new THREE.TextureLoader().load( 'tibet/public/media/corona_imagery_300dpi.jpg' );
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );
-			console.log("Rotate");
-			// texture.flipY = false;
-			// texture.wrapS = 0.000146297457621;
-			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
-			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
-			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
-			// texture.wrapT = -0.000146298747745;
-			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// texture.wrapS = 0.000146297457621;
-			// texture.wrapT = -0.000146298747745;
-			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// texture.repeat.x = 0.000146297457621;
-			// texture.repeat.y = -0.000146298747745;
-			// texture.offset.y = 33.315727779381810;
-			// texture.offset.x = 96.361874853131368;
-
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );	
 			material.map = texture; //<---
-			// material.mapping = texture; //<---
 			break;
 		case '3':
 			material.color = new THREE.Color(1,1,1);
@@ -650,7 +637,6 @@ function rotateCompass(){
 	var compass = document.getElementById("compass");
 	compassDirection = camera.getWorldDirection();
 	var theta = Math.atan2(compassDirection.x,compassDirection.z);
-	// var angle = ((theta * 3.14)/180); 
 	compass.style.transform = "rotate(" + theta + "rad)";
 }
 
