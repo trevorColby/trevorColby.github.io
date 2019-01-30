@@ -29,12 +29,11 @@ var points,
     hudCamera,
     bitMap;
 
-//Our Compass Point Colors
-//These indicate which key is being pressed
-var north = 'black';
-var east = 'black';
-var south = 'black';
-var west = 'black';
+//marker to place on the map
+var mark;
+//Declare our marker material up here. Allows us to switchup colors
+var silverMat = new THREE.MeshPhongMaterial({ color: 0xC0C0C0 });
+var pinMat = new THREE.MeshPhongMaterial({ color: 0x8A0707 });
 
 //allow real time texture choice
 var material = new THREE.MeshBasicMaterial();
@@ -43,6 +42,8 @@ var material = new THREE.MeshBasicMaterial();
 var skyBoxMaterial = new THREE.ShaderMaterial();
 var skyTextureLoader = new THREE.CubeTextureLoader();
 skyTextureLoader.setPath('tibet/public/media/' );
+
+// var greenMat = new THREE.MeshPhongMaterial({ color: 0x39FF14 });
 
 //our starting position
 var currentPos = [3700,-100,4500];
@@ -67,14 +68,14 @@ function Marker() {
     var height = 100;
 
     // var material = new THREE.MeshPhongMaterial({ color: 0xbab68f });
-    var silverMat = new THREE.MeshPhongMaterial({ color: 0xC0C0C0 });
-    var redMat = new THREE.MeshPhongMaterial({ color: 0x8A0707 });
+    // var silverMat = new THREE.MeshPhongMaterial({ color: 0xC0C0C0 });
+    // var pinMat = new THREE.MeshPhongMaterial({ color: 0x8A0707 });
 
     var cone = new THREE.Mesh(new THREE.ConeBufferGeometry(radius, height, 8, 1, true), silverMat);
     cone.position.y = height * 0.5;
     cone.rotation.x = Math.PI;
 
-    var sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(sphereRadius, 16, 8), redMat);
+    var sphere = new THREE.Mesh(new THREE.SphereBufferGeometry(sphereRadius, 16, 8), pinMat);
     sphere.position.y = height * 0.95 + sphereRadius;
 
     this.add(cone, sphere);
@@ -85,17 +86,17 @@ Marker.prototype = Object.create(THREE.Object3D.prototype);
 var createMarker = function (lat, lon, scene) {
 	//for proof of concept just going to hard code z value
 	var z = -125;
-    var marker = new Marker();
+    mark = new Marker();
     var latRad = lat * (Math.PI / 180);
     var lonRad = -lon * (Math.PI / 180);
     // var r = this.userData.radius;
 
     // marker.position.set(Math.cos(latRad) * Math.cos(lonRad) * r, Math.sin(latRad) * r, Math.cos(latRad) * Math.sin(lonRad) * r);
     // marker.position.set(x,y,z);
-    marker.position.set(lon,z,lat);
+    mark.position.set(lon,z,lat);
     // marker.rotation.set(0.0, -lonRad, latRad - Math.PI * 0.5); //eventaully may need to calc rotation for side of mtns. and such
 
-    scene.add(marker);
+    scene.add(mark);
 };
 init();
 animate();
@@ -221,7 +222,7 @@ function init() {
 	//also need to add our markers to our mesh
 //1st left/right
 //2nd elevation
-	var mark = createMarker(200,-140,scene);
+	createMarker(200,-140,scene);
 	
 	//set our actual first texture (after initialized) to be a black mesh
 	material.wireframe = true;
@@ -317,7 +318,6 @@ function init() {
 	    if (keyPressed === 'g' ||
 		keyPressed === 'keyG' ||
                 keyPressed === 71) {
-		console.log("Toggle Guide\n");
 		toggleGuide();
 
 	    }
@@ -830,6 +830,7 @@ function toggleExpandItem(item){
 }
 
 function toggleNoteFocus(list){
+	togglePinColor(0);
 	var item = document.getElementById("siteList").firstChild;
 	// if(list.firstChild.classList.contains('focusedNote')){
 	if(item.classList.contains('focusedNote')){
@@ -838,5 +839,14 @@ function toggleNoteFocus(list){
 	}else if(item.classList.contains('whiteNote')){
 		item.classList.remove('whiteNote');
 		item.classList.add('focusedNote');
+	}
+}
+function togglePinColor(pin){
+	if(pin == 0){
+		if(mark.children[1].material.color.getHex() == 0x8A0707){
+			mark.children[1].material.color.setHex(0x39FF14);
+		}else{
+			mark.children[1].material.color.setHex(0x8A0707);
+		}
 	}
 }
