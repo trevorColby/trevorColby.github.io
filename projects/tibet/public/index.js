@@ -574,56 +574,56 @@ function animate() {
 	bitMap.fillText('Coordinates: ['+ camera.position.x.toFixed(0) + ', '+ camera.position.z.toFixed(0) + ']', hudWidth-120, hudHeight-10);
 
 	//Compass
-	bitMap.beginPath();
-	bitMap.arc(55,hudHeight-55,50,0,2*Math.PI);
-	bitMap.stroke();
+	//bitMap.beginPath();
+	//bitMap.arc(55,hudHeight-55,50,0,2*Math.PI);
+	//bitMap.stroke();
 
-	//North
-	bitMap.beginPath();
-	bitMap.moveTo( 55, hudHeight - 105 );
-	bitMap.lineTo( 65, hudHeight - 90 );
-	bitMap.lineTo( 45, hudHeight - 90 );
-	bitMap.lineTo( 55, hudHeight - 105 );//close triangle
-	bitMap.fillStyle = north;
-	bitMap.fill();
+	////North
+	//bitMap.beginPath();
+	//bitMap.moveTo( 55, hudHeight - 105 );
+	//bitMap.lineTo( 65, hudHeight - 90 );
+	//bitMap.lineTo( 45, hudHeight - 90 );
+	//bitMap.lineTo( 55, hudHeight - 105 );//close triangle
+	//bitMap.fillStyle = north;
+	//bitMap.fill();
 
-	//East
-	bitMap.beginPath();
-	bitMap.moveTo( 105, hudHeight - 55 );
-	bitMap.lineTo( 90, hudHeight - 65 );
-	bitMap.lineTo( 90, hudHeight - 45 );
-	bitMap.lineTo( 105, hudHeight - 55 );//close triangle
-	bitMap.fillStyle = east;
-	bitMap.fill();
+	////East
+	//bitMap.beginPath();
+	//bitMap.moveTo( 105, hudHeight - 55 );
+	//bitMap.lineTo( 90, hudHeight - 65 );
+	//bitMap.lineTo( 90, hudHeight - 45 );
+	//bitMap.lineTo( 105, hudHeight - 55 );//close triangle
+	//bitMap.fillStyle = east;
+	//bitMap.fill();
 	
-	//South
-	bitMap.beginPath();
-	bitMap.moveTo( 55, hudHeight - 5 );
-	bitMap.lineTo( 65, hudHeight - 20 );
-	bitMap.lineTo( 45, hudHeight - 20 );
-	bitMap.lineTo( 55, hudHeight - 5 );//close triangle
-	bitMap.fillStyle = south;
-	bitMap.fill();
+	////South
+	//bitMap.beginPath();
+	//bitMap.moveTo( 55, hudHeight - 5 );
+	//bitMap.lineTo( 65, hudHeight - 20 );
+	//bitMap.lineTo( 45, hudHeight - 20 );
+	//bitMap.lineTo( 55, hudHeight - 5 );//close triangle
+	//bitMap.fillStyle = south;
+	//bitMap.fill();
 
-	//West
-	bitMap.beginPath();
-	bitMap.moveTo( 5, hudHeight - 55 );
-	bitMap.lineTo( 20, hudHeight - 65 );
-	bitMap.lineTo( 20, hudHeight - 45 );
-	bitMap.lineTo( 5, hudHeight - 55 );//close triangle
-	bitMap.fillStyle = west;
-	bitMap.fill();
-	//connectinglines
-	bitMap.beginPath();
-	bitMap.moveTo( 19, hudHeight - 55 );
-	bitMap.lineTo( 91, hudHeight - 55 );
-	bitMap.fillstyle = 'black';
-	bitMap.stroke();	
-	bitMap.beginPath();
-	bitMap.moveTo( 55, hudHeight - 89 );
-	bitMap.lineTo( 55, hudHeight - 19 );
-	bitMap.fillstyle = 'black';
-	bitMap.stroke();
+	////West
+	//bitMap.beginPath();
+	//bitMap.moveTo( 5, hudHeight - 55 );
+	//bitMap.lineTo( 20, hudHeight - 65 );
+	//bitMap.lineTo( 20, hudHeight - 45 );
+	//bitMap.lineTo( 5, hudHeight - 55 );//close triangle
+	//bitMap.fillStyle = west;
+	//bitMap.fill();
+	////connectinglines
+	//bitMap.beginPath();
+	//bitMap.moveTo( 19, hudHeight - 55 );
+	//bitMap.lineTo( 91, hudHeight - 55 );
+	//bitMap.fillstyle = 'black';
+	//bitMap.stroke();	
+	//bitMap.beginPath();
+	//bitMap.moveTo( 55, hudHeight - 89 );
+	//bitMap.lineTo( 55, hudHeight - 19 );
+	//bitMap.fillstyle = 'black';
+	//bitMap.stroke();
 	//Outer connecting lines
 	// bitMap.beginPath();
 	// bitMap.moveTo( 5, window.innerHeight - 55 );
@@ -641,9 +641,17 @@ function animate() {
 function render() {
 	controls.update();
 	renderer.render( scene, camera );
-	
+	rotateCompass();	
 	//render HUD ontop of our other scene
 	renderer.render( hudScene, hudCamera );
+}
+var compassDirection = new THREE.Vector3();
+function rotateCompass(){
+	var compass = document.getElementById("compass");
+	compassDirection = camera.getWorldDirection();
+	var theta = Math.atan2(compassDirection.x,compassDirection.z);
+	// var angle = ((theta * 3.14)/180); 
+	compass.style.transform = "rotate(" + theta + "rad)";
 }
 
 function createVertices(values) {
@@ -712,6 +720,7 @@ function launchInstructionModal(){
 //go fullscreen with an object, takes element as argument
 function goFullScreen(value){
 	var elem = document.getElementById('fullscreenContainer');
+	var compass = document.getElementById("compass");
 	if(value){
 		//Move stats to different location
 		stats.domElement.style.left = '0px';
@@ -719,6 +728,9 @@ function goFullScreen(value){
 		stats.domElement.style.bottom = null;
 		stats.domElement.style.right = null;
 		container.style.width = '100vw';
+		compass.style.left = "1vw";
+		// compass.style.bottom = "3vw";
+		elem.style.position = "";
 
 		  if (elem.requestFullscreen) {
 		    elem.requestFullscreen();
@@ -736,6 +748,10 @@ function goFullScreen(value){
 			stats.domElement.style.top = null;
 			stats.domElement.style.bottom = '0px';
 			stats.domElement.style.right = '10px';
+			compass.style.left = "11vw";
+			// compass.style.bottom = "1vh";
+			compass.style.btoom = 0;
+			elem.style.position = "relative";
 			//fix container size for canvas	
 			container.style.width = '80vw';
 			exitFullScreen();	
@@ -761,6 +777,9 @@ function exitFullScreen(){
 function exitHandler(){
 	fullScreenState = fullScreenState * -1;
 	if(fullScreenState > 0){
+		document.getElementById("fullscreenContainer").style.position = "relative";
+		document.getElementById("compass").style.left = "11vw";
+		// document.getElementById("compass").style.left = "10vw";
 		//Move stats to different location
 		stats.domElement.style.left = null;
 		stats.domElement.style.top = null;
