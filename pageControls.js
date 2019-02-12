@@ -1,5 +1,6 @@
 // Change style of navbar on scroll
 window.addEventListener( 'scroll', onWindowScroll, false );
+// window.addEventListener( 'wheel', onWindowScroll, false );
 
 var transitionPoint = 10;
 
@@ -154,4 +155,30 @@ function findPos(obj) {
     }
 }
 
+//Everything to animate the "snake effect on the input form
+const name = document.querySelector("#name");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message");
+const send = document.querySelector("#send");
 
+var currAnimation = null;
+if(name != null){
+	name.addEventListener('focus', (e) => {
+		if(currAnimation) {
+			currAnimation.pause()
+		};
+		currAnimation = anime({
+		  targets: 'path',
+		  strokeDashoffset: {
+		    value: 0,
+		    duration: 1000,
+		    easing: 'easeOutQuart'
+		  },
+		  strokeDasharray: {
+		    value: '240 1386',
+		    duration: 1000,
+		    easing: 'easeOutQuart'
+		  }
+		});	
+	});
+}
