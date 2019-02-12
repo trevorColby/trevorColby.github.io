@@ -188,24 +188,8 @@ function init() {
 	}
 
 	//set our first texture for geometry 
-	// texture = new THREE.TextureLoader().load( 'tibet/public/media/modArt.png' );	 //uncomment this one
 	texture = new THREE.TextureLoader().load( 'tibet/public/media/corona_imagery_300dpi.jpg' );	 //uncomment this one
-	// texture.repeat.x = 0.8888889;	
-	// texture.repeat.y = 0.68175;
-	// texture.repeat.x = 0.000146297457621;
-	// texture.repeat.y = -0.000146298747745;
-	// texture.offset.y = 33.315727779381810;
-	// texture.offset.x = 96.361874853131368;
-	//Below is in case our image isn't power of 2 (supress warning)	
-	// texture.generateMipmaps = false;
 	texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping; //uncomment this one
-	// texture.wrapS = 0.000146297457621;
-	// texture.wrapT = -0.000146298747745;
-	// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
-			// texture.transformUv(new THREE.Vector2(0.000146297457621,-0.000146298747745));	
-			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
-	
 	
 	texture.minFilter = THREE.LinearFilter;
 	texture.needsUpdate = true;
@@ -426,11 +410,6 @@ function updateBackground(backgroundChoice){
 				'turquoise.jpg', 'turquoise.jpg',
 				'turquoise.jpg', 'turquoise.jpg',
 			] );
-			// var skyTexture = skyTextureLoader.load( [
-			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
-			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
-			// 	'midBlue (1).jpg', 'midBlue (1).jpg',
-			// ] );
 			var skyShader = THREE.ShaderLib[ 'cube' ];
 			skyShader.uniforms[ 'tCube' ].value = skyTexture;
 			skyBoxMaterial.uniforms = skyShader.uniforms;
@@ -444,7 +423,7 @@ function updateTexture(textureChoice){
 		case '5':
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
-			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetOverlay1.png' );
+			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetOverlay.png' );
 			material.map = texture; //<---
 			break;
 		case '4':
@@ -456,45 +435,13 @@ function updateTexture(textureChoice){
 		case '3':
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/map-cropped_8bit-356ppi.jpeg' );	
 			texture = new THREE.TextureLoader().load( 'tibet/public/media/tibetScreenshot.png' );
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/original_map_cropped.jpg' );
-			// texture.flipY = false;
-			// texture.wrapS = 0.000146297457621;
-			// // new THREE.Vector2(0.000146297457621,-0.000146298747745);
-			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
-			// texture.transfromUv(new THREE.Vector2(96.361874853131368,33.315727779381810));
-			// texture.wrapT = -0.000146298747745;
-			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// texture.wrapS = 0.000146297457621;
-			// texture.wrapT = -0.000146298747745;
-			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// texture.repeat.x = 0.000146297457621;
-			// texture.repeat.y = -0.000146298747745;
-			// texture.offset.y = 33.315727779381810;
-			// texture.offset.x = 96.361874853131368;
-
-			// texture = new THREE.TextureLoader().load( 'tibet/public/media/originalmap_rotate_scale.jpg' );	
 			material.map = texture; //<---
-			// material.mapping = texture; //<---
 			break;
 		case '2': 
 			material.color = new THREE.Color(1,1,1);
 			material.wireframe = false;
 			texture = new THREE.TextureLoader().load( 'tibet/public/media/dem_as_image.jpg' );	
-			// texture.repeat.x = 0.8888889;	
-			// texture.repeat.x = 1.125;
-			// texture.repeat.y = 1.466;
-			// texture.repeat.y = 0.68175;
-			// texture.wrapS = 0.000146297457621;
-			// texture.wrapT = -0.000146298747745;
-			// texture.transformUv(new THREE.Vector2(0.8888889,0.68175));	
-			// texture.offset = new THREE.Vector2(96.361874853131368,33.315727779381810);
-			// texture.repeat.x = 0.000146297457621;
-			// texture.repeat.y = -0.000146298747745;
-			// texture.offset.y = 33.315727779381810;
-			// texture.offset.x = 96.361874853131368;
 			material.map = texture; //<---
 			break;
 		case '1': 
