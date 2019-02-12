@@ -189,7 +189,7 @@ function matchLookup(idealMatch){
 	var allMatches = "";
 	for(var i = 0; i < numbers.length; i ++){
 		if(numbers[i] == idealMatch){
-			allMatches = allMatches + " " + names[i];
+			allMatches = allMatches + ", " + names[i];
 		}
 	}
 	return allMatches;
