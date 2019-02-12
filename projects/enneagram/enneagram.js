@@ -86,6 +86,8 @@ var names = [
 "Quinn Cooney",
 "Sean Laverty",
 "Amelie Ali",
+"Lauren Sapone",
+"Drew Palermo",
 ]
 
 numbers = [
@@ -172,6 +174,8 @@ numbers = [
 "263",
 "743",
 "531",
+"724",
+"381"
 ]
 
 function findMatches(){
