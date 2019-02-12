@@ -80,7 +80,11 @@ var names = [
 "Ryan Cashman",
 "Will Eaton",
 "Marco Pompilj",
-"Parker Johnson"
+"Parker Johnson",
+"Jason Wang",
+"Greg Crowley",
+"Quinn Cooney",
+"Sean Laverty"
 ]
 
 numbers = [
@@ -161,7 +165,11 @@ numbers = [
 "298",
 "796",
 "736",
-"719"
+"719",
+"597",
+"518",
+"263",
+"743"
 ]
 
 function findMatches(){
@@ -174,22 +182,77 @@ function findMatches(){
 	}else if(genderCheckF == true){
 		idealMatch = idealPartnerFemale(number);	
 	}
+	else if(genderCheckF == false && genderCheckM == false){
+		alert("Please Select A Gender: Sorry We only have support for M/F at this time!");
+
+	}
 	else{
 		alert("Sorry But We Only Have A Formula For M/F genders at this time!");
 	}
 	console.log("idealMatch "+ idealMatch);
-	var matches = matchLookup(idealMatch);
-	if(matches == ""){
-		alert("Sorry but we couldn't find any ideal matches at this time!");
-	}else {
-		document.getElementById("matches").innerHTML = matches;
+	var perfectMatches = perfectMatchLookup(idealMatch);
+	if(perfectMatches == ""){
+		perfectMatches = " None";
+	}else{
+		perfectMatches = perfectMatches.substring(9);
 	}
+
+	var primaryMatches = primaryMatchLookup(idealMatch);
+	if(primaryMatches == ""){
+		primaryMatches = " None";
+	}else{
+		primaryMatches = primaryMatches.substring(9);
+	}
+
+	var greatMatches = greatMatchLookup(idealMatch);
+	if(greatMatches == ""){
+		greatMatches = " None";
+	}else{
+		greatMatches = greatMatches.substring(9);
+	}
+	// if(matches == ""){
+		// alert("Sorry but we couldn't find any ideal matches at this time!\n\n Your Ideal Match Would Be: "+ idealMatch + "\n1.) Perfectionist\n2.) Helper\n3.) Achiever\n4.) Individualist\n5.) Investigator\n6.) Loyalist\n7.) Enthusiast\n8.) Leader\n9.) Peacemaker");
+	// }else {
+	document.getElementById("perfectMatches").innerHTML = perfectMatches;
+	document.getElementById("greatMatches").innerHTML = greatMatches;
+	document.getElementById("goodMatches").innerHTML = primaryMatches;
+	// }
 }
-function matchLookup(idealMatch){
-	var allMatches = "";
+
+
+function perfectMatchLookup(idealMatch){
+	var allMatches = "\n";
 	for(var i = 0; i < numbers.length; i ++){
 		if(numbers[i] == idealMatch){
-			allMatches = allMatches + ", " + names[i];
+			allMatches = allMatches + ", <br /> -" + names[i];
+		}
+	}
+	return allMatches;
+}
+function primaryMatchLookup(idealMatch){
+	var allMatches = "\n";
+	for(var i = 0; i < numbers.length; i ++){
+		// if(numbers[i][0] == idealMatch[0] || numbers[i][1] == idealMatch[0] || numbers[i][2] == idealMatch[0]){
+		if(numbers[i][0] == idealMatch[0]){
+			// if(numbers[i][0] == idealMatch[0]){
+			// if(numbers[i][0] == idealMatch[0] || numbers[i][1] == idealMatch[0] || numbers[i][2] == idealMatch[0]){
+			allMatches = allMatches + ", <br /> -" + names[i];
+			// }
+		}
+	}
+	return allMatches;
+}
+function greatMatchLookup(idealMatch){
+	var allMatches = "\n";
+	for(var i = 0; i < numbers.length; i ++){
+		if(numbers[i][0] == idealMatch[0] || numbers[i][1] == idealMatch[0] || numbers[i][2] == idealMatch[0]){
+		// if(numbers[i][0] == idealMatch[0]){
+			// if(numbers[i][0] == idealMatch[0]){
+			if(numbers[i][0] == idealMatch[1] || numbers[i][1] == idealMatch[1] || numbers[i][2] == idealMatch[1]){
+				if(numbers[i][0] == idealMatch[2] || numbers[i][1] == idealMatch[2] || numbers[i][2] == idealMatch[2]){
+					allMatches = allMatches + ", <br /> -" + names[i];
+				}
+			}
 		}
 	}
 	return allMatches;
