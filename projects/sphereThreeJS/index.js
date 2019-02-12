@@ -180,7 +180,7 @@ function init() {
 	renderer.gammaInput = true;
 	renderer.gammaOutput = true;
 	container.appendChild( renderer.domElement );
-	//
+
 	window.addEventListener( 'resize', onWindowResize, false );
 	//Document Event Listenrs: Detect 'esc' click leaving fullscreen
 	document.addEventListener('fullscreenchange', exitHandler);
