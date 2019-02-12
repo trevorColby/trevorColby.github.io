@@ -1,4 +1,6 @@
 node_modules
 temp
 projects/tibet/server*
+/**/*.DS_Store
 *.DS_Store
+package-lock.json
