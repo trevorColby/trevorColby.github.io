@@ -316,6 +316,7 @@ wPaths.forEach(function(path, index) {
   });
 });
 
+//stagBoar
 baPaths.forEach(function(path, index) {
 stagBoar 
   .add({
@@ -518,7 +519,15 @@ boarWolf
 //3: Boar
 var currState = 0;
 var changeState = function(nextState){
-	if(currState != nextState){
+	console.log("Curr State: " + currState + " Next State: " + nextState);
+	if(currState == nextState){
+		if(currState == 0){
+			stagWolf.forward();
+			stagWolf.restart();
+			stagWolf.seek(0);
+		}
+	}
+	else{
 		if(currState == 0){
 			if(nextState == 1){
 				stagWolf.restart();
@@ -534,7 +543,8 @@ var changeState = function(nextState){
 			}
 		}else if(currState == 1){
 			if(nextState == 0){
-				stagWolf.seek(1100);
+				stagWolf.restart();
+				stagWolf.seek(2500);
 				stagWolf.reverse();
 				stagWolf.play();
 			}
@@ -548,7 +558,8 @@ var changeState = function(nextState){
 			}
 		}else if(currState == 2){
 			if(nextState == 0){
-				stagBull.seek(1100);
+				stagBull.restart();
+				stagBull.seek(2500);
 				stagBull.reverse();
 				stagBull.play();
 			}
@@ -563,7 +574,8 @@ var changeState = function(nextState){
 			}
 		}else if(currState == 3){
 			if(nextState == 0){
-				stagBoar.seek(1100);
+				stagBoar.restart();
+				stagBoar.seek(2500);
 				stagBoar.reverse();
 				stagBoar.play();
 			}
