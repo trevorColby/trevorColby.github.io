@@ -355,86 +355,270 @@ var sPaths = [
 
 //circle paths 
 var cPaths = [
-       {id:"#path1000",d:"M 99.090174,38.440155 110.24868,38.550365 104.75295,14.966375 Z"},
-       {id:"#path1002",d:"M 110.24868,38.550365 121.00628,41.490331 121.80809,17.302439 Z"},
-       {id:"#path1004",d:"M 121.00628,41.490331 130.76161,47.036174 137.6438,23.984177 Z"},
-       {id:"#path1006",d:"M 130.76161,47.036174 138.64606,54.920625 151.20773,34.274053 Z"},
-       {id:"#path1008",d:"M 138.64606,54.920625 144.39236,64.742779 162.03215,48.238886 Z"},
-       {id:"#path1010",d:"M 144.39236,64.742779 147.19869,75.500377 168.51344,64.141423 Z"},
-       {id:"#path1012",d:"M 147.15301,75.502661 147.33233,86.859334 170.65159,80.979403 Z"},
-       {id:"#path1014",d:"M 147.33233,86.859334 144.19191,97.884201 168.31298,98.285106 Z"},
-       {id:"#path1016",d:"M 144.19191,97.884201 138.51243,107.17182 161.89851,114.25446 Z"},
-       {id:"#path1018",d:"M 138.51243,107.17182 130.62798,115.25672 151.34137,127.75157 Z"},
-       {id:"#path1020",d:"M 130.62798,115.25672 121.00628,121.00301 137.84426,138.37553 Z"},
-       {id:"#path1022",d:"M 121.00628,121.00301 110.11504,123.67571 122.00854,145.05727 Z"},
-       {id:"#path1024",d:"M 110.12673,123.6114 98.757122,123.64677 104.70284,147.06179 Z"},
-       {id:"#path1026",d:"M 98.756088,123.67571 87.998492,120.73574 87.597587,145.12409 Z"},
-       {id:"#path1028",d:"M 87.998492,120.73574 78.443605,114.98945 71.561414,138.37553 Z"},
-       {id:"#path1030",d:"M 78.443605,114.98945 70.625972,107.23863 58.064304,127.95202 Z"},
-       {id:"#path1032",d:"M 70.625972,107.23863 65.013313,97.550114 47.373524,114.32128 Z"},
-       {id:"#path1034",d:"M 65.013313,97.550112 62.140165,86.592062 40.825419,98.418739 Z"},
-       {id:"#path1036",d:"M 62.140165,86.59206 62.180537,75.433559 38.553628,80.979403 Z"},
-       {id:"#path1038",d:"M 62.140165,75.433559 65.013313,64.609146 40.424515,63.94097 Z"},
-       {id:"#path1040",d:"M 65.013313,64.609146 47.440341,48.105253 70.625972,55.054259 Z"},
-       {id:"#path1042",d:"M 70.625972,55.054259 57.863853,34.407689 78.577241,46.902539 Z"},
-       {id:"#path1044",d:"M 78.577241,46.902539 71.628232,23.91736 88.265761,41.156244 Z"},
-       {id:"#path1046",d:"M 88.265761,41.156244 87.597587,17.569708 99.090174,38.483547 Z"},
-       {id:"#path1048",d:"M 88.265761,41.156244 88.666665,53.116556 96.484299,49.775686 Z"},
-       {id:"#path1050",d:"M 96.484299,49.775686 99.106878,38.571245 104.63602,48.907059 Z"},
-       {id:"#path1052",d:"M 104.63602,48.907059 110.24868,38.550365 113.25546,49.909322 Z"},
-       {id:"#path1054",d:"M 113.25546,49.909322 121.00628,41.490331 120.87264,53.250189 Z"},
-       {id:"#path1056",d:"M 120.87264,53.250189 130.76161,47.036174 127.35393,58.461946 Z"},
-       {id:"#path1058",d:"M 127.35393,58.461946 138.64606,54.920625 132.43205,65.277319 Z"},
-       {id:"#path1060",d:"M 132.43205,65.277319 144.39236,64.742779 135.7061,72.827683 Z"},
-       {id:"#path1062",d:"M 135.7061,72.827681 147.19869,75.500377 136.64154,81.046221 Z"},
-       {id:"#path1064",d:"M 136.64154,81.046221 135.77292,89.532028 147.33233,86.859334 Z"},
-       {id:"#path1066",d:"M 135.77292,89.532028 132.29841,97.349661 144.19191,97.884201 Z"},
-       {id:"#path1068",d:"M 132.29841,97.349661 127.48756,103.76413 138.51243,107.17182 Z"},
-       {id:"#path1070",d:"M 127.48756,103.76413 120.80582,108.84225 130.62798,115.25672 Z"},
-       {id:"#path1072",d:"M 120.80582,108.84225 113.05501,111.98267 121.00628,121.00301 Z"},
-       {id:"#path1074",d:"M 113.05501,111.98267 104.50239,112.98493 110.11504,123.67571 Z"},
-       {id:"#path1076",d:"M 104.50239,112.98493 96.150212,111.91585 98.756088,123.67571 Z"},
-       {id:"#path1078",d:"M 96.150212,111.91585 88.666665,108.6418 87.998492,120.73574 Z"},
-       {id:"#path1080",d:"M 88.666663,108.6418 81.984926,103.96458 78.443605,114.98945 Z"},
-       {id:"#path1082",d:"M 81.984926,103.96458 76.839989,97.416479 70.625972,107.23863 Z"},
-       {id:"#path1084",d:"M 76.839989,97.416479 73.565937,89.398392 65.013313,97.550112 Z"},
-       {id:"#path1086",d:"M 73.565937,89.398392 72.363223,81.179854 62.140165,86.59206 Z"},
-       {id:"#path1088",d:"M 72.363223,81.179854 73.766388,72.560412 62.140165,75.433559 Z"},
-       {id:"#path1090",d:"M 73.766388,72.560412 76.773171,64.742779 65.013313,64.609146 Z"},
-       {id:"#path1092",d:"M 76.773171,64.742779 81.784475,58.395128 70.625972,55.054259 Z"},
-       {id:"#path1094",d:"M 81.784475,58.395128 88.666663,53.116556 78.577241,46.902539 Z"},
-       {id:"#path1096",d:"M 88.666663,53.116556 88.800299,60.600102 94.88068,56.925146 Z"},
-       {id:"#path1098",d:"M 94.880678,56.925146 101.36197,55.321527 96.484299,49.775686 Z"},
-       {id:"#path1100",d:"M 101.36197,55.321527 104.63602,48.907059 108.24416,55.455163 Z"},
-       {id:"#path1102",d:"M 108.24416,55.455163 113.25546,49.909322 114.79226,57.192415 Z"},
-       {id:"#path1104",d:"M 114.79226,57.192415 120.87264,53.250189 120.73901,60.600102 Z"},
-       {id:"#path1106",d:"M 120.73901,60.600102 127.35393,58.461946 125.34941,65.210501 Z"},
-       {id:"#path1108",d:"M 125.34941,65.210501 132.43205,65.277319 128.75709,71.224065 Z"},
-       {id:"#path1110",d:"M 128.75709,71.224065 135.7061,72.827681 130.49435,77.705351 Z"},
-       {id:"#path1112",d:"M 130.49435,77.705351 136.64154,81.046221 130.22708,84.587542 Z"},
-       {id:"#path1114",d:"M 130.22708,84.587542 135.77292,89.532028 128.62346,91.269279 Z"},
-       {id:"#path1116",d:"M 128.62346,91.269279 125.01532,97.282843 132.29841,97.349661 Z"},
-       {id:"#path1118",d:"M 125.01532,97.282843 120.53856,101.89324 127.48756,103.76413 Z"},
-       {id:"#path1120",d:"M 120.53856,101.89324 114.52499,105.30093 120.80582,108.84225 Z"},
-       {id:"#path1122",d:"M 114.52499,105.30093 107.91007,106.97136 113.05501,111.98267 Z"},
-       {id:"#path1124",d:"M 107.91007,106.97136 101.02788,107.03818 104.50239,112.98493 Z"},
-       {id:"#path1126",d:"M 101.02788,107.03818 94.479778,105.36775 96.150212,111.91585 Z"},
-       {id:"#path1128",d:"M 94.479776,105.36775 88.666665,102.02688 88.666663,108.6418 Z"},
-       {id:"#path1130",d:"M 88.666663,102.02688 83.788995,96.948756 81.984926,103.96458 Z"},
-       {id:"#path1132",d:"M 83.788995,96.948756 80.314492,91.202461 76.839989,97.416479 Z"},
-       {id:"#path1134",d:"M 80.314492,91.202459 78.844509,84.520724 73.565937,89.398392 Z"},
-       {id:"#path1136",d:"M 78.748588,84.45221 78.681773,77.570019 72.267304,81.11134 Z"},
-       {id:"#path1138",d:"M 78.777692,77.638533 80.648579,70.956796 73.766388,72.560412 Z"},
-       {id:"#path1140",d:"M 80.648579,70.956796 84.056267,65.210501 76.773171,64.742779 Z"},
-       {id:"#path1142",d:"M 84.056267,65.210501 88.800299,60.600102 81.784475,58.395128 Z"},
-       {id:"#path1144",d:"M 78.844507,84.520724 84.056267,65.210501 101.36197,55.321527 Z"},
-       {id:"#path1146",d:"M 78.844507,84.520724 88.666663,102.02688 107.91007,106.97136 Z"},
-       {id:"#path1148",d:"M 107.91007,106.97136 130.49435,77.705351 125.01532,97.282843 Z"},
-       {id:"#path1150",d:"M 101.36197,55.321527 120.73901,60.600102 130.49435,77.705351 Z"},
+       {id:"#path1000",d:"M 39.02135,29.463203 105.97237,49.508417 82.586284,29.864108 Z"},
+       {id:"#path1002",d:"M 105.97237,49.508417 173.72519,30.131377 129.62572,29.463203 Z"},
+       {id:"#path1004",d:"M 82.586284,29.864108 129.62572,29.463203 105.97237,49.508417 Z"},
+       {id:"#path1006",d:"M 39.02135,29.463203 35.012307,76.50264 48.910324,74.631753 Z"},
+       {id:"#path1008",d:"M 173.72519,30.131377 163.56895,74.097212 177.46696,76.502639 Z"},
+       {id:"#path1010",d:"M 105.97237,49.508417 170.25069,44.964834 173.72519,30.131377 Z"},
+       {id:"#path1012",d:"M 105.97237,49.508417 42.909264,47.053383 39.02135,29.463203 Z"},
+       {id:"#path1014",d:"M 49.323735,74.582144 61.215886,47.857878 42.909264,47.053383 Z"},
+       {id:"#path1016",d:"M 163.56895,74.09721 147.80005,46.568452 170.25069,44.964834 Z"},
+       {id:"#path1018",d:"M 105.97237,49.508417 93.009796,99.755088 91.543843,49.040023 Z"},
+       {id:"#path1020",d:"M 119.0625,99.755086 105.97237,49.508417 120.5744,48.480654 Z"},
+       {id:"#path1022",d:"M 105.97237,49.508417 111.50297,129.17857 119.0625,99.755086 Z"},
+       {id:"#path1024",d:"M 100.71176,128.93304 93.009796,99.755086 105.97237,49.508417 Z"},
+       {id:"#path1026",d:"M 93.009796,99.755086 91.980513,129.19762 99.218749,123.8869 Z"},
+       {id:"#path1028",d:"M 112.92137,123.80935 120.53856,129.28837 119.0625,99.755086 Z"},
+       {id:"#path1030",d:"M 100.71176,128.93304 106.37327,185.81588 111.50297,129.17857 Z"},
+       {id:"#path1032",d:"M 91.980511,129.19762 106.37327,185.81588 99.218749,123.8869 Z"},
+       {id:"#path1034",d:"M 112.92137,123.80935 106.37327,185.81588 120.53856,129.28837 Z"},
+       {id:"#path1036",d:"M 105.9765,49.657245 97.899963,29.730673 82.590418,30.012936 Z"},
+       {id:"#path1038",d:"M 105.97237,49.508417 114.43229,29.572397 129.62572,29.463203 Z"},
+       {id:"#path1040",d:"M 105.97237,49.508417 92.074999,62.579167 93.009796,99.755086 Z"},
+       {id:"#path1042",d:"M 105.9765,49.657245 92.074999,65.621875 93.009796,99.755086 Z"},
+       {id:"#path1044",d:"M 105.9765,49.657245 92.339582,70.384375 93.009796,99.755086 Z"},
+       {id:"#path1046",d:"M 105.9765,49.657245 92.604166,77.263542 93.009796,99.755086 Z"},
+       {id:"#path1048",d:"M 105.9765,49.657245 92.868749,87.185417 93.009796,99.755086 Z"},
+       {id:"#path1050",d:"M 105.97237,49.508417 119.98854,62.579167 119.0625,99.755086 Z"},
+       {id:"#path1052",d:"M 105.97237,49.508417 119.98854,65.621875 119.0625,99.755086 Z"},
+       {id:"#path1054",d:"M 105.9765,49.657245 119.85625,70.384375 119.0625,99.755086 Z"},
+       {id:"#path1056",d:"M 105.9765,49.657245 119.59167,77.263542 119.0625,99.755086 Z"},
+       {id:"#path1058",d:"M 105.9765,49.657245 119.45937,87.185417 119.0625,99.755086 Z"},
+       {id:"#path1060",d:"M 105.97237,49.508417 92.086371,60.086245 93.009796,99.755086 Z"},
+       {id:"#path1062",d:"M 105.97237,49.508417 120.20447,60.239288 119.0625,99.755086 Z"},
+       {id:"#path1064",d:"M 105.97237,49.508417 91.810416,58.081251 93.009796,99.755086 Z"},
+       {id:"#path1066",d:"M 105.97237,49.508417 92.008853,56.03073 93.009796,99.755086 Z"},
+       {id:"#path1068",d:"M 105.97237,49.508417 91.843488,54.67474 93.009796,99.755086 Z"},
+       {id:"#path1070",d:"M 105.97237,49.508417 91.595953,53.518284 93.009796,99.755086 Z"},
+       {id:"#path1072",d:"M 105.97237,49.508417 91.678124,52.425782 93.009796,99.755086 Z"},
+       {id:"#path1074",d:"M 105.97237,49.508417 91.428239,51.383299 93.009796,99.755086 Z"},
+       {id:"#path1076",d:"M 105.97237,49.508417 91.439586,50.348639 93.009796,99.755086 Z"},
+       {id:"#path1078",d:"M 105.97237,49.508417 91.29927,49.317989 93.009796,99.755086 Z"},
+       {id:"#path1080",d:"M 105.97237,49.508417 91.202699,49.122623 93.009796,99.755086 Z"},
+       {id:"#path1082",d:"M 105.97237,49.508417 120.20447,58.08777 119.0625,99.755086 Z"},
+       {id:"#path1084",d:"M 105.97237,49.508417 120.29801,56.029793 119.0625,99.755086 Z"},
+       {id:"#path1086",d:"M 105.97237,49.508417 120.31927,54.641667 119.0625,99.755086 Z"},
+       {id:"#path1088",d:"M 105.97237,49.508417 120.41849,53.417969 119.0625,99.755086 Z"},
+       {id:"#path1090",d:"M 105.97237,49.508417 120.45156,52.392709 119.0625,99.755086 Z"},
+       {id:"#path1092",d:"M 105.97237,49.508417 120.43833,51.352576 119.0625,99.755086 Z"},
+       {id:"#path1094",d:"M 105.97237,49.508417 120.4851,50.276818 119.0625,99.755086 Z"},
+       {id:"#path1096",d:"M 105.97237,49.508417 120.5411,49.359201 119.0625,99.755086 Z"},
+       {id:"#path1098",d:"M 105.97237,49.508417 120.5744,48.480654 119.0625,99.755086 Z"},
+       {id:"#path1100",d:"M 105.97237,49.508417 91.980511,129.19762 93.009796,99.755086 Z"},
+       {id:"#path1102",d:"M 105.9765,49.657245 94.853955,140.59387 91.980511,129.19762 Z"},
+       {id:"#path1104",d:"M 105.97237,49.508417 98.22155,153.50299 94.853955,140.59387 Z"},
+       {id:"#path1106",d:"M 105.97237,49.508417 120.53856,129.28837 119.0625,99.755086 Z"},
+       {id:"#path1108",d:"M 117.67877,140.59387 105.97237,49.508417 120.53856,129.28837 Z"},
+       {id:"#path1110",d:"M 114.31117,153.69008 105.97237,49.508417 117.67877,140.59387 Z"},
+       {id:"#path1112",d:"M 105.97237,49.508417 102.89877,172.39894 98.22155,153.50299 Z"},
+       {id:"#path1114",d:"M 109.82105,172.21185 105.97237,49.508417 114.31117,153.69008 Z"},
+       {id:"#path1116",d:"M 105.9765,49.657245 39.02135,29.463203 42.364743,44.424487 Z"},
+       {id:"#path1118",d:"M 105.9765,49.657245 39.02135,29.463203 41.901722,42.572403 Z"},
+       {id:"#path1120",d:"M 105.97237,49.508417 39.02135,29.463203 41.446382,40.552605 Z"},
+       {id:"#path1122",d:"M 105.97237,49.508417 39.02135,29.463203 41.02979,38.71187 Z"},
+       {id:"#path1124",d:"M 105.97237,49.508417 39.02135,29.463203 40.699061,36.859787 Z"},
+       {id:"#path1126",d:"M 105.97237,49.508417 39.02135,29.463203 40.302186,35.019053 Z"},
+       {id:"#path1128",d:"M 105.9765,49.657245 39.02135,29.463203 39.924685,33.139571 Z"},
+       {id:"#path1130",d:"M 105.9765,49.657245 39.477714,31.272815 42.909264,47.053383 Z"},
+       {id:"#path1132",d:"M 105.97237,49.508417 170.62485,43.320087 170.25069,44.964834 Z"},
+       {id:"#path1134",d:"M 105.97237,49.508417 170.91587,41.648611 170.25069,44.964834 Z"},
+       {id:"#path1136",d:"M 105.97237,49.508417 171.41099,39.827822 170.25069,44.964834 Z"},
+       {id:"#path1138",d:"M 105.97237,49.508417 171.8343,38.249891 170.25069,44.964834 Z"},
+       {id:"#path1140",d:"M 105.9765,49.657245 172.24155,36.567065 170.25069,44.964834 Z"},
+       {id:"#path1142",d:"M 105.9765,49.657245 172.47527,35.029428 170.25069,44.964834 Z"},
+       {id:"#path1144",d:"M 105.97237,49.508417 172.93828,33.342709 170.25069,44.964834 Z"},
+       {id:"#path1146",d:"M 105.9765,49.657245 173.31261,31.739964 170.25069,44.964834 Z"},
+       {id:"#path1148",d:"M 105.9765,49.657245 42.656215,45.78669 39.02135,29.463203 Z"},
+       {id:"#path1150",d:"M 97.899962,29.730673 114.43229,29.572397 105.97237,49.508417 Z"},
 ];
 //end cPaths: circle paths
 
 //************************************ Transitions ************************************
+var sCircle = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var circleS = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var wCircle = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var circleW = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var bCircle = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var circleB = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var baCircle = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var circleBA = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
+
+//circle to stag
+sPaths.forEach(function(path, index) {
+ circleS 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    // offset: 1000 + 10 * index
+    offset:  10 * index
+  });
+});
+
+//stag to circle
+sPaths.forEach(function(path, index) {
+sCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 1000 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+
+cPaths.forEach(function(path, index) {
+sCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 2600 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+//circle to wolf
+wPaths.forEach(function(path, index) {
+ circleW 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset:  10 * index
+  });
+});
+
+//wolf to circle
+wPaths.forEach(function(path, index) {
+wCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 1000 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+cPaths.forEach(function(path, index) {
+wCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 2600 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+//circle to bull 
+bPaths.forEach(function(path, index) {
+ circleB 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset:  10 * index
+  });
+});
+
+//bull to circle
+bPaths.forEach(function(path, index) {
+bCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 1000 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+cPaths.forEach(function(path, index) {
+bCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 2600 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+//circle to boar 
+baPaths.forEach(function(path, index) {
+ circleBA 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset:  10 * index
+  });
+});
+
+//boar to circle
+baPaths.forEach(function(path, index) {
+baCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 1000 + 10 * index
+    // offset:  5 * index
+  });
+});
+
+cPaths.forEach(function(path, index) {
+baCircle 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    offset: 2600 + 10 * index
+    // offset:  5 * index
+  });
+});
+
 var stagWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var stagBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var stagBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
@@ -447,6 +631,9 @@ var bullStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: f
 var boarStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var bullBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var boarBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
+
+
 
 // var animals = anime.timeline({ autoplay: true, direction: 'alternate', loop: false });
 
@@ -466,6 +653,21 @@ bPaths.forEach(function(path, index) {
   });
 });
 
+//stag to wolf
+sPaths.forEach(function(path, index) {
+ stagWolf
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    // offset: 1000 + 10 * index
+    offset: 1000 + 5 * index
+  });
+});
+
 wPaths.forEach(function(path, index) {
  stagWolf
   .add({
@@ -476,7 +678,7 @@ wPaths.forEach(function(path, index) {
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset:  5 * index
+    offset: 2600 + 5 * index
   });
 });
 
@@ -770,64 +972,151 @@ boarStag
 //1: Wolf 
 //2: Bull
 //3: Boar
-var currState = 0;
-var changeState = function(nextState){
+var currState = -1;
+var changeState = function(nextState, cssId){
+	console.log("state: " + currState);
+	console.log("Next state: " + nextState);
+	console.log("------------");
 	if(currState != nextState){
-		if(currState == 0){
+		if(nextState == -1){
+			var obj = document.getElementById(cssId);
+			var direction = getDirection(event,obj);
+		}
+		if(currState == -1){
+			if(nextState == 0){
+				circleS.restart();
+				circleS.play();	
+			}
+			else if(nextState == 1){
+				circleW.restart();
+				circleW.play();	
+			}
+			else if(nextState == 2){
+				circleB.restart();
+				circleB.play();	
+			}
+			else if(nextState == 3){
+				circleBA.restart();
+				circleBA.play();	
+			}
+			currState = nextState;
+		}else if(currState == 0){
 			if(nextState == 1){
-				
-				stagWolf.restart();
+				stagWolf.seek(2500);
 				stagWolf.play();
+				currState = nextState;
 			}
 			else if(nextState == 2){
 				stagBull.restart();
 				stagBull.play();
+				currState = nextState;
 			}
 			else if(nextState == 3){
 				stagBoar.restart();	
 				stagBoar.play();	
+				currState = nextState;
+			}
+			else if(nextState == -1){
+				if(direction != 1){	
+					sCircle.seek(2500);
+					sCircle.play();
+					currState = nextState;
+				}
 			}
 		}else if(currState == 1){
 			if(nextState == 0){
 				wolfStag.seek(2500);
 				wolfStag.play();
+				currState = nextState;
 			}
 			else if(nextState == 2){
 				wolfBull.seek(2500);
 				wolfBull.play();
+				currState = nextState;
 			}
 			else if(nextState == 3){
 				wolfBoar.seek(2500);
 				wolfBoar.play();
+				currState = nextState;
+			}
+			else if(nextState == -1){
+				if(direction != 1 && direction != 3){
+					wCircle.seek(2500);
+					wCircle.play();
+					currState = nextState;
+				}
 			}
 		}else if(currState == 2){
 			if(nextState == 0){
 				bullStag.seek(2500);
 				bullStag.play();
+				currState = nextState;
 			}
 			else if(nextState == 1){
 				bullWolf.seek(2500);
 				bullWolf.play();
-
+				currState = nextState;
 			}
 			else if(nextState == 3){
 				bullBoar.seek(2500);
 				bullBoar.play();
+				currState = nextState;
+			}
+			else if(nextState == -1){
+				if(direction != 1 && direction != 3){
+					bCircle.seek(2500);
+					bCircle.play();
+					currState = nextState;
+				}
 			}
 		}else if(currState == 3){
 			if(nextState == 0){
 				boarStag.seek(2500);
 				boarStag.play();
+				currState = nextState;
 			}
 			else if(nextState == 1){
 				boarWolf.seek(2500);
 				boarWolf.play();
+				currState = nextState;
 			}
 			else if(nextState == 2){
 				boarBull.seek(2500);
 				boarBull.play();
+				currState = nextState;
+			}
+			else if(nextState == -1){
+				if(direction != 3){
+					baCircle.seek(2500);
+					baCircle.play();
+					currState = nextState;
+				}
 			}
 		}
-		currState = nextState;
 	}
 }
+
+//check which direction we stopped hovering in
+//	- if mouse left the bottom, trigger circle transition
+//	- otherwise exit should have no effect
+//: https://css-tricks.com/direction-aware-hover-effects/
+var getDirection =  function (event,obj) {
+	var xCor = event.pageX;	
+	var yCor = event.pageY;	
+	var box = obj.getBoundingClientRect();
+	const { width, height, top, left } = obj.getBoundingClientRect();
+	var h = height;
+	var w = width;
+        // calculate the x and y to get an angle to the center of the div from that x and y.
+        // gets the x value relative to the center of the DIV and "normalize" it
+        var x = (xCor - left - (w / 2)) * (w > h ? (h / w) : 1),
+        y = (yCor - top - (h / 2)) * (h > w ? (w / h) : 1),
+        // the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
+        // first calculate the angle of the point,
+        // add 180 deg to get rid of the negative values
+        // divide by 90 to get the quadrant
+        // add 3 and do a modulo by 4 to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
+        direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+console.log("direction: " + direction);
+    return direction;
+};
