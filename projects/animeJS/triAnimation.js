@@ -1406,6 +1406,12 @@ var hideItem = function(eId){
     e.style.visibility = 'hidden'; 
 }
 
+var showItem = function(eId){
+    //hides an element from the document
+    var e = document.getElementById(eId);
+    e.style.visibility = 'visible'; 
+}
+
 var removeItem = function(elemId){
 	var e = document.getElementById(elemId);
 	e.parentNode.removeChild(e);
@@ -1430,7 +1436,7 @@ var addImage = function(parentId,source){
     var pID = document.getElementById(parentId);
     var newElem = document.createElement('img');
     newElem.src = source;
-    newElem.style.width = '100%'; 
+    newElem.alt = "Could not load image";
     pID.appendChild(newElem);
 }
 
@@ -1449,10 +1455,32 @@ var clickAnimation = function(click){
 		hideItem("pageSelect2C");	
 		hideItem("pageSelect3C");	
 		addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
-
+		var tileContainer = document.getElementById('tileContainer');
+		var floatContainer = document.getElementById('floatContainer');
+		tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
+		setTimeout(carouselLoad,1500);		
 	}
 
 };
+
+var carouselLoad = function() {
+	addItem('tileContainer','div','carousel','',['carousel']);
+	document.getElementById('carousel').setAttribute('data-gap',80);
+	addItem('carousel','figure','fig','',[]);
+	addItem('carousel','nav','nav','',[]);
+	addItem('nav','button','prev','Prev',['nav','prev']);
+	addItem('nav','button','next','Next',['nav', 'next']);
+	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
+	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
+	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
+	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
+	addImage('fig','../../media/projects/Carousel/teapot.png');
+	addImage('fig','../../media/projects/Carousel/arm.png');
+	carouselLaunch();
+	
+}
 
 var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	console.log('creating tile');
@@ -1465,4 +1493,81 @@ var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	document.getElementById('head').style.fontWeight = 'bold';
 	addItem('div2','h5','headerD',headerDescrip,[]);
 	addItem('headerD','span','',date,["w3-opacity"]);
+}
+
+
+var carouselLaunch = function(){
+//javacsript to control carousel rotation
+	var carousels = document.querySelectorAll('.carousel');
+	for (var i = 0; i < carousels.length; i++) {
+		carousel(carousels[i]);
+	}
+
+	function carousel(root) {
+		var
+			figure = root.querySelector('figure'),
+			nav = root.querySelector('nav'),
+			images = figure.children,
+			n = images.length,
+			gap = root.dataset.gap || 0,
+			bfc = 'bfc' in root.dataset,
+			
+			theta =  2 * Math.PI / n,
+			currImage = 0
+		;
+		
+		setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
+		window.addEventListener('resize', () => { 
+			setupCarousel(n, parseFloat(getComputedStyle(images[0]).width)) 
+		});
+
+		setupNavigation();
+
+		function setupCarousel(n, s) {
+			var	
+				apothem = s / (2 * Math.tan(Math.PI / n))
+			;
+			
+			figure.style.transformOrigin = `50% 50% ${- apothem}px`;
+
+			for (var i = 0; i < n; i++)
+				images[i].style.padding = `${gap}px`;
+			for (i = 1; i < n; i++) {
+				images[i].style.transformOrigin = `50% 50% ${- apothem}px`;
+				images[i].style.transform = `rotateY(${i * theta}rad)`;
+			}
+			if (bfc)
+				for (i = 0; i < n; i++)
+					 images[i].style.backfaceVisibility = 'hidden';
+			
+			rotateCarousel(currImage);
+		}
+
+		function setupNavigation() {
+			var navig = document.getElementById('nav');	
+			navig.addEventListener('click', onClick, true);
+			
+			function onClick(e) {
+				e.stopPropagation();
+				
+				var t = e.target;
+				if (t.tagName.toUpperCase() != 'BUTTON')
+					return;
+				
+				if (t.classList.contains('next')) {
+					currImage++;
+				}
+				else {
+					currImage--;
+				}
+				
+				rotateCarousel(currImage);
+			}
+				
+		}
+
+		function rotateCarousel(imageIndex) {
+			figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
+		}
+	}
 }
