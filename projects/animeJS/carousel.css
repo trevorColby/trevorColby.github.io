@@ -1,5 +1,5 @@
 .carousel {
-  padding: 0px;
+  padding: 20px;
   -webkit-perspective: 500px;
   overflow: hidden;
   display: flex;
