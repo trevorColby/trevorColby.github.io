@@ -5,8 +5,8 @@ function isMobileDevice() {
 
 var svgElement = document.getElementById('svgElem');
 if(isMobileDevice()) {
-	svgElement.style.height = "auto";
-	svgElement.style.width = "100%";
+	// svgElement.style.height = "auto";
+	// svgElement.style.width = "100%";
 }else{
 	svgElement.style.height = "50%";
 	svgElement.style.width = "50%";
