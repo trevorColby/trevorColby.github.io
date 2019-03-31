@@ -1578,7 +1578,7 @@ var clickAnimation = function(click){
 		explode = false;
 	}
 	if(click == 1){
-		if(isMobile == false){
+		if(currState == 1){
 			wolfImplode.seek(2500);
 			wolfImplode.play();
 			explode = true;
@@ -1592,7 +1592,7 @@ var clickAnimation = function(click){
 			tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
 			setTimeout(carouselLoad,1500);		
 			setTimeout(function(){hideItem("animationContainer");},1500);		
-		}else{
+		}else if(currState == -1){
 			logoImplode.seek(2500);
 			logoImplode.play();
 			explode = true;
