@@ -11,6 +11,7 @@ if(isMobileDevice()) {
 	svgElement.style.width = "50%";
 }
 
+
 //Formatting Solution for SVG animation of spotlight unerline
 var pageSelect0 = document.getElementById("pageSelect0");
 var pS0Container = document.getElementById("pageSelect0C");
@@ -28,6 +29,26 @@ var pageSelect3 = document.getElementById("pageSelect3");
 var pS3Container = document.getElementById("pageSelect3C");
 pageSelect3.style.left = (pS3Container.offsetWidth - pageSelect3.offsetWidth)/2 + "px";
 
+window.onresize = function(event){
+
+	//Formatting Solution for SVG animation of spotlight unerline
+	var pageSelect0 = document.getElementById("pageSelect0");
+	var pS0Container = document.getElementById("pageSelect0C");
+	pageSelect0.style.left = (pS0Container.offsetWidth - pageSelect0.offsetWidth)/2 + "px";
+
+	var pageSelect1 = document.getElementById("pageSelect1");
+	var pS1Container = document.getElementById("pageSelect1C");
+	pageSelect1.style.left = (pS1Container.offsetWidth - pageSelect1.offsetWidth)/2 + "px";
+
+	var pageSelect2 = document.getElementById("pageSelect2");
+	var pS2Container = document.getElementById("pageSelect2C");
+	pageSelect2.style.left = (pS2Container.offsetWidth - pageSelect2.offsetWidth)/2 + "px";
+
+	var pageSelect3 = document.getElementById("pageSelect3");
+	var pS3Container = document.getElementById("pageSelect3C");
+	pageSelect3.style.left = (pS3Container.offsetWidth - pageSelect3.offsetWidth)/2 + "px";
+
+}
 
 //detect if triangles are explode or not
 var explode = false;
@@ -1253,11 +1274,11 @@ boarStag
 //2: Bull
 //3: Boar
 var currState = -1;
+// var changeState = function(nextState, cssId, event){
 var changeState = function(nextState, cssId){
 	if(explode == false){
 		if(currState != nextState){
 			if(nextState == -1){
-			
 				var obj = document.getElementById(cssId);
 				var direction = getDirection(event,obj);
 			}
@@ -1376,7 +1397,46 @@ var changeState = function(nextState, cssId){
 	}
 }
 
-//check which direction we stopped hovering in
+//create our closure wrapper
+var funcClosure = function(func, context, params){
+	return function(){
+		func.apply(context, params);	
+	}
+}
+
+//create our function instances with our params in an array format 
+// var stateT0 = funcClosure(changeState, this, [-1,'pageSelect0C']);
+// var stateT1 = funcClosure(changeState, this, [-1,'pageSelect1C']);
+// var stateT2 = funcClosure(changeState, this, [-1,'pageSelect2C']);
+// var stateT3 = funcClosure(changeState, this, [-1,'pageSelect3C']);
+// var state0 = funcClosure(changeState, this, [0]);
+// var state1 = funcClosure(changeState, this, [1]);
+// var state2 = funcClosure(changeState, this, [2]);
+// var state3 = funcClosure(changeState, this, [3]);
+
+var animationQueue = [];
+var hoverHandler = function(nextState,cssId){
+	var state = funcClosure(changeState, this, [nextState,cssId, event]);
+	animationQueue.push(state);	
+}
+
+window.onload = function(){
+	console.log('test');
+	setInterval(function(){
+		while(animationQueue.length > 0){
+			console.log('shift');
+			(animationQueue.shift())();	
+			setTimeout(function(){},700);
+		}
+	},10);
+
+	// setInterval(function(){
+	// 	console.log('second interval');
+	// 	if(timerCurr == 0){
+	// 		timerCurr = 1;
+	// 	}
+	// },1000);
+}//check which direction we stopped hovering in
 //	- if mouse left the bottom, trigger circle transition
 //	- otherwise exit should have no effect
 //: https://css-tricks.com/direction-aware-hover-effects/
@@ -1432,11 +1492,15 @@ var addItem = function(parentId,elemTag,elemId,innerHTML,classNames){
     pID.appendChild(newElem);
 }
 
+var imageNum = 0;
 var addImage = function(parentId,source){
     var pID = document.getElementById(parentId);
     var newElem = document.createElement('img');
+    newElem.setAttribute('id', 'card' + imageNum);
+    imageNum = imageNum + 1;
     newElem.src = source;
     newElem.alt = "Could not load image";
+    // newElem.classList.add('carouselImage');   
     pID.appendChild(newElem);
 }
 
@@ -1470,6 +1534,11 @@ var carouselLoad = function() {
 	addItem('carousel','nav','nav','',[]);
 	addItem('nav','button','prev','Prev',['nav','prev']);
 	addItem('nav','button','next','Next',['nav', 'next']);
+//card flip attempt	
+	// addItem('fig','div','flipcard1','',['flip-card']);
+	// addItem('flipcard1','div','flipcardinner1','',['flip-card-inner']);
+	// addItem('flipcardinner1','div','flipcardfront','',['flip-card-front']);
+	// addImage('flipcardfront','../../media/projects/Carousel/tibetScreenshot.png');
 	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
 	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
 	addImage('fig','../../media/projects/Carousel/leaflet.gif');
@@ -1483,7 +1552,6 @@ var carouselLoad = function() {
 }
 
 var createTile = function(tileId,imageSrc,header,headerDescrip,date){
-	console.log('creating tile');
 	var div1Classes = ['w3-card-4', 'w3-margin', 'w3-white'];
 	var div2Classes = ['w3-container'];
 	addItem('tileContainer','div',tileId,'',div1Classes);
@@ -1522,7 +1590,7 @@ var carouselLaunch = function(){
 		});
 
 		setupNavigation();
-
+		setupCardClick();
 		function setupCarousel(n, s) {
 			var	
 				apothem = s / (2 * Math.tan(Math.PI / n))
@@ -1546,25 +1614,39 @@ var carouselLaunch = function(){
 		function setupNavigation() {
 			var navig = document.getElementById('nav');	
 			navig.addEventListener('click', onClick, true);
-			
 			function onClick(e) {
 				e.stopPropagation();
-				
 				var t = e.target;
 				if (t.tagName.toUpperCase() != 'BUTTON')
 					return;
-				
 				if (t.classList.contains('next')) {
 					currImage++;
 				}
 				else {
 					currImage--;
 				}
-				
 				rotateCarousel(currImage);
 			}
-				
 		}
+
+		//this is a closure to create a click event for each individual image
+		//	- i.e each image has its own individual cardID local variable that is different
+		//	  and can be compared to the currImage value
+		function cardClick(cardID){
+			return function(){
+				if(cardID == currImage){
+					console.log("Click Detected");			
+				}
+			}
+		}
+		function setupCardClick() {
+			for(var i =0; i < imageNum; i ++){
+				var card = document.getElementById('card' + i);	
+				card.addEventListener('click',cardClick(i) , true);
+			
+			}
+		}
+
 
 		function rotateCarousel(imageIndex) {
 			figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
