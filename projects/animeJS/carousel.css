@@ -1,6 +1,7 @@
 .carousel {
   padding: 20px;
-  -webkit-perspective: 500px;
+  -webkit-perspective: 1000px !important;
+  /* -webkit-perspective: 50vh !important; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -15,12 +16,14 @@
   transform-style: preserve-3d;
   transition: transform 0.5s;
 }
-.carousel figure img {
+.carousel figure .cImg {
   width: 100%;
   box-sizing: border-box;
   padding: 0 0px;
+  opacity: .9;
+  transition: opacity 1s, transform 1s;
 }
-.carousel figure img:not(:first-of-type) {
+.carousel figure .cImg:not(:first-of-type) {
   position: absolute;
   left: 0;
   top: 0;
