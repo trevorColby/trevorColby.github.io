@@ -22,6 +22,146 @@ body, html {
     overflow: hidden;
 }
 
+/******************************** START FLIP CARD TEST */
+.show{
+    visibility: visible !important;
+}
+
+.hide{
+    visibility: visible !important;
+
+}
+
+.flipContainer {
+    width: 200px;
+    height: 260px;
+    position: relative;
+    border: 1px solid #ccc;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+
+.card div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 140px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card .front {
+  background: red;
+}
+
+.card .back {
+    background: blue;
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+.card.flipped {
+    -webkit-transform: rotateY( 180deg );
+    -moz-transform: rotateY( 180deg );
+    -o-transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
+}
+
+#flipContainer{
+  position: absolute;
+  text-align: center;
+}
+
+#infoCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1vh;
+  /*background-color: #A9A9A9;*/
+  background-color: #FFF;
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.showCard{
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.expand{
+    opacity: 0.0 !important;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+/*X IN FLIP CARD*/
+
+.close {
+  cursor: Pointer; 
+  position: absolute;
+  right: 1vh;
+  top: 1vh;
+  width: 10%;
+  height: 10%;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 85%;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
+/******************************* END FLIP CARD TEST */
+
+
+
 #floatContainer{
     position: absolute;
     text-align: center;
@@ -94,6 +234,7 @@ path {
 <!-- LOAD INS FOR POST EXPLOSION TRANSITION AND CONTENT DISPLAY -->
 <div id="floatContainer"></div>
 <div id="tileContainer"></div>
+<!-- <section id="flipContainer"></section> -->
   <!-- </div> -->
 <!-- </div> -->
 <div class="w3-center">	
