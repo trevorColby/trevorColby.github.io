@@ -824,6 +824,8 @@ var stagImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop
 var wolfImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var logoImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
+var pictureExpand = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
 //stag implode 
 sPaths.forEach(function(path, index) {
 stagImplode	 
@@ -984,6 +986,18 @@ logoImplode.add({
     duration: 200,
     easing: 'easeInCubic',
     offset: 3700
+});
+
+
+
+//Animation for Expanding Pictures in Carousel
+
+pictureExpand.add({
+  targets: '#carousel',
+  scale: 2,
+  duration: 200,
+  easing: 'easeInCubic',
+  offset: 100
 });
 
 
@@ -1567,7 +1581,7 @@ var addImage = function(parentId,source){
     imageNum = imageNum + 1;
     newElem.src = source;
     newElem.alt = "Could not load image";
-    // newElem.classList.add('carouselImage');   
+    newElem.classList.add('cImg');   
     pID.appendChild(newElem);
 }
 
@@ -1713,13 +1727,28 @@ var carouselLaunch = function(){
 			}
 		}
 
+		//function to solve javascript modulus bug
+		function mod(n, m) {
+			  return ((n % m) + m) % m;
+		}
+
 		//this is a closure to create a click event for each individual image
 		//	- i.e each image has its own individual cardID local variable that is different
 		//	  and can be compared to the currImage value
 		function cardClick(cardID){
 			return function(){
-				if(cardID == currImage){
-					console.log("Click Detected");			
+				if(cardID == (mod(currImage,8))){
+					// pictureExpand.play();
+					console.log('click');
+
+					var cardElem = document.getElementById('card' + cardID);
+					cardElem.classList.add('expand');
+					var translation = cardElem.style.transform;
+					cardElem.style.transform = translation + ' scale(5)';
+					
+					var infoElem = document.getElementById('infoCard');
+					infoElem.classList.add('showCard');
+					infoElem.firstChild.src = '../../media/projects/Carousel/tibetScreenshot.png';
 				}
 			}
 		}
@@ -1729,11 +1758,48 @@ var carouselLaunch = function(){
 				card.addEventListener('click',cardClick(i) , true);
 			
 			}
-		}
+			//This is the info div that will become visible on cardClick()
+			addItem('tileContainer','div','infoCard','',['infoCard']);
+			//this is just a holder for the info and pic that will be filled on click
+			// ********* NEED TO FIGURE OUT HOW I WANT THIS PROJECT PRESENTATION TO LOOK ******** 
+			// addImage('infoCard','');
+			// var imageC = document.getElementById('card' + (imageNum - 1));
+			// imageC.style.position = 'absolute';
+			// imageC.style.left = 0;
+			// imageC.style.height = '25%';
+			// imageC.style.width = '20%';
+			// imageC.style.clipPath = 'circle(10% at 10% 10%)';
+			addItem('infoCard','div','x','',['close']);
+			var x = document.getElementById('x');
+			x.addEventListener('click', xClick, true);
 
+			addItem('infoCard','h1','','John Doe','');
+			addItem('infoCard','p','','Architect and Engineer',[]);
+			addItem('infoCard','p','','Hope this works',[]);
+		}
+		function xClick(event){
+			console.log('xclick');
+			document.getElementById('infoCard').classList.remove('showCard');
+			var curCard = document.getElementById('card' + (mod(currImage,8)));
+			curCard.classList.remove('expand');	
+			var transf = curCard.style.transform;
+			curCard.style.transform = transf + 'scale(.2)';
+			console.log(transf);	
+		}
 
 		function rotateCarousel(imageIndex) {
 			figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
+			updateClickable(mod(currImage,8));
+		}
+		function updateClickable(cImage){
+			for(var i=0; i < 8; i ++){
+				var card = document.getElementById('card' + i);
+				if(i == cImage){
+					card.classList.add('clickable');	
+				}else{
+					card.classList.remove('clickable');
+				}
+			}	
 		}
 	}
 }
