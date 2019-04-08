@@ -1,7 +1,7 @@
 .carousel {
   padding: 20px;
+  /* -webkit-perspective: 500px !important; */
   -webkit-perspective: 1000px !important;
-  /* -webkit-perspective: 50vh !important; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -10,20 +10,23 @@
 .carousel > * {
   flex: 0 0 auto;
 }
-.carousel figure {
+/* .carousel figure { */
+.carousel #fig {
   margin: 0;
   width: 60%;
   transform-style: preserve-3d;
   transition: transform 0.5s;
 }
-.carousel figure .cImg {
+/* .carousel figure .cImg { */
+.carousel #fig .cImg {
   width: 100%;
   box-sizing: border-box;
   padding: 0 0px;
   opacity: .9;
   transition: opacity 1s, transform 1s;
 }
-.carousel figure .cImg:not(:first-of-type) {
+/* .carousel figure .cImg:not(:first-of-type) { */
+.carousel #fig .cImg:not(:first-of-type) {
   position: absolute;
   left: 0;
   top: 0;
@@ -31,7 +34,8 @@
 .carousel nav {
   display: flex;
   justify-content: center;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
+  z-index: 1;
 }
 .carousel nav button {
   flex: 0 0 auto;
