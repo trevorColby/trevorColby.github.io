@@ -1788,9 +1788,9 @@ var carouselLaunch = function(){
 			var x = document.getElementById('x');
 			x.addEventListener('click', xClick, true);
 
-			addItem('infoCard','h1','','John Doe','');
-			addItem('infoCard','p','','Architect and Engineer',[]);
-			addItem('infoCard','p','','Hope this works',[]);
+			addItem('infoCard','h2','','John Doe',['cardTitle']);
+			addItem('infoCard','p','','Architect and Engineer',['cardSubTitle']);
+			addItem('infoCard','p','','Hope this works',['cardContent']);
 		}
 		function xClick(event){
 			document.getElementById('infoCard').classList.remove('showCard');
