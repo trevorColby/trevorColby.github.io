@@ -1602,6 +1602,7 @@ var clickAnimation = function(click){
 			hideItem("pageSelect3C");	
 			addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
 			var tileContainer = document.getElementById('tileContainer');
+			// tileContainer.style.perspective = 'l000px';
 			var floatContainer = document.getElementById('floatContainer');
 			tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
 			setTimeout(carouselLoad,1500);		
@@ -1627,8 +1628,8 @@ var clickAnimation = function(click){
 
 var carouselLoad = function() {
 	addItem('tileContainer','div','carousel','',['carousel']);
-	document.getElementById('carousel').setAttribute('data-gap',5);
-	addItem('carousel','figure','fig','',[]);
+	document.getElementById('carousel').setAttribute('data-gap',12);
+	addItem('carousel','div','fig','',[]);
 	addItem('carousel','nav','nav','',[]);
 	addItem('nav','button','prev','Prev',['nav','prev']);
 	addItem('nav','button','next','Next',['nav', 'next']);
@@ -1671,13 +1672,13 @@ var carouselLaunch = function(){
 
 	function carousel(root) {
 		var
-			figure = root.querySelector('figure'),
+			// figure = root.querySelector('figure'),
+			figure = root.querySelector('#fig'),
 			nav = root.querySelector('nav'),
 			images = figure.children,
 			n = images.length,
 			gap = root.dataset.gap || 0,
 			bfc = 'bfc' in root.dataset,
-			
 			theta =  2 * Math.PI / n,
 			currImage = 0
 		;
@@ -1690,18 +1691,34 @@ var carouselLaunch = function(){
 		setupNavigation();
 		setupCardClick();
 		function setupCarousel(n, s) {
-			var	
-				apothem = s / (2 * Math.tan(Math.PI / n))
-			;
-			
-			figure.style.transformOrigin = `50% 50% ${- apothem}px`;
-
-			for (var i = 0; i < n; i++)
+			var apothem = s / (2 * Math.tan(Math.PI / n));
+			// document.getElementById('card0').style.transform = `translateZ(${- apothem}px)`;	
+			// figure.style.transformBox = 'fillBox';
+			// figure.style.webkitTransformOrigin = `50% 50% ${- apothem}px`;
+			// figure.style.MozTransformOrigin = `50% 50% ${- apothem}px`;
+			// figure.style.transform = `translateZ(${- apothem}px)`;
+			for (var i = 0; i < n; i++){
 				images[i].style.padding = `${gap}vw`;
-			for (i = 1; i < n; i++) {
-				images[i].style.transformOrigin = `50% 50% ${- apothem}px`;
-				images[i].style.transform = `rotateY(${i * theta}rad)`;
 			}
+
+			for (i = 0; i < n; i++) {
+				// var radius = ((images[1].width)/2)/(Math.tan(360/8));
+				var width = document.getElementById('carousel').offsetWidth;
+				var radius = 1.2*((width)/2)/(Math.tan(360/8));
+				images[i].style.padding = `${gap}vw`;
+				console.log(radius);
+				if(i == 0){
+					images[i].style.transform = `translateZ(${-radius}px)`;
+				}
+				// images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${- apothem}px)`;
+				// images[i].style.transformBox = 'fillBox';
+				// images[i].style.webkitTransformOrigin = `50% 50% ${- apothem}px`;
+				// images[i].style.MozTransformOrigin = `50% 50% ${- apothem}px`;
+				// console.log(i*theta);
+				images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${radius}px)`;
+			}
+			// document.getElementById('carousel').style.transform = `translateZ(${-radius}px)`;
+
 			if (bfc)
 				for (i = 0; i < n; i++)
 					 images[i].style.backfaceVisibility = 'hidden';
@@ -1738,8 +1755,6 @@ var carouselLaunch = function(){
 		function cardClick(cardID){
 			return function(){
 				if(cardID == (mod(currImage,8))){
-					// pictureExpand.play();
-					console.log('click');
 
 					var cardElem = document.getElementById('card' + cardID);
 					cardElem.classList.add('expand');
@@ -1778,13 +1793,11 @@ var carouselLaunch = function(){
 			addItem('infoCard','p','','Hope this works',[]);
 		}
 		function xClick(event){
-			console.log('xclick');
 			document.getElementById('infoCard').classList.remove('showCard');
 			var curCard = document.getElementById('card' + (mod(currImage,8)));
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
 			curCard.style.transform = transf + 'scale(.2)';
-			console.log(transf);	
 		}
 
 		function rotateCarousel(imageIndex) {
