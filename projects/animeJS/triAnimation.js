@@ -1691,6 +1691,8 @@ var carouselLaunch = function(){
 		setupNavigation();
 		setupCardClick();
 		function setupCarousel(n, s) {
+			//add in title for carousel slides
+			addItem('tileContainer','h1','carouselTitle','Tibet',['data-morph','carouselTitle']);
 			var apothem = s / (2 * Math.tan(Math.PI / n));
 			// document.getElementById('card0').style.transform = `translateZ(${- apothem}px)`;	
 			// figure.style.transformBox = 'fillBox';
@@ -1803,6 +1805,7 @@ var carouselLaunch = function(){
 		function rotateCarousel(imageIndex) {
 			figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
 			updateClickable(mod(currImage,8));
+			updateMorphText(mod(currImage,8));
 		}
 		function updateClickable(cImage){
 			for(var i=0; i < 8; i ++){
@@ -1816,3 +1819,97 @@ var carouselLaunch = function(){
 		}
 	}
 }
+
+
+//morphing text experiment
+/**
+ * morpher() morph a text to another
+ * It loops over chars to morph the text
+ *
+ * @param {Element} element
+ * @param {String} start
+ * @param {String} end
+ */
+const morpher = (element, start, end) => {
+  /**
+   * Write parameters
+   *
+   * [1] : chars is an array of characters you choose to randomly morph the text between start and end
+   * [2] : duration is the duration of the global morph
+   * [3] : frameRate is the speed of the morph for each letter
+   */
+  const chars     = ['a','b','c','d','e','f','g','0','1','2','3','4','5','6','7','8','9','%','$','?','!']; /*[1]*/
+  const duration  = 0.5;  /*[2]*/
+  const frameRate = 25; /*[3]*/
+
+  /**
+   * Write text variables
+   */
+  const string = start.split('');
+  const result = end.split('');
+  const slen   = string.length;
+  const rlen   = result.length;
+
+  /**
+   * Write time variables
+   */
+  let present   = new Date();
+  let past      = present.getTime();
+  let count     = 0;
+  let spentTime = 0;
+  // SplitTime  = milliseconds / letters
+  let splitTime = (duration * 1000) / Math.max(slen, rlen);
+
+  const update = () => {
+    // Update present date and spent time
+    present    = new Date();
+    spentTime += present.getTime() - past;
+
+    // Random letters
+    for (let i = count; i < Math.max(slen, rlen); i++) {
+      const random = Math.floor(Math.random() * (chars.length - 1));
+      // Change letter
+      string[i] = chars[random];
+    }
+
+    // Morph letters from start to end
+    if (spentTime >= splitTime) {
+      // Update count of letters to morph
+      count += Math.floor(spentTime / splitTime);
+      // Morphing
+      for (let j = 0; j < count; j++) {
+        string[j] = result[j] || null;
+      }
+      // Reset spent time
+      spentTime = 0;
+    }
+
+    // Update DOM
+    element.textContent = string.join('');
+
+    // Save present date
+    past = present.getTime();
+
+    // Loop
+    if (count < Math.max(slen, rlen)) {
+      // Only use a setTimeout if the frameRate is lower than 60FPS
+      // Remove the setTimeout if the frameRate is equal to 60FPS
+      setTimeout(() => {
+        window.requestAnimationFrame(update);
+      }, 500 / frameRate);
+    }
+  };
+
+  // Start loop
+  update();
+}
+
+
+function updateMorphText(counter){
+    const morph  = document.querySelector('.data-morph');
+    const button = document.querySelector('.js-morph-trigger');
+    const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
+    const start = morph.innerHTML;
+    const end   = words[counter];
+    morpher(morph, start, end);
+}  
