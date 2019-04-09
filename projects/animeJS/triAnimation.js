@@ -1692,7 +1692,7 @@ var carouselLaunch = function(){
 		setupCardClick();
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
-			addItem('tileContainer','h1','carouselTitle','Tibet',['data-morph','carouselTitle']);
+			addItem('tileContainer','h1','carouselTitle','',['data-morph','carouselTitle']);
 			var apothem = s / (2 * Math.tan(Math.PI / n));
 			// document.getElementById('card0').style.transform = `translateZ(${- apothem}px)`;	
 			// figure.style.transformBox = 'fillBox';
@@ -1756,7 +1756,8 @@ var carouselLaunch = function(){
 		//	  and can be compared to the currImage value
 		function cardClick(cardID){
 			return function(){
-				if(cardID == (mod(currImage,8))){
+				var num = mod(currImage,8);
+				if(cardID == num){
 
 					var cardElem = document.getElementById('card' + cardID);
 					cardElem.classList.add('expand');
@@ -1766,6 +1767,28 @@ var carouselLaunch = function(){
 					var infoElem = document.getElementById('infoCard');
 					infoElem.classList.add('showCard');
 					infoElem.firstChild.src = '../../media/projects/Carousel/tibetScreenshot.png';
+
+					var infoCard = document.getElementById('infoCard');
+					if(num == 0){
+						console.log(infoCard.childNodes[1].innerHTML);
+						infoCard.childNodes[1].innerHTML = 'Tibet';	
+						infoCard.childNodes[2].innerHTML = "Visualizing a Tibetan nomad's artwork with ThreeJS";	
+						infoCard.childNodes[3].innerHTML = "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>[Click Here To Learn More]";	
+					}else if(num == 1){
+						infoCard.childNodes[1].innerHTML = 'Architecture';	
+					}else if(num == 2){
+						infoCard.childNodes[1].innerHTML = 'Leaflet';	
+					}else if(num == 3){
+						infoCard.childNodes[1].innerHTML = 'Ray Tracing';	
+					}else if(num == 4){
+						infoCard.childNodes[1].innerHTML = 'Phong Shading';	
+					}else if(num == 5){
+						infoCard.childNodes[1].innerHTML = 'ThreeJS';	
+					}else if(num == 6){
+						infoCard.childNodes[1].innerHTML = 'Utah Teapot';	
+					}else if(num == 7){
+						infoCard.childNodes[1].innerHTML = 'Skinning';	
+					}
 				}
 			}
 		}
@@ -1795,8 +1818,9 @@ var carouselLaunch = function(){
 			addItem('infoCard','p','','Hope this works',['cardContent']);
 		}
 		function xClick(event){
+			var num = mod(currImage,8);
 			document.getElementById('infoCard').classList.remove('showCard');
-			var curCard = document.getElementById('card' + (mod(currImage,8)));
+			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
 			curCard.style.transform = transf + 'scale(.2)';
