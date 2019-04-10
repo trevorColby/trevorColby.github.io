@@ -1584,7 +1584,19 @@ var addImage = function(parentId,source){
     newElem.classList.add('cImg');   
     pID.appendChild(newElem);
 }
-
+var hideAnimationStage = function(){
+	explode = true;
+	hideItem("pageSelect0C");	
+	hideItem("pageSelect1C");	
+	hideItem("pageSelect2C");	
+	hideItem("pageSelect3C");	
+	addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
+	var tileContainer = document.getElementById('tileContainer');
+	var floatContainer = document.getElementById('floatContainer');
+	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
+	setTimeout(carouselLoad,1500);		
+	setTimeout(function(){hideItem("animationContainer");},1500);		
+}
 var clickAnimation = function(click){
 	if(click == 0){
 		// stagImplode.seek(2500);
@@ -1592,35 +1604,22 @@ var clickAnimation = function(click){
 		explode = false;
 	}
 	if(click == 1){
-		if(currState == 1){
+		if(currState == 0){
+			circleW.restart();
+			circleW.play();	
+			// setTimeout(wolfImplode.seek(2500),800);
+			// setTimeout(wolfImplode.play(),800);
+			// hideAnimationStage();
+		}else if(currState == 1){
 			wolfImplode.seek(2500);
 			wolfImplode.play();
-			explode = true;
-			hideItem("pageSelect0C");	
-			hideItem("pageSelect1C");	
-			hideItem("pageSelect2C");	
-			hideItem("pageSelect3C");	
-			addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
-			var tileContainer = document.getElementById('tileContainer');
-			// tileContainer.style.perspective = 'l000px';
-			var floatContainer = document.getElementById('floatContainer');
-			tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
-			setTimeout(carouselLoad,1500);		
-			setTimeout(function(){hideItem("animationContainer");},1500);		
+			hideAnimationStage();
 		}else if(currState == -1){
-			logoImplode.seek(2500);
-			logoImplode.play();
-			explode = true;
-			hideItem("pageSelect0C");	
-			hideItem("pageSelect1C");	
-			hideItem("pageSelect2C");	
-			hideItem("pageSelect3C");	
-			addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
-			var tileContainer = document.getElementById('tileContainer');
-			var floatContainer = document.getElementById('floatContainer');
-			tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
-			setTimeout(carouselLoad,1500);		
-			setTimeout(function(){hideItem("animationContainer");},1500);		
+			circleW.restart();
+			circleW.play();	
+			setTimeout(logoImplode.seek(2500),800);
+			setTimeout(logoImplode.play(),800);
+			hideAnimationStage();
 		}	
 	}
 
