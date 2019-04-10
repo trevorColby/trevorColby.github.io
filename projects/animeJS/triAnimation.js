@@ -1770,24 +1770,41 @@ var carouselLaunch = function(){
 
 					var infoCard = document.getElementById('infoCard');
 					if(num == 0){
-						console.log(infoCard.childNodes[1].innerHTML);
+						document.getElementById('cardLink').href='../../../projects/tibet/public/pages/language.html';
+						document.getElementById('cardImgLink').src='../../../media/projects/Carousel/endlessKnot.png';
+						console.log(document.getElementById('cardImgLink').src);
 						infoCard.childNodes[1].innerHTML = 'Tibet';	
-						infoCard.childNodes[2].innerHTML = "Visualizing a Tibetan nomad's artwork with ThreeJS";	
-						infoCard.childNodes[3].innerHTML = "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>[Click Here To Learn More]";	
+						infoCard.childNodes[2].innerHTML = "Visualizing a Tibetan nomad's artwork with ThreeJS";
+						infoCard.childNodes[3].innerHTML = "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>";	
 					}else if(num == 1){
 						infoCard.childNodes[1].innerHTML = 'Architecture';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';
+
 					}else if(num == 2){
 						infoCard.childNodes[1].innerHTML = 'Leaflet';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}else if(num == 3){
 						infoCard.childNodes[1].innerHTML = 'Ray Tracing';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}else if(num == 4){
 						infoCard.childNodes[1].innerHTML = 'Phong Shading';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}else if(num == 5){
 						infoCard.childNodes[1].innerHTML = 'ThreeJS';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}else if(num == 6){
 						infoCard.childNodes[1].innerHTML = 'Utah Teapot';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}else if(num == 7){
 						infoCard.childNodes[1].innerHTML = 'Skinning';	
+						infoCard.childNodes[2].innerHTML = '';	
+						infoCard.childNodes[3].innerHTML = '';	
 					}
 				}
 			}
@@ -1816,7 +1833,10 @@ var carouselLaunch = function(){
 			addItem('infoCard','h2','','John Doe',['cardTitle']);
 			addItem('infoCard','p','','Architect and Engineer',['cardSubTitle']);
 			addItem('infoCard','p','','Hope this works',['cardContent']);
+			addItem('infoCard','a','cardLink','',[]);
+			addItem('cardLink','img','cardImgLink','',['cardImgLink']);
 		}
+
 		function xClick(event){
 			var num = mod(currImage,8);
 			document.getElementById('infoCard').classList.remove('showCard');
