@@ -645,6 +645,19 @@ var circleBA = anime.timeline({ autoplay: false, direction: 'alternate', loop: f
 
 
 //circle to stag
+cPaths.forEach(function(path, index) {
+ circleS 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    // offset: 1000 + 10 * index
+    offset:  1000 + 10 * index
+  });
+});
 sPaths.forEach(function(path, index) {
  circleS 
   .add({
@@ -655,7 +668,7 @@ sPaths.forEach(function(path, index) {
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset:  10 * index
+    offset:  2600 + 10 * index
   });
 });
 
@@ -1015,13 +1028,31 @@ var boarStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: f
 var bullBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var boarBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
-
+var removeAllAnimations = function(){
+	cPaths.forEach(function(path, index){
+		anime.remove(path.id);
+	});
+}
 
 
 // var animals = anime.timeline({ autoplay: true, direction: 'alternate', loop: false });
 
 // var timeline = anime.timeline({ autoplay: false, direction: 'alternate', loop: true });
 // paths.forEach(function(path, index) {
+sPaths.forEach(function(path, index) {
+ stagBull 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    // offset: 1000 + 10 * index
+    offset:  1000 + 10 * index
+  });
+});
+
 bPaths.forEach(function(path, index) {
  stagBull 
   .add({
@@ -1032,7 +1063,7 @@ bPaths.forEach(function(path, index) {
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset:  5 * index
+    offset:  2600 + 10 * index
   });
 });
 
@@ -1047,7 +1078,7 @@ sPaths.forEach(function(path, index) {
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset: 1000 + 5 * index
+    offset: 1000 + 10 * index
   });
 });
 
@@ -1061,11 +1092,25 @@ wPaths.forEach(function(path, index) {
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset: 2600 + 5 * index
+    offset: 2600 + 10 * index
   });
 });
 
 //stagBoar
+sPaths.forEach(function(path, index) {
+stagBoar 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInOutQuad'
+    },
+    // offset: 1000 + 10 * index
+    offset: 1000 + 10 * index
+  });
+});
+
 baPaths.forEach(function(path, index) {
 stagBoar 
   .add({
@@ -1076,7 +1121,7 @@ stagBoar
       easing: 'easeInOutQuad'
     },
     // offset: 1000 + 10 * index
-    offset:  5 * index
+    offset:  2600 + 10 * index
   });
 });
 
@@ -1358,15 +1403,21 @@ boarStag
 var currState = -1;
 // var changeState = function(nextState, cssId, event){
 var changeState = function(nextState, cssId){
+	console.log("Curr State: " + currState);
+	console.log("Next State: " + nextState);
 	if(explode == false){
 		if(currState != nextState){
+			removeAllAnimations();
 			if(nextState == -1){
-				var obj = document.getElementById(cssId);
-				var direction = getDirection(event,obj);
+				// var obj = document.getElementById(cssId);
+				// var direction = getDirection(event,obj);
+				//random num for testing
+				var direction = 7;
 			}
 			if(currState == -1){
 				if(nextState == 0){
-					circleS.restart();
+					// circleS.restart();
+					circleS.seek(2500);
 					circleS.play();	
 				}
 				else if(nextState == 1){
@@ -1389,12 +1440,12 @@ var changeState = function(nextState, cssId){
 					currState = nextState;
 				}
 				else if(nextState == 2){
-					stagBull.restart();
+					stagBull.seek(2500);
 					stagBull.play();
 					currState = nextState;
 				}
 				else if(nextState == 3){
-					stagBoar.restart();	
+					stagBoar.seek(2500);	
 					stagBoar.play();	
 					currState = nextState;
 				}
@@ -1957,4 +2008,12 @@ function updateMorphText(counter){
     const start = morph.innerHTML;
     const end   = words[counter];
     morpher(morph, start, end);
-}  
+}
+
+var rect = document.getElementById('pageSelect0C').getBoundingClientRect();
+var body = document.getElementsByTagName('body');
+body[0].onmousemove = function(e) {
+	if(e.clientY > rect.bottom){
+		changeState(-1);
+	}
+};
