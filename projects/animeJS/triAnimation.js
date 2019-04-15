@@ -1688,6 +1688,8 @@ var carouselLaunch = function(){
 		});
 
 		setupNavigation();
+		var buttonHeight = document.getElementById('next').offsetHeight;
+		document.getElementById('carouselTitle').style.bottom = (buttonHeight * 1.5) + 'px';
 		setupCardClick();
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
