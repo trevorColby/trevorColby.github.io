@@ -1766,6 +1766,8 @@ var hideAnimationStage = function(){
 		// console.log(w);
 		if(isMobileDevice()){
 			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*4 + " " + h*4);
+			document.getElementById("homeIcon").style.width = '15vw';
+			document.getElementById("homeIcon").style.height = '15vw';
 		}
 		else{
 			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
