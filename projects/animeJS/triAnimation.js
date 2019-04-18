@@ -1764,7 +1764,12 @@ var hideAnimationStage = function(){
 		var w = document.getElementById("homeIcon").offsetWidth;
 		// console.log(h);
 		// console.log(w);
-		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*3 + " " + h*3);
+		if(isMobileDevice()){
+			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*4 + " " + h*4);
+		}
+		else{
+			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
+		}
 		setStrokeColor("#000000",0.4);		
 	},1500);		
 }
