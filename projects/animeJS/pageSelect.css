@@ -19,8 +19,24 @@ td{
     position: relative;
     height: 100%;
 }
-td:hover{
+/*td:hover{
     color:white;
+}*/
+#pageSelect0C:hover{
+    color: #00FF00;
+}
+
+#pageSelect1C:hover{
+    color: #00FFFF;
+}
+
+#pageSelect2C:hover{
+    /*color: #ff3d00;*/
+    color: #ffa500;
+}
+
+#pageSelect3C:hover{
+    color: #FF00FF;
 }
 
 .white{
