@@ -20,6 +20,8 @@ var orangeColor = '#ffa500';
 var purpleColor = '#FF00FF';
 var greenColor = '#00FF00';
 
+//Only load in items on first launch
+var carouselLaunched = 0;
 
 //alternative way to test for mobile debatably more thorough
 var isMobile = false; //initiate as false
@@ -858,6 +860,7 @@ var stagImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop
 var wolfImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var logoImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var fadeBlack = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var curtain = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
 var pictureExpand = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
@@ -869,6 +872,24 @@ fadeBlack.add({
     duration: 2000,
     easing: 'easeInCubic',
     offset: 100
+});
+
+//curtain animation
+curtain.add({
+    targets: '#transitionCurtain',
+    backgroundColor: '#000',
+    opacity: 1,
+    duration: 1000,
+    easing: 'easeInCubic',
+    offset: 0 
+});
+curtain.add({
+    targets: '#transitionCurtain',
+    backgroundColor: '#fff',
+    opacity: 0,
+    duration: 1000,
+    easing: 'easeOutCubic',
+    offset: 1500 
 });
 
 //stag implode 
@@ -1069,6 +1090,7 @@ var removeAllAnimations = function(){
 	});
 }
 
+//function to set the stroke color and optionally weight for all paths with matching animation ID
 var setStrokeColor = function(color,width){
 	document.querySelectorAll('path').forEach(function(path) {
 		 path.style.stroke = color;
@@ -1076,9 +1098,14 @@ var setStrokeColor = function(color,width){
 			path.style.strokeWidth = width + 'px';
 		}
 	});
-	// cPaths.forEach(function(path, index){
-	// 	// document.getElementById(path.id.substring(1)).style.stroke = color;
-	// });
+}
+
+//function to set the fill color and fill-opacity for all paths with matching animation ID
+var setFillColor = function(color, opacity){
+	document.querySelectorAll('path').forEach(function(path) {
+		 path.style.fill = color;
+		 path.style.fillOpacity = opacity; 
+	});
 }
 
 
@@ -1712,93 +1739,121 @@ var hideAnimationStage = function(){
 	hideItem("pageSelect2C");	
 	hideItem("pageSelect3C");	
 	addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
+	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
 	var floatContainer = document.getElementById('floatContainer');
 	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
-	setTimeout(carouselLoad,1500);		
+	// setTimeout(carouselLoad,1500);		
+	setTimeout(function(){
+		if(carouselLaunched == 0){
+			carouselLaunch();
+			carouselLaunched = 1;
+		}
+		else{
+			showItem('carousel');
+			showItem('fig');
+			showItem('nav');
+			showItem('prev');
+			showItem('next');
+		}
+	},1500);		
 	setTimeout(function(){
 		hideItem("animationContainer");
 		showItem("homeIcon");	
 		var h = document.getElementById("homeIcon").offsetHeight;
 		var w = document.getElementById("homeIcon").offsetWidth;
-		console.log(h);
-		console.log(w);
+		// console.log(h);
+		// console.log(w);
 		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
-		setStrokeColor("#000000",2);		
+		setStrokeColor("#000000",0.4);		
 	},1500);		
 }
+var hoverOnHomeIcon = function(){
+	var home = document.getElementById('homeIconSVG');
+	home.addEventListener('mouseover',function(){
+		setStrokeColor(redColor,0);	
+		// setFillColor('#999999', '1');
+		
+	})
+	home.addEventListener('mouseout',function(){
+		setStrokeColor('#000',0);	
+		// setFillColor('none', '1');
+	})
+}
 
-
-var revealAnimationStage = function(){
+var revealAnimationStage = function(click){
+	curtain.restart();
+	curtain.play();
 	explode = false;
-	showItem("pageSelect0C");	
-	showItem("pageSelect1C");	
-	showItem("pageSelect2C");	
-	showItem("pageSelect3C");	
-	removeItem('pageTitle');
-	showItem("animationContainer");
-	hideItem("homeIcon");
-	hideItem("carousel");
-	hideItem("carouselTitle");
-	fadeBlack.play();
-	setTimeout(setStrokeColor("#fff",0.3),1000);
+	changeState(-1);	
+	setTimeout(function(){
+		hideItem("homeIcon");
+		showItem("pageSelect0C");	
+		showItem("pageSelect1C");	
+		showItem("pageSelect2C");	
+		showItem("pageSelect3C");	
+		removeItem('pageTitle');
+		showItem("animationContainer");
+		hideItem("carousel");
+		hideItem("fig");
+		hideItem("nav");
+		hideItem("prev");
+		hideItem("next");
+		hideItem("carouselTitle");
+		fadeBlack.restart();
+		fadeBlack.play();
+
+	}, 1000);
+	setTimeout(function(){setStrokeColor(redColor,0.4);},1800);
+		
 }
 
-var clickReverse = function(click){
-//getBlack div overscreen and have it fade to dark and then fade in with svg content	
-	revealAnimationStage();
-};
+//var clickReverse = function(click){
+////getBlack div overscreen and have it fade to dark and then fade in with svg content	
+//	revealAnimationStage(click);
+//};
 var clickAnimation = function(click){
-	if(click == 0){
-		// stagImplode.seek(2500);
-		// stagImplode.play();
-		explode = false;
+	if(!isMobileDevice()){
+		if(click == 0){
+			// stagImplode.seek(2500);
+			// stagImplode.play();
+			explode = false;
+		}
+		if(click == 1){
+			if(currState == 0){
+				circleW.restart();
+				circleW.play();	
+				// setTimeout(wolfImplode.seek(2500),800);
+				// setTimeout(wolfImplode.play(),800);
+				// hideAnimationStage();
+			}else if(currState == 1){
+				wolfImplode.seek(2500);
+				wolfImplode.play();
+				hideAnimationStage();
+			}else if(currState == -1){
+				// circleW.restart();
+				// circleW.play();	
+				// setTimeout(logoImplode.seek(2500),800);
+				// setTimeout(logoImplode.play(),800);
+				// hideAnimationStage();
+			}	
+		}
 	}
-	if(click == 1){
-		if(currState == 0){
+	else{
+		if(click == 1){
+			explode = true;
 			circleW.restart();
-			circleW.play();	
-			// setTimeout(wolfImplode.seek(2500),800);
-			// setTimeout(wolfImplode.play(),800);
-			// hideAnimationStage();
-		}else if(currState == 1){
-			wolfImplode.seek(2500);
-			wolfImplode.play();
-			hideAnimationStage();
-		}else if(currState == -1){
-			circleW.restart();
-			circleW.play();	
-			setTimeout(logoImplode.seek(2500),800);
-			setTimeout(logoImplode.play(),800);
-			hideAnimationStage();
-		}	
+			circleW.start();
+			setTimeout(function(){
+				wolfImplode.seek(2500);
+				wolfImplode.play();
+				hideAnimationStage();
+			},1000);
+		}
+			
 	}
 
 };
-
-var carouselLoad = function() {
-	addItem('tileContainer','div','carousel','',['carousel']);
-	document.getElementById('carousel').setAttribute('data-gap',12);
-	addItem('carousel','div','fig','',[]);
-	addItem('carousel','nav','nav','',[]);
-	addItem('nav','button','prev','Prev',['nav','prev']);
-	addItem('nav','button','next','Next',['nav', 'next']);
-//card flip attempt	
-	// addItem('fig','div','flipcard1','',['flip-card']);
-	// addItem('flipcard1','div','flipcardinner1','',['flip-card-inner']);
-	// addItem('flipcardinner1','div','flipcardfront','',['flip-card-front']);
-	// addImage('flipcardfront','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
-	addImage('fig','../../media/projects/Carousel/leaflet.gif');
-	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
-	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
-	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
-	addImage('fig','../../media/projects/Carousel/teapot.png');
-	addImage('fig','../../media/projects/Carousel/arm.png');
-	carouselLaunch();
-	
-}
 
 var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	var div1Classes = ['w3-card-4', 'w3-margin', 'w3-white'];
@@ -1814,6 +1869,28 @@ var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 
 
 var carouselLaunch = function(){
+	//function to setup hover color change on homeicon
+	hoverOnHomeIcon();
+	addItem('tileContainer','div','carousel','',['carousel']);
+	showItem('carousel');
+	document.getElementById('carousel').setAttribute('data-gap',12);
+	addItem('carousel','div','fig','',[]);
+	showItem('fig');
+	addItem('carousel','nav','nav','',[]);
+	showItem('nav');
+	addItem('nav','button','prev','Prev',['nav','prev']);
+	showItem('prev');
+	addItem('nav','button','next','Next',['nav', 'next']);
+	showItem('next');
+	//carousel images
+	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
+	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
+	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
+	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
+	addImage('fig','../../media/projects/Carousel/teapot.png');
+	addImage('fig','../../media/projects/Carousel/arm.png');
 //javacsript to control carousel rotation
 	var carousels = document.querySelectorAll('.carousel');
 	for (var i = 0; i < carousels.length; i++) {
@@ -1994,6 +2071,8 @@ var carouselLaunch = function(){
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
 			curCard.style.transform = transf + 'scale(.2)';
+			var cardImg = document.getElementById('cardImgLink');
+			setTimeout(function(){cardImg.src = '';},400);
 		}
 
 		function rotateCarousel(imageIndex) {
