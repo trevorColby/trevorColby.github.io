@@ -2784,17 +2784,41 @@ body[0].onmousemove = function(e) {
 //This is Used just to make sure we have consistent stroke weight for our animations
 setStrokeColor(redColor,0.4);
 
+function colorRouter(){
+	if(currState == 0){
+		return greenColor;	
+	}else if(currState == 1){
+		return blueColor;	
+	}else if(currState == 2){
+		return orangeColor;
+	}else if(currState == 3){
+		return purpleColor;
+	}
+}
 
 //will need to addmodificationt to force 'fake hovering' and change color of links while swiping
+//	- consider adding class to class list instead of individually adding style
+//	- could also write function to just add/change color of pageSelect 
 var body = document.getElementsByTagName('body')[0];
+console.log(body);
 var hammertime = new Hammer(body);
 hammertime.on('panleft', function(ev) {
+	console.log('panleft');
 	if(isMobileDevice()){
-		changeState(currState + 1);
+		//default color
+		document.getElementById('pageSelect' + currState).style.color = '#808080';
+		changeState(mod((currState + 1),4));
+		document.getElementById('pageSelect' + currState).style.color = colorRouter();
 	}
 });
+
 hammertime.on('panright', function(ev) {
+	console.log('panright');
 	if(isMobileDevice()){
-		changeState(currState - 1);
+		//default color
+		document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
+		changeState(mod((currState - 1),4));
+		// currHighlight = currHighlight - 1;
+		document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
 	}
 });
