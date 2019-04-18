@@ -12,6 +12,14 @@ if(isMobileDevice()) {
 	svgElement.style.width = "50%";
 }
 
+//COLOR CHOICES FOR OUR TRANSITIONS!
+var blueColor = '#00FFFF';
+var redColor = '#f90000';
+// var orangeColor = '#ff3d00';
+var orangeColor = '#ffa500';
+var purpleColor = '#FF00FF';
+var greenColor = '#00FF00';
+
 
 //alternative way to test for mobile debatably more thorough
 var isMobile = false; //initiate as false
@@ -649,6 +657,7 @@ cPaths.forEach(function(path, index) {
  circleS 
   .add({
     targets: path.id,
+    stroke: '#f90000',
     d: {
       value: path.d,
       duration: 700,
@@ -662,6 +671,7 @@ sPaths.forEach(function(path, index) {
  circleS 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -677,6 +687,7 @@ sPaths.forEach(function(path, index) {
 sCircle 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -692,6 +703,7 @@ cPaths.forEach(function(path, index) {
 sCircle 
   .add({
     targets: path.id,
+    stroke: redColor,
     d: {
       value: path.d,
       duration: 700,
@@ -707,6 +719,7 @@ wPaths.forEach(function(path, index) {
  circleW 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -721,6 +734,7 @@ wPaths.forEach(function(path, index) {
 wCircle 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -735,6 +749,7 @@ cPaths.forEach(function(path, index) {
 wCircle 
   .add({
     targets: path.id,
+    stroke: redColor,
     d: {
       value: path.d,
       duration: 700,
@@ -750,6 +765,7 @@ bPaths.forEach(function(path, index) {
  circleB 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -764,6 +780,7 @@ bPaths.forEach(function(path, index) {
 bCircle 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -778,6 +795,7 @@ cPaths.forEach(function(path, index) {
 bCircle 
   .add({
     targets: path.id,
+    stroke: redColor,
     d: {
       value: path.d,
       duration: 700,
@@ -793,6 +811,7 @@ baPaths.forEach(function(path, index) {
  circleBA 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -807,6 +826,7 @@ baPaths.forEach(function(path, index) {
 baCircle 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -821,6 +841,7 @@ cPaths.forEach(function(path, index) {
 baCircle 
   .add({
     targets: path.id,
+    stroke: redColor,
     d: {
       value: path.d,
       duration: 700,
@@ -836,14 +857,26 @@ baCircle
 var stagImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var wolfImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var logoImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var fadeBlack = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
 var pictureExpand = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
+//backgorund color change fade dark
+//fade to black
+fadeBlack.add({
+    targets: 'body',
+    backgroundColor: '#000',
+    duration: 2000,
+    easing: 'easeInCubic',
+    offset: 100
+});
 
 //stag implode 
 sPaths.forEach(function(path, index) {
 stagImplode	 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -898,6 +931,7 @@ wPaths.forEach(function(path, index) {
 wolfImplode	 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -953,6 +987,7 @@ cPaths.forEach(function(path, index) {
 logoImplode	 
   .add({
     targets: path.id,
+    stroke: redColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1034,6 +1069,18 @@ var removeAllAnimations = function(){
 	});
 }
 
+var setStrokeColor = function(color,width){
+	document.querySelectorAll('path').forEach(function(path) {
+		 path.style.stroke = color;
+		if(width != 0){
+			path.style.strokeWidth = width + 'px';
+		}
+	});
+	// cPaths.forEach(function(path, index){
+	// 	// document.getElementById(path.id.substring(1)).style.stroke = color;
+	// });
+}
+
 
 // var animals = anime.timeline({ autoplay: true, direction: 'alternate', loop: false });
 
@@ -1043,6 +1090,7 @@ sPaths.forEach(function(path, index) {
  stagBull 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1057,6 +1105,7 @@ bPaths.forEach(function(path, index) {
  stagBull 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1072,6 +1121,7 @@ sPaths.forEach(function(path, index) {
  stagWolf
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1086,6 +1136,7 @@ wPaths.forEach(function(path, index) {
  stagWolf
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1101,6 +1152,7 @@ sPaths.forEach(function(path, index) {
 stagBoar 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1115,6 +1167,7 @@ baPaths.forEach(function(path, index) {
 stagBoar 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1130,6 +1183,7 @@ wPaths.forEach(function(path, index) {
 wolfBull 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1145,6 +1199,7 @@ bPaths.forEach(function(path, index) {
 wolfBull 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1160,6 +1215,7 @@ bPaths.forEach(function(path, index) {
 bullWolf 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1175,6 +1231,7 @@ wPaths.forEach(function(path, index) {
 bullWolf 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1190,6 +1247,7 @@ bPaths.forEach(function(path, index) {
 bullBoar 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1205,6 +1263,7 @@ baPaths.forEach(function(path, index) {
 bullBoar
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1221,6 +1280,7 @@ baPaths.forEach(function(path, index) {
 boarBull 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1236,6 +1296,7 @@ bPaths.forEach(function(path, index) {
 boarBull
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1251,6 +1312,7 @@ wPaths.forEach(function(path, index) {
 wolfBoar 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1266,6 +1328,7 @@ baPaths.forEach(function(path, index) {
 wolfBoar 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1282,6 +1345,7 @@ baPaths.forEach(function(path, index) {
 boarWolf 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1297,6 +1361,7 @@ wPaths.forEach(function(path, index) {
 boarWolf 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1312,6 +1377,7 @@ wPaths.forEach(function(path, index) {
 wolfStag 
   .add({
     targets: path.id,
+    stroke: blueColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1326,6 +1392,7 @@ sPaths.forEach(function(path, index) {
 wolfStag 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1342,6 +1409,7 @@ bPaths.forEach(function(path, index) {
 bullStag 
   .add({
     targets: path.id,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1356,6 +1424,7 @@ sPaths.forEach(function(path, index) {
 bullStag 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1372,6 +1441,7 @@ baPaths.forEach(function(path, index) {
 boarStag 
   .add({
     targets: path.id,
+    stroke: purpleColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1386,6 +1456,7 @@ sPaths.forEach(function(path, index) {
 boarStag 
   .add({
     targets: path.id,
+    stroke: greenColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1403,8 +1474,6 @@ boarStag
 var currState = -1;
 // var changeState = function(nextState, cssId, event){
 var changeState = function(nextState, cssId){
-	console.log("Curr State: " + currState);
-	console.log("Next State: " + nextState);
 	if(explode == false){
 		if(currState != nextState){
 			removeAllAnimations();
@@ -1635,6 +1704,7 @@ var addImage = function(parentId,source){
     newElem.classList.add('cImg');   
     pID.appendChild(newElem);
 }
+
 var hideAnimationStage = function(){
 	explode = true;
 	hideItem("pageSelect0C");	
@@ -1646,8 +1716,38 @@ var hideAnimationStage = function(){
 	var floatContainer = document.getElementById('floatContainer');
 	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
 	setTimeout(carouselLoad,1500);		
-	setTimeout(function(){hideItem("animationContainer");},1500);		
+	setTimeout(function(){
+		hideItem("animationContainer");
+		showItem("homeIcon");	
+		var h = document.getElementById("homeIcon").offsetHeight;
+		var w = document.getElementById("homeIcon").offsetWidth;
+		console.log(h);
+		console.log(w);
+		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
+		setStrokeColor("#000000",2);		
+	},1500);		
 }
+
+
+var revealAnimationStage = function(){
+	explode = false;
+	showItem("pageSelect0C");	
+	showItem("pageSelect1C");	
+	showItem("pageSelect2C");	
+	showItem("pageSelect3C");	
+	removeItem('pageTitle');
+	showItem("animationContainer");
+	hideItem("homeIcon");
+	hideItem("carousel");
+	hideItem("carouselTitle");
+	fadeBlack.play();
+	setTimeout(setStrokeColor("#fff",0.3),1000);
+}
+
+var clickReverse = function(click){
+//getBlack div overscreen and have it fade to dark and then fade in with svg content	
+	revealAnimationStage();
+};
 var clickAnimation = function(click){
 	if(click == 0){
 		// stagImplode.seek(2500);
@@ -1760,7 +1860,6 @@ var carouselLaunch = function(){
 				var width = document.getElementById('carousel').offsetWidth;
 				var radius = 1.2*((width)/2)/(Math.tan(360/8));
 				images[i].style.padding = `${gap}vw`;
-				console.log(radius);
 				if(i == 0){
 					images[i].style.transform = `translateZ(${-radius}px)`;
 				}
@@ -1824,7 +1923,6 @@ var carouselLaunch = function(){
 					if(num == 0){
 						document.getElementById('cardLink').href='../../../projects/tibet/public/pages/language.html';
 						document.getElementById('cardImgLink').src='../../../media/projects/Carousel/endlessKnot.png';
-						console.log(document.getElementById('cardImgLink').src);
 						infoCard.childNodes[1].innerHTML = 'Tibet';	
 						infoCard.childNodes[2].innerHTML = "Visualizing a Tibetan nomad's artwork with ThreeJS";
 						infoCard.childNodes[3].innerHTML = "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>";	
@@ -2017,3 +2115,6 @@ body[0].onmousemove = function(e) {
 		changeState(-1);
 	}
 };
+
+// setStrokeColor('#cc6600',0.4);
+setStrokeColor(redColor,0.4);
