@@ -1744,6 +1744,18 @@ var hideAnimationStage = function(){
 	var floatContainer = document.getElementById('floatContainer');
 	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
 	// setTimeout(carouselLoad,1500);		
+	var h = document.getElementById("homeIcon").offsetHeight;
+	var w = document.getElementById("homeIcon").offsetWidth;
+	// console.log(h);
+	// console.log(w);
+	if(isMobileDevice()){
+		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
+		document.getElementById("homeIcon").style.width = '15vw';
+		document.getElementById("homeIcon").style.height = '15vw';
+	}
+	else{
+		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
+	}
 	setTimeout(function(){
 		if(carouselLaunched == 0){
 			carouselLaunch();
@@ -1760,18 +1772,6 @@ var hideAnimationStage = function(){
 	setTimeout(function(){
 		hideItem("animationContainer");
 		showItem("homeIcon");	
-		var h = document.getElementById("homeIcon").offsetHeight;
-		var w = document.getElementById("homeIcon").offsetWidth;
-		// console.log(h);
-		// console.log(w);
-		if(isMobileDevice()){
-			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
-			document.getElementById("homeIcon").style.width = '15vw';
-			document.getElementById("homeIcon").style.height = '15vw';
-		}
-		else{
-			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
-		}
 		setStrokeColor("#000000",0.4);		
 	},1500);		
 }
