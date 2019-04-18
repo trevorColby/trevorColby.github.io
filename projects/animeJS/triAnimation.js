@@ -2804,6 +2804,7 @@ console.log(body);
 var hammertime = new Hammer(body);
 hammertime.on('panleft', function(ev) {
 	console.log('panleft');
+	alert('panleft');
 	if(isMobileDevice()){
 		//default color
 		document.getElementById('pageSelect' + currState).style.color = '#808080';
@@ -2814,6 +2815,7 @@ hammertime.on('panleft', function(ev) {
 
 hammertime.on('panright', function(ev) {
 	console.log('panright');
+	alert('panright');
 	if(isMobileDevice()){
 		//default color
 		document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
