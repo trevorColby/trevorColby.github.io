@@ -138,8 +138,7 @@ body, html {
 /******************************* END FLIP CARD TEST */
 
 .cardImgLink{
-    width: 20vh;
-    height: 20vh;
+    width: 10vw;
     left: 20%;
     margin: 2vh;
 }
@@ -174,9 +173,18 @@ body, html {
     font-size: 5vw;
 }
 
+#transitionCurtain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+}
+
 #myNavbar {
     position: absolute;
 }
+
 svg{
     position: block;
     margin: 0 auto;
@@ -223,7 +231,7 @@ path {
 
 <!-- LOAD INS FOR POST EXPLOSION TRANSITION AND CONTENT DISPLAY -->
 <!-- <img src="../../media/homepage/pictures/logoTransparent.png" class="navIcon" id="homeIcon"> -->
-<a id="homeIcon" class="navIcon" href='javascript:void(0);' onclick="clickReverse(0)">
+<a id="homeIcon" class="navIcon" href='javascript:void(0);' onclick="revealAnimationStage(0)">
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    class="navIcon"
@@ -486,6 +494,7 @@ path {
 </a>
 <div id="floatContainer"></div>
 <div id="tileContainer"></div>
+<div id="transitionCurtain"></div>
 <!-- <section id="flipContainer"></section> -->
   <!-- </div> -->
 <!-- </div> -->
