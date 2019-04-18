@@ -1848,7 +1848,6 @@ var clickAnimation = function(click){
 				wolfImplode.seek(2500);
 				wolfImplode.play();
 				hideAnimationStage();
-				alert('hello');
 			},1500);
 		}
 			
