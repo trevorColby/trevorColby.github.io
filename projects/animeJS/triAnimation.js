@@ -1843,12 +1843,12 @@ var clickAnimation = function(click){
 		if(click == 1){
 			explode = true;
 			circleW.restart();
-			circleW.start();
+			circleW.play();
 			setTimeout(function(){
 				wolfImplode.seek(2500);
 				wolfImplode.play();
 				hideAnimationStage();
-			},1000);
+			},1500);
 		}
 			
 	}
