@@ -31,8 +31,6 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 
-
-
 //Formatting Solution for SVG animation of spotlight unerline
 var pageSelect0 = document.getElementById("pageSelect0");
 var pS0Container = document.getElementById("pageSelect0C");
@@ -73,6 +71,252 @@ window.onresize = function(event){
 
 //detect if triangles are explode or not
 var explode = false;
+
+//content of each carousel page
+var stagContent = {
+	card0: {
+		title: 'Dartmouth College',
+		subTitle: "B.A in Engineering Sciences and a B.E in Computer Engineering",
+		content: "Relevant Courses: ",
+		//insert link to RESUME page
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Track and Field',
+		subTitle: 'Senior Captain',
+		content: 'Middle distance runner specializing in the 800m. Ivy League Championship 3rd Place 4x800 relay. Margerie Chase Award Recipient.',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Work Experience',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Website Design',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+//content of each carousel page
+var wolfContent = {
+	card0: {
+		title: 'Tibet',
+		subTitle: "Visualizing a Tibetan Nomad's Artwork with ThreeJS",
+		content: "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Architecture',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Leaflet',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Ray Tracing',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: 'Phong Shading',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: 'ThreeJS',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: 'Utah Teapot',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: 'Skinning',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+var bullContent = {
+	card0: {
+		title: 'Code',
+		subTitle: "",
+		content: "Wow Coding so Cool!",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'More Code',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Leaflet',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Ray Tracing',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: 'Phong Shading',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: 'ThreeJS',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: 'Utah Teapot',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: 'Skinning',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+//content of each carousel page
+var boarContent = {
+	card0: {
+		title: 'Me, Myself, and I',
+		subTitle: "",
+		content: "Coding, Engineering, Running, Photography, Hiking",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Track & Field',
+		subTitle: 'Senior Captain',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: '',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: '',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+
+
+
+
+
 
 //Wolf paths 
 var wPaths = [
@@ -858,13 +1102,14 @@ baCircle
 //************************************ Implode Transitions ************************************
 var stagImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var wolfImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var logoImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var bullImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var boarImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var fadeBlack = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var curtain = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
 var pictureExpand = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
-//backgorund color change fade dark
+//backgorund color change fade dark during return to directory screen
 //fade to black
 fadeBlack.add({
     targets: 'body',
@@ -935,8 +1180,7 @@ stagImplode
     // offset: 3500
   });
 });
-//background color change
-// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+//background color change for stagImplode
 // background 
 stagImplode.add({
     targets: 'body',
@@ -1003,12 +1247,12 @@ wolfImplode.add({
 });
 
 
-//logo implode
-cPaths.forEach(function(path, index) {
-logoImplode	 
+//bull implode animation
+bPaths.forEach(function(path, index) {
+bullImplode	 
   .add({
     targets: path.id,
-    stroke: redColor,
+    stroke: orangeColor,
     d: {
       value: path.d,
       duration: 700,
@@ -1020,7 +1264,7 @@ logoImplode
 });
 
 iPaths.forEach(function(path, index) {
-logoImplode	 
+bullImplode	 
   .add({
     targets: path.id,
     d: {
@@ -1034,7 +1278,7 @@ logoImplode
 });
 
 ePaths.forEach(function(path, index) {
-logoImplode	 
+bullImplode	 
   .add({
     targets: path.id,
     d: {
@@ -1046,9 +1290,10 @@ logoImplode
     // offset: 3500
   });
 });
-
+//background color change
+// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 // background 
-logoImplode.add({
+bullImplode.add({
     targets: 'body',
     // targets: '#pageSelect0C',
     backgroundColor: '#e6e6e6',
@@ -1057,10 +1302,63 @@ logoImplode.add({
     offset: 3700
 });
 
+//boar implode animation
+baPaths.forEach(function(path, index) {
+boarImplode	 
+  .add({
+    targets: path.id,
+    stroke: purpleColor,
+    d: {
+      value: path.d,
+      duration: 700,
+      easing: 'easeInCubic'
+    },
+    offset: 1000 + 10 * index
+    // offset:  5 * index
+  });
+});
 
+iPaths.forEach(function(path, index) {
+boarImplode	 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 200,
+      easing: 'easeInCubic'
+    },
+    // offset: 2600 
+    offset: 2600 + 3 * index
+  });
+});
 
+ePaths.forEach(function(path, index) {
+boarImplode	 
+  .add({
+    targets: path.id,
+    d: {
+      value: path.d,
+      duration: 150,
+      easing: 'easeInCubic'
+    },
+    offset: 3500 + 2 * index
+    // offset: 3500
+  });
+});
+//background color change
+// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+// background 
+boarImplode.add({
+    targets: 'body',
+    // targets: '#pageSelect0C',
+    backgroundColor: '#e6e6e6',
+    duration: 200,
+    easing: 'easeInCubic',
+    offset: 3700
+});
+
+//PictureExpand
 //Animation for Expanding Pictures in Carousel
-
 pictureExpand.add({
   targets: '#carousel',
   scale: 2,
@@ -1512,7 +1810,6 @@ var changeState = function(nextState, cssId){
 			}
 			if(currState == -1){
 				if(nextState == 0){
-					// circleS.restart();
 					circleS.seek(2500);
 					circleS.play();	
 				}
@@ -1732,22 +2029,33 @@ var addImage = function(parentId,source){
     pID.appendChild(newElem);
 }
 
-var hideAnimationStage = function(){
+function setTitle(linkNum){
+	if(linkNum == 0){
+		addItem('floatContainer','h1','pageTitle','Home',[]);
+	}else if(linkNum == 1){
+		addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
+	}else if(linkNum == 2){
+		addItem('floatContainer','h1','pageTitle','Portfolio',[]);
+	}else if(linkNum == 3){
+		addItem('floatContainer','h1','pageTitle','About Me',[]);
+	}	
+}
+//function called when a link in the directory is clicked
+//Hides items and on the first time through will add the neccesary features for rendering the carousel
+var hideAnimationStage = function(linkNum){
 	explode = true;
 	hideItem("pageSelect0C");	
 	hideItem("pageSelect1C");	
 	hideItem("pageSelect2C");	
 	hideItem("pageSelect3C");	
-	addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
+	setTitle(linkNum);
 	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
 	var floatContainer = document.getElementById('floatContainer');
 	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
-	// setTimeout(carouselLoad,1500);		
 	var h = document.getElementById("homeIcon").offsetHeight;
 	var w = document.getElementById("homeIcon").offsetWidth;
-	// console.log(h);
-	// console.log(w);
+	//set the appropriate height and width of the home icon for a mobile device
 	if(isMobileDevice()){
 		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
 		document.getElementById("homeIcon").style.width = '15vw';
@@ -1757,17 +2065,19 @@ var hideAnimationStage = function(){
 		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
 	}
 	setTimeout(function(){
-		if(carouselLaunched == 0){
-			carouselLaunch();
-			carouselLaunched = 1;
-		}
-		else{
-			showItem('carousel');
-			showItem('fig');
-			showItem('nav');
-			showItem('prev');
-			showItem('next');
-		}
+		//Need to make it so we are destroying and reloading the carousel each time
+		//right now we are just loading/reloading it (check mobile performance before blowing away old version)
+		// if(carouselLaunched == 0){
+			carouselLaunch(linkNum);
+			// carouselLaunched = 1;
+		// }
+		// else{
+			// showItem('carousel');
+			// showItem('fig');
+			// showItem('nav');
+			// showItem('prev');
+			// showItem('next');
+		// }
 	},1500);		
 	setTimeout(function(){
 		hideItem("animationContainer");
@@ -1775,6 +2085,7 @@ var hideAnimationStage = function(){
 		setStrokeColor("#000000",0.4);		
 	},1500);		
 }
+
 var hoverOnHomeIcon = function(){
 	var home = document.getElementById('homeIconSVG');
 	home.addEventListener('mouseover',function(){
@@ -1789,6 +2100,7 @@ var hoverOnHomeIcon = function(){
 }
 
 var revealAnimationStage = function(click){
+	imageNum = 0;
 	curtain.restart();
 	curtain.play();
 	explode = false;
@@ -1801,12 +2113,19 @@ var revealAnimationStage = function(click){
 		showItem("pageSelect3C");	
 		removeItem('pageTitle');
 		showItem("animationContainer");
-		hideItem("carousel");
-		hideItem("fig");
-		hideItem("nav");
-		hideItem("prev");
-		hideItem("next");
+		//ORGINALLY HIDE VERSION: Switched to Destory/Remove Version so loading in different carousels
+		//will be seamless and we also get the carousel spinning animation everytime instead of only once.
+		//May want to balance this for mobile/slow internet applications. Will definitely need to compress images 
+		//either way to boost performance (particularly on mobile)
+		// hideItem("carousel");
+		// hideItem("fig");
+		// hideItem("nav");
+		// hideItem("prev");
+		// hideItem("next");
 		hideItem("carouselTitle");
+		removeItem("carouselTitle");
+		removeItem("carousel");
+		removeItem("infoCard");
 		fadeBlack.restart();
 		fadeBlack.play();
 
@@ -1819,45 +2138,218 @@ var revealAnimationStage = function(click){
 ////getBlack div overscreen and have it fade to dark and then fade in with svg content	
 //	revealAnimationStage(click);
 //};
+var currLink = 0;
 var clickAnimation = function(click){
 	if(!isMobileDevice()){
 		if(click == 0){
-			// stagImplode.seek(2500);
-			// stagImplode.play();
-			explode = false;
+			stagImplode.seek(2500);
+			stagImplode.play();
+			hideAnimationStage(0);
+			currLink = 0;
 		}
-		if(click == 1){
-			if(currState == 0){
-				circleW.restart();
-				circleW.play();	
-				// setTimeout(wolfImplode.seek(2500),800);
-				// setTimeout(wolfImplode.play(),800);
-				// hideAnimationStage();
-			}else if(currState == 1){
-				wolfImplode.seek(2500);
-				wolfImplode.play();
-				hideAnimationStage();
-			}else if(currState == -1){
-				// circleW.restart();
-				// circleW.play();	
-				// setTimeout(logoImplode.seek(2500),800);
-				// setTimeout(logoImplode.play(),800);
-				// hideAnimationStage();
-			}	
+		else if(click == 1){
+			wolfImplode.seek(2500);
+			wolfImplode.play();
+			hideAnimationStage(1);
+			currLink = 1;
 		}
+		else if(click == 2){
+			bullImplode.seek(2500);
+			bullImplode.play();
+			hideAnimationStage(2);
+			currLink = 2;
+		}
+		else if(click == 3){
+			boarImplode.seek(2500);
+			boarImplode.play();
+			hideAnimationStage(3);
+			currLink = 3;
+		}
+
 	}
-	else{
-		if(click == 1){
-			explode = true;
-			circleW.restart();
-			circleW.play();
-			setTimeout(function(){
+	else{ 
+		//if we are not on a mobile device we don't have hover events so we should stall out
+		//the hover state machine by setting explode = true; and then manually perform the transformations
+		//from whatever state we are currently in, to the state that has been clicked on. Then we finish by 
+		//performing the implode/explode animation and calling the hideAnimationStage() function with the appropriate
+		//paramter corresponding to whatever link was clicked
+		if(click == 0){
+			if(currState == -1){
+				explode = true;
+				circleS.seek(2500);
+				circleS.play();
+				setTimeout(function(){
+					stagImplode.seek(2500);
+					stagImplode.play();
+					hideAnimationStage(0);
+				},1500);
+			}
+			else if(currState == 0){
+				explode = true;
+				stagImplode.seek(2500);
+				stagImplode.play();
+				hideAnimationStage(0);
+			}else if(currState == 1){
+				explode = true;
+				wolfStag.seek(2500);
+				wolfStag.play();
+				setTimeout(function(){
+					stagImplode.seek(2500);
+					stagImplode.play();
+					hideAnimationStage(0);
+				},1500);
+			}else if(currState == 2){
+				explode = true;
+				bullStag.seek(2500);
+				bullStag.play();
+				setTimeout(function(){
+					stagImplode.seek(2500);
+					stagImplode.play();
+					hideAnimationStage(0);
+				},1500);
+			}else if(currState == 3){
+				explode = true;
+				boarStag.seek(2500);
+				boarStag.play();
+				setTimeout(function(){
+					stagImplode.seek(2500);
+					stagImplode.play();
+					hideAnimationStage(0);
+				},1500);
+			}
+		}
+		else if(click == 1){
+			if(currState == -1){
+				explode = true;
+				circleW.restart();
+				circleW.play();
+				setTimeout(function(){
+					wolfImplode.seek(2500);
+					wolfImplode.play();
+					hideAnimationStage(1);
+				},1500);
+			}else if(currState == 0){
+				explode = true;
+				stagWolf.seek(2500);
+				stagWolf.play();
+				setTimeout(function(){
+					wolfImplode.seek(2500);
+					wolfImplode.play();
+					hideAnimationStage(1);
+				},1500);
+			}else if(currState == 1){
+				explode = true;
 				wolfImplode.seek(2500);
 				wolfImplode.play();
-				hideAnimationStage();
-			},1500);
+				hideAnimationStage(1);
+			}else if(currState == 2){
+				explode = true;
+				bullWolf.seek(2500);
+				bullWolf.play();
+				setTimeout(function(){
+					wolfImplode.seek(2500);
+					wolfImplode.play();
+					hideAnimationStage(1);
+				},1500);
+			}else if(currState == 3){
+				explode = true;
+				boarWolf.seek(2500);
+				boarWolf.play();
+				setTimeout(function(){
+					wolfImplode.seek(2500);
+					wolfImplode.play();
+					hideAnimationStage(1);
+				},1500);
+			}
 		}
-			
+		else if(click == 2){
+			if(currState == -1){
+				explode = true;
+				circleB.restart();
+				circleB.play();
+				setTimeout(function(){
+					bullImplode.seek(2500);
+					bullImplode.play();
+					hideAnimationStage(2);
+				},1500);
+			}else if(currState == 0){
+				explode = true;
+				stagBull.seek(2500);
+				stagBull.play();
+				setTimeout(function(){
+					bullImplode.seek(2500);
+					bullImplode.play();
+					hideAnimationStage(2);
+				},1500);
+			}else if(currState == 1){
+				explode = true;
+				wolfBull.seek(2500);
+				wolfBull.play();
+				setTimeout(function(){
+					bullImplode.seek(2500);
+					bullImplode.play();
+					hideAnimationStage(2);
+				},1500);
+			}else if(currState == 2){
+				explode = true;
+				bullImplode.seek(2500);
+				bullImplode.play();
+				hideAnimationStage(2);
+			}else if(currState == 3){
+				explode = true;
+				boarBull.seek(2500);
+				boarBull.play();
+				setTimeout(function(){
+					bullImplode.seek(2500);
+					bullImplode.play();
+					hideAnimationStage(2);
+				},1500);
+			}
+		}
+		else if(click == 3){
+			if(currState == -1){
+				explode = true;
+				circleBA.restart();
+				circleBA.play();
+				setTimeout(function(){
+					boarImplode.seek(2500);
+					boarImplode.play();
+					hideAnimationStage(3);
+				},1500);
+			}else if(currState == 0){
+				explode = true;
+				stagBoar.seek(2500);
+				stagBoar.play();
+				setTimeout(function(){
+					boarImplode.seek(2500);
+					boarImplode.play();
+					hideAnimationStage(3);
+				},1500);
+			}else if(currState == 1){
+				explode = true;
+				wolfBoar.seek(2500);
+				wolfBoar.play();
+				setTimeout(function(){
+					boarImplode.seek(2500);
+					boarImplode.play();
+					hideAnimationStage(3);
+				},1500);
+			}else if(currState == 2){
+				explode = true;
+				bullBoar.seek(2500);
+				bullBoar.play();
+				setTimeout(function(){
+					boarImplode.seek(2500);
+					boarImplode.play();
+					hideAnimationStage(3);
+				},1500);
+			}else if(currState == 3){
+				explode = true;
+				boarImplode.seek(2500);
+				boarImplode.play();
+				hideAnimationStage(3);
+			}
+		}
 	}
 
 };
@@ -1874,8 +2366,52 @@ var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	addItem('headerD','span','',date,["w3-opacity"]);
 }
 
+//function collection to load images under stag/wolf/bull/boar links
+var stagLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+}
 
-var carouselLaunch = function(){
+var wolfLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
+	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
+	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
+	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
+	addImage('fig','../../media/projects/Carousel/teapot.png');
+	addImage('fig','../../media/projects/Carousel/arm.png');
+}
+
+var bullLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+}
+
+var boarLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/');
+}
+
+var carouselLaunch = function(linkNum){
 	//function to setup hover color change on homeicon
 	hoverOnHomeIcon();
 	addItem('tileContainer','div','carousel','',['carousel']);
@@ -1890,14 +2426,15 @@ var carouselLaunch = function(){
 	addItem('nav','button','next','Next',['nav', 'next']);
 	showItem('next');
 	//carousel images
-	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
-	addImage('fig','../../media/projects/Carousel/leaflet.gif');
-	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
-	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
-	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
-	addImage('fig','../../media/projects/Carousel/teapot.png');
-	addImage('fig','../../media/projects/Carousel/arm.png');
+	if(linkNum == 0){
+		stagLinkImages();	
+	}else if(linkNum == 1){
+		wolfLinkImages();	
+	}else if(linkNum == 2){
+		bullLinkImages();	
+	}else if(linkNum == 3){
+		boarLinkImages();	
+	}
 //javacsript to control carousel rotation
 	var carousels = document.querySelectorAll('.carousel');
 	for (var i = 0; i < carousels.length; i++) {
@@ -1924,42 +2461,30 @@ var carouselLaunch = function(){
 
 		setupNavigation();
 		var buttonHeight = document.getElementById('next').offsetHeight;
-		document.getElementById('carouselTitle').style.bottom = (buttonHeight * 1.5) + 'px';
-		setupCardClick();
+		setupCardClick(linkNum);
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
 			addItem('tileContainer','h1','carouselTitle','',['data-morph','carouselTitle']);
+			document.getElementById('carouselTitle').style.bottom = (buttonHeight * 1.5) + 'px';
 			var apothem = s / (2 * Math.tan(Math.PI / n));
-			// document.getElementById('card0').style.transform = `translateZ(${- apothem}px)`;	
-			// figure.style.transformBox = 'fillBox';
-			// figure.style.webkitTransformOrigin = `50% 50% ${- apothem}px`;
-			// figure.style.MozTransformOrigin = `50% 50% ${- apothem}px`;
-			// figure.style.transform = `translateZ(${- apothem}px)`;
+			
 			for (var i = 0; i < n; i++){
 				images[i].style.padding = `${gap}vw`;
 			}
 
 			for (i = 0; i < n; i++) {
-				// var radius = ((images[1].width)/2)/(Math.tan(360/8));
 				var width = document.getElementById('carousel').offsetWidth;
 				var radius = 1.2*((width)/2)/(Math.tan(360/8));
 				images[i].style.padding = `${gap}vw`;
 				if(i == 0){
 					images[i].style.transform = `translateZ(${-radius}px)`;
 				}
-				// images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${- apothem}px)`;
-				// images[i].style.transformBox = 'fillBox';
-				// images[i].style.webkitTransformOrigin = `50% 50% ${- apothem}px`;
-				// images[i].style.MozTransformOrigin = `50% 50% ${- apothem}px`;
-				// console.log(i*theta);
 				images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${radius}px)`;
 			}
-			// document.getElementById('carousel').style.transform = `translateZ(${-radius}px)`;
 
 			if (bfc)
 				for (i = 0; i < n; i++)
 					 images[i].style.backfaceVisibility = 'hidden';
-			
 			rotateCarousel(currImage);
 		}
 
@@ -1986,67 +2511,79 @@ var carouselLaunch = function(){
 			  return ((n % m) + m) % m;
 		}
 
-		//this is a closure to create a click event for each individual image
-		//	- i.e each image has its own individual cardID local variable that is different
-		//	  and can be compared to the currImage value
-		function cardClick(cardID){
-			return function(){
-				var num = mod(currImage,8);
-				if(cardID == num){
-
-					var cardElem = document.getElementById('card' + cardID);
-					cardElem.classList.add('expand');
-					var translation = cardElem.style.transform;
-					cardElem.style.transform = translation + ' scale(5)';
-					
-					var infoElem = document.getElementById('infoCard');
-					infoElem.classList.add('showCard');
-					infoElem.firstChild.src = '../../media/projects/Carousel/tibetScreenshot.png';
-
-					var infoCard = document.getElementById('infoCard');
-					if(num == 0){
-						document.getElementById('cardLink').href='../../../projects/tibet/public/pages/language.html';
-						document.getElementById('cardImgLink').src='../../../media/projects/Carousel/endlessKnot.png';
-						infoCard.childNodes[1].innerHTML = 'Tibet';	
-						infoCard.childNodes[2].innerHTML = "Visualizing a Tibetan nomad's artwork with ThreeJS";
-						infoCard.childNodes[3].innerHTML = "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>";	
-					}else if(num == 1){
-						infoCard.childNodes[1].innerHTML = 'Architecture';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';
-
-					}else if(num == 2){
-						infoCard.childNodes[1].innerHTML = 'Leaflet';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}else if(num == 3){
-						infoCard.childNodes[1].innerHTML = 'Ray Tracing';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}else if(num == 4){
-						infoCard.childNodes[1].innerHTML = 'Phong Shading';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}else if(num == 5){
-						infoCard.childNodes[1].innerHTML = 'ThreeJS';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}else if(num == 6){
-						infoCard.childNodes[1].innerHTML = 'Utah Teapot';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}else if(num == 7){
-						infoCard.childNodes[1].innerHTML = 'Skinning';	
-						infoCard.childNodes[2].innerHTML = '';	
-						infoCard.childNodes[3].innerHTML = '';	
-					}
+		//function to fill the card content on a click event
+		//NOTE: The infoObjects for this are defined near the top of the file
+		function setCardContent(infoObject, numCard){
+			var cardElem = document.getElementById(numCard);
+			cardElem.classList.add('expand');
+			var translation = cardElem.style.transform;
+			cardElem.style.transform = translation + ' scale(5)';
+			var infoElem = document.getElementById('infoCard');
+			infoElem.classList.add('showCard');
+			document.getElementById('cardLink').href = infoObject[numCard].link;
+			document.getElementById('cardImgLink').src = infoObject[numCard].linkImg;
+			var infoCard = document.getElementById('infoCard');
+			infoCard.childNodes[1].innerHTML = infoObject[numCard].title;	
+			infoCard.childNodes[2].innerHTML = infoObject[numCard].subTitle;
+			infoCard.childNodes[3].innerHTML = infoObject[numCard].content;
+		}
+		
+		//helper function to pass in correct object to other helper functions
+		function cardClickSwitchBoard(infoObj, cardID){
+			var num = mod(currImage,8);
+			if(cardID == num){
+				if(num == 0){
+					setCardContent(infoObj,'card0');
+				}else if(num == 1){
+					setCardContent(infoObj,'card1');
+				}else if(num == 2){
+					setCardContent(infoObj,'card2');
+				}else if(num == 3){
+					setCardContent(infoObj,'card3');
+				}else if(num == 4){
+					setCardContent(infoObj,'card4');
+				}else if(num == 5){
+					setCardContent(infoObj,'card5');
+				}else if(num == 6){
+					setCardContent(infoObj,'card6');
+				}else if(num == 7){
+					setCardContent(infoObj,'card7');
 				}
 			}
 		}
-		function setupCardClick() {
+
+		//this is a closure to create a click event for each individual image
+		//	- i.e each image has its own individual cardID local variable that is different
+		//	  and can be compared to the currImage value
+		function cardClick(cardID, linkNum){
+			if(linkNum == 0){
+				return function(){
+					cardClickSwitchBoard(stagContent, cardID);
+				}
+			}
+			else if(linkNum == 1){
+				return function(){
+					cardClickSwitchBoard(wolfContent, cardID);
+				}
+			}else if(linkNum == 2){
+				return function(){
+					cardClickSwitchBoard(wolfContent, cardID);
+				}
+					
+			}else if(linkNum == 3){
+				return function(){
+					cardClickSwitchBoard(wolfContent, cardID);
+				}
+			}else if(linkNum == 3){
+				return function(){
+					cardClickSwitchBoard(wolfContent, cardID);
+				}
+			}
+		}
+		function setupCardClick(linkNum) {
 			for(var i =0; i < imageNum; i ++){
 				var card = document.getElementById('card' + i);	
-				card.addEventListener('click',cardClick(i) , true);
+				card.addEventListener('click',cardClick(i,linkNum) , true);
 			
 			}
 			//This is the info div that will become visible on cardClick()
@@ -2183,12 +2720,54 @@ const morpher = (element, start, end) => {
   // Start loop
   update();
 }
-
+function morphCardTitles(){
+	var words;
+	if(currLink == 0){
+		words = [stagContent.card0.title, 
+			 stagContent.card1.title,
+			 stagContent.card2.title,
+			 stagContent.card3.title,
+			 stagContent.card4.title,
+			 stagContent.card5.title,
+			 stagContent.card6.title,
+			 stagContent.card7.title];
+	}else if(currLink == 1){
+		words = [wolfContent.card0.title,
+			 wolfContent.card1.title,
+			 wolfContent.card2.title,
+			 wolfContent.card3.title,
+			 wolfContent.card4.title,
+			 wolfContent.card5.title,
+			 wolfContent.card6.title,
+			 wolfContent.card7.title];
+	}else if(currLink == 2){
+		words = [bullContent.card0.title,
+			 bullContent.card1.title,
+			 bullContent.card2.title,
+			 bullContent.card3.title,
+			 bullContent.card4.title,
+			 bullContent.card5.title,
+			 bullContent.card6.title,
+			 bullContent.card7.title];
+	}else if(currLink == 3){
+		words = [boarContent.card0.title,
+			 boarContent.card1.title,
+			 boarContent.card2.title,
+			 boarContent.card3.title,
+			 boarContent.card4.title,
+			 boarContent.card5.title,
+			 boarContent.card6.title,
+			 boarContent.card7.title];
+	}
+	return words;
+}
 
 function updateMorphText(counter){
     const morph  = document.querySelector('.data-morph');
     const button = document.querySelector('.js-morph-trigger');
-    const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
+    // const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
+    // const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
+    var words = morphCardTitles();
     const start = morph.innerHTML;
     const end   = words[counter];
     morpher(morph, start, end);
@@ -2202,5 +2781,20 @@ body[0].onmousemove = function(e) {
 	}
 };
 
-// setStrokeColor('#cc6600',0.4);
+//This is Used just to make sure we have consistent stroke weight for our animations
 setStrokeColor(redColor,0.4);
+
+
+//will need to addmodificationt to force 'fake hovering' and change color of links while swiping
+var body = document.getElementsByTagName('body')[0];
+var hammertime = new Hammer(body);
+hammertime.on('panleft', function(ev) {
+	if(isMobileDevice()){
+		changeState(currState + 1);
+	}
+});
+hammertime.on('panright', function(ev) {
+	if(isMobileDevice()){
+		changeState(currState - 1);
+	}
+});
