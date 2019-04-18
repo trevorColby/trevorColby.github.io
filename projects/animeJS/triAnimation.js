@@ -1764,7 +1764,7 @@ var hideAnimationStage = function(){
 		var w = document.getElementById("homeIcon").offsetWidth;
 		// console.log(h);
 		// console.log(w);
-		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
+		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*3 + " " + h*3);
 		setStrokeColor("#000000",0.4);		
 	},1500);		
 }
