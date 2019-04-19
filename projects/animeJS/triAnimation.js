@@ -2798,7 +2798,7 @@ function colorRouter(){
 
 // window.onload
 window.onload = function(){
-	alert('onload');
+	// alert('onload');
 	//will need to addmodificationt to force 'fake hovering' and change color of links while swiping
 	//	- consider adding class to class list instead of individually adding style
 	//	- could also write function to just add/change color of pageSelect 
