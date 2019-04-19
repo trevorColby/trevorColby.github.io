@@ -2796,33 +2796,37 @@ function colorRouter(){
 	}
 }
 
-//will need to addmodificationt to force 'fake hovering' and change color of links while swiping
-//	- consider adding class to class list instead of individually adding style
-//	- could also write function to just add/change color of pageSelect 
-var body = document.getElementsByTagName('body')[0];
-// var hammertime = new Hammer(body);
-var hammer = new Hammer.Manager(body);
-var swipe = new Hammer.Swipe();
-hammer.add(swipe);
-hammer.on('swipeleft', function(ev) {
-	console.log('swipeleft');
-	alert('panleft');
-	if(isMobileDevice()){
-		//default color
-		document.getElementById('pageSelect' + currState).style.color = '#808080';
-		changeState(mod((currState + 1),4));
-		document.getElementById('pageSelect' + currState).style.color = colorRouter();
-	}
-});
+// window.onload
+window.onload = function(){
+	alert('onload');
+	//will need to addmodificationt to force 'fake hovering' and change color of links while swiping
+	//	- consider adding class to class list instead of individually adding style
+	//	- could also write function to just add/change color of pageSelect 
+	var body = document.getElementsByTagName('body')[0];
+	// var hammertime = new Hammer(body);
+	var hammer = new Hammer.Manager(body);
+	var swipe = new Hammer.Swipe();
+	hammer.add(swipe);
+	hammer.on('swipeleft', function(ev) {
+		console.log('swipeleft');
+		alert('panleft');
+		if(isMobileDevice()){
+			//default color
+			document.getElementById('pageSelect' + currState).style.color = '#808080';
+			changeState(mod((currState + 1),4));
+			document.getElementById('pageSelect' + currState).style.color = colorRouter();
+		}
+	});
 
-hammer.on('swiperight', function(ev) {
-	console.log('swiperight');
-	alert('panright');
-	if(isMobileDevice()){
-		//default color
-		document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
-		changeState(mod((currState - 1),4));
-		// currHighlight = currHighlight - 1;
-		document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
-	}
-});
+	hammer.on('swiperight', function(ev) {
+		console.log('swiperight');
+		alert('panright');
+		if(isMobileDevice()){
+			//default color
+			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
+			changeState(mod((currState - 1),4));
+			// currHighlight = currHighlight - 1;
+			document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
+		}
+	});
+}
