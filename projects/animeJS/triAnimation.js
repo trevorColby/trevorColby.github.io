@@ -2800,10 +2800,12 @@ function colorRouter(){
 //	- consider adding class to class list instead of individually adding style
 //	- could also write function to just add/change color of pageSelect 
 var body = document.getElementsByTagName('body')[0];
-console.log(body);
-var hammertime = new Hammer(body);
-hammertime.on('panleft', function(ev) {
-	console.log('panleft');
+// var hammertime = new Hammer(body);
+var hammer = new Hammer.Manager(body);
+var swipe = new Hammer.Swipe();
+hammer.add(swipe);
+hammer.on('swipeleft', function(ev) {
+	console.log('swipeleft');
 	alert('panleft');
 	if(isMobileDevice()){
 		//default color
@@ -2813,8 +2815,8 @@ hammertime.on('panleft', function(ev) {
 	}
 });
 
-hammertime.on('panright', function(ev) {
-	console.log('panright');
+hammer.on('swiperight', function(ev) {
+	console.log('swiperight');
 	alert('panright');
 	if(isMobileDevice()){
 		//default color
