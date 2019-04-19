@@ -2168,14 +2168,23 @@ var clickAnimation = function(click){
 
 	}
 	else{ 
-		//if we are not on a mobile device we don't have hover events so we should stall out
+		//if we are on a mobile device we don't have hover events so we should stall out
 		//the hover state machine by setting explode = true; and then manually perform the transformations
 		//from whatever state we are currently in, to the state that has been clicked on. Then we finish by 
 		//performing the implode/explode animation and calling the hideAnimationStage() function with the appropriate
 		//paramter corresponding to whatever link was clicked
 		if(click == 0){
+			// explode = true;
+			// circleS.seek(2500);
+			// circleS.play();
+			// setTimeout(function(){
+			// 	stagImplode.seek(2500);
+			// 	stagImplode.play();
+			// 	hideAnimationStage(0);
+			// },1500);
+			explode = true;
 			if(currState == -1){
-				explode = true;
+				// explode = true;
 				circleS.seek(2500);
 				circleS.play();
 				setTimeout(function(){
@@ -2183,14 +2192,18 @@ var clickAnimation = function(click){
 					stagImplode.play();
 					hideAnimationStage(0);
 				},1500);
+				alert('currState -1');
 			}
 			else if(currState == 0){
-				explode = true;
+				// explode = true;
+				setTimeout(function(){
 				stagImplode.seek(2500);
 				stagImplode.play();
 				hideAnimationStage(0);
+				alert('currState 0');
+				},1000);
 			}else if(currState == 1){
-				explode = true;
+				// explode = true;
 				wolfStag.seek(2500);
 				wolfStag.play();
 				setTimeout(function(){
@@ -2199,7 +2212,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(0);
 				},1500);
 			}else if(currState == 2){
-				explode = true;
+				// explode = true;
 				bullStag.seek(2500);
 				bullStag.play();
 				setTimeout(function(){
@@ -2208,7 +2221,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(0);
 				},1500);
 			}else if(currState == 3){
-				explode = true;
+				// explode = true;
 				boarStag.seek(2500);
 				boarStag.play();
 				setTimeout(function(){
@@ -2219,8 +2232,9 @@ var clickAnimation = function(click){
 			}
 		}
 		else if(click == 1){
+			explode = true;
 			if(currState == -1){
-				explode = true;
+				// explode = true;
 				circleW.restart();
 				circleW.play();
 				setTimeout(function(){
@@ -2229,7 +2243,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 0){
-				explode = true;
+				// explode = true;
 				stagWolf.seek(2500);
 				stagWolf.play();
 				setTimeout(function(){
@@ -2238,12 +2252,12 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 1){
-				explode = true;
+				// explode = true;
 				wolfImplode.seek(2500);
 				wolfImplode.play();
 				hideAnimationStage(1);
 			}else if(currState == 2){
-				explode = true;
+				// explode = true;
 				bullWolf.seek(2500);
 				bullWolf.play();
 				setTimeout(function(){
@@ -2252,7 +2266,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 3){
-				explode = true;
+				// explode = true;
 				boarWolf.seek(2500);
 				boarWolf.play();
 				setTimeout(function(){
@@ -2808,9 +2822,8 @@ window.onload = function(){
 	var swipe = new Hammer.Swipe();
 	hammer.add(swipe);
 	hammer.on('swipeleft', function(ev) {
-		console.log('swipeleft');
-		alert('panleft');
 		if(isMobileDevice()){
+			alert('swipleft, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currState).style.color = '#808080';
 			changeState(mod((currState + 1),4));
@@ -2819,9 +2832,8 @@ window.onload = function(){
 	});
 
 	hammer.on('swiperight', function(ev) {
-		console.log('swiperight');
-		alert('panright');
 		if(isMobileDevice()){
+			alert('swiperight, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
 			changeState(mod((currState - 1),4));
