@@ -2185,22 +2185,19 @@ var clickAnimation = function(click){
 			explode = true;
 			if(currState == -1){
 				// explode = true;
-				circleS.seek(2500);
-				circleS.play();
+				// circleS.seek(2500);
+				// circleS.play();
 				setTimeout(function(){
 					stagImplode.seek(2500);
 					stagImplode.play();
 					hideAnimationStage(0);
 				},1500);
-				alert('currState -1');
 			}
 			else if(currState == 0){
-				// explode = true;
 				setTimeout(function(){
-				stagImplode.seek(2500);
-				stagImplode.play();
-				hideAnimationStage(0);
-				alert('currState 0');
+					stagImplode.seek(2500);
+					stagImplode.play();
+					hideAnimationStage(0);
 				},1000);
 			}else if(currState == 1){
 				// explode = true;
