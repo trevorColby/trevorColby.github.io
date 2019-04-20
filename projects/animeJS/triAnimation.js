@@ -2827,7 +2827,7 @@ window.onload = function(){
 	var swipe = new Hammer.Swipe();
 	hammer.add(swipe);
 	hammer.on('swipeleft', function(ev) {
-		if(isMobileDevice()){
+		if(isMobileDevice() && explode == false){
 			alert('swipleft, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currState).style.color = '#808080';
@@ -2837,7 +2837,7 @@ window.onload = function(){
 	});
 
 	hammer.on('swiperight', function(ev) {
-		if(isMobileDevice()){
+		if(isMobileDevice() && explode == false){
 			alert('swiperight, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
