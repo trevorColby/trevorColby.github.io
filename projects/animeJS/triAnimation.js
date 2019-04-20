@@ -2828,20 +2828,18 @@ window.onload = function(){
 	hammer.add(swipe);
 	hammer.on('swipeleft', function(ev) {
 		if(isMobileDevice() && explode == false){
-			alert('swipleft, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currState).style.color = '#808080';
-			changeState(mod((currState + 1),4));
+			changeState(mod((currState + 1),5) - 1);
 			document.getElementById('pageSelect' + currState).style.color = colorRouter();
 		}
 	});
 
 	hammer.on('swiperight', function(ev) {
 		if(isMobileDevice() && explode == false){
-			alert('swiperight, mobile device');
 			//default color
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
-			changeState(mod((currState - 1),4));
+			changeState(mod((currState - 1),5) - 1);
 			// currHighlight = currHighlight - 1;
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
 		}
