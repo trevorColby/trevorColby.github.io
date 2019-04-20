@@ -2198,11 +2198,11 @@ var clickAnimation = function(click){
 					stagImplode.seek(2500);
 					stagImplode.play();
 					hideAnimationStage(0);
-				},1000);
+				},1500);
 			}else if(currState == 1){
 				// explode = true;
-				wolfStag.seek(2500);
-				wolfStag.play();
+				// wolfStag.seek(2500);
+				// wolfStag.play();
 				setTimeout(function(){
 					stagImplode.seek(2500);
 					stagImplode.play();
@@ -2210,8 +2210,8 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 2){
 				// explode = true;
-				bullStag.seek(2500);
-				bullStag.play();
+				// bullStag.seek(2500);
+				// bullStag.play();
 				setTimeout(function(){
 					stagImplode.seek(2500);
 					stagImplode.play();
@@ -2219,8 +2219,8 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 3){
 				// explode = true;
-				boarStag.seek(2500);
-				boarStag.play();
+				// boarStag.seek(2500);
+				// boarStag.play();
 				setTimeout(function(){
 					stagImplode.seek(2500);
 					stagImplode.play();
@@ -2232,8 +2232,8 @@ var clickAnimation = function(click){
 			explode = true;
 			if(currState == -1){
 				// explode = true;
-				circleW.restart();
-				circleW.play();
+				// circleW.restart();
+				// circleW.play();
 				setTimeout(function(){
 					wolfImplode.seek(2500);
 					wolfImplode.play();
@@ -2241,8 +2241,8 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 0){
 				// explode = true;
-				stagWolf.seek(2500);
-				stagWolf.play();
+				// stagWolf.seek(2500);
+				// stagWolf.play();
 				setTimeout(function(){
 					wolfImplode.seek(2500);
 					wolfImplode.play();
@@ -2250,13 +2250,13 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 1){
 				// explode = true;
-				wolfImplode.seek(2500);
-				wolfImplode.play();
+				// wolfImplode.seek(2500);
+				// wolfImplode.play();
 				hideAnimationStage(1);
 			}else if(currState == 2){
 				// explode = true;
-				bullWolf.seek(2500);
-				bullWolf.play();
+				// bullWolf.seek(2500);
+				// bullWolf.play();
 				setTimeout(function(){
 					wolfImplode.seek(2500);
 					wolfImplode.play();
@@ -2264,8 +2264,8 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 3){
 				// explode = true;
-				boarWolf.seek(2500);
-				boarWolf.play();
+				// boarWolf.seek(2500);
+				// boarWolf.play();
 				setTimeout(function(){
 					wolfImplode.seek(2500);
 					wolfImplode.play();
@@ -2274,42 +2274,45 @@ var clickAnimation = function(click){
 			}
 		}
 		else if(click == 2){
+			explode = true;
 			if(currState == -1){
-				explode = true;
-				circleB.restart();
-				circleB.play();
+				// explode = true;
+				// circleB.restart();
+				// circleB.play();
 				setTimeout(function(){
 					bullImplode.seek(2500);
 					bullImplode.play();
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 0){
-				explode = true;
-				stagBull.seek(2500);
-				stagBull.play();
+				// explode = true;
+				// stagBull.seek(2500);
+				// stagBull.play();
 				setTimeout(function(){
 					bullImplode.seek(2500);
 					bullImplode.play();
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 1){
-				explode = true;
-				wolfBull.seek(2500);
-				wolfBull.play();
+				// explode = true;
+				// wolfBull.seek(2500);
+				// wolfBull.play();
 				setTimeout(function(){
 					bullImplode.seek(2500);
 					bullImplode.play();
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 2){
-				explode = true;
-				bullImplode.seek(2500);
-				bullImplode.play();
-				hideAnimationStage(2);
+				// explode = true;
+				setTimeout(function(){
+					bullImplode.seek(2500);
+					bullImplode.play();
+					hideAnimationStage(2);
+				},1500);
 			}else if(currState == 3){
-				explode = true;
-				boarBull.seek(2500);
-				boarBull.play();
+				// explode = true;
+				// boarBull.seek(2500);
+				// boarBull.play();
 				setTimeout(function(){
 					bullImplode.seek(2500);
 					bullImplode.play();
@@ -2318,47 +2321,50 @@ var clickAnimation = function(click){
 			}
 		}
 		else if(click == 3){
+			explode = true;
 			if(currState == -1){
-				explode = true;
-				circleBA.restart();
-				circleBA.play();
+				// explode = true;
+				// circleBA.restart();
+				// circleBA.play();
 				setTimeout(function(){
 					boarImplode.seek(2500);
 					boarImplode.play();
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 0){
-				explode = true;
-				stagBoar.seek(2500);
-				stagBoar.play();
+				// explode = true;
+				// stagBoar.seek(2500);
+				// stagBoar.play();
 				setTimeout(function(){
 					boarImplode.seek(2500);
 					boarImplode.play();
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 1){
-				explode = true;
-				wolfBoar.seek(2500);
-				wolfBoar.play();
+				// explode = true;
+				// wolfBoar.seek(2500);
+				// wolfBoar.play();
 				setTimeout(function(){
 					boarImplode.seek(2500);
 					boarImplode.play();
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 2){
-				explode = true;
-				bullBoar.seek(2500);
-				bullBoar.play();
+				// explode = true;
+				// bullBoar.seek(2500);
+				// bullBoar.play();
 				setTimeout(function(){
 					boarImplode.seek(2500);
 					boarImplode.play();
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 3){
-				explode = true;
-				boarImplode.seek(2500);
-				boarImplode.play();
-				hideAnimationStage(3);
+				// explode = true;
+				setTimeout(function(){
+					boarImplode.seek(2500);
+					boarImplode.play();
+					hideAnimationStage(3);
+				},1500);
 			}
 		}
 	}
