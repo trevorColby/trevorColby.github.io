@@ -2250,9 +2250,11 @@ var clickAnimation = function(click){
 				},1500);
 			}else if(currState == 1){
 				// explode = true;
-				// wolfImplode.seek(2500);
-				// wolfImplode.play();
-				hideAnimationStage(1);
+				setTimeout(function(){
+					wolfImplode.seek(2500);
+					wolfImplode.play();
+					hideAnimationStage(1);
+				},1500);
 			}else if(currState == 2){
 				// explode = true;
 				// bullWolf.seek(2500);
