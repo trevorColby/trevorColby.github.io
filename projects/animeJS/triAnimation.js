@@ -2804,7 +2804,9 @@ body[0].onmousemove = function(e) {
 setStrokeColor(redColor,0.4);
 
 function colorRouter(){
-	if(currState == 0){
+	if(currState == -1){
+		return '#808080';
+	}else if(currState == 0){
 		return greenColor;	
 	}else if(currState == 1){
 		return blueColor;	
