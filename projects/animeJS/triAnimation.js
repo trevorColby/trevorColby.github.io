@@ -2179,17 +2179,9 @@ var clickAnimation = function(click){
 		//performing the implode/explode animation and calling the hideAnimationStage() function with the appropriate
 		//paramter corresponding to whatever link was clicked
 		if(click == 0){
-			// explode = true;
-			// circleS.seek(2500);
-			// circleS.play();
-			// setTimeout(function(){
-			// 	stagImplode.seek(2500);
-			// 	stagImplode.play();
-			// 	hideAnimationStage(0);
-			// },1500);
 			explode = true;
+			clearColors();
 			if(currState == -1){
-				// explode = true;
 				// circleS.seek(2500);
 				// circleS.play();
 				setTimeout(function(){
@@ -2199,12 +2191,14 @@ var clickAnimation = function(click){
 				},1500);
 			}
 			else if(currState == 0){
+				document.getElementById('pageSelect0C').style.color = colorRouter(0);
 				setTimeout(function(){
 					stagImplode.seek(2500);
 					stagImplode.play();
 					hideAnimationStage(0);
 				},1500);
 			}else if(currState == 1){
+				document.getElementById('pageSelect1C').style.color = colorRouter(1);
 				// explode = true;
 				// wolfStag.seek(2500);
 				// wolfStag.play();
@@ -2214,6 +2208,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(0);
 				},1500);
 			}else if(currState == 2){
+				document.getElementById('pageSelect2C').style.color = colorRouter(2);
 				// explode = true;
 				// bullStag.seek(2500);
 				// bullStag.play();
@@ -2223,6 +2218,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(0);
 				},1500);
 			}else if(currState == 3){
+				document.getElementById('pageSelect3C').style.color = colorRouter(3);
 				// explode = true;
 				// boarStag.seek(2500);
 				// boarStag.play();
@@ -2235,6 +2231,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 1){
 			explode = true;
+			clearColors();
 			if(currState == -1){
 				// explode = true;
 				// circleW.restart();
@@ -2245,6 +2242,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 0){
+				document.getElementById('pageSelect0C').style.color = colorRouter(0);
 				// explode = true;
 				// stagWolf.seek(2500);
 				// stagWolf.play();
@@ -2254,6 +2252,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 1){
+				document.getElementById('pageSelect1C').style.color = colorRouter(1);
 				// explode = true;
 				setTimeout(function(){
 					wolfImplode.seek(2500);
@@ -2261,6 +2260,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 2){
+				document.getElementById('pageSelect2C').style.color = colorRouter(2);
 				// explode = true;
 				// bullWolf.seek(2500);
 				// bullWolf.play();
@@ -2270,6 +2270,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(1);
 				},1500);
 			}else if(currState == 3){
+				document.getElementById('pageSelect3C').style.color = colorRouter(3);
 				// explode = true;
 				// boarWolf.seek(2500);
 				// boarWolf.play();
@@ -2282,6 +2283,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 2){
 			explode = true;
+			clearColors();
 			if(currState == -1){
 				// explode = true;
 				// circleB.restart();
@@ -2292,6 +2294,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 0){
+				document.getElementById('pageSelect0C').style.color = colorRouter(0);
 				// explode = true;
 				// stagBull.seek(2500);
 				// stagBull.play();
@@ -2301,6 +2304,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 1){
+				document.getElementById('pageSelect1C').style.color = colorRouter(1);
 				// explode = true;
 				// wolfBull.seek(2500);
 				// wolfBull.play();
@@ -2310,6 +2314,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 2){
+				document.getElementById('pageSelect2C').style.color = colorRouter(2);
 				// explode = true;
 				setTimeout(function(){
 					bullImplode.seek(2500);
@@ -2317,6 +2322,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(2);
 				},1500);
 			}else if(currState == 3){
+				document.getElementById('pageSelect3C').style.color = colorRouter(3);
 				// explode = true;
 				// boarBull.seek(2500);
 				// boarBull.play();
@@ -2329,6 +2335,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 3){
 			explode = true;
+			clearColors();
 			if(currState == -1){
 				// explode = true;
 				// circleBA.restart();
@@ -2339,6 +2346,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 0){
+				document.getElementById('pageSelect0C').style.color = colorRouter(0);
 				// explode = true;
 				// stagBoar.seek(2500);
 				// stagBoar.play();
@@ -2348,6 +2356,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 1){
+				document.getElementById('pageSelect1C').style.color = colorRouter(1);
 				// explode = true;
 				// wolfBoar.seek(2500);
 				// wolfBoar.play();
@@ -2357,6 +2366,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 2){
+				document.getElementById('pageSelect2C').style.color = colorRouter(2);
 				// explode = true;
 				// bullBoar.seek(2500);
 				// bullBoar.play();
@@ -2366,6 +2376,7 @@ var clickAnimation = function(click){
 					hideAnimationStage(3);
 				},1500);
 			}else if(currState == 3){
+				document.getElementById('pageSelect3C').style.color = colorRouter(3);
 				// explode = true;
 				setTimeout(function(){
 					boarImplode.seek(2500);
