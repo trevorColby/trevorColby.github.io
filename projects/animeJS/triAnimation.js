@@ -2832,6 +2832,7 @@ function clearColors(current){
 	for(var i =0; i < 4; i ++){
 		// if(i != current){
 			document.getElementById('pageSelect' + i + 'C').style.color = '#808080';
+			document.getElementById('pageSelect' + i).style.color = '#808080';
 		// }
 	}
 }
