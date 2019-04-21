@@ -2109,6 +2109,7 @@ var revealAnimationStage = function(click){
 	curtain.restart();
 	curtain.play();
 	explode = false;
+	clearColors();
 	changeState(-1);	
 	setTimeout(function(){
 		hideItem("homeIcon");
@@ -2866,7 +2867,7 @@ window.onload = function(){
 	hammer.add(swipe);
 	hammer.on('swipeleft', function(ev) {
 		if(isMobileDevice() && explode == false){
-			swipeState = swipeState + 1;
+			swipeState = swipeState - 1;
 			if(currState != -1){
 				document.getElementById('pageSelect' + currState).style.color = '#808080';
 				document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
@@ -2881,7 +2882,7 @@ window.onload = function(){
 
 	hammer.on('swiperight', function(ev) {
 		if(isMobileDevice() && explode == false){
-			swipeState = swipeState - 1;
+			swipeState = swipeState + 1;
 			if(currState != -1){
 				document.getElementById('pageSelect' + currState).style.color = '#808080';
 			}
