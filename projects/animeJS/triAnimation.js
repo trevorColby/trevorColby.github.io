@@ -3,6 +3,11 @@ function isMobileDevice() {
 	    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 };
 
+//function to solve javascript modulus bug
+function mod(n, m) {
+	  return ((n % m) + m) % m;
+}
+
 var svgElement = document.getElementById('svgElem');
 if(isMobileDevice()) {
 	svgElement.style.height = "auto";
@@ -2525,11 +2530,6 @@ var carouselLaunch = function(linkNum){
 			}
 		}
 
-		//function to solve javascript modulus bug
-		function mod(n, m) {
-			  return ((n % m) + m) % m;
-		}
-
 		//function to fill the card content on a click event
 		//NOTE: The infoObjects for this are defined near the top of the file
 		function setCardContent(infoObject, numCard){
@@ -2817,6 +2817,14 @@ function colorRouter(){
 	}
 }
 
+function clearColors(current){
+	for(var i =0; i < 4; i ++){
+		// if(i != current){
+			document.getElementById('pageSelect' + i + 'C').style.color = '#808080';
+		// }
+	}
+}
+
 // window.onload
 window.onload = function(){
 	// alert('onload');
@@ -2824,29 +2832,92 @@ window.onload = function(){
 	//	- consider adding class to class list instead of individually adding style
 	//	- could also write function to just add/change color of pageSelect 
 	var body = document.getElementsByTagName('body')[0];
-	// var hammertime = new Hammer(body);
+	var swipeState = -1;
 	var hammer = new Hammer.Manager(body);
 	var swipe = new Hammer.Swipe();
 	hammer.add(swipe);
 	hammer.on('swipeleft', function(ev) {
 		if(isMobileDevice() && explode == false){
-			//default color
-			document.getElementById('pageSelect' + currState).style.color = '#808080';
-			var swipeState = (mod((currState - 1),5) - 1);
-			alert(swipeState);
-			changeState(swipeState);
-			document.getElementById('pageSelect' + currState).style.color = colorRouter();
+			swipeState = swipeState - 1;
+			if(currState != -1){
+				document.getElementById('pageSelect' + currState).style.color = '#808080';
+				document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
+			}
+			changeState((mod(swipeState,5) - 1));
+			if(currState != -1){
+				document.getElementById('pageSelect' + currState).style.color = colorRouter();
+				document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
+			}
 		}
 	});
 
 	hammer.on('swiperight', function(ev) {
 		if(isMobileDevice() && explode == false){
-			//default color
-			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
-			alert(mod((currState + 1),5) - 1);
-			changeState(mod((currState - 1),5) - 1);
-			// currHighlight = currHighlight - 1;
-			document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
+			swipeState = swipeState + 1;
+			if(currState != -1){
+				document.getElementById('pageSelect' + currState).style.color = '#808080';
+			}
+			changeState((mod(swipeState,5) - 1));
+			if(currState != -1){
+				document.getElementById('pageSelect' + currState).style.color = colorRouter();
+			}
 		}
 	});
 }
+
+var kState = -1;
+document.addEventListener('keydown', function (e) {
+    if (e.defaultPrevented) {
+	//don't want to trigger if default is supposed to be prevented	
+	return;
+    }
+
+    //key either our key or keyCode if the key doesn't exist
+    var keyPressed = e.key || e.keyCode;
+    if (keyPressed === 'a' ||
+	keyPressed === 'keyA' ||
+	keyPressed === 65) {
+	console.log('a');
+	    if(explode == false){
+		    kState = kState - 1;
+		if(currState != -1){
+			clearColors(currState);
+			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
+		}
+		changeState((mod(kState,5) - 1));
+		if(currState != -1){
+			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
+			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
+				
+			// document.getElementById('pageSelect' + currState + 'C').style.opacity = '1 !important';
+			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
+			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
+		}
+	    }
+
+    }
+    if (keyPressed === 'd' ||
+	keyPressed === 'keyD' ||
+	keyPressed === 68) {
+		console.log('d');
+	    if(explode == false){
+		    kState = kState + 1;
+		if(currState != -1){
+			clearColors(currState);
+			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
+			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 0;
+			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = '';
+			// document.getElementById('pageSelect' + currState + 'C').style.transform = '';
+		}
+		changeState((mod(kState,5) - 1));
+		if(currState != -1){
+			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
+			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
+			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 1;
+			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
+			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
+		}
+	    }
+
+    }
+});
