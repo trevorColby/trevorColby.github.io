@@ -2832,7 +2832,9 @@ window.onload = function(){
 		if(isMobileDevice() && explode == false){
 			//default color
 			document.getElementById('pageSelect' + currState).style.color = '#808080';
-			changeState(mod((currState + 1),5) - 1);
+			var swipeState = (mod((currState - 1),5) - 1);
+			alert(swipeState);
+			changeState(swipeState);
 			document.getElementById('pageSelect' + currState).style.color = colorRouter();
 		}
 	});
@@ -2841,6 +2843,7 @@ window.onload = function(){
 		if(isMobileDevice() && explode == false){
 			//default color
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = '#808080';
+			alert(mod((currState + 1),5) - 1);
 			changeState(mod((currState - 1),5) - 1);
 			// currHighlight = currHighlight - 1;
 			document.getElementById('pageSelect' + currHighlight + 'C').style.color = colorRouter();
