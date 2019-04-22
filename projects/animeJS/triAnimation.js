@@ -2513,7 +2513,13 @@ var carouselLaunch = function(linkNum){
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
 			addItem('tileContainer','h1','carouselTitle','',['data-morph','carouselTitle']);
-			console.log(buttonHeight);
+
+			var screenW = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			var screenH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+			var res = screenW/screenH;
+			if(res > 1.3){
+				document.getElementById('carouselTitle').style.bottom = '10vh'; 
+			}
 			// document.getElementById('carouselTitle').style.bottom = (buttonHeight) + 'px';
 			var apothem = s / (2 * Math.tan(Math.PI / n));
 			
