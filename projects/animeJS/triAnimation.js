@@ -2109,7 +2109,10 @@ var revealAnimationStage = function(click){
 	curtain.restart();
 	curtain.play();
 	explode = false;
-	clearColors();
+	if(isMobileDevice()){
+		//may need more modification on this to allow for appropriate click response on mobile
+		clearColors();
+	}
 	changeState(-1);	
 	setTimeout(function(){
 		hideItem("homeIcon");
@@ -2894,59 +2897,59 @@ window.onload = function(){
 	});
 }
 
-var kState = -1;
-document.addEventListener('keydown', function (e) {
-    if (e.defaultPrevented) {
-	//don't want to trigger if default is supposed to be prevented	
-	return;
-    }
+//var kState = -1;
+//document.addEventListener('keydown', function (e) {
+//    if (e.defaultPrevented) {
+//	//don't want to trigger if default is supposed to be prevented	
+//	return;
+//    }
 
-    //key either our key or keyCode if the key doesn't exist
-    var keyPressed = e.key || e.keyCode;
-    if (keyPressed === 'a' ||
-	keyPressed === 'keyA' ||
-	keyPressed === 65) {
-	console.log('a');
-	    if(explode == false){
-		    kState = kState - 1;
-		if(currState != -1){
-			clearColors(currState);
-			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
-		}
-		changeState((mod(kState,5) - 1));
-		if(currState != -1){
-			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
-			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
+//    //key either our key or keyCode if the key doesn't exist
+//    var keyPressed = e.key || e.keyCode;
+//    if (keyPressed === 'a' ||
+//	keyPressed === 'keyA' ||
+//	keyPressed === 65) {
+//	console.log('a');
+//	    if(explode == false){
+//		    kState = kState - 1;
+//		if(currState != -1){
+//			clearColors(currState);
+//			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
+//		}
+//		changeState((mod(kState,5) - 1));
+//		if(currState != -1){
+//			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
+//			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
 				
-			// document.getElementById('pageSelect' + currState + 'C').style.opacity = '1 !important';
-			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
-			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
-		}
-	    }
+//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = '1 !important';
+//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
+//			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
+//		}
+//	    }
 
-    }
-    if (keyPressed === 'd' ||
-	keyPressed === 'keyD' ||
-	keyPressed === 68) {
-		console.log('d');
-	    if(explode == false){
-		    kState = kState + 1;
-		if(currState != -1){
-			clearColors(currState);
-			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
-			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 0;
-			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = '';
-			// document.getElementById('pageSelect' + currState + 'C').style.transform = '';
-		}
-		changeState((mod(kState,5) - 1));
-		if(currState != -1){
-			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
-			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
-			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 1;
-			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
-			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
-		}
-	    }
+//    }
+//    if (keyPressed === 'd' ||
+//	keyPressed === 'keyD' ||
+//	keyPressed === 68) {
+//		console.log('d');
+//	    if(explode == false){
+//		    kState = kState + 1;
+//		if(currState != -1){
+//			clearColors(currState);
+//			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
+//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 0;
+//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = '';
+//			// document.getElementById('pageSelect' + currState + 'C').style.transform = '';
+//		}
+//		changeState((mod(kState,5) - 1));
+//		if(currState != -1){
+//			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
+//			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
+//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 1;
+//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
+//			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
+//		}
+//	    }
 
-    }
-});
+//    }
+//});
