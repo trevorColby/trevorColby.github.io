@@ -2062,11 +2062,14 @@ var hideAnimationStage = function(linkNum){
 	var w = document.getElementById("homeIcon").offsetWidth;
 	//set the appropriate height and width of the home icon for a mobile device
 	if(isMobileDevice()){
-		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
+		if(document.getElementById("homeIconSVG").getAttribute("viewBox") == null){
+			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
+		}
 		document.getElementById("homeIcon").style.width = '15vw';
 		document.getElementById("homeIcon").style.height = '15vw';
 	}
 	else{
+		console.log("ELSE CASE TRIGGERED");
 		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
 	}
 	setTimeout(function(){
@@ -2122,16 +2125,6 @@ var revealAnimationStage = function(click){
 		showItem("pageSelect3C");	
 		removeItem('pageTitle');
 		showItem("animationContainer");
-		//ORGINALLY HIDE VERSION: Switched to Destory/Remove Version so loading in different carousels
-		//will be seamless and we also get the carousel spinning animation everytime instead of only once.
-		//May want to balance this for mobile/slow internet applications. Will definitely need to compress images 
-		//either way to boost performance (particularly on mobile)
-		// hideItem("carousel");
-		// hideItem("fig");
-		// hideItem("nav");
-		// hideItem("prev");
-		// hideItem("next");
-		hideItem("carouselTitle");
 		removeItem("carouselTitle");
 		removeItem("carousel");
 		removeItem("infoCard");
@@ -2520,7 +2513,8 @@ var carouselLaunch = function(linkNum){
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
 			addItem('tileContainer','h1','carouselTitle','',['data-morph','carouselTitle']);
-			document.getElementById('carouselTitle').style.bottom = (buttonHeight * 1.5) + 'px';
+			console.log(buttonHeight);
+			// document.getElementById('carouselTitle').style.bottom = (buttonHeight) + 'px';
 			var apothem = s / (2 * Math.tan(Math.PI / n));
 			
 			for (var i = 0; i < n; i++){
