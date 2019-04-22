@@ -79,6 +79,7 @@ td.effect-underline:hover:after {
    -webkit-transform: scale(1);
    transform: scale(1);
 }
+
 #selectionContainer{
     position: relative;
     padding-top: 20px;
@@ -110,7 +111,7 @@ header:nth-child(3){
     animation-fill-mode:both;
     animation-iteration-count: infinite;
     animation-duration: 10s;
-    animation-direction: forwar:;
+    animation-direction: forward;
 }
 
 @keyframes fade1{
