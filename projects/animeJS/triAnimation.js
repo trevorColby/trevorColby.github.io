@@ -29,12 +29,12 @@ var greenColor = '#00FF00';
 var carouselLaunched = 0;
 
 //alternative way to test for mobile debatably more thorough
-var isMobile = false; //initiate as false
-// device detection
-if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
-    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
-    isMobile = true;
-}
+// var isMobile = false; //initiate as false
+// // device detection
+// if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
+//     || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
+//     isMobile = true;
+// }
 
 //Formatting Solution for SVG animation of spotlight unerline
 var pageSelect0 = document.getElementById("pageSelect0");
@@ -54,7 +54,6 @@ var pS3Container = document.getElementById("pageSelect3C");
 pageSelect3.style.left = (pS3Container.offsetWidth - pageSelect3.offsetWidth)/2 + "px";
 
 window.onresize = function(event){
-
 	//Formatting Solution for SVG animation of spotlight unerline
 	var pageSelect0 = document.getElementById("pageSelect0");
 	var pS0Container = document.getElementById("pageSelect0C");
@@ -1935,61 +1934,6 @@ var funcClosure = function(func, context, params){
 	}
 }
 
-//create our function instances with our params in an array format 
-// var stateT0 = funcClosure(changeState, this, [-1,'pageSelect0C']);
-// var stateT1 = funcClosure(changeState, this, [-1,'pageSelect1C']);
-// var stateT2 = funcClosure(changeState, this, [-1,'pageSelect2C']);
-// var stateT3 = funcClosure(changeState, this, [-1,'pageSelect3C']);
-// var state0 = funcClosure(changeState, this, [0]);
-// var state1 = funcClosure(changeState, this, [1]);
-// var state2 = funcClosure(changeState, this, [2]);
-// var state3 = funcClosure(changeState, this, [3]);
-
-var animationQueue = [];
-var hoverHandler = function(nextState,cssId){
-	var state = funcClosure(changeState, this, [nextState,cssId, event]);
-	animationQueue.push(state);	
-}
-
-// window.onload = function(){
-// 	setInterval(function(){
-// 		while(animationQueue.length > 0){
-// 			console.log('shift');
-// 			(animationQueue.shift())();	
-// 			setTimeout(function(){},700);
-// 		}
-// 	},10);
-
-// 	// setInterval(function(){
-// 	// 	console.log('second interval');
-// 	// 	if(timerCurr == 0){
-// 	// 		timerCurr = 1;
-// 	// 	}
-// 	// },1000);
-// }//check which direction we stopped hovering in
-//	- if mouse left the bottom, trigger circle transition
-//	- otherwise exit should have no effect
-//: https://css-tricks.com/direction-aware-hover-effects/
-var getDirection =  function (event,obj) {
-	var xCor = event.pageX;	
-	var yCor = event.pageY;	
-	var box = obj.getBoundingClientRect();
-	const { width, height, top, left } = obj.getBoundingClientRect();
-	var h = height;
-	var w = width;
-        // calculate the x and y to get an angle to the center of the div from that x and y.
-        // gets the x value relative to the center of the DIV and "normalize" it
-        var x = (xCor - left - (w / 2)) * (w > h ? (h / w) : 1),
-        y = (yCor - top - (h / 2)) * (h > w ? (w / h) : 1),
-        // the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
-        // first calculate the angle of the point,
-        // add 180 deg to get rid of the negative values
-        // divide by 90 to get the quadrant
-        // add 3 and do a modulo by 4 to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
-        direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
-    return direction;
-};
-
 var hideItem = function(eId){
     //hides an element from the document
     var e = document.getElementById(eId);
@@ -2177,6 +2121,7 @@ var clickAnimation = function(click){
 		//paramter corresponding to whatever link was clicked
 		if(click == 0){
 			explode = true;
+			currLink = 0;
 			clearColors();
 			if(currState == -1){
 				// circleS.seek(2500);
@@ -2232,6 +2177,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 1){
 			explode = true;
+			currLink = 1;
 			clearColors();
 			if(currState == -1){
 				// explode = true;
@@ -2288,6 +2234,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 2){
 			explode = true;
+			currLink = 2;
 			clearColors();
 			if(currState == -1){
 				// explode = true;
@@ -2344,6 +2291,7 @@ var clickAnimation = function(click){
 		}
 		else if(click == 3){
 			explode = true;
+			currLink = 3;
 			clearColors();
 			if(currState == -1){
 				// explode = true;
@@ -2412,6 +2360,23 @@ var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	document.getElementById('head').style.fontWeight = 'bold';
 	addItem('div2','h5','headerD',headerDescrip,[]);
 	addItem('headerD','span','',date,["w3-opacity"]);
+}
+var imagePreloader = function(){
+	var imageObj = new Image();
+
+	var images = new Array();
+	images[0] = '../../media/projects/Carousel/tibetScreenshot.png';
+	images[1] ='../../media/projects/Carousel/HopPhoto.jpg';
+	images[2] ='../../media/projects/Carousel/leaflet.gif';
+	images[3] ='../../media/projects/Carousel/rayTrace.jpg';
+	images[4] ='../../media/projects/Carousel/recursiveRayTracing.png';
+	images[5] ='../../media/projects/Carousel/threeJSSphere.png';
+	images[5] ='../../media/projects/Carousel/teapot.png';
+	images[6] ='../../media/projects/Carousel/arm.png';
+
+	for(var i = 0; i <=6; i++){
+		imageObj.src = images[i];	
+	}
 }
 
 //function collection to load images under stag/wolf/bull/boar links
@@ -2815,8 +2780,6 @@ function morphCardTitles(){
 function updateMorphText(counter){
     const morph  = document.querySelector('.data-morph');
     const button = document.querySelector('.js-morph-trigger');
-    // const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
-    // const words  = ["Tibet", "Architecture", "Leaflet", "Ray Tracing", "Phong Shading", "ThreeJS", "Utah Teapot", "Skinning"];
     var words = morphCardTitles();
     const start = morph.innerHTML;
     const end   = words[counter];
@@ -2859,10 +2822,7 @@ function clearColors(current){
 
 // window.onload
 window.onload = function(){
-	// alert('onload');
-	//will need to addmodificationt to force 'fake hovering' and change color of links while swiping
-	//	- consider adding class to class list instead of individually adding style
-	//	- could also write function to just add/change color of pageSelect 
+	imagePreloader();
 	var body = document.getElementsByTagName('body')[0];
 	var swipeState = -1;
 	var hammer = new Hammer.Manager(body);
@@ -2895,6 +2855,9 @@ window.onload = function(){
 			}
 		}
 	});
+
+//remove our loading screen	
+body.classList.add('loaded');	
 }
 
 //var kState = -1;
