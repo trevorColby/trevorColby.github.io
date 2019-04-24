@@ -2365,7 +2365,7 @@ var imagePreloader = function(){
 	var imageObj = new Image();
 
 	var images = new Array();
-	images[0] = '../../media/projects/Carousel/tibetScreenshot.png';
+	images[0] ='../../media/projects/Carousel/tibetScreenshot.png';
 	images[1] ='../../media/projects/Carousel/HopPhoto.jpg';
 	images[2] ='../../media/projects/Carousel/leaflet.gif';
 	images[3] ='../../media/projects/Carousel/rayTrace.jpg';
@@ -2374,7 +2374,7 @@ var imagePreloader = function(){
 	images[5] ='../../media/projects/Carousel/teapot.png';
 	images[6] ='../../media/projects/Carousel/arm.png';
 
-	for(var i = 0; i <=6; i++){
+	for(var i = 0; i <7; i++){
 		imageObj.src = images[i];	
 	}
 }
