@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor's Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+#myNavbar {
+    position: absolute;
+}
+</style>
+<body class="w3-light-grey">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a href="../" class="w3-bar-item w3-button">HOME</a>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+  </div>
+</div>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>MY PROJECTS</b></h1>
+  <p>Welcome to some of my favorite <span class="w3-tag">PROJECTS</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+
+<!-- Blog entry -->
+  <div id="vidTest" class="w3-card-4 w3-margin w3-white">
+    <iframe width="420" height="315"
+			src="https://www.youtube.com/watch?v=O443ebLxqhU">
+    </iframe>
+    <div class="w3-container">
+      <h3><b>Alpha Level Video Test</b></h3>
+      <h5>Latino's In Media<span class="w3-opacity">April, 25, 2019</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>Latinx Mural Art</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  <img src="media/projects/auroraSilhouette.jpg" style="width:100%">
+    <div class="w3-container w3-white">
+      <h4><b>Trevor Colby</b></h4>
+      <p>Just some awesome friends and I, diving way too deep and enjoying getting lost everystep of the way.</p>
+    </div>
+  </div><hr>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Coming Soon</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="media/projects/leaflet.gif" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">OptiRTC</span><br>
+        <span>Leaflet Modification</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="media/projects/algorithm.jpeg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Algorithm Design</span><br>
+        <span>Multi-Faceted Filtering</span>
+      </li> 
+      <li class="w3-padding-16">
+        <img src="media/projects/spline.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Splines</span><br>
+        <span>3D Curves Creation</span>
+      </li>   
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="media/projects/vim.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Customizing VIM</span><br>
+        <span>Setting up Vim as a productivity tool</span>
+      </li>  
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Technology</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Computer Graphics</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Design</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Engineering</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">3D Curves</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Javscript</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Typescript</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Web GL</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Math</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Algorithm</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">C++</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Dartmouth</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Exploration</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Curiosity</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">« Previous</button>
+	  <a style="text-decoration:none" href="projects_p2.html" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+	  </a>
+  <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
+</footer>
+<script src="pageControls.js"></script>
+
+</body>
+</html>
