@@ -11,6 +11,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 #myNavbar {
     position: absolute;
 }
+
+.vidContainer{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    width: 100%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 </style>
 <body class="w3-light-grey">
 <!-- Navbar (sit on top) -->
@@ -41,8 +57,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l8 s12">
 
 <!-- Blog entry -->
-  <div id="vidTest" class="w3-card-4 w3-margin w3-white">
-	  <iframe width="560" height="315" src="https://www.youtube.com/embed/O443ebLxqhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div id="vid1" class="w3-card-4 w3-margin w3-white">
+	  <div class="vidContainer">
+		  <iframe class="video" id="vid1Inside" width="560" height="315" src="https://www.youtube.com/embed/O443ebLxqhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  </div>
     <div class="w3-container">
       <h3><b>The Los Angeles Mural Scene</b></h3>
       <h5>Latino's In Media: Final Project<span class="w3-opacity"> April, 25, 2019</span></h5>
@@ -53,7 +71,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <div class="w3-row">
         <div class="w3-col m8 s12">
 	  <!-- <a style="text-decoration:none" href="projects/tibet.html" > -->
-	  <a style="text-decoration:none" href="projects/tibet/public/pages/language.html" >
+	  <a style="text-decoratikon:none" href="projects/tibet/public/pages/language.html" >
           	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
 	  </a>
         </div>
@@ -66,8 +84,10 @@ and is wrapped around the whole page content, except for the footer in this exam
   <hr>
 
 <!-- Blog entry -->
-  <div id="vidTest" class="w3-card-4 w3-margin w3-white">
-	  <iframe width="560" height="315" src="https://www.youtube.com/embed/yOo6WFiyPW8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div id="vid2" class="w3-card-4 w3-margin w3-white">
+	  <div class="vidContainer">
+		  <iframe class="video" id="vid2Inside" width="560" height="315" src="https://www.youtube.com/embed/yOo6WFiyPW8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  </div>
     <div class="w3-container">
       <h3><b>Murals In South America</b></h3>
       <h5>Latino's In Media: Final Project<span class="w3-opacity"> April, 25, 2019</span></h5>
@@ -167,6 +187,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
 </footer>
 <script src="pageControls.js"></script>
+<script src="latsControl.js"></script>
 
 </body>
 </html>
