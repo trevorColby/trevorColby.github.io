@@ -2643,9 +2643,11 @@ var carouselLaunch = function(linkNum){
 			for(var i=0; i < 8; i ++){
 				var card = document.getElementById('card' + i);
 				if(i == cImage){
-					card.classList.add('clickable');	
+					card.classList.add('clickable');
+					card.classList.remove('notClickable');
 				}else{
 					card.classList.remove('clickable');
+					card.classList.add('notClickable');
 				}
 			}	
 		}
