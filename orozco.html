@@ -9,6 +9,9 @@
 <meta property="og:image" content="media/projects/christTheAvenger.jpg">
 <meta property="og:url" content="http://trevorColby.tech/videoTest.html">
 <meta name="twitter:card" content="Latinx Muralists">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <!-- end social media meta tags -->
 <link rel="stylesheet" href="webpage.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -17,6 +20,43 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 #myNavbar {
     position: absolute;
+}
+
+.w3-top{
+    z-index: 100 !important;
+}
+
+#full{
+    z-index: 17;
+    position: relative;
+}
+
+.carousel-caption{
+    background-color: rgba(217,217,217,0.7);
+    border-radius: 20px;
+}
+
+.full{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.full:hover{
+	opacity: 0.5; 
+	-webkit-transition: 0.25s;
+}
+
+.carouselImg{
+    display: block;
+    max-width:450px;
+    max-height:345px;
+    width: auto;
+    height: auto;
+    margin: auto;
 }
 
 .vidContainer{
@@ -38,7 +78,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <body class="w3-light-grey">
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
+  <div class="w3-bar" id="myNavbar" style="z-index:200!important">
     <a href="../videoTest.html" class="w3-bar-item w3-button">HOME</a>
   </div>
   <!-- Navbar on small screens -->
@@ -54,7 +94,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32"> 
   <h1><b>Artists In Focus</b></h1>
-  <p>Welcome to some of our favorite Latinx  <span class="w3-tag">Mural Art</span></p>
+  <p>Check Out Mexico's  <span class="w3-tag">Big Three</span></p>
 </header>
 
 <!-- Grid -->
@@ -64,31 +104,103 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l8 s12">
 
 <!-- Blog entry -->
-  <div id="vid1" class="w3-card-4 w3-margin w3-white">
-	  <div class="vidContainer">
-		  <iframe class="video" id="vid1Inside" width="560" height="315" src="https://www.youtube.com/embed/O443ebLxqhU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div id="carousel" class="w3-card-4 w3-margin w3-white">
+	  <div class="carouselContainer">
+		<div id="full">
+			<img class="full" src="media/Lats/fullScreen.png" onclick="launchCarouselModal()">
+		</div>
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		    <!-- Indicators -->
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		      <li data-target="#myCarousel" data-slide-to="3"></li>
+		    </ol>
+
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner" role="listbox">
+
+		      <div class="item active">
+			<img src="media/Lats/Orozco/maternity1924.jpg" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap1">
+				<h3>Maternity<br>1924</h3>
+			  <p>Maternity depicts a mother and child; it resembles Renaissance depictions of Mary and the infant Jesus, with the exception of the conspicuous nudity of the mother.</p>
+			</div>
+		      </div>
+		    
+		      <div class="item">
+			<img src="media/Lats/Orozco/prometheus1930.jpg" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap2">
+				<h3>Prometheus<br>1930</h3>
+			  <p>This piece depicts a monumental Prometheus reaching up to the sky to take fire, a symbol of wisdom and enlightenment, from the ceiling panel that depicts stylized flames, representing God, the source of wisdom. The Titan is about to give mankind the power of knowledge for which Zeus will cruelly punish him, as the Greek myth recounts.</p>
+			</div>
+		      </div>
+
+		      <div class="item">
+			<img src="media/Lats/Orozco/epicOfAmerican1934.jpg" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap3">
+				<h3>The Epic of American Civilization<br>1934</h3>
+			  <p>This fascinating mural cycle comprised of 24 panels, covering four walls in the Baker Library, is a complex and layered depiction of the history of the American continent. Broken down, it essentially depicts three stages of the Americas: pre-Hispanic times, colonial times marked by the arrival of Europeans, and the modern industrial era.</p>
+			</div>
+		      </div>
+		      
+		      <div class="item">
+			<img src="media/Lats/Orozco/trench1926.jpg" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap4">
+				<h3>The Trench<br>1926</h3>
+			  <p>The Trench depicts soldiers fighting in the Mexican Revolution. The three fallen, faceless men form a cross. The sharp diagonal of the composition and the vivid red of the background convey the scene's drama. Due to Orozco's new interest in modern art, with its representations of space and time as mutable and relative, the three men could be interpreted as a single soldier depicted in different moments in time.</p>
+			</div>
+		      </div>
+		  
+		    </div>
+
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		  </div>
 	  </div>
     <div class="w3-container">
-      <h3><b>The Los Angeles Mural Scene</b></h3>
-      <h5>Latino's In Media: Final Project<span class="w3-opacity"> April, 25, 2019</span></h5>
+      <h3><b>José Clemente Orozco</b></h3>
+      <h5>Murals in Focus:<span class="w3-opacity"> May, 28, 2019</span></h5>
     </div>
 
     <div class="w3-container">
-      <p>Latinx Mural Art</p>
-      <div class="w3-row">
-        <div class="w3-col m8 s12">
-	  <!-- <a style="text-decoration:none" href="projects/tibet.html" > -->
-	  <a style="text-decoratikon:none" href="projects/tibet/public/pages/language.html" >
-          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
-	  </a>
-        </div>
-        <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
-        </div>
-      </div>
+      <p>Los Tres Grandes</p>
     </div>
   </div>
   <hr>
+<!-- Blog entry -->
+  <div id="vid1" class="w3-card-4 w3-margin w3-white">
+	  <div class="vidContainer">
+		<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/ePC1qNjil_w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  </div>
+    <div class="w3-container">
+      <h3><b>The Epic of American Civilization</b></h3>
+      <h5>Dartmouth: Baker Berry Library<span class="w3-opacity"> 2012</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>Art at Dartmouth</p>
+    </div>
+  </div>
+  <hr>
+</div>
+<!-- end blog entries -->
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="fullScreenImage" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
 </div>
 
 <!-- Introduction menu -->
@@ -111,7 +223,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <a style="text-decoration:none" href="riviera.html" >
       <li class="w3-padding-16">
         <img src="media/projects/rivera_diego.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Diego Riviera</span><br>
+        <span class="w3-large">Diego Rivera</span><br>
         <span>Guanajuato, Mexico</span>
       </li>
     </a>
@@ -133,21 +245,6 @@ and is wrapped around the whole page content, except for the footer in this exam
   </div>
   <hr> 
  
-  <!-- Labels / tags -->
-  <!-- <div class="w3-card w3-margin"> -->
-  <!--   <div class="w3-container w3-padding"> -->
-  <!--     <h4>Tags</h4> -->
-  <!--   </div> -->
-  <!--   <div class="w3-container w3-white"> -->
-  <!--   <p><span class="w3-tag w3-black w3-margin-bottom">Technology</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Computer Graphics</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Design</span> -->
-  <!--     <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Engineering</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">3D Curves</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Javscript</span> -->
-  <!--     <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Typescript</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Web GL</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Math</span> -->
-  <!--     <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Algorithm</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">C++</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Dartmouth</span> -->
-  <!--     <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Exploration</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Curiosity</span> -->
-  <!--   </p> -->
-  <!--   </div> -->
-  <!-- </div> -->
-  
 <!-- END Introduction Menu -->
 </div>
 
@@ -165,10 +262,10 @@ and is wrapped around the whole page content, except for the footer in this exam
 	  <a style="text-decoration:none" href="siqueiros.html" >
 		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
 	  </a>
-  <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
+  <p class="w3-center">Page <span class="w3-tag w3-center">3</span> 4</p>
 </footer>
 <script src="pageControls.js"></script>
-<!-- <script src="latsControl.js"></script> -->
+<script src="latsControls.js"></script>
 
 </body>
 </html>
