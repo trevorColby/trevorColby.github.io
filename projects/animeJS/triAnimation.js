@@ -920,7 +920,6 @@ cPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset:  1000 + 10 * index
   });
 });
@@ -934,7 +933,6 @@ sPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset:  2600 + 10 * index
   });
 });
@@ -951,7 +949,6 @@ sCircle
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -967,7 +964,6 @@ sCircle
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -998,7 +994,6 @@ wCircle
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1013,7 +1008,6 @@ wCircle
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1044,7 +1038,6 @@ bCircle
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1059,7 +1052,6 @@ bCircle
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1090,7 +1082,6 @@ baCircle
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1105,7 +1096,6 @@ baCircle
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -1246,8 +1236,6 @@ wolfImplode
   });
 });
 //background color change
-// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-// background 
 wolfImplode.add({
     targets: 'body',
     // targets: '#pageSelect0C',
@@ -1397,6 +1385,7 @@ var removeAllAnimations = function(){
 
 //function to set the stroke color and optionally weight for all paths with matching animation ID
 var setStrokeColor = function(color,width){
+	console.log(color);
 	document.querySelectorAll('path').forEach(function(path) {
 		 path.style.stroke = color;
 		if(width != 0){
@@ -1762,17 +1751,10 @@ boarStag
 //2: Bull
 //3: Boar
 var currState = -1;
-// var changeState = function(nextState, cssId, event){
-var changeState = function(nextState, cssId){
-	if(explode == false){
+var changeState = function(nextState){
+	if(explode == false) {
 		if(currState != nextState){
 			removeAllAnimations();
-			if(nextState == -1){
-				// var obj = document.getElementById(cssId);
-				// var direction = getDirection(event,obj);
-				//random num for testing
-				var direction = 7;
-			}
 			if(currState == -1){
 				if(nextState == 0){
 					circleS.seek(2500);
@@ -1808,11 +1790,9 @@ var changeState = function(nextState, cssId){
 					currState = nextState;
 				}
 				else if(nextState == -1){
-					if(direction != 1){	
 						sCircle.seek(2500);
 						sCircle.play();
 						currState = nextState;
-					}
 				}
 			}else if(currState == 1){
 				if(nextState == 0){
@@ -1831,11 +1811,9 @@ var changeState = function(nextState, cssId){
 					currState = nextState;
 				}
 				else if(nextState == -1){
-					if(direction != 1 && direction != 3){
-						wCircle.seek(2500);
-						wCircle.play();
-						currState = nextState;
-					}
+					wCircle.seek(2500);
+					wCircle.play();
+					currState = nextState;
 				}
 			}else if(currState == 2){
 				if(nextState == 0){
@@ -1854,11 +1832,9 @@ var changeState = function(nextState, cssId){
 					currState = nextState;
 				}
 				else if(nextState == -1){
-					if(direction != 1 && direction != 3){
-						bCircle.seek(2500);
-						bCircle.play();
-						currState = nextState;
-					}
+					bCircle.seek(2500);
+					bCircle.play();
+					currState = nextState;
 				}
 			}else if(currState == 3){
 				if(nextState == 0){
@@ -1877,11 +1853,9 @@ var changeState = function(nextState, cssId){
 					currState = nextState;
 				}
 				else if(nextState == -1){
-					if(direction != 3){
-						baCircle.seek(2500);
-						baCircle.play();
-						currState = nextState;
-					}
+					baCircle.seek(2500);
+					baCircle.play();
+					currState = nextState;
 				}
 			}
 		}
@@ -1985,7 +1959,9 @@ var hoverOnHomeIcon = function(){
 		
 	})
 	home.addEventListener('mouseout',function(){
-		setStrokeColor('#000',0);	
+		if (explode) {
+			setStrokeColor('#000',0);	
+		}
 	})
 }
 
@@ -1997,7 +1973,7 @@ var revealAnimationStage = function(click){
 	if(isMobileDevice()){
 		clearColors();
 	}
-	changeState(-1);	
+	changeState(-1);
 	setTimeout(function(){
 		hideItem("homeIcon");
 		showItem("pageSelect0C");	
@@ -2015,13 +1991,8 @@ var revealAnimationStage = function(click){
 
 	}, 1000);
 	setTimeout(function(){setStrokeColor(redColor,0.4);},1800);
-		
 }
 
-//var clickReverse = function(click){
-////getBlack div overscreen and have it fade to dark and then fade in with svg content	
-//	revealAnimationStage(click);
-//};
 var currLink = 0;
 var clickAnimation = function(click){
 	if(!isMobileDevice()){
@@ -2049,52 +2020,50 @@ var clickAnimation = function(click){
 			hideAnimationStage(3);
 			currLink = 3;
 		}
-
-	}
-	else{ 
+	} else { 
 		//if we are on a mobile device we don't have hover events so we should stall out
 		//the hover state machine by setting explode = true; and then manually perform the transformations
 		//from whatever state we are currently in, to the state that has been clicked on. Then we finish by 
 		//performing the implode/explode animation and calling the hideAnimationStage() function with the appropriate
 		//paramter corresponding to whatever link was clicked
 		if(click == 0){
-			explode = true;
-			currLink = 0;
 			mobileImplodeHelper(0, stagImplode)	
 		}
 		else if(click == 1){
-			explode = true;
-			currLink = 1;
 			mobileImplodeHelper(1, wolfImplode)	
 		}
 		else if(click == 2){
-			explode = true;
-			currLink = 2;
 			mobileImplodeHelper(2, bullImplode)	
 		}
 		else if(click == 3){
-			explode = true;
-			currLink = 3;
 			mobileImplodeHelper(3, boarImplode)	
 		}
 	}
 
 };
 
-function mobileImplodeHelper(animalNum, imploder) {
-	if (currState != animalNum) {
-		clearColors();
-	}
+function implodeHelper(animalNum, imploder) {
+	imploder.seek(2500);
+	imploder.play();
+	hideAnimationStage(animalNum);
+	currLink = animalNum;
+}
+
+function mobileImplodeHelper(animalNum) {
+	var imploder = 
+		animalNum == 0 ? 
+		stagImplode : animalNum == 1 ?
+		wolfImplode : animalNum == 2 ?
+		bullImplode : boarImplode;
+	explode = true;
+	currLink = animalNum;
+	clearColors();
 	if (currState != -1){
 		document.getElementById(`pageSelect${currState}C`).style.color = colorRouter();
 		document.getElementById(`pageSelect${currState}`).style.color = colorRouter();
 	}
-	imploder.seek(2500);
-	//need to make sure out stroke color is correct before we play the animation
-	//it can be stuck in black from carousel view
-	setStrokeColor(colorRouter()); 
-	
 	setTimeout(function(){
+		imploder.seek(2500);
 		imploder.play();
 		hideAnimationStage(animalNum);
 	},1500);
@@ -2176,8 +2145,6 @@ var boarLinkImages = function(){
 }
 
 var carouselLaunch = function(linkNum){
-	//function to setup hover color change on homeicon
-	hoverOnHomeIcon();
 	addItem('tileContainer','div','carousel','',[`carousel${cssSuffix}`]);
 	showItem('carousel');
 	document.getElementById('carousel').setAttribute('data-gap',12);
@@ -2560,17 +2527,31 @@ body[0].onmousemove = function(e) {
 setStrokeColor(redColor,0.4);
 
 //used to set appropriate transition color during a state change
-function colorRouter(){
-	if(currState == -1){
-		return '#808080';
-	}else if(currState == 0){
-		return greenColor;	
-	}else if(currState == 1){
-		return blueColor;	
-	}else if(currState == 2){
-		return orangeColor;
-	}else if(currState == 3){
-		return purpleColor;
+function colorRouter(specificChoice){
+	if(specificChoice === undefined || specificChoice === null){
+		if(currState == -1){
+			return '#808080';
+		}else if(currState == 0){
+			return greenColor;	
+		}else if(currState == 1){
+			return blueColor;	
+		}else if(currState == 2){
+			return orangeColor;
+		}else if(currState == 3){
+			return purpleColor;
+		}
+	} else {
+		if(specificChoice == -1){
+			return '#808080';
+		}else if(specificChoice == 0){
+			return greenColor;	
+		}else if(specificChoice == 1){
+			return blueColor;	
+		}else if(specificChoice == 2){
+			return orangeColor;
+		}else if(specificChoice == 3){
+			return purpleColor;
+		}
 	}
 }
 
@@ -2617,6 +2598,10 @@ window.onload = function(){
 			}
 		}
 	});
+
+	//function to setup hover color change on homeicon
+	hoverOnHomeIcon();
+
 	//Lockdown the screen, important for mobile devices to be more airtight on stray scroll events
 	const disableBodyScroll = bodyScrollLock.disableBodyScroll;
 	disableBodyScroll(body);
