@@ -2657,6 +2657,9 @@ var carouselLaunch = function(linkNum){
 			figure.style.transform = `translateZ(${-radius}px) ${rotationAxis}(${roundImageIndex * -theta}deg)`;
 			updateClickable(mod(roundCurrImage,n));
 			updateMorphText(mod(roundCurrImage,n));
+			if (!isHorizontal) {
+				window.navigator.vibrate('10');
+			}
 		}
 		function updateClickable(cImage){
 			for(var i=0; i < 8; i ++){
