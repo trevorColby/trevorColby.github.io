@@ -114,6 +114,8 @@
   color: #696969;
   width: 100%;
   display: block;
+  height: 10vh; 
+  overflow: hidden;
 }
 
 .cardTitle{
