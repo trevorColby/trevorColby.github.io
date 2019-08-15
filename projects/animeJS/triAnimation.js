@@ -1999,7 +1999,7 @@ var hideAnimationStage = function(linkNum){
 	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
 	var floatContainer = document.getElementById('floatContainer');
-	var mobileOffset = isHorizontal ? 0 : 100;
+	var mobileOffset = isHorizontal ? 0 : 50;
 	tileContainer.style.marginTop = (floatContainer.getBoundingClientRect().height + mobileOffset).toString() + 'px';
 	var h = document.getElementById("homeIcon").offsetHeight;
 	var w = document.getElementById("homeIcon").offsetWidth;
@@ -2447,7 +2447,7 @@ var carouselLaunch = function(linkNum){
 	addItem('nav','button','next','Next',['nav', 'next']);
 	showItem('next');
 	if(!isHorizontal) {
-		verticalOffset = document.getElementById('fig').getBoundingClientRect().height / 2;
+		verticalOffset = document.getElementById('fig').getBoundingClientRect().height * 0.80;
 		console.log(verticalOffset);
 		document.getElementById('carouselTitle').style.marginTop = verticalOffset + 'px';
 	}
@@ -2547,7 +2547,7 @@ var carouselLaunch = function(linkNum){
 			var cardElem = document.getElementById(numCard);
 			cardElem.classList.add('expand');
 			var translation = cardElem.style.transform;
-			var scaleFactor = isHorizontal ? 5 : 2;
+			var scaleFactor = isHorizontal ? 5 : 1.5;
 			cardElem.style.transform = translation + ` scale(${scaleFactor})`;
 			var infoElem = document.getElementById('infoCard');
 			infoElem.classList.add('showCard');
@@ -2645,7 +2645,7 @@ var carouselLaunch = function(linkNum){
 			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
-			var shrinkFactor = isHorizontal ? 0.2 : 0.5;
+			var shrinkFactor = isHorizontal ? 0.2 : 1/1.5;
 			curCard.style.transform = transf + `scale(${shrinkFactor})`;
 			var cardImg = document.getElementById('cardImgLink');
 			setTimeout(function(){cardImg.src = '';},400);
