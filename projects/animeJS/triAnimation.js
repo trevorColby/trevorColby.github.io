@@ -2658,7 +2658,10 @@ var carouselLaunch = function(linkNum){
 			updateClickable(mod(roundCurrImage,n));
 			updateMorphText(mod(roundCurrImage,n));
 			if (!isHorizontal) {
-				window.navigator.vibrate(10);
+				var supportsVibrate = "vibrate" in navigator;
+				if (supoortsVibrate) {
+					navigator.vibrate(10);
+				}
 			}
 		}
 		function updateClickable(cImage){
