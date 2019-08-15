@@ -2658,10 +2658,11 @@ var carouselLaunch = function(linkNum){
 			updateClickable(mod(roundCurrImage,n));
 			updateMorphText(mod(roundCurrImage,n));
 			if (!isHorizontal) {
-				//var supportsVibrate = "vibrate" in navigator;
-				//if (supoortsVibrate) {
-				//	navigator.vibrate(10);
-				//}
+				// enable vibration support
+				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+				if (navigator.vibrate) { // vibration API supported
+					navigator.vibrate(100);
+				}
 			}
 		}
 		function updateClickable(cImage){
