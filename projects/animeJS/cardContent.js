@@ -1,0 +1,246 @@
+//content of each carousel page
+var stagContent = {
+	card0: {
+		title: 'Dartmouth',
+		subTitle: "B.A in Engineering Sciences and a B.E in Computer Engineering",
+		content: "Relevant Courses: ",
+		//insert link to RESUME page
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Track & Field',
+		subTitle: 'Senior Captain',
+		content: 'Middle distance runner specializing in the 800m. Ivy League Championship 3rd Place 4x800 relay. Margerie Chase Award Recipient.',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card2:{
+		title: 'Work',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card3:{
+		title: 'Web Design',
+		subTitle:' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card4:{
+		title: 'Testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card5:{
+		title: 'Testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card6:{
+		title: 'Testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card7:{
+		title: 'Testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card8:{
+		title: 'Testing...',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+};
+
+//content of each carousel page
+var wolfContent = {
+	card0: {
+		title: 'Tibet',
+		subTitle: "Visualizing a Tibetan Nomad's Artwork with ThreeJS",
+		content: "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Architecture',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Leaflet',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Ray Tracing',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: 'Phong Shading',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: 'ThreeJS',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: 'Utah Teapot',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: 'Skinning',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+var bullContent = {
+	card0: {
+		title: 'Code',
+		subTitle: "",
+		content: "Wow Coding so Cool!",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'More Code',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Leaflet',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Ray Tracing',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: 'Phong Shading',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: 'ThreeJS',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: 'Utah Teapot',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: 'Skinning',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
+
+//content of each carousel page
+var boarContent = {
+	card0: {
+		title: 'Me, Myself, and I',
+		subTitle: "",
+		content: "Coding, Engineering, Running, Photography, Hiking",
+		link: '../../../projects/tibet/public/pages/language.html',
+		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+	}, 
+	card1:{
+		title:'Track & Field',
+		subTitle: 'Senior Captain',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card2:{
+		title: 'Testing',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card3:{
+		title: 'Testing',
+		subTitle:'',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card4:{
+		title: 'Testing',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card5:{
+		title: 'Testing',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card6:{
+		title: 'Testing',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+	card7:{
+		title: 'Wow That\'s a lot of tests',
+		subTitle: '',
+		content: '',
+		link: '',
+		linkImg:'',
+	}, 
+};
