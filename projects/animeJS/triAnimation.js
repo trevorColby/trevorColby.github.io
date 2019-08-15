@@ -2507,17 +2507,15 @@ var carouselLaunch = function(linkNum){
 				var swipeC = new Hammer.Swipe();
 				hammerC.add(swipeC);
 				hammerC.on('swipeup', function(ev) {
-					console.log('up');
 					if(!isHorizontal && explode) {
-						currImage = currImage - 0.51;	 //need to take a better look at this
+						currImage = currImage - 0.25;	 //need to take a better look at this
 					}
 					rotateCarousel(currImage);
 				});
 				
 				hammerC.on('swipedown', function(ev) {
-					console.log('down');
 					if(!isHorizontal && explode) {
-						currImage = currImage + 0.51;	
+						currImage = currImage + 0.25;	
 					}
 					rotateCarousel(currImage);
 				});
@@ -2886,60 +2884,3 @@ window.onload = function(){
 //remove our loading screen	
 body.classList.add('loaded');	
 }
-
-//var kState = -1;
-//document.addEventListener('keydown', function (e) {
-//    if (e.defaultPrevented) {
-//	//don't want to trigger if default is supposed to be prevented	
-//	return;
-//    }
-
-//    //key either our key or keyCode if the key doesn't exist
-//    var keyPressed = e.key || e.keyCode;
-//    if (keyPressed === 'a' ||
-//	keyPressed === 'keyA' ||
-//	keyPressed === 65) {
-//	console.log('a');
-//	    if(explode == false){
-//		    kState = kState - 1;
-//		if(currState != -1){
-//			clearColors(currState);
-//			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
-//		}
-//		changeState((mod(kState,5) - 1));
-//		if(currState != -1){
-//			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
-//			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
-				
-//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = '1 !important';
-//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
-//			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
-//		}
-//	    }
-
-//    }
-//    if (keyPressed === 'd' ||
-//	keyPressed === 'keyD' ||
-//	keyPressed === 68) {
-//		console.log('d');
-//	    if(explode == false){
-//		    kState = kState + 1;
-//		if(currState != -1){
-//			clearColors(currState);
-//			// document.getElementById('pageSelect' + currState + 'C').style.color = '#808080';
-//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 0;
-//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = '';
-//			// document.getElementById('pageSelect' + currState + 'C').style.transform = '';
-//		}
-//		changeState((mod(kState,5) - 1));
-//		if(currState != -1){
-//			document.getElementById('pageSelect' + currState + 'C').style.color = colorRouter();
-//			// document.getElementById('pageSelect' + currState).classList.add('fakeHover');
-//			// document.getElementById('pageSelect' + currState + 'C').style.opacity = 1;
-//			// document.getElementById('pageSelect' + currState + 'C').style.webkitTransform = 'scale(1)';
-//			// document.getElementById('pageSelect' + currState + 'C').style.transform = 'scale(1)';
-//		}
-//	    }
-
-//    }
-//});
