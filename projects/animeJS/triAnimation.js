@@ -2475,7 +2475,7 @@ var carouselLaunch = function(linkNum){
 		var gap = root.dataset.gap || 0;
 		var bfc = 'bfc' in root.dataset;
 		var theta =  360 / n;
-		var currImage = 0;
+		var currImage = 0.0;
 		var radius;
 		
 		setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
@@ -2509,7 +2509,7 @@ var carouselLaunch = function(linkNum){
 				hammerC.on('swipeup', function(ev) {
 					console.log('up');
 					if(!isHorizontal && explode) {
-						currImage--;	
+						currImage = currImage - 0.51;	 //need to take a better look at this
 					}
 					rotateCarousel(currImage);
 				});
@@ -2517,7 +2517,7 @@ var carouselLaunch = function(linkNum){
 				hammerC.on('swipedown', function(ev) {
 					console.log('down');
 					if(!isHorizontal && explode) {
-						currImage++;	
+						currImage = currImage + 0.51;	
 					}
 					rotateCarousel(currImage);
 				});
@@ -2654,9 +2654,11 @@ var carouselLaunch = function(linkNum){
 		}
 
 		function rotateCarousel(imageIndex) {
-			figure.style.transform = `translateZ(${-radius}px) ${rotationAxis}(${imageIndex * -theta}deg)`;
-			updateClickable(mod(currImage,n));
-			updateMorphText(mod(currImage,n));
+			var roundImageIndex = Math.round(imageIndex);
+			var roundCurrImage = Math.round(currImage);
+			figure.style.transform = `translateZ(${-radius}px) ${rotationAxis}(${roundImageIndex * -theta}deg)`;
+			updateClickable(mod(roundCurrImage,n));
+			updateMorphText(mod(roundCurrImage,n));
 		}
 		function updateClickable(cImage){
 			for(var i=0; i < 8; i ++){
