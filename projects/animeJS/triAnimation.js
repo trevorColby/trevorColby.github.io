@@ -2508,14 +2508,18 @@ var carouselLaunch = function(linkNum){
 				hammerC.add(swipeC);
 				hammerC.on('swipeup', function(ev) {
 					if(!isHorizontal && explode) {
-						currImage = currImage - 1;	 //need to take a better look at this
+						if(!document.getElementById('card' + mod(currImage,8)).classList.contains('expand')) {
+							currImage = currImage - 1;
+						}
 					}
 					rotateCarousel(currImage);
 				});
 				
 				hammerC.on('swipedown', function(ev) {
 					if(!isHorizontal && explode) {
-						currImage = currImage + 1;	
+						if(!document.getElementById('card' + mod(currImage,8)).classList.contains('expand')) {
+							currImage = currImage + 1;	
+						}
 					}
 					rotateCarousel(currImage);
 				});
@@ -2661,7 +2665,7 @@ var carouselLaunch = function(linkNum){
 				// enable vibration support
 				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 				if (navigator.vibrate) { // vibration API supported
-					navigator.vibrate(100);
+					navigator.vibrate(10);
 				}
 			}
 		}
