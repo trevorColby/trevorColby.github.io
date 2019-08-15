@@ -2508,14 +2508,14 @@ var carouselLaunch = function(linkNum){
 				hammerC.add(swipeC);
 				hammerC.on('swipeup', function(ev) {
 					if(!isHorizontal && explode) {
-						currImage = currImage - 0.25;	 //need to take a better look at this
+						currImage = currImage - 1;	 //need to take a better look at this
 					}
 					rotateCarousel(currImage);
 				});
 				
 				hammerC.on('swipedown', function(ev) {
 					if(!isHorizontal && explode) {
-						currImage = currImage + 0.25;	
+						currImage = currImage + 1;	
 					}
 					rotateCarousel(currImage);
 				});
