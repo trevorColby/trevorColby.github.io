@@ -1999,7 +1999,7 @@ var hideAnimationStage = function(linkNum){
 	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
 	var floatContainer = document.getElementById('floatContainer');
-	var mobileOffset = isHorizontal ? 0 : 175;
+	var mobileOffset = isHorizontal ? 0 : 100;
 	tileContainer.style.marginTop = (floatContainer.getBoundingClientRect().height + mobileOffset).toString() + 'px';
 	var h = document.getElementById("homeIcon").offsetHeight;
 	var w = document.getElementById("homeIcon").offsetWidth;
