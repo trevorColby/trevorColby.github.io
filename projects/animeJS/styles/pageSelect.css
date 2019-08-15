@@ -1,0 +1,161 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html { 
+    background-color: #000;
+}
+table {
+    table-layout: fixed;
+    text-align: center;
+    color: #808080;
+    font-size: 4em;
+}
+a{
+    color: inherit;
+    font-size: 5vw;
+    position: absolute;
+    bottom: 4vh;
+    margin: 0 auto;
+}
+td{
+    position: relative;
+    height: 100%;
+}
+/*td:hover{
+    color:white;
+}*/
+#pageSelect0C:hover{
+    color: #00FF00;
+}
+
+#pageSelect1C:hover{
+    color: #00FFFF;
+}
+
+#pageSelect2C:hover{
+    /*color: #ff3d00;*/
+    color: #ffa500;
+}
+
+#pageSelect3C:hover{
+    color: #FF00FF;
+}
+
+.white{
+    color: white;
+}
+
+.center{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+}
+
+.center_on_page {
+    width: 100%;
+    position: absolute; 
+    top:12vh;
+    bottom:88vh;
+    left: 0;
+    right:0;
+    margin: auto;
+}
+
+td.effect-underline:after {
+   content: '';
+   position: relative;
+   left: 0;
+   display:inline-block;
+   width: 80%;
+   border-bottom: 1px solid;
+   margin-top: 10px;
+   opacity: 0;
+   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+   transition: opacity 0.35s, transform 0.35s;
+   -webkit-transform: scale(0,1);
+   transform: scale(0,1);
+}
+td.effect-underline:hover:after {
+   opacity: 1;
+   -webkit-transform: scale(1);
+   transform: scale(1);
+}
+
+#selectionContainer{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    position: centered;
+    font-size: 2em;
+}
+header{
+    position: absolute;
+}
+
+header:nth-child(1){
+    animation-name: fade1;
+    animation-fill-mode:both;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: forward;
+}
+header:nth-child(2){
+    animation-name: fade2;
+    animation-fill-mode:both;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: forward;
+}
+header:nth-child(3){
+    animation-name: fade3;
+    animation-fill-mode:both;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-direction: forward;
+}
+
+@keyframes fade1{
+    0% {
+	opacity: 0;
+    }
+    18% {
+	opacity: 1;
+    }
+    33% {
+	opacity: 0;
+    }
+    100%{
+	opacity: 0;
+    }
+}
+@keyframes fade2{
+    0%{
+	opacity: 0;
+    }
+    33%{
+	opacity: 0;
+    }
+    50% {
+	opacity: 1;
+    }
+    65% {
+	opacity: 0;
+    }
+    100% {
+	opacity: 0;
+    }
+}
+@keyframes fade3{
+    0%{
+	opacity: 0;
+    }
+    66%{
+	opacity: 0;
+    }
+    83% {
+	opacity: 1;
+    }
+    100%{
+	opacity: 0;
+    }
+}
