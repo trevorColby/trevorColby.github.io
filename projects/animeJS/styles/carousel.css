@@ -1,0 +1,267 @@
+.carousel {
+  border: 1px solid #CCC;
+  margin: 40px 0;
+  position: relative;
+  width: 30vw;
+  height: 40vh;
+  margin: 2vh auto;
+  perspective: 1000px;
+}
+
+.carousel-mobile {
+  border: 1px solid #CCC;
+  margin: 40px 0;
+  position: relative;
+  width: 72vw;
+  height: 37vh;
+  margin: 2vh auto;
+  perspective: 1000px;
+}
+
+#fig {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(-288px);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 28vw;
+  height: 38vh;
+  left: 1vw;
+  top: 1vh;
+  border: 2px solid black;
+  line-height: 116px;
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  transition: 1s;
+}
+
+.carousel__cell-mobile {
+  position: absolute;
+  width: 70vw;
+  height: 35vh;
+  left: 1vw;
+  top: 1vh;
+  border: 2px solid black;
+  line-height: 116px;
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 1;
+  transition: 1s;
+}
+
+.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+4) { background: hsla(120, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+5) { background: hsla(160, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+6) { background: hsla(200, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 50%, 0.8); }
+
+.carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
+.carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
+.carousel__cell:nth-child(3) { transform: rotateY( 80deg) translateZ(288px); }
+.carousel__cell:nth-child(4) { transform: rotateY(120deg) translateZ(288px); }
+.carousel__cell:nth-child(5) { transform: rotateY(160deg) translateZ(288px); }
+.carousel__cell:nth-child(6) { transform: rotateY(200deg) translateZ(288px); }
+.carousel__cell:nth-child(7) { transform: rotateY(240deg) translateZ(288px); }
+.carousel__cell:nth-child(8) { transform: rotateY(280deg) translateZ(288px); }
+.carousel__cell:nth-child(9) { transform: rotateY(320deg) translateZ(288px); }
+
+.cImg {
+  transition: 1s;
+}
+
+#tileContainer nav {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0;
+}
+#tileContainer nav button {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #333;
+  background: none;
+  border: 1px solid;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  position: relative;
+  display: block;
+}
+
+.carouselTitle {
+  text-align: center;
+  font-size: 4vw !important;
+  color: #696969;
+  width: 100%;
+  display: block;
+}
+
+.carouselTitle-mobile {
+  text-align: center;
+  font-size: 10vw !important;
+  color: #696969;
+  width: 100%;
+  display: block;
+}
+
+.cardTitle{
+  font-size: 4vw !important;
+  margin-bottom: 1px !important;
+}
+
+.cardSubTitle{
+  font-size: 3vw !important;
+  margin: 2px !important;
+  padding-left: 2vw;
+  text-align: left;
+}
+
+.cardContent{
+  font-size: 2vw !important;
+  margin: 1px !important;
+  padding-left: 2vw;
+  text-align: left;
+}
+
+.cardBody {
+  position: relative;
+  overflow: auto;
+  height: 46vh; 
+}
+
+.showCard{
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.expand{
+    opacity: 0.0 !important;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.notClickable{
+  pointer-events: none;
+}
+
+/*X IN FLIP CARD*/
+
+.close {
+  cursor: Pointer; 
+  position: absolute;
+  right: 1vh;
+  top: 1vh;
+  width: 10%;
+  height: 10%;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 65%;
+  content: ' ';
+  height: 90%;
+  width: 2px;
+  background-color: #333;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.close-mobile {
+  cursor: Pointer; 
+  position: absolute;
+  right: 1.5vh;
+  top: 0.5vh;
+  width: 5%;
+  height: 5%;
+  opacity: 0.3;
+}
+
+.close-mobile:hover {
+  opacity: 1;
+}
+
+.close-mobile:before, .close-mobile:after {
+  position: absolute;
+  left: 65%;
+  content: ' ';
+  height: 90%;
+  width: 2px;
+  background-color: #333;
+}
+
+.close-mobile:before {
+  transform: rotate(45deg);
+}
+
+.close-mobile:after {
+  transform: rotate(-45deg);
+}
+
+
+/******************************* END FLIP CARD TEST: Petr Tichy */
+
+.cardImgLink{
+    width: 10vw;
+    left: 20%;
+    margin: 2vh;
+}
+
+#cardLink {
+    position: relative;
+}
+
+
+#floatContainer{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+#tileContainer{
+    position: absolute;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#infoCard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1vh;
+  /*background-color: #A9A9A9;*/
+  background-color: #FFF;
+  opacity: 0;
+  transition: 0.5s;
+  pointer-events: none;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
