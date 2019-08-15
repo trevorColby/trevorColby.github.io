@@ -1385,7 +1385,6 @@ var removeAllAnimations = function(){
 
 //function to set the stroke color and optionally weight for all paths with matching animation ID
 var setStrokeColor = function(color,width){
-	console.log(color);
 	document.querySelectorAll('path').forEach(function(path) {
 		 path.style.stroke = color;
 		if(width != 0){
@@ -2165,7 +2164,6 @@ var carouselLaunch = function(linkNum){
 	showItem('next');
 	if(!isHorizontal) {
 		verticalOffset = document.getElementById('fig').getBoundingClientRect().height * 0.80;
-		console.log(verticalOffset);
 		document.getElementById('carouselTitle').style.marginTop = verticalOffset + 'px';
 	}
 	//carousel images
