@@ -12,8 +12,8 @@
   border: 1px solid #CCC;
   margin: 40px 0;
   position: relative;
-  width: 72vw;
-  height: 37vh;
+  width: 68vw;
+  height: 25vh;
   margin: 2vh auto;
   perspective: 1000px;
 }
@@ -45,8 +45,8 @@
 
 .carousel__cell-mobile {
   position: absolute;
-  width: 70vw;
-  height: 35vh;
+  width: 66vw;
+  height: 23vh;
   left: 1vw;
   top: 1vh;
   border: 2px solid black;
