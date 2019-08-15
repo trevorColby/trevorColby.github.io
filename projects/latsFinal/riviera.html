@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor's Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- social media meta tags -->
+<meta property="og:title" content="Latinx Muralists">
+<meta property="og:description" content="Exploring the work of Latinx street artists across the US.">
+<meta property="og:image" content="../../media/projects/christTheAvenger.jpg">
+<meta property="og:url" content="http://trevorColby.tech/lats41Final.html">
+<meta name="twitter:card" content="Latinx Muralists">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- end social media meta tags -->
+<link rel="stylesheet" href="../../styles/webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+#myNavbar {
+    position: absolute;
+}
+
+#full{
+    z-index: 17;
+    position: relative;
+}
+
+.carousel-caption{
+    background-color: rgba(217,217,217,0.7);
+    border-radius: 20px;
+}
+
+.full{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.full:hover{
+	opacity: 0.5; 
+	-webkit-transition: 0.25s;
+}
+
+.carouselImg{
+    display: block;
+    max-width:450px;
+    max-height:345px;
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.item{
+    overflow: hidden;
+    height: 345px;
+}
+
+.vidContainer{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    width: 100%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+</style>
+<body class="w3-light-grey">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a href="../../lats41Final.html" class="w3-bar-item w3-button">HOME</a>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../../lats41Final.html" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+  </div>
+</div>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>Artists In Focus</b></h1>
+  <p>Check Out Mexico's  <span class="w3-tag">Big Three</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+
+<!-- Blog entry -->
+  <div id="carousel" class="w3-card-4 w3-margin w3-white">
+	  <div class="carouselContainer">
+		<div id="full">
+			<img class="full" src="../../media/Lats/fullscreen.png" onclick="launchCarouselModal()">
+		</div>
+		  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+		    <!-- Indicators -->
+		    <ol class="carousel-indicators">
+		      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		      <li data-target="#myCarousel" data-slide-to="1"></li>
+		      <li data-target="#myCarousel" data-slide-to="2"></li>
+		      <li data-target="#myCarousel" data-slide-to="3"></li>
+		      <li data-target="#myCarousel" data-slide-to="4"></li>
+		      <li data-target="#myCarousel" data-slide-to="5"></li>
+		      <li data-target="#myCarousel" data-slide-to="6"></li>
+		      <li data-target="#myCarousel" data-slide-to="7"></li>
+		      <li data-target="#myCarousel" data-slide-to="8"></li>
+		      <li data-target="#myCarousel" data-slide-to="9"></li>
+		    </ol>
+
+		    <!-- Wrapper for slides -->
+		    <div class="carousel-inner" role="listbox">
+
+		      <div class="item active">
+			<img src="../../media/Lats/rivera/dream1946.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap1">
+			  <h3>Dream of a Sunday Afternoon in Alameda Park<br>1947</h3>
+			  <p>Originally created for the Versailles restaurant at the hotel Prado, it was moved to the museum after the hotel was destroyed in the 1985 Mexico City earthquake. Alameda Central is a public municipal park in downtown Mexico City which has witnessed several important events in Mexican history</p>
+			</div>
+		      </div>
+
+		      <div class="item">
+			<img src="../../media/Lats/rivera/fertileLand1924.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap2">
+			  <h3>The Abundant Earth<br>1927</h3>
+			  <p>This piece was painted in the former Jesuit chapel in Chapingo, which served as the auditorium of the Escuela Nacional de Agricultura. This is one of the 41 fresco panels, tracing the development of natural growth from seed to flowering plant.</p>
+			</div>
+		      </div>
+		    
+		      <div class="item">
+			<img src="../../media/Lats/rivera/frozenAssets1931.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap3">
+			  <h3>Frozen Assets<br>1931</h3>
+			  <p>The panel’s top half depicts recognizable skyscrapers while the lowest depicts a bank’s waiting room. The mural is considered a shrewd insight into the reality of New York and struck a chord among the public amid the depression..</p>
+			</div>
+		      </div>
+
+		      <div class="item">
+			<img src="../../media/Lats/rivera/symbolicLandscape1940.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap4">
+			  <h3>Symbolic Landscape<br>1940</h3>
+			  <p>The painting depicts a fallen tree with a smooth bark surrounded by stones which take all kinds of shapes, and other symbolic objects. It uses a colorful natural landscape to symbolically portray the turmoil he felt after his divorce to famous Mexican artist Frida Kahlo.</p>
+			</div>
+		      </div>
+		      
+		     <div class="item">
+			<img src="../../media/Lats/rivera/creation1922.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap5">
+			  <h3>Creation<br>1922</h3>
+			  <p>This piece was created over the course of a year and covers over a thousand square feet. The artwork depicts a number of allegorical figures including Faith, Hope, Charity, Education and Science.</p>
+			</div>
+		      </div>
+		     
+		      <div class="item">
+			<img src="../../media/Lats/rivera/flowerCarrier1935.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap6">
+			  <h3>The Flower Carrier<br>1935</h3>
+			  <p>This painting is one of the most famous depictions of the struggle of a common worker living in a capitalist society.</p>
+			</div>
+		      </div>
+		      
+			<div class="item">
+			<img src="../../media/Lats/rivera/agrarianLeader1931.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap7">
+			  <h3>Agrarian Leader Zapata<br>1931</h3>
+			  <p>Emiliano Zapata was the foremost leader of the peasant revolution in the Mexican state of Morelos and among the leading figures in the Mexican Revolution. He was also the inspiration of the agrarian movement known as Zapatismo. Here we see Zapata standing over the body of a landowner.</p>
+			</div>
+		      </div>
+			
+			<div class="item">
+			<img src="../../media/Lats/rivera/historyOfMexico1929.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap8">
+			  <h3>The History of Mexico<br>1929</h3>
+			  <p>In August 1929, Rivera began painting his grand murals in the large stairways and stairwells of the National Palace, the center of the Mexican government located on Mexico City’s main square. This piece is found on the West Wall of the Palace.</p>
+			</div>
+		      </div>
+			
+			<div class="item">
+			<img src="../../media/Lats/rivera/detroitIndustry1932.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap9">
+			  <h3>Detroit Industry Murals<br>1932</h3>
+			  <p>This piece resides in the Detroit Institute of Art in Midtown Detroit, Michigan. It depicts laborers working at Ford Motor Company’s River Rouge Plant.</p>
+			</div>
+		      </div>
+			
+			<div class="item">
+			<img src="../../media/Lats/rivera/manAtTheCrossroads1934.webp" width="460" height="345" class="carouselImg showCap">
+			<div class="carousel-caption" id="carCap10">
+			  <h3>Man At The Crossroads<br>1934</h3>
+			  <p>This fresco was first commissioned by the Rockefellers for ground-floor wall of Rockefeller Center in New York City. However it couldn’t be completed as Rivera refused to remove a portrait of Lenin which was causing a controversy. It was subsequently destroyed and then recreated by Rivera at the Palacio de Bellas Artes in Mexico City.</p>
+			</div>
+		      </div>
+		  
+		    </div>
+
+		    <!-- Left and right controls -->
+		    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		      <span class="sr-only">Previous</span>
+		    </a>
+		    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		      <span class="sr-only">Next</span>
+		    </a>
+		  </div>
+	  </div>
+    <div class="w3-container">
+      <h3><b>Ten Of Rivera's Most Famous Works</b></h3>
+      <h5>Public Art and Iconic Murals<span class="w3-opacity"> 1886 – 1957</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>Showcase: The Most Influential Works</p>
+      <div class="w3-row">
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div id="vid" class="w3-card-4 w3-margin w3-white">
+	  <div class="carouselContainer">
+	  <div class="vidContainer">
+		<iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/9tlz4sHODMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+	  </div>
+    <div class="w3-container">
+      <h3><b>The Life of Rivera</b></h3>
+      <h5>A Tumultuous Personal Life<span class="w3-opacity"> April, 25, 2019</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>Los Tres Granes</p>
+      <div class="w3-row">
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="fullScreenImage" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  <img src="../../media/projects/rivera_diego.jpg" style="width:100%">
+    <div class="w3-container w3-white">
+      <h3><b>Diego Rivera:</b></h3>
+      <p> - <b>Life:</b> 1886-1957</br> - <b>Career:</b> 50 Year Span</br> - <b>Style:</b> Cubism, Impressionism, Post-Impressionism</p>
+    </div>
+  </div><hr>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Artists In Focus</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+    <a style="text-decoration:none" href="riviera.html" >
+      <li class="w3-padding-16">
+        <img src="../../media/projects/rivera_diego.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Diego Rivera</span><br>
+        <span>Guanajuato, Mexico</span>
+      </li>
+    </a>
+    <a style="text-decoration:none" href="orozco.html" >
+      <li class="w3-padding-16">
+        <img src="../../media/projects/jose_clemente_orozco.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">José Clemente Orozco</span><br>
+        <span>Ciudad Guzmán, Mexico</span>
+      </li> 
+    </a>
+    <a style="text-decoration:none" href="siqueiros.html" >
+      <li class="w3-padding-16">
+        <img src="../../media/projects/siqueiros_david_alfaro_.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">David Alfaro Siqueiros</span><br>
+        <span>Chihuahua, Mexico</span>
+      </li>   
+    </a>
+    </ul>
+  </div>
+  <hr> 
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+	  <a style="text-decoration:none" href="../../lats41Final.html" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">« Previous</button>
+	  </a>
+	  <a style="text-decoration:none" href="orozco.html" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+	  </a>
+  <p class="w3-center">Page <span class="w3-tag w3-center">2</span> of 4</p>
+</footer>
+<script src="../../pageControls.js"></script>
+<script src="latsControls.js"></script>
+
+</body>
+</html>
