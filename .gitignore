@@ -1,3 +1,4 @@
+node_modules
 temp
 projects/tibet/server*
 *_site
