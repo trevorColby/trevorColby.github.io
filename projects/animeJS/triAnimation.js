@@ -1,3 +1,7 @@
+//Only load in items on first launch
+var carouselLaunched = 0;
+var isHorizontal = true;
+var verticalOffset;
 //Need to check if we are on mobile or desktop to set our appropriate zoom for svg
 function isMobileDevice() {
 	    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -8,14 +12,15 @@ function mod(n, m) {
 	  return ((n % m) + m) % m;
 }
 
-var svgElement = document.getElementById('svgElem');
+var cssSuffix = '';
 if(isMobileDevice()) {
-	svgElement.style.height = "auto";
-	svgElement.style.width = "100%";
-}else{
-	svgElement.style.height = "50%";
-	svgElement.style.width = "50%";
+	//change the css suffix so that I can add the appropriate css class if on mobile device
+	cssSuffix = '-mobile';
+	isHorizontal = false;
 }
+
+document.getElementById('homeIconSVG').classList.add('svg-nav-icon' + cssSuffix);
+document.getElementById('svgElem').classList.add('svg-animation-elem' + cssSuffix);
 
 //COLOR CHOICES FOR OUR TRANSITIONS!
 var blueColor = '#00FFFF';
@@ -24,19 +29,11 @@ var redColor = '#f90000';
 var orangeColor = '#ffa500';
 var purpleColor = '#FF00FF';
 var greenColor = '#00FF00';
+var rotationAxis = isHorizontal ? 'rotateY' : 'rotateX'
 
-//Only load in items on first launch
-var carouselLaunched = 0;
-
-//alternative way to test for mobile debatably more thorough
-// var isMobile = false; //initiate as false
-// // device detection
-// if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
-//     || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) { 
-//     isMobile = true;
-// }
 
 //Formatting Solution for SVG animation of spotlight unerline
+//this is a dynamic calc so I probably can't pull it out but may want to transfer it into a cleaner private function call for setup
 var pageSelect0 = document.getElementById("pageSelect0");
 var pS0Container = document.getElementById("pageSelect0C");
 pageSelect0.style.left = (pS0Container.offsetWidth - pageSelect0.offsetWidth)/2 + "px";
@@ -1975,18 +1972,19 @@ var addImage = function(parentId,source){
     newElem.src = source;
     newElem.alt = "Could not load image";
     newElem.classList.add('cImg');   
+    newElem.classList.add('carousel__cell' + cssSuffix);   
     pID.appendChild(newElem);
 }
 
 function setTitle(linkNum){
 	if(linkNum == 0){
-		addItem('floatContainer','h1','pageTitle','Home',[]);
+		addItem('floatContainer','h1','pageTitle','Home',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 1){
-		addItem('floatContainer','h1','pageTitle','Coding Projects',[]);
+		addItem('floatContainer','h1','pageTitle','Coding Projects',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 2){
-		addItem('floatContainer','h1','pageTitle','Portfolio',[]);
+		addItem('floatContainer','h1','pageTitle','Portfolio',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 3){
-		addItem('floatContainer','h1','pageTitle','About Me',[]);
+		addItem('floatContainer','h1','pageTitle','About Me',[`pageTitle${cssSuffix}`]);
 	}	
 }
 //function called when a link in the directory is clicked
@@ -2001,21 +1999,22 @@ var hideAnimationStage = function(linkNum){
 	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
 	var floatContainer = document.getElementById('floatContainer');
-	tileContainer.style.marginTop = floatContainer.getBoundingClientRect().height.toString() + 'px';
+	var mobileOffset = isHorizontal ? 0 : 175;
+	tileContainer.style.marginTop = (floatContainer.getBoundingClientRect().height + mobileOffset).toString() + 'px';
 	var h = document.getElementById("homeIcon").offsetHeight;
 	var w = document.getElementById("homeIcon").offsetWidth;
 	//set the appropriate height and width of the home icon for a mobile device
-	if(isMobileDevice()){
-		if(document.getElementById("homeIconSVG").getAttribute("viewBox") == null){
-			document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*8 + " " + h*8);
-		}
-		document.getElementById("homeIcon").style.width = '15vw';
-		document.getElementById("homeIcon").style.height = '15vw';
-	}
-	else{
-		console.log("ELSE CASE TRIGGERED");
-		document.getElementById("homeIconSVG").setAttribute("viewBox", "0 0 " + w*2 + " " + h*2);
-	}
+	// if(isMobileDevice()){
+		// if(document.getElementById("homeIconSVG").getAttribute("viewBox") == null){
+	document.getElementById("homeIconSVG").setAttribute("viewBox", "30 30 150 150");
+		// }
+		// document.getElementById("homeIcon").style.width = '15vw';
+		// document.getElementById("homeIcon").style.height = '15vw';
+	// }
+	// else{
+	// 	console.log(w);
+	// 	document.getElementById("homeIconSVG").setAttribute("viewBox", "20 20 " + w*2 + " " + h*2);
+	// }
 	setTimeout(function(){
 		//Need to make it so we are destroying and reloading the carousel each time
 		//right now we are just loading/reloading it (check mobile performance before blowing away old version)
@@ -2070,6 +2069,7 @@ var revealAnimationStage = function(click){
 		removeItem('pageTitle');
 		showItem("animationContainer");
 		removeItem("carouselTitle");
+		removeItem("nav");
 		removeItem("carousel");
 		removeItem("infoCard");
 		fadeBlack.restart();
@@ -2381,14 +2381,15 @@ var imagePreloader = function(){
 
 //function collection to load images under stag/wolf/bull/boar links
 var stagLinkImages = function(){
-	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
+	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
+	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
+	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/teapot.png');
+	addImage('fig','../../media/projects/Carousel/arm.png');
 }
 
 var wolfLinkImages = function(){
@@ -2427,17 +2428,29 @@ var boarLinkImages = function(){
 var carouselLaunch = function(linkNum){
 	//function to setup hover color change on homeicon
 	hoverOnHomeIcon();
-	addItem('tileContainer','div','carousel','',['carousel']);
+	addItem('tileContainer','div','carousel','',[`carousel${cssSuffix}`]);
 	showItem('carousel');
 	document.getElementById('carousel').setAttribute('data-gap',12);
 	addItem('carousel','div','fig','',[]);
 	showItem('fig');
-	addItem('carousel','nav','nav','',[]);
+
+	// addItem('body','div','footerContainer','',[]);
+	//add in carousel title
+	addItem('tileContainer','h1','carouselTitle','',['data-morph',`carouselTitle${cssSuffix}`]);
+	showItem('carouselTitle');
+	//add in carousel buttons nav container
+	addItem('tileContainer','nav','nav','',[]);
 	showItem('nav');
+	//add in next and prev buttons
 	addItem('nav','button','prev','Prev',['nav','prev']);
 	showItem('prev');
 	addItem('nav','button','next','Next',['nav', 'next']);
 	showItem('next');
+	if(!isHorizontal) {
+		verticalOffset = document.getElementById('fig').getBoundingClientRect().height / 2;
+		console.log(verticalOffset);
+		document.getElementById('carouselTitle').style.marginTop = verticalOffset + 'px';
+	}
 	//carousel images
 	if(linkNum == 0){
 		stagLinkImages();	
@@ -2448,24 +2461,22 @@ var carouselLaunch = function(linkNum){
 	}else if(linkNum == 3){
 		boarLinkImages();	
 	}
-//javacsript to control carousel rotation
-	var carousels = document.querySelectorAll('.carousel');
+	//javacsript to control carousel rotation
+	var carousels = document.querySelectorAll('.carousel' + cssSuffix);
 	for (var i = 0; i < carousels.length; i++) {
 		carousel(carousels[i]);
 	}
 
 	function carousel(root) {
-		var
-			// figure = root.querySelector('figure'),
-			figure = root.querySelector('#fig'),
-			nav = root.querySelector('nav'),
-			images = figure.children,
-			n = images.length,
-			gap = root.dataset.gap || 0,
-			bfc = 'bfc' in root.dataset,
-			theta =  2 * Math.PI / n,
-			currImage = 0
-		;
+		var figure = root.querySelector('#fig');
+		var nav = root.querySelector('nav');
+		var images = figure.children;
+		var n = images.length;
+		var gap = root.dataset.gap || 0;
+		var bfc = 'bfc' in root.dataset;
+		var theta =  360 / n;
+		var currImage = 0;
+		var radius;
 		
 		setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
 		window.addEventListener('resize', () => { 
@@ -2473,39 +2484,45 @@ var carouselLaunch = function(linkNum){
 		});
 
 		setupNavigation();
-		var buttonHeight = document.getElementById('next').offsetHeight;
+		// var buttonHeight = document.getElementById('next').offsetHeight;
 		setupCardClick(linkNum);
 		function setupCarousel(n, s) {
 			//add in title for carousel slides
-			addItem('tileContainer','h1','carouselTitle','',['data-morph','carouselTitle']);
 
 			var screenW = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 			var screenH = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 			var res = screenW/screenH;
-			if(res > 1.3){
-				document.getElementById('carouselTitle').style.bottom = '10vh'; 
-			}
-			// document.getElementById('carouselTitle').style.bottom = (buttonHeight) + 'px';
-			var apothem = s / (2 * Math.tan(Math.PI / n));
-			
+			var width = document.getElementById('fig').offsetWidth; //for vertical orientation will need both
+			var height = document.getElementById('fig').offsetHeight; //for vertical orientation will need both
+			var cellSize = isHorizontal ? width : height;
+			radius = Math.round((cellSize/2)/Math.tan( Math.PI / 9)); //need to make this dynamic to adapt to cell width
 			for (var i = 0; i < n; i++){
-				images[i].style.padding = `${gap}vw`;
+				images[i].style.transform = `${rotationAxis}(${i * theta}deg) translateZ(${radius}px)`;
 			}
-
-			for (i = 0; i < n; i++) {
-				var width = document.getElementById('carousel').offsetWidth;
-				var radius = 1.2*((width)/2)/(Math.tan(360/8));
-				images[i].style.padding = `${gap}vw`;
-				if(i == 0){
-					images[i].style.transform = `translateZ(${-radius}px)`;
-				}
-				images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${radius}px)`;
-			}
-
-			if (bfc)
-				for (i = 0; i < n; i++)
-					 images[i].style.backfaceVisibility = 'hidden';
 			rotateCarousel(currImage);
+			if(!isHorizontal) {
+				//if we are not horizontal i.e mobile, listen for up/down swipes
+				var body = document.getElementsByTagName('body')[0];
+				var hammerC = new Hammer.Manager(body);
+				var swipeC = new Hammer.Swipe();
+				hammerC.add(swipeC);
+				hammerC.on('swipeup', function(ev) {
+					console.log('up');
+					if(!isHorizontal && explode) {
+						currImage--;	
+					}
+					rotateCarousel(currImage);
+				});
+				
+				hammerC.on('swipedown', function(ev) {
+					console.log('down');
+					if(!isHorizontal && explode) {
+						currImage++;	
+					}
+					rotateCarousel(currImage);
+				});
+			
+			}
 		}
 
 		function setupNavigation() {
@@ -2539,8 +2556,8 @@ var carouselLaunch = function(linkNum){
 			document.getElementById('cardImgLink').src = infoObject[numCard].linkImg;
 			var infoCard = document.getElementById('infoCard');
 			infoCard.childNodes[1].innerHTML = infoObject[numCard].title;	
-			infoCard.childNodes[2].innerHTML = infoObject[numCard].subTitle;
-			infoCard.childNodes[3].innerHTML = infoObject[numCard].content;
+			infoCard.childNodes[2].childNodes[0].innerHTML = infoObject[numCard].subTitle;
+			infoCard.childNodes[2].childNodes[1].innerHTML = infoObject[numCard].content;
 		}
 		
 		//helper function to pass in correct object to other helper functions
@@ -2612,14 +2629,14 @@ var carouselLaunch = function(linkNum){
 			// imageC.style.height = '25%';
 			// imageC.style.width = '20%';
 			// imageC.style.clipPath = 'circle(10% at 10% 10%)';
-			addItem('infoCard','div','x','',['close']);
+			addItem('infoCard','div','x','',[`close${cssSuffix}`]);
 			var x = document.getElementById('x');
 			x.addEventListener('click', xClick, true);
-
 			addItem('infoCard','h2','','John Doe',['cardTitle']);
-			addItem('infoCard','p','','Architect and Engineer',['cardSubTitle']);
-			addItem('infoCard','p','','Hope this works',['cardContent']);
-			addItem('infoCard','a','cardLink','',[]);
+			addItem('infoCard','div','cardBody','',['cardBody']);
+			addItem('cardBody','p','','Architect and Engineer',['cardSubTitle']);
+			addItem('cardBody','p','','Hope this works',['cardContent']);
+			addItem('cardBody','a','cardLink','',[]);
 			addItem('cardLink','img','cardImgLink','',['cardImgLink']);
 		}
 
@@ -2635,9 +2652,9 @@ var carouselLaunch = function(linkNum){
 		}
 
 		function rotateCarousel(imageIndex) {
-			figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
-			updateClickable(mod(currImage,8));
-			updateMorphText(mod(currImage,8));
+			figure.style.transform = `translateZ(${-radius}px) ${rotationAxis}(${imageIndex * -theta}deg)`;
+			updateClickable(mod(currImage,n));
+			updateMorphText(mod(currImage,n));
 		}
 		function updateClickable(cImage){
 			for(var i=0; i < 8; i ++){
