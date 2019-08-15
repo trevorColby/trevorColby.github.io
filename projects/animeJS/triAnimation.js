@@ -2549,7 +2549,8 @@ var carouselLaunch = function(linkNum){
 			var cardElem = document.getElementById(numCard);
 			cardElem.classList.add('expand');
 			var translation = cardElem.style.transform;
-			cardElem.style.transform = translation + ' scale(5)';
+			var scaleFactor = isHorizontal ? 5 : 2;
+			cardElem.style.transform = translation + ` scale(${scaleFactor})`;
 			var infoElem = document.getElementById('infoCard');
 			infoElem.classList.add('showCard');
 			document.getElementById('cardLink').href = infoObject[numCard].link;
@@ -2646,7 +2647,8 @@ var carouselLaunch = function(linkNum){
 			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
-			curCard.style.transform = transf + 'scale(.2)';
+			var shrinkFactor = isHorizontal ? 0.2 : 0.5;
+			curCard.style.transform = transf + `scale(${shrinkFactor})`;
 			var cardImg = document.getElementById('cardImgLink');
 			setTimeout(function(){cardImg.src = '';},400);
 		}
@@ -2874,6 +2876,10 @@ window.onload = function(){
 			}
 		}
 	});
+
+	const disableBodyScroll = bodyScrollLock.disableBodyScroll;
+	disableBodyScroll(body);
+
 
 //remove our loading screen	
 body.classList.add('loaded');	
