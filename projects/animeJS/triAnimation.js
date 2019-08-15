@@ -2,6 +2,9 @@
 var carouselLaunched = 0;
 var isHorizontal = true;
 var verticalOffset;
+//check for vibrate support
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
 //Need to check if we are on mobile or desktop to set our appropriate zoom for svg
 function isMobileDevice() {
 	    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -76,7 +79,7 @@ var explode = false;
 //content of each carousel page
 var stagContent = {
 	card0: {
-		title: 'Dartmouth College',
+		title: 'Dartmouth',
 		subTitle: "B.A in Engineering Sciences and a B.E in Computer Engineering",
 		content: "Relevant Courses: ",
 		//insert link to RESUME page
@@ -87,50 +90,57 @@ var stagContent = {
 		title:'Track and Field',
 		subTitle: 'Senior Captain',
 		content: 'Middle distance runner specializing in the 800m. Ivy League Championship 3rd Place 4x800 relay. Margerie Chase Award Recipient.',
-		link: '',
-		linkImg:'',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card2:{
 		title: 'Work Experience',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card3:{
 		title: 'Website Design',
-		subTitle:'',
-		content: '',
-		link: '',
-		linkImg:'',
+		subTitle:' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card4:{
-		title: '',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		title: 'Testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card5:{
-		title: '',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		title: 'I hate testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card6:{
-		title: '',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		title: 'So much testing',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 	card7:{
-		title: '',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		title: 'Wow it\'s still going',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
+	}, 
+	card8:{
+		title: 'Testing...',
+		subTitle: ' ',
+		content: ' ',
+		link: ' ',
+		linkImg:' ',
 	}, 
 };
 
@@ -270,42 +280,42 @@ var boarContent = {
 		linkImg:'',
 	}, 
 	card2:{
-		title: '',
+		title: 'Testing',
 		subTitle: '',
 		content: '',
 		link: '',
 		linkImg:'',
 	}, 
 	card3:{
-		title: '',
+		title: 'Testing',
 		subTitle:'',
 		content: '',
 		link: '',
 		linkImg:'',
 	}, 
 	card4:{
-		title: '',
+		title: 'Testing',
 		subTitle: '',
 		content: '',
 		link: '',
 		linkImg:'',
 	}, 
 	card5:{
-		title: '',
+		title: 'Testing',
 		subTitle: '',
 		content: '',
 		link: '',
 		linkImg:'',
 	}, 
 	card6:{
-		title: '',
+		title: 'Testing',
 		subTitle: '',
 		content: '',
 		link: '',
 		linkImg:'',
 	}, 
 	card7:{
-		title: '',
+		title: 'Wow That\'s a lot of tests',
 		subTitle: '',
 		content: '',
 		link: '',
@@ -1263,7 +1273,6 @@ bullImplode
     // offset:  5 * index
   });
 });
-
 iPaths.forEach(function(path, index) {
 bullImplode	 
   .add({
@@ -1277,7 +1286,6 @@ bullImplode
     offset: 2600 + 3 * index
   });
 });
-
 ePaths.forEach(function(path, index) {
 bullImplode	 
   .add({
@@ -1291,8 +1299,7 @@ bullImplode
     // offset: 3500
   });
 });
-//background color change
-// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
 // background 
 bullImplode.add({
     targets: 'body',
@@ -1346,8 +1353,7 @@ boarImplode
     // offset: 3500
   });
 });
-//background color change
-// var background = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
 // background 
 boarImplode.add({
     targets: 'body',
@@ -1407,11 +1413,7 @@ var setFillColor = function(color, opacity){
 	});
 }
 
-
-// var animals = anime.timeline({ autoplay: true, direction: 'alternate', loop: false });
-
-// var timeline = anime.timeline({ autoplay: false, direction: 'alternate', loop: true });
-// paths.forEach(function(path, index) {
+//stag to to bull
 sPaths.forEach(function(path, index) {
  stagBull 
   .add({
@@ -1422,7 +1424,6 @@ sPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset:  1000 + 10 * index
   });
 });
@@ -1437,7 +1438,6 @@ bPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset:  2600 + 10 * index
   });
 });
@@ -1453,7 +1453,6 @@ sPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset: 1000 + 10 * index
   });
 });
@@ -1468,12 +1467,11 @@ wPaths.forEach(function(path, index) {
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset: 2600 + 10 * index
   });
 });
 
-//stagBoar
+//stag to Boar
 sPaths.forEach(function(path, index) {
 stagBoar 
   .add({
@@ -1484,7 +1482,6 @@ stagBoar
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset: 1000 + 10 * index
   });
 });
@@ -1499,12 +1496,11 @@ stagBoar
       duration: 700,
       easing: 'easeInOutQuad'
     },
-    // offset: 1000 + 10 * index
     offset:  2600 + 10 * index
   });
 });
 
-//WolfBull
+//Wolf to Bull
 wPaths.forEach(function(path, index) {
 wolfBull 
   .add({
@@ -1516,10 +1512,8 @@ wolfBull
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
 
 bPaths.forEach(function(path, index) {
 wolfBull 
@@ -1532,11 +1526,10 @@ wolfBull
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
-//BullWolf
+//Bull to Wolf
 bPaths.forEach(function(path, index) {
 bullWolf 
   .add({
@@ -1548,11 +1541,8 @@ bullWolf
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
-
 wPaths.forEach(function(path, index) {
 bullWolf 
   .add({
@@ -1564,11 +1554,10 @@ bullWolf
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
-//bullBoar
+//Bull to boar
 bPaths.forEach(function(path, index) {
 bullBoar 
   .add({
@@ -1580,11 +1569,8 @@ bullBoar
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
-
 baPaths.forEach(function(path, index) {
 bullBoar
   .add({
@@ -1596,12 +1582,11 @@ bullBoar
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
 
-//boarBull
+//Boar to bull
 baPaths.forEach(function(path, index) {
 boarBull 
   .add({
@@ -1613,11 +1598,8 @@ boarBull
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
-
 bPaths.forEach(function(path, index) {
 boarBull
   .add({
@@ -1629,11 +1611,10 @@ boarBull
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
-//wolfBoar
+//Wolf to Boar
 wPaths.forEach(function(path, index) {
 wolfBoar 
   .add({
@@ -1645,11 +1626,8 @@ wolfBoar
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
-
 baPaths.forEach(function(path, index) {
 wolfBoar 
   .add({
@@ -1661,12 +1639,11 @@ wolfBoar
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
 
-//boarWolf
+//Boar to Wolf
 baPaths.forEach(function(path, index) {
 boarWolf 
   .add({
@@ -1678,11 +1655,8 @@ boarWolf
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
-
 wPaths.forEach(function(path, index) {
 boarWolf 
   .add({
@@ -1694,11 +1668,10 @@ boarWolf
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
-//wolfstag
+//Wolf to Stag
 wPaths.forEach(function(path, index) {
 wolfStag 
   .add({
@@ -1710,10 +1683,8 @@ wolfStag
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
 sPaths.forEach(function(path, index) {
 wolfStag 
   .add({
@@ -1725,12 +1696,11 @@ wolfStag
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
 
-//bullstag
+//Bull to Stag
 bPaths.forEach(function(path, index) {
 bullStag 
   .add({
@@ -1742,10 +1712,8 @@ bullStag
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
 sPaths.forEach(function(path, index) {
 bullStag 
   .add({
@@ -1757,12 +1725,11 @@ bullStag
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
 
-//boarstag
+//Boar to Stag
 baPaths.forEach(function(path, index) {
 boarStag 
   .add({
@@ -1774,10 +1741,8 @@ boarStag
       easing: 'easeInOutQuad'
     },
     offset: 1000 + 10 * index
-    // offset:  5 * index
   });
 });
-
 sPaths.forEach(function(path, index) {
 boarStag 
   .add({
@@ -1789,7 +1754,6 @@ boarStag
       easing: 'easeInOutQuad'
     },
     offset: 2600 + 10 * index
-    // offset:  5 * index
   });
 });
 
@@ -2003,32 +1967,9 @@ var hideAnimationStage = function(linkNum){
 	tileContainer.style.marginTop = (floatContainer.getBoundingClientRect().height + mobileOffset).toString() + 'px';
 	var h = document.getElementById("homeIcon").offsetHeight;
 	var w = document.getElementById("homeIcon").offsetWidth;
-	//set the appropriate height and width of the home icon for a mobile device
-	// if(isMobileDevice()){
-		// if(document.getElementById("homeIconSVG").getAttribute("viewBox") == null){
 	document.getElementById("homeIconSVG").setAttribute("viewBox", "30 30 150 150");
-		// }
-		// document.getElementById("homeIcon").style.width = '15vw';
-		// document.getElementById("homeIcon").style.height = '15vw';
-	// }
-	// else{
-	// 	console.log(w);
-	// 	document.getElementById("homeIconSVG").setAttribute("viewBox", "20 20 " + w*2 + " " + h*2);
-	// }
 	setTimeout(function(){
-		//Need to make it so we are destroying and reloading the carousel each time
-		//right now we are just loading/reloading it (check mobile performance before blowing away old version)
-		// if(carouselLaunched == 0){
-			carouselLaunch(linkNum);
-			// carouselLaunched = 1;
-		// }
-		// else{
-			// showItem('carousel');
-			// showItem('fig');
-			// showItem('nav');
-			// showItem('prev');
-			// showItem('next');
-		// }
+		carouselLaunch(linkNum);
 	},1500);		
 	setTimeout(function(){
 		hideItem("animationContainer");
@@ -2041,12 +1982,10 @@ var hoverOnHomeIcon = function(){
 	var home = document.getElementById('homeIconSVG');
 	home.addEventListener('mouseover',function(){
 		setStrokeColor(redColor,0);	
-		// setFillColor('#999999', '1');
 		
 	})
 	home.addEventListener('mouseout',function(){
 		setStrokeColor('#000',0);	
-		// setFillColor('none', '1');
 	})
 }
 
@@ -2056,7 +1995,6 @@ var revealAnimationStage = function(click){
 	curtain.play();
 	explode = false;
 	if(isMobileDevice()){
-		//may need more modification on this to allow for appropriate click response on mobile
 		clearColors();
 	}
 	changeState(-1);	
@@ -2122,233 +2060,45 @@ var clickAnimation = function(click){
 		if(click == 0){
 			explode = true;
 			currLink = 0;
-			clearColors();
-			if(currState == -1){
-				// circleS.seek(2500);
-				// circleS.play();
-				setTimeout(function(){
-					stagImplode.seek(2500);
-					stagImplode.play();
-					hideAnimationStage(0);
-				},1500);
-			}
-			else if(currState == 0){
-				document.getElementById('pageSelect0C').style.color = colorRouter(0);
-				document.getElementById('pageSelect0').style.color = colorRouter(0);
-				setTimeout(function(){
-					stagImplode.seek(2500);
-					stagImplode.play();
-					hideAnimationStage(0);
-				},1500);
-			}else if(currState == 1){
-				document.getElementById('pageSelect1C').style.color = colorRouter(1);
-				document.getElementById('pageSelect1').style.color = colorRouter(1);
-				// explode = true;
-				// wolfStag.seek(2500);
-				// wolfStag.play();
-				setTimeout(function(){
-					stagImplode.seek(2500);
-					stagImplode.play();
-					hideAnimationStage(0);
-				},1500);
-			}else if(currState == 2){
-				document.getElementById('pageSelect2C').style.color = colorRouter(2);
-				document.getElementById('pageSelect2').style.color = colorRouter(2);
-				// explode = true;
-				// bullStag.seek(2500);
-				// bullStag.play();
-				setTimeout(function(){
-					stagImplode.seek(2500);
-					stagImplode.play();
-					hideAnimationStage(0);
-				},1500);
-			}else if(currState == 3){
-				document.getElementById('pageSelect3C').style.color = colorRouter(3);
-				document.getElementById('pageSelect3').style.color = colorRouter(3);
-				// explode = true;
-				// boarStag.seek(2500);
-				// boarStag.play();
-				setTimeout(function(){
-					stagImplode.seek(2500);
-					stagImplode.play();
-					hideAnimationStage(0);
-				},1500);
-			}
+			mobileImplodeHelper(0, stagImplode)	
 		}
 		else if(click == 1){
 			explode = true;
 			currLink = 1;
-			clearColors();
-			if(currState == -1){
-				// explode = true;
-				// circleW.restart();
-				// circleW.play();
-				setTimeout(function(){
-					wolfImplode.seek(2500);
-					wolfImplode.play();
-					hideAnimationStage(1);
-				},1500);
-			}else if(currState == 0){
-				document.getElementById('pageSelect0C').style.color = colorRouter(0);
-				document.getElementById('pageSelect0').style.color = colorRouter(0);
-				// explode = true;
-				// stagWolf.seek(2500);
-				// stagWolf.play();
-				setTimeout(function(){
-					wolfImplode.seek(2500);
-					wolfImplode.play();
-					hideAnimationStage(1);
-				},1500);
-			}else if(currState == 1){
-				document.getElementById('pageSelect1C').style.color = colorRouter(1);
-				document.getElementById('pageSelect1').style.color = colorRouter(1);
-				// explode = true;
-				setTimeout(function(){
-					wolfImplode.seek(2500);
-					wolfImplode.play();
-					hideAnimationStage(1);
-				},1500);
-			}else if(currState == 2){
-				document.getElementById('pageSelect2C').style.color = colorRouter(2);
-				document.getElementById('pageSelect2').style.color = colorRouter(2);
-				// explode = true;
-				// bullWolf.seek(2500);
-				// bullWolf.play();
-				setTimeout(function(){
-					wolfImplode.seek(2500);
-					wolfImplode.play();
-					hideAnimationStage(1);
-				},1500);
-			}else if(currState == 3){
-				document.getElementById('pageSelect3C').style.color = colorRouter(3);
-				document.getElementById('pageSelect3').style.color = colorRouter(3);
-				// explode = true;
-				// boarWolf.seek(2500);
-				// boarWolf.play();
-				setTimeout(function(){
-					wolfImplode.seek(2500);
-					wolfImplode.play();
-					hideAnimationStage(1);
-				},1500);
-			}
+			mobileImplodeHelper(1, wolfImplode)	
 		}
 		else if(click == 2){
 			explode = true;
 			currLink = 2;
-			clearColors();
-			if(currState == -1){
-				// explode = true;
-				// circleB.restart();
-				// circleB.play();
-				setTimeout(function(){
-					bullImplode.seek(2500);
-					bullImplode.play();
-					hideAnimationStage(2);
-				},1500);
-			}else if(currState == 0){
-				document.getElementById('pageSelect0C').style.color = colorRouter(0);
-				document.getElementById('pageSelect0').style.color = colorRouter(0);
-				// explode = true;
-				// stagBull.seek(2500);
-				// stagBull.play();
-				setTimeout(function(){
-					bullImplode.seek(2500);
-					bullImplode.play();
-					hideAnimationStage(2);
-				},1500);
-			}else if(currState == 1){
-				document.getElementById('pageSelect1C').style.color = colorRouter(1);
-				document.getElementById('pageSelect1').style.color = colorRouter(1);
-				// explode = true;
-				// wolfBull.seek(2500);
-				// wolfBull.play();
-				setTimeout(function(){
-					bullImplode.seek(2500);
-					bullImplode.play();
-					hideAnimationStage(2);
-				},1500);
-			}else if(currState == 2){
-				document.getElementById('pageSelect2C').style.color = colorRouter(2);
-				document.getElementById('pageSelect2').style.color = colorRouter(2);
-				// explode = true;
-				setTimeout(function(){
-					bullImplode.seek(2500);
-					bullImplode.play();
-					hideAnimationStage(2);
-				},1500);
-			}else if(currState == 3){
-				document.getElementById('pageSelect3C').style.color = colorRouter(3);
-				document.getElementById('pageSelect3').style.color = colorRouter(3);
-				// explode = true;
-				// boarBull.seek(2500);
-				// boarBull.play();
-				setTimeout(function(){
-					bullImplode.seek(2500);
-					bullImplode.play();
-					hideAnimationStage(2);
-				},1500);
-			}
+			mobileImplodeHelper(2, bullImplode)	
 		}
 		else if(click == 3){
 			explode = true;
 			currLink = 3;
-			clearColors();
-			if(currState == -1){
-				// explode = true;
-				// circleBA.restart();
-				// circleBA.play();
-				setTimeout(function(){
-					boarImplode.seek(2500);
-					boarImplode.play();
-					hideAnimationStage(3);
-				},1500);
-			}else if(currState == 0){
-				document.getElementById('pageSelect0C').style.color = colorRouter(0);
-				document.getElementById('pageSelect0').style.color = colorRouter(0);
-				// explode = true;
-				// stagBoar.seek(2500);
-				// stagBoar.play();
-				setTimeout(function(){
-					boarImplode.seek(2500);
-					boarImplode.play();
-					hideAnimationStage(3);
-				},1500);
-			}else if(currState == 1){
-				document.getElementById('pageSelect1C').style.color = colorRouter(1);
-				document.getElementById('pageSelect1').style.color = colorRouter(1);
-				// explode = true;
-				// wolfBoar.seek(2500);
-				// wolfBoar.play();
-				setTimeout(function(){
-					boarImplode.seek(2500);
-					boarImplode.play();
-					hideAnimationStage(3);
-				},1500);
-			}else if(currState == 2){
-				document.getElementById('pageSelect2C').style.color = colorRouter(2);
-				document.getElementById('pageSelect2').style.color = colorRouter(2);
-				// explode = true;
-				// bullBoar.seek(2500);
-				// bullBoar.play();
-				setTimeout(function(){
-					boarImplode.seek(2500);
-					boarImplode.play();
-					hideAnimationStage(3);
-				},1500);
-			}else if(currState == 3){
-				document.getElementById('pageSelect3C').style.color = colorRouter(3);
-				document.getElementById('pageSelect3').style.color = colorRouter(3);
-				// explode = true;
-				setTimeout(function(){
-					boarImplode.seek(2500);
-					boarImplode.play();
-					hideAnimationStage(3);
-				},1500);
-			}
+			mobileImplodeHelper(3, boarImplode)	
 		}
 	}
 
 };
+
+function mobileImplodeHelper(animalNum, imploder) {
+	if (currState != animalNum) {
+		clearColors();
+	}
+	if (currState != -1){
+		document.getElementById(`pageSelect${currState}C`).style.color = colorRouter();
+		document.getElementById(`pageSelect${currState}`).style.color = colorRouter();
+	}
+	imploder.seek(2500);
+	//need to make sure out stroke color is correct before we play the animation
+	//it can be stuck in black from carousel view
+	setStrokeColor(colorRouter()); 
+	
+	setTimeout(function(){
+		imploder.play();
+		hideAnimationStage(animalNum);
+	},1500);
+}
 
 var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	var div1Classes = ['w3-card-4', 'w3-margin', 'w3-white'];
@@ -2583,6 +2333,10 @@ var carouselLaunch = function(linkNum){
 					setCardContent(infoObj,'card6');
 				}else if(num == 7){
 					setCardContent(infoObj,'card7');
+				}else if(num == 8){
+					setCardContent(infoObj,'card8');
+				}else if(num == 9){
+					setCardContent(infoObj,'card9');
 				}
 			}
 		}
@@ -2661,12 +2415,8 @@ var carouselLaunch = function(linkNum){
 			figure.style.transform = `translateZ(${-radius}px) ${rotationAxis}(${roundImageIndex * -theta}deg)`;
 			updateClickable(mod(roundCurrImage,n));
 			updateMorphText(mod(roundCurrImage,n));
-			if (!isHorizontal) {
-				// enable vibration support
-				navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-				if (navigator.vibrate) { // vibration API supported
-					navigator.vibrate(10);
-				}
+			if (!isHorizontal && navigator.vibrate) {
+				navigator.vibrate(10);
 			}
 		}
 		function updateClickable(cImage){
@@ -2768,43 +2518,20 @@ const morpher = (element, start, end) => {
   update();
 }
 function morphCardTitles(){
-	var words;
-	if(currLink == 0){
-		words = [stagContent.card0.title, 
-			 stagContent.card1.title,
-			 stagContent.card2.title,
-			 stagContent.card3.title,
-			 stagContent.card4.title,
-			 stagContent.card5.title,
-			 stagContent.card6.title,
-			 stagContent.card7.title];
-	}else if(currLink == 1){
-		words = [wolfContent.card0.title,
-			 wolfContent.card1.title,
-			 wolfContent.card2.title,
-			 wolfContent.card3.title,
-			 wolfContent.card4.title,
-			 wolfContent.card5.title,
-			 wolfContent.card6.title,
-			 wolfContent.card7.title];
-	}else if(currLink == 2){
-		words = [bullContent.card0.title,
-			 bullContent.card1.title,
-			 bullContent.card2.title,
-			 bullContent.card3.title,
-			 bullContent.card4.title,
-			 bullContent.card5.title,
-			 bullContent.card6.title,
-			 bullContent.card7.title];
-	}else if(currLink == 3){
-		words = [boarContent.card0.title,
-			 boarContent.card1.title,
-			 boarContent.card2.title,
-			 boarContent.card3.title,
-			 boarContent.card4.title,
-			 boarContent.card5.title,
-			 boarContent.card6.title,
-			 boarContent.card7.title];
+	var words = [];
+	var content;
+	if (currLink == 0) {
+		content = stagContent;
+	} else if (currLink == 1) {
+		content = wolfContent;
+	} else if (currLink == 2) {
+		content = bullContent;
+	} else if (currLink == 3) {
+		content = boarContent;
+	}
+	//iterate through content and fill in words array for morph text 
+	for(let [index, card] of Object.entries(content)){
+		words[index.substr(index.length - 1)] = card.title; 
 	}
 	return words;
 }
@@ -2818,6 +2545,9 @@ function updateMorphText(counter){
     morpher(morph, start, end);
 }
 
+//add listener to detect when our mouse moves below the bottom of our page select bar
+//Note: we just grab the first choice pageSelect0C and use its bounding rect for the calc
+//because its easiest
 var rect = document.getElementById('pageSelect0C').getBoundingClientRect();
 var body = document.getElementsByTagName('body');
 body[0].onmousemove = function(e) {
@@ -2829,6 +2559,7 @@ body[0].onmousemove = function(e) {
 //This is Used just to make sure we have consistent stroke weight for our animations
 setStrokeColor(redColor,0.4);
 
+//used to set appropriate transition color during a state change
 function colorRouter(){
 	if(currState == -1){
 		return '#808080';
@@ -2845,10 +2576,8 @@ function colorRouter(){
 
 function clearColors(current){
 	for(var i =0; i < 4; i ++){
-		// if(i != current){
-			document.getElementById('pageSelect' + i + 'C').style.color = '#808080';
-			document.getElementById('pageSelect' + i).style.color = '#808080';
-		// }
+		document.getElementById('pageSelect' + i + 'C').style.color = '#808080';
+		document.getElementById('pageSelect' + i).style.color = '#808080';
 	}
 }
 
@@ -2860,6 +2589,7 @@ window.onload = function(){
 	var hammer = new Hammer.Manager(body);
 	var swipe = new Hammer.Swipe();
 	hammer.add(swipe);
+
 	hammer.on('swipeleft', function(ev) {
 		if(isMobileDevice() && explode == false){
 			swipeState = swipeState - 1;
@@ -2887,11 +2617,9 @@ window.onload = function(){
 			}
 		}
 	});
-
+	//Lockdown the screen, important for mobile devices to be more airtight on stray scroll events
 	const disableBodyScroll = bodyScrollLock.disableBodyScroll;
 	disableBodyScroll(body);
-
-
-//remove our loading screen	
-body.classList.add('loaded');	
+	//remove our loading screen	
+	body.classList.add('loaded');	
 }
