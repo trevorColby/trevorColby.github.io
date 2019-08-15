@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor Colby</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html { 
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+#myNavbar {
+    position: absolute;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('/media/homepage/pictures/pano.jpg');
+    min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("/media/homepage/pictures/diabloLake.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("media/homepage/pictures/horizon.jpg");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 400px;
+    }
+}
+</style>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <!-- <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu"> -->
+    <a class="w3-bar-item w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(home,2000); homeToggleFunction()" class="w3-bar-item w3-button">HOME</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(about,2000)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(contact,2000)" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a class="w3-bar-item w3-button">.  </a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(about,2000); toggleFunction()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(portfolio,2000); toggleFunction()" class="w3-bar-item w3-button">PORTFOLIO</a>
+    <a href="javascript:void(0);" onclick="easingScrollAction(contact,2000); toggleFunction()" class="w3-bar-item w3-button">CONTACT</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Trevor<span class="w3-hide-small"> J.</span> Colby</span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT ME</h3>
+  <p class="w3-center"><em>Find Balance In Everything</em></p>
+  <p>My name is Trevor Colby and I am a senior at Dartmouth College. I am pursuing my B.A in Engineering Modified with Computer Science while simultaneously pursuing my B.E in computer engineering. Outside of the classroom I am most heavily involved with the varsity track and field team. As a Senior Captain for the team, I pride myself in setting an example on striking a balance between both academic and athletic ambitions. In my free time, I love escaping into the mountains to enjoy a little time away from the hustle and bustle of everyday college life. This is where I can pursue my passions of hiking and photography in the striking beauty of the New Hampshire wilderness.</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Trevor</b></p><br>
+      <img src="/media/homepage/pictures/portrait.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large">
+      <p>My technological experience includes website development, several coding languages (the count is up to 12 that I actively maintain but I'm always hungry to learn more), graphical applications of linear algebra, algorithm design, data management, digest loop debugging and a whole lot more.</p>
+    </div>
+  </div>
+  <p class="w3-large w3-center w3-padding-16">Im really passionate about:</p>
+  <p class="w3-wide"><i class="fa fa-wifi"></i>Engineering</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:100%">110%</div>
+  </div>
+  <p class="w3-wide"><i class="fa fa-laptop"></i>Technology</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:100%">110%</div>
+  </div>
+  <p class="w3-wide"><i class="fa fa-photo"></i>Photography</p>
+  <div class="w3-light-grey">
+    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:100%">110%</div>
+  </div>
+</div>
+
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">10,000+</span><br>
+   Miles Run 
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">55+</span><br>
+   Peaks Summited 
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">25+</span><br> 
+   Classes Completed 
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">1</span><br>
+   Dartmouth College 
+  </div>
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+    <a href="projects_p1.html" style="text-align:center">
+        <h3 class="w3-center">My Projects 
+	    <i class="fa fa-arrow-right w3-margin-left"></i>
+        </h3>
+    </a> 
+  <!-- <h3 class="w3-center" >My Projects</h3> -->
+  <!-- <div style="text-align:center"> -->
+  <!-- 	<a href="projects.html" style="text-align:center"> Projects </a> --> 
+  <!-- </div> -->
+    <a href="https://github.com/trevorColby" style="text-align:center">  
+        <h3 class="w3-center">My Github 
+	    <i class="fa fa-arrow-right w3-margin-left"></i>
+	</h3>
+    </a>
+  <!-- <div style="text-align:center"> -->
+  <!-- 	<a href="https://github.com/trevorColby" style="text-align:center"> https://github.com/trevorColby </a> --> 
+  <!-- </div> -->
+    <a href="javascript:void(0);" onclick="easingScrollAction(photos,2000)" style="text-align:center">
+    <h3 class="w3-center">My Photography
+        <i class="fa fa-arrow-down w3-margin-left"></i>
+      </h3>
+    </a> 
+  <p id="photos" class="w3-center"><em>Here are some of my most recent pictures.<br> Click on the images to make them bigger</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/rocks.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Pebbles">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/window.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Room With a View">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/silhouette.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Dreaming">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/sunsets.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Divine Intervention">
+    </div>
+  </div>
+
+  <div class="w3-row-padding w3-center w3-section">
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/rainforrest.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Rainforrest">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/rainier.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Mt. Rainier">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/treeHugger.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Tree Hugging">
+    </div>
+
+    <div class="w3-col m3">
+      <img src="media/homepage/pictures/lookout.jpg" style="width:100%" onclick="launchPictureModal(this)" class="w3-hover-opacity" alt="Lakes on fire">
+    </div>
+    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="fullScreenImage" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">BASE OF OPERATIONS</h3>
+  <p class="w3-center"><em>I'd love to hear from you!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <!-- Add Google Maps -->
+      <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Hanover, NH<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: 604-455-5101<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: Trevor.J.Colby.19@dartmouth.edu<br>
+      </div>
+      <p>Shoot me an email  <i class="fa fa-send"></i>, or leave me a message here:</p>
+ 
+      <!-- <form action="action_page.php" method="get"> -->
+    <form name="input" method="POST" action="http://formspree.io/trevor.j.colby.19@dartmouth.edu">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input id="name" class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+        </div>
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input id="email" class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input id="message" class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="javascript:void(0);" onclick="easingScrollAction(home,2000)" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+  </div>
+</footer>
+ 
+<!-- Google Maps Fucntion needs to be in the page -->
+<script>
+function myMap() {
+	myCenter=new google.maps.LatLng(43.704628, -72.294713);
+	var mapOptions= {
+		center:myCenter,
+		zoom:12, scrollwheel: false, draggable: true,
+		mapTypeId:google.maps.MapTypeId.ROADMAP
+	};
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+	
+	var marker = new google.maps.Marker({
+		position: myCenter,
+	});
+	marker.setMap(map);
+}
+</script>
+<!-- Add Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRa0Oe05eVbvhS9wOsHKyKEELFwAeyJZs&callback=myMap"></script>
+<script src="pageControls.js"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
+
+

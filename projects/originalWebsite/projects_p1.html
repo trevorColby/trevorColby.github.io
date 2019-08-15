@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<title>Trevor's Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="webpage.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+#myNavbar {
+    position: absolute;
+}
+</style>
+<body class="w3-light-grey">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a href="../" class="w3-bar-item w3-button">HOME</a>
+  </div>
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="../" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
+  </div>
+</div>
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>MY PROJECTS</b></h1>
+  <p>Welcome to some of my favorite <span class="w3-tag">PROJECTS</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+
+<!-- Blog entry -->
+  <div id="tibet" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/tibetScreenshot.png" alt="Tibetan Nomad Art" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Bringing A Tibetan Nomad's Cartographic Art To Life</b></h3>
+      <h5>DEM Generated 3D Mesh, Texturing and Animation Using ThreeJS<span class="w3-opacity">November, 17, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>For this project I looked to bring a Tibetan nomad's incredible hand made map to life in a 3D environment. This nomad was able to paint this gorgeous piece of cartographic art using no satelite imagery or outside references. Even more impressive, the map is accurate to within an average of 0.5 km. With no formal education past a 3rd grade level, he was able to complete this incredible feat using his motorycle's odometer, his knowledge of the region, and some incredible ingenuity.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <!-- <a style="text-decoration:none" href="projects/tibet.html" > -->
+	  <a style="text-decoration:none" href="projects/tibet/public/pages/language.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div id="threeJSSphere" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/threeJSSphere.png" alt="ThreeJS Art" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Jumping into ThreeJS</b></h3>
+      <h5>ThreeJS 3D Mesh Work, <span class="w3-opacity">November, 14, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>For this project I just wanted to dive in and learn some ThreeJS. I based my work off of one of the examples on the ThreeJS website attributed to "fernandojsg". His work utilized randomized particles floating around in 3D space contained within a cube. I thought that I could apply some modifications that would make this project even more visually appealing while at the same time getting my feet wet with the basic ThreeJS workflow.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/sphereThreeJS.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+<!-- Blog entry -->
+  <div id="acceleration" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/accelerationStruct.gif" alt="Acceleration Structures" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Acceleration Structures</b></h3>
+      <h5>Acceleration structures are vital to any ray tracing that neccesitates complex scene rendering<span class="w3-opacity">October 28, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>This is a project programmed in C++ for my computer graphics course taught by Wojciech Jarosz. It extends the previous ray tracing project utilizing acceleration structures in order to render more complex scenes that are far more intersting than basic geometries.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/accelerationStruct.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+	
+<!-- Blog entry -->
+  <div id="rayTracing" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/rayTrace.jpg" alt="Ray Tracing" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Ray Tracing</b></h3>
+      <h5>My current work in progress, <span class="w3-opacity">October 22, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>This is a project programmed in C++ for my computer graphics course taught by Wojciech Jarosz. It revolves around creating a photorealistic scene with multiple light sources as well as a variety of spheres with various texture properties. These varied textures demonstrate different photoreactive tendencies of materials. i.e how ideal mirrored surfaces reflect light vs. how ideal matte surfaces scatter light vs. how semi-transparent or translucent surfaces refract light.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/rayTracing.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div id="skinning" class="w3-card-4 w3-margin w3-white">
+  <img src="media/projects/arm.png" alt="Linear Blend" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Linear Blend Skinng</b></h3>
+      <h5>A computer graphics project for CS77, <span class="w3-opacity">October 16, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p> This project, written in JavaScript leveraging WebGl, showcased different skinning techniques. It started off with a simple demonstration of rigid skinning then it progressed to a more complex vertex weight calculation applied to a singular joint for the purpose of linear blend skinning. Finally, I moved to designing a more complicated mesh built out around a skeleton consisting of 12 bones. Linear blend skinning was applied to this mesh to generate the image pictured above. UI controls enable users to move each joint independently of its parent's but each joint's motion propagates to its child nodes to create life like motion. This is achieved by means of a recursive hierarchy traversal function. This function applies the matrix transformation of each joint's local matrix to its successive children before converting them into the world space and rendering them.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/skinning.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-badge">2</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog entry -->
+  <div id="catmull" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/clark.png" alt="Catmull-Clark" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Catmull-Clark Subdivision</b></h3>
+      <h5>Developed the recursive division functionality for "smoothed" vertex calculation.<span class="w3-opacity">October 8, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p>This is a project programmed in JavaScript guided by Wojciech Jarosz. Given an array of vertices and faces that comprise the input mesh (consisting of n-gons i.e could be any combination of triangles, quadrilaterals, both, etc.) The Catmull-Clark subdivision algorithm is applied a new subdivided mesh is returned. A hash-map is used to make sure that a vertex is not inserted more than once. The UI of this project allows the "depth" of the subdivision to be specified so that users can dictate linear, cubic or other such subdivisions to occur. The Catmull-Clark subdivision functionality was abstracted into three parts to minimize bugs and maximize readability as well as unit testing capabilities. First, a linear subdivision is applied (first unit test used here to make sure that the shape of the mesh doesn't actually change but each face is confirmed to have subdivided). Next, averaging is implemented so that vertices with four neighboring faces are "smoothed". Finally, a correction step is applied which essentially translates the smoothed vertex along the path between its "smoothed" location and its previous location by an interpolated factor η.</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/catmull.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Blog entry -->
+  <div id="bezier" class="w3-card-4 w3-margin w3-white">
+    <img src="media/projects/teapot.png" alt="teapot" style="width:100%">
+    <div class="w3-container">
+      <h3><b>Cubic Bezier Patches</b></h3>
+      <h5>Tesselate a cubic bezier patch into a list of quadrilateral faces, <span class="w3-opacity">October 8, 2018</span></h5>
+    </div>
+
+    <div class="w3-container">
+      <p></p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+	  <a style="text-decoration:none" href="projects/bezier.html" >
+          	<p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+	  </a>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  <img src="media/projects/auroraSilhouette.jpg" style="width:100%">
+    <div class="w3-container w3-white">
+      <h4><b>Trevor Colby</b></h4>
+      <p>Just some awesome friends and I, diving way too deep and enjoying getting lost everystep of the way.</p>
+    </div>
+  </div><hr>
+  
+  <!-- Posts -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Coming Soon</h4>
+    </div>
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="media/projects/leaflet.gif" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">OptiRTC</span><br>
+        <span>Leaflet Modification</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="media/projects/algorithm.jpeg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Algorithm Design</span><br>
+        <span>Multi-Faceted Filtering</span>
+      </li> 
+      <li class="w3-padding-16">
+        <img src="media/projects/spline.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Splines</span><br>
+        <span>3D Curves Creation</span>
+      </li>   
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="media/projects/vim.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Customizing VIM</span><br>
+        <span>Setting up Vim as a productivity tool</span>
+      </li>  
+    </ul>
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Technology</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Computer Graphics</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Design</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Engineering</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">3D Curves</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Javscript</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Typescript</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Web GL</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Math</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Algorithm</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">C++</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Dartmouth</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Exploration</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Curiosity</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">« Previous</button>
+	  <a style="text-decoration:none" href="projects_p2.html" >
+		  <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
+	  </a>
+  <p class="w3-center">Page <span class="w3-tag w3-center">1</span> 2</p>
+</footer>
+<script src="pageControls.js"></script>
+
+</body>
+</html>
