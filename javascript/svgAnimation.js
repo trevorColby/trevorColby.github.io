@@ -25,198 +25,6 @@ var circleB = anime.timeline({ autoplay: false, direction: 'alternate', loop: fa
 var baCircle = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var circleBA = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
-
-//circle to stag
-cPaths.forEach(function(path, index) {
- circleS 
-  .add({
-    targets: path.id,
-    stroke: '#f90000',
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  1000 + 10 * index
-  });
-});
-sPaths.forEach(function(path, index) {
- circleS 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  2600 + 10 * index
-  });
-});
-
-//stag to circle
-sPaths.forEach(function(path, index) {
-sCircle 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-
-cPaths.forEach(function(path, index) {
-sCircle 
-  .add({
-    targets: path.id,
-    stroke: redColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//circle to wolf
-wPaths.forEach(function(path, index) {
- circleW 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  10 * index
-  });
-});
-
-//wolf to circle
-wPaths.forEach(function(path, index) {
-wCircle 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-cPaths.forEach(function(path, index) {
-wCircle 
-  .add({
-    targets: path.id,
-    stroke: redColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//circle to bull 
-bPaths.forEach(function(path, index) {
- circleB 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  10 * index
-  });
-});
-
-//bull to circle
-bPaths.forEach(function(path, index) {
-bCircle 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-cPaths.forEach(function(path, index) {
-bCircle 
-  .add({
-    targets: path.id,
-    stroke: redColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//circle to boar 
-baPaths.forEach(function(path, index) {
- circleBA 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  10 * index
-  });
-});
-
-//boar to circle
-baPaths.forEach(function(path, index) {
-baCircle 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-cPaths.forEach(function(path, index) {
-baCircle 
-  .add({
-    targets: path.id,
-    stroke: redColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-
 //************************************ Implode Transitions ************************************
 var stagImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var wolfImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
@@ -224,8 +32,556 @@ var bullImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop
 var boarImplode = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var fadeBlack = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var curtain = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-
 var pictureExpand = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
+//************************************ Animal To Animal Transitions ************************************
+var stagWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var stagBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var stagBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var wolfBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var bullWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var wolfBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var boarWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var wolfStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var bullStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var boarStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var bullBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+var boarBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
+
+
+
+var l = cPaths.length; //they are all the same length
+for(var i = 0; i < l; i++){
+	//circle to stag
+	circleS.add({
+		targets: cPaths[i].id,
+		stroke: '#f90000',
+		d: {
+		value: cPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  1000 + 10 * i 
+	});
+	circleS.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  2600 + 10 * i
+	});
+	
+	//stag to circle
+	sCircle.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	sCircle.add({
+		targets: cPaths[i].id,
+		stroke: redColor,
+		d: {
+		value: cPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//circle to wolf
+	circleW.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  10 * i
+	});
+	
+	//wolf to circle
+	wCircle.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	wCircle.add({
+		targets: cPaths[i].id,
+		stroke: redColor,
+		d: {
+		value: cPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//circle to bull 
+	circleB.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  10 * i
+	});
+
+	//bull to circle
+	bCircle.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	bCircle.add({
+		targets: cPaths[i].id,
+		stroke: redColor,
+		d: {
+		value: cPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//circle to boar 
+	circleBA.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  10 * i
+	});
+	
+	//boar to circle
+	baCircle.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	baCircle.add({
+		targets: cPaths[i].id,
+		stroke: redColor,
+		d: {
+		value: cPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//stag implode 
+	stagImplode.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInCubic'
+		},
+		offset: 1000 + 10 * i
+	});
+	stagImplode.add({
+		targets: iPaths[i].id,
+		d: {
+		value: iPaths[i].d,
+		duration: 100,
+		easing: 'easeInCubic'
+		},
+		offset: 2600 + 2 * i
+	});
+	stagImplode.add({
+		targets: ePaths[i].id,
+		d: {
+		value: ePaths[i].d,
+		duration: 150,
+		easing: 'easeInCubic'
+		},
+		offset: 3400 + 2 * i
+	});
+	
+	//wolf implode
+	wolfImplode.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInCubic'
+		},
+		offset: 1000 + 10 * i
+	});
+	wolfImplode.add({
+		targets: iPaths[i].id,
+		d: {
+		value: iPaths[i].d,
+		duration: 200,
+		easing: 'easeInCubic'
+		},
+		offset: 2600 + 3 * i
+	});
+	wolfImplode.add({
+		targets: ePaths[i].id,
+		d: {
+		value: ePaths[i].d,
+		duration: 150,
+		easing: 'easeInCubic'
+		},
+		offset: 3500 + 2 * i
+	});
+	
+	//bull implode animation
+	bullImplode.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInCubic'
+		},
+		offset: 1000 + 10 * i
+	});
+	bullImplode.add({
+		targets: iPaths[i].id,
+		d: {
+		value: iPaths[i].d,
+		duration: 200,
+		easing: 'easeInCubic'
+		},
+		offset: 2600 + 3 * i
+	});
+	bullImplode.add({
+		targets: ePaths[i].id,
+		d: {
+		value: ePaths[i].d,
+		duration: 150,
+		easing: 'easeInCubic'
+		},
+		offset: 3500 + 2 * i
+	});
+	
+	//boar implode animation
+	boarImplode.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInCubic'
+		},
+		offset: 1000 + 10 * i
+	});
+	boarImplode.add({
+		targets: iPaths[i].id,
+		d: {
+		value: iPaths[i].d,
+		duration: 200,
+		easing: 'easeInCubic'
+		},
+		offset: 2600 + 3 * i
+	});
+	boarImplode.add({
+		targets: ePaths[i].id,
+		d: {
+		value: ePaths[i].d,
+		duration: 150,
+		easing: 'easeInCubic'
+		},
+		offset: 3500 + 2 * i
+	});
+	
+	//stag to to bull
+	stagBull.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  1000 + 10 * i
+	});
+	stagBull.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  2600 + 10 * i
+	});
+	
+	//stag to wolf
+	stagWolf.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	stagWolf.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//stag to Boar
+	stagBoar.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	stagBoar.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset:  2600 + 10 * i
+	});
+	
+	//Wolf to Bull
+	wolfBull.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	wolfBull.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Bull to Wolf
+	bullWolf.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	bullWolf.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//Bull to boar
+	bullBoar.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	bullBoar.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+	
+	//Boar to bull
+	boarBull.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	boarBull.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Wolf to Boar
+	wolfBoar.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	wolfBoar.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Boar to Wolf
+	boarWolf.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	boarWolf.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Wolf to Stag
+	wolfStag.add({
+		targets: wPaths[i].id,
+		stroke: blueColor,
+		d: {
+		value: wPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	wolfStag.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Bull to Stag
+	bullStag.add({
+		targets: bPaths[i].id,
+		stroke: orangeColor,
+		d: {
+		value: bPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	bullStag.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+
+	//Boar to Stag
+	boarStag.add({
+		targets: baPaths[i].id,
+		stroke: purpleColor,
+		d: {
+		value: baPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 1000 + 10 * i
+	});
+	boarStag.add({
+		targets: sPaths[i].id,
+		stroke: greenColor,
+		d: {
+		value: sPaths[i].d,
+		duration: 700,
+		easing: 'easeInOutQuad'
+		},
+		offset: 2600 + 10 * i
+	});
+}
 
 //backgorund color change fade dark during return to directory screen
 //fade to black
@@ -255,49 +611,6 @@ curtain.add({
     offset: 1500 
 });
 
-//stag implode 
-sPaths.forEach(function(path, index) {
-stagImplode	 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInCubic'
-    },
-    offset: 1000 + 10 * index
-    // offset:  5 * index
-  });
-});
-
-iPaths.forEach(function(path, index) {
-stagImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 100,
-      easing: 'easeInCubic'
-    },
-    // offset: 2600 
-    offset: 2600 + 2 * index
-  });
-});
-
-ePaths.forEach(function(path, index) {
-stagImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 150,
-      easing: 'easeInCubic'
-    },
-    offset: 3400 + 2 * index
-    // offset: 3500
-  });
-});
 //background color change for stagImplode
 // background 
 stagImplode.add({
@@ -309,49 +622,6 @@ stagImplode.add({
     offset: 3700
 });
 
-//wolf implode
-wPaths.forEach(function(path, index) {
-wolfImplode	 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInCubic'
-    },
-    offset: 1000 + 10 * index
-    // offset:  5 * index
-  });
-});
-
-iPaths.forEach(function(path, index) {
-wolfImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 200,
-      easing: 'easeInCubic'
-    },
-    // offset: 2600 
-    offset: 2600 + 3 * index
-  });
-});
-
-ePaths.forEach(function(path, index) {
-wolfImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 150,
-      easing: 'easeInCubic'
-    },
-    offset: 3500 + 2 * index
-    // offset: 3500
-  });
-});
 //background color change
 wolfImplode.add({
     targets: 'body',
@@ -362,49 +632,6 @@ wolfImplode.add({
     offset: 3700
 });
 
-
-//bull implode animation
-bPaths.forEach(function(path, index) {
-bullImplode	 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInCubic'
-    },
-    offset: 1000 + 10 * index
-    // offset:  5 * index
-  });
-});
-iPaths.forEach(function(path, index) {
-bullImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 200,
-      easing: 'easeInCubic'
-    },
-    // offset: 2600 
-    offset: 2600 + 3 * index
-  });
-});
-ePaths.forEach(function(path, index) {
-bullImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 150,
-      easing: 'easeInCubic'
-    },
-    offset: 3500 + 2 * index
-    // offset: 3500
-  });
-});
-
 // background 
 bullImplode.add({
     targets: 'body',
@@ -413,50 +640,6 @@ bullImplode.add({
     duration: 200,
     easing: 'easeInCubic',
     offset: 3700
-});
-
-//boar implode animation
-baPaths.forEach(function(path, index) {
-boarImplode	 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInCubic'
-    },
-    offset: 1000 + 10 * index
-    // offset:  5 * index
-  });
-});
-
-iPaths.forEach(function(path, index) {
-boarImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 200,
-      easing: 'easeInCubic'
-    },
-    // offset: 2600 
-    offset: 2600 + 3 * index
-  });
-});
-
-ePaths.forEach(function(path, index) {
-boarImplode	 
-  .add({
-    targets: path.id,
-    d: {
-      value: path.d,
-      duration: 150,
-      easing: 'easeInCubic'
-    },
-    offset: 3500 + 2 * index
-    // offset: 3500
-  });
 });
 
 // background 
@@ -477,363 +660,4 @@ pictureExpand.add({
   duration: 200,
   easing: 'easeInCubic',
   offset: 100
-});
-
-
-//************************************ Animal To Animal Transitions ************************************
-var stagWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var stagBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var stagBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var wolfBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var bullWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var wolfBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var boarWolf = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var wolfStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var bullStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var boarStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var bullBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-var boarBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
-
-//stag to to bull
-sPaths.forEach(function(path, index) {
- stagBull 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  1000 + 10 * index
-  });
-});
-
-bPaths.forEach(function(path, index) {
- stagBull 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  2600 + 10 * index
-  });
-});
-
-//stag to wolf
-sPaths.forEach(function(path, index) {
- stagWolf
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-wPaths.forEach(function(path, index) {
- stagWolf
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//stag to Boar
-sPaths.forEach(function(path, index) {
-stagBoar 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-baPaths.forEach(function(path, index) {
-stagBoar 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset:  2600 + 10 * index
-  });
-});
-
-//Wolf to Bull
-wPaths.forEach(function(path, index) {
-wolfBull 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-
-bPaths.forEach(function(path, index) {
-wolfBull 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//Bull to Wolf
-bPaths.forEach(function(path, index) {
-bullWolf 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-wPaths.forEach(function(path, index) {
-bullWolf 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//Bull to boar
-bPaths.forEach(function(path, index) {
-bullBoar 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-baPaths.forEach(function(path, index) {
-bullBoar
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-
-//Boar to bull
-baPaths.forEach(function(path, index) {
-boarBull 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-bPaths.forEach(function(path, index) {
-boarBull
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//Wolf to Boar
-wPaths.forEach(function(path, index) {
-wolfBoar 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-baPaths.forEach(function(path, index) {
-wolfBoar 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-
-//Boar to Wolf
-baPaths.forEach(function(path, index) {
-boarWolf 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-wPaths.forEach(function(path, index) {
-boarWolf 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-//Wolf to Stag
-wPaths.forEach(function(path, index) {
-wolfStag 
-  .add({
-    targets: path.id,
-    stroke: blueColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-sPaths.forEach(function(path, index) {
-wolfStag 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-
-//Bull to Stag
-bPaths.forEach(function(path, index) {
-bullStag 
-  .add({
-    targets: path.id,
-    stroke: orangeColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-sPaths.forEach(function(path, index) {
-bullStag 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
-});
-
-
-//Boar to Stag
-baPaths.forEach(function(path, index) {
-boarStag 
-  .add({
-    targets: path.id,
-    stroke: purpleColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 1000 + 10 * index
-  });
-});
-sPaths.forEach(function(path, index) {
-boarStag 
-  .add({
-    targets: path.id,
-    stroke: greenColor,
-    d: {
-      value: path.d,
-      duration: 700,
-      easing: 'easeInOutQuad'
-    },
-    offset: 2600 + 10 * index
-  });
 });
