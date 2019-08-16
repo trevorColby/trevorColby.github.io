@@ -598,7 +598,7 @@ var carouselLaunch = function(linkNum){
 				hammerC.add(swipeC);
 				hammerC.on('swipeup', function(ev) {
 					if(!isHorizontal && explode) {
-						if(!document.getElementById('card' + mod(currImage,8)).classList.contains('expand')) {
+						if(!document.getElementById('card' + mod(currImage,n)).classList.contains('expand')) {
 							currImage = currImage - 1;
 						}
 					}
@@ -607,7 +607,7 @@ var carouselLaunch = function(linkNum){
 				
 				hammerC.on('swipedown', function(ev) {
 					if(!isHorizontal && explode) {
-						if(!document.getElementById('card' + mod(currImage,8)).classList.contains('expand')) {
+						if(!document.getElementById('card' + mod(currImage,n)).classList.contains('expand')) {
 							currImage = currImage + 1;	
 						}
 					}
@@ -655,29 +655,9 @@ var carouselLaunch = function(linkNum){
 		
 		//helper function to pass in correct object to other helper functions
 		function cardClickSwitchBoard(infoObj, cardID){
-			var num = mod(currImage,8);
+			var num = mod(currImage,n);
 			if(cardID == num){
-				if(num == 0){
-					setCardContent(infoObj,'card0');
-				}else if(num == 1){
-					setCardContent(infoObj,'card1');
-				}else if(num == 2){
-					setCardContent(infoObj,'card2');
-				}else if(num == 3){
-					setCardContent(infoObj,'card3');
-				}else if(num == 4){
-					setCardContent(infoObj,'card4');
-				}else if(num == 5){
-					setCardContent(infoObj,'card5');
-				}else if(num == 6){
-					setCardContent(infoObj,'card6');
-				}else if(num == 7){
-					setCardContent(infoObj,'card7');
-				}else if(num == 8){
-					setCardContent(infoObj,'card8');
-				}else if(num == 9){
-					setCardContent(infoObj,'card9');
-				}
+				setCardContent(infoObj,'card' + num);
 			}
 		}
 
@@ -738,7 +718,7 @@ var carouselLaunch = function(linkNum){
 		}
 
 		function xClick(event){
-			var num = mod(currImage,8);
+			var num = mod(currImage,n);
 			document.getElementById('infoCard').classList.remove('showCard');
 			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
@@ -760,7 +740,7 @@ var carouselLaunch = function(linkNum){
 			}
 		}
 		function updateClickable(cImage){
-			for(var i=0; i < 8; i ++){
+			for(var i=0; i < n; i ++){
 				var card = document.getElementById('card' + i);
 				if(i == cImage){
 					card.classList.add('clickable');
