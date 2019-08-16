@@ -262,11 +262,11 @@ var addImage = function(parentId,source){
 
 function setTitle(linkNum){
 	if(linkNum == 0){
-		addItem('floatContainer','h1','pageTitle','Home',[`pageTitle${cssSuffix}`]);
+		addItem('floatContainer','h1','pageTitle','Engineering & Design',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 1){
 		addItem('floatContainer','h1','pageTitle','Coding Projects',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 2){
-		addItem('floatContainer','h1','pageTitle','Portfolio',[`pageTitle${cssSuffix}`]);
+		addItem('floatContainer','h1','pageTitle','Hobbies',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 3){
 		addItem('floatContainer','h1','pageTitle','About Me',[`pageTitle${cssSuffix}`]);
 	}	
@@ -438,8 +438,26 @@ var imagePreloader = function(){
 	images[5] ='../../media/projects/Carousel/threeJSSphere.png';
 	images[5] ='../../media/projects/Carousel/teapot.png';
 	images[6] ='../../media/projects/Carousel/arm.png';
+	images[7] ='../../media/projects/Carousel/samara.PNG';
+	images[8] ='../../media/projects/Carousel/fpga.png';
+	images[9] ='../../media/projects/Carousel/heartmonitor.jpg';
+	images[10] ='../../media/projects/Carousel/numericalapprox.png';
+	images[11] ='../../media/projects/Carousel/threejs.jpg';
+	images[12] ='../../media/projects/Carousel/sidewalkLabs.webp';
+	images[13] ='../../media/projects/Carousel/lightSphere.PNG';
+	images[14] ='../../media/projects/Carousel/auroraSilhouette.jpg';
+	images[15] ='../../media/projects/Carousel/team.jpg';
+	images[16] ='../../media/projects/Carousel/lookout.jpg';
+	images[17] ='../../media/projects/Carousel/bike.jpg';
+	images[18] ='../../media/projects/Carousel/nordic.jpg';
+	images[19] ='../../media/projects/Carousel/rocks.jpg';
+	images[20] ='../../media/projects/Carousel/dartmouth.jpg';
+	images[21] ='../../media/projects/Carousel/meredith.jpg';
+	images[22] ='../../media/projects/Carousel/opti.jpeg';
+	images[23] ='../../media/projects/Carousel/vivado.jpg';
+	images[24] ='../../media/projects/Carousel/stirling.gif';
 
-	for(var i = 0; i <7; i++){
+	for(var i = 0; i <images.length; i++){
 		imageObj.src = images[i];	
 	}
 }
@@ -474,46 +492,42 @@ var hoverSetup = function(){
 //function collection to load images under stag/wolf/bull/boar links
 var stagLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
-	addImage('fig','../../media/projects/Carousel/leaflet.gif');
-	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
-	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
-	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
-	addImage('fig','../../media/projects/Carousel/leaflet.gif');
-	addImage('fig','../../media/projects/Carousel/teapot.png');
-	addImage('fig','../../media/projects/Carousel/arm.png');
+	addImage('fig','../../media/projects/Carousel/fpga.png');
+	addImage('fig','../../media/projects/Carousel/vivado.jpg');
+	addImage('fig','../../media/projects/Carousel/heartmonitor.jpg');
+	addImage('fig','../../media/projects/Carousel/samara.PNG');
+	addImage('fig','../../media/projects/Carousel/stirling.gif');
+	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
 }
 
 var wolfLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/HopPhoto.jpg');
+	addImage('fig','../../media/projects/Carousel/lightSphere.PNG');
 	addImage('fig','../../media/projects/Carousel/leaflet.gif');
 	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
 	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
-	addImage('fig','../../media/projects/Carousel/threeJSSphere.png');
-	addImage('fig','../../media/projects/Carousel/teapot.png');
+	addImage('fig','../../media/projects/Carousel/threejs.jpg');
+	addImage('fig','../../media/projects/Carousel/sidewalkLabs.webp');
 	addImage('fig','../../media/projects/Carousel/arm.png');
 }
 
 var bullLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
+	addImage('fig','../../media/projects/Carousel/team.jpg');
+	addImage('fig','../../media/projects/Carousel/rocks.jpg');
+	addImage('fig','../../media/projects/Carousel/lookout.jpg');
+	addImage('fig','../../media/projects/Carousel/bike.jpg');
 	addImage('fig','../../media/projects/Carousel/');
 	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/nordic.jpg');
 }
 
 var boarLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/dartmouth.jpg');
 	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/opti.jpeg');
+	addImage('fig','../../media/projects/Carousel/meredith.jpg');
 	addImage('fig','../../media/projects/Carousel/');
 }
 
