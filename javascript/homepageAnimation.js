@@ -48,20 +48,9 @@ pageSelect3.style.left = (pS3Container.offsetWidth - pageSelect3.offsetWidth)/2 
 
 window.onresize = function(event){
 	//Formatting Solution for SVG animation of spotlight unerline
-	var pageSelect0 = document.getElementById("pageSelect0");
-	var pS0Container = document.getElementById("pageSelect0C");
 	pageSelect0.style.left = (pS0Container.offsetWidth - pageSelect0.offsetWidth)/2 + "px";
-
-	var pageSelect1 = document.getElementById("pageSelect1");
-	var pS1Container = document.getElementById("pageSelect1C");
 	pageSelect1.style.left = (pS1Container.offsetWidth - pageSelect1.offsetWidth)/2 + "px";
-
-	var pageSelect2 = document.getElementById("pageSelect2");
-	var pS2Container = document.getElementById("pageSelect2C");
 	pageSelect2.style.left = (pS2Container.offsetWidth - pageSelect2.offsetWidth)/2 + "px";
-
-	var pageSelect3 = document.getElementById("pageSelect3");
-	var pS3Container = document.getElementById("pageSelect3C");
 	pageSelect3.style.left = (pS3Container.offsetWidth - pageSelect3.offsetWidth)/2 + "px";
 
 }
@@ -217,15 +206,25 @@ var funcClosure = function(func, context, params){
 }
 
 var hideItem = function(eId){
-    //hides an element from the document
-    var e = document.getElementById(eId);
-    e.style.visibility = 'hidden'; 
+	//hides an element from the document
+	var e;
+	if (typeof eId === 'string') {
+		e = document.getElementById(eId);
+	} else {
+		e = eId;		
+	}
+    	e.style.visibility = 'hidden'; 
 }
 
 var showItem = function(eId){
-    //hides an element from the document
-    var e = document.getElementById(eId);
-    e.style.visibility = 'visible'; 
+	//hides an element from the document
+	var e;
+	if (typeof eId === 'string') {
+		e = document.getElementById(eId);
+	} else {
+		e = eId;		
+	}
+	e.style.visibility = 'visible'; 
 }
 
 var removeItem = function(elemId){
@@ -276,10 +275,10 @@ function setTitle(linkNum){
 //Hides items and on the first time through will add the neccesary features for rendering the carousel
 var hideAnimationStage = function(linkNum){
 	explode = true;
-	hideItem("pageSelect0C");	
-	hideItem("pageSelect1C");	
-	hideItem("pageSelect2C");	
-	hideItem("pageSelect3C");	
+	hideItem(pageSelect0C);	
+	hideItem(pageSelect1C);	
+	hideItem(pageSelect2C);	
+	hideItem(pageSelect3C);	
 	setTitle(linkNum);
 	showItem('pageTitle');
 	var tileContainer = document.getElementById('tileContainer');
@@ -323,10 +322,10 @@ var revealAnimationStage = function(click){
 	changeState(-1);
 	setTimeout(function(){
 		hideItem("homeIcon");
-		showItem("pageSelect0C");	
-		showItem("pageSelect1C");	
-		showItem("pageSelect2C");	
-		showItem("pageSelect3C");	
+		showItem(pageSelect0C);	
+		showItem(pageSelect1C);	
+		showItem(pageSelect2C);	
+		showItem(pageSelect3C);	
 		removeItem('pageTitle');
 		showItem("animationContainer");
 		removeItem("carouselTitle");
@@ -443,6 +442,33 @@ var imagePreloader = function(){
 	for(var i = 0; i <7; i++){
 		imageObj.src = images[i];	
 	}
+}
+
+var hoverSetup = function(){
+	hoverintent(pS0Container,
+		function() {
+	  		changeState(0);
+  		}, 
+		function() {//do nothing});
+	});
+	hoverintent(pS1Container,
+		function() {
+	  		changeState(1);
+  		}, 
+		function() {//do nothing});
+	});
+	hoverintent(pS2Container,
+		function() {
+	  		changeState(2);
+  		}, 
+		function() {//do nothing});
+	});
+	hoverintent(pS3Container,
+		function() {
+	  		changeState(3);
+  		}, 
+		function() {//do nothing});
+	});
 }
 
 //function collection to load images under stag/wolf/bull/boar links
@@ -855,7 +881,7 @@ function updateMorphText(counter){
 //add listener to detect when our mouse moves below the bottom of our page select bar
 //Note: we just grab the first choice pageSelect0C and use its bounding rect for the calc
 //because its easiest
-var rect = document.getElementById('pageSelect0C').getBoundingClientRect();
+var rect = pageSelect0C.getBoundingClientRect();
 var body = document.getElementsByTagName('body');
 body[0].onmousemove = function(e) {
 	if(e.clientY > rect.bottom){
@@ -905,6 +931,7 @@ function clearColors(current){
 // window.onload
 window.onload = function(){
 	imagePreloader();
+	hoverSetup();
 	var body = document.getElementsByTagName('body')[0];
 	var swipeState = -1;
 	var hammer = new Hammer.Manager(body);
