@@ -48,28 +48,31 @@ var boarStag = anime.timeline({ autoplay: false, direction: 'alternate', loop: f
 var bullBoar = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 var boarBull = anime.timeline({ autoplay: false, direction: 'alternate', loop: false });
 
-
+const easing = 'easeInOutQuad';
+const duration = 700;
 
 var l = cPaths.length; //they are all the same length
 for(var i = 0; i < l; i++){
 	//circle to stag
 	circleS.add({
 		targets: cPaths[i].id,
-		stroke: '#f90000',
+		stroke: redColor,
+		// translateZ: 0,
 		d: {
 		value: cPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  1000 + 10 * i 
 	});
 	circleS.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  2600 + 10 * i
 	});
@@ -78,20 +81,22 @@ for(var i = 0; i < l; i++){
 	sCircle.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	sCircle.add({
 		targets: cPaths[i].id,
 		stroke: redColor,
+		// translateZ: 0,
 		d: {
 		value: cPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -100,10 +105,11 @@ for(var i = 0; i < l; i++){
 	circleW.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  10 * i
 	});
@@ -112,20 +118,22 @@ for(var i = 0; i < l; i++){
 	wCircle.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	wCircle.add({
 		targets: cPaths[i].id,
 		stroke: redColor,
+		// translateZ: 0,
 		d: {
 		value: cPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -134,10 +142,11 @@ for(var i = 0; i < l; i++){
 	circleB.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  10 * i
 	});
@@ -146,20 +155,22 @@ for(var i = 0; i < l; i++){
 	bCircle.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	bCircle.add({
 		targets: cPaths[i].id,
 		stroke: redColor,
+		// translateZ: 0,
 		d: {
 		value: cPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -168,10 +179,11 @@ for(var i = 0; i < l; i++){
 	circleBA.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  10 * i
 	});
@@ -180,20 +192,22 @@ for(var i = 0; i < l; i++){
 	baCircle.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	baCircle.add({
 		targets: cPaths[i].id,
 		stroke: redColor,
+		// translateZ: 0,
 		d: {
 		value: cPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -202,28 +216,31 @@ for(var i = 0; i < l; i++){
 	stagImplode.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInCubic'
+		duration: 150,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	stagImplode.add({
 		targets: iPaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: iPaths[i].d,
-		duration: 100,
-		easing: 'easeInCubic'
+		duration: 200,
+		easing
 		},
 		offset: 2600 + 2 * i
 	});
 	stagImplode.add({
 		targets: ePaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: ePaths[i].d,
 		duration: 150,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 3400 + 2 * i
 	});
@@ -232,28 +249,31 @@ for(var i = 0; i < l; i++){
 	wolfImplode.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
+		duration,
 		easing: 'easeInCubic'
 		},
 		offset: 1000 + 10 * i
 	});
 	wolfImplode.add({
 		targets: iPaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: iPaths[i].d,
 		duration: 200,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 2600 + 3 * i
 	});
 	wolfImplode.add({
 		targets: ePaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: ePaths[i].d,
 		duration: 150,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 3500 + 2 * i
 	});
@@ -262,28 +282,31 @@ for(var i = 0; i < l; i++){
 	bullImplode.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInCubic'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	bullImplode.add({
 		targets: iPaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: iPaths[i].d,
 		duration: 200,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 2600 + 3 * i
 	});
 	bullImplode.add({
 		targets: ePaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: ePaths[i].d,
 		duration: 150,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 3500 + 2 * i
 	});
@@ -292,28 +315,31 @@ for(var i = 0; i < l; i++){
 	boarImplode.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInCubic'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	boarImplode.add({
 		targets: iPaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: iPaths[i].d,
 		duration: 200,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 2600 + 3 * i
 	});
 	boarImplode.add({
 		targets: ePaths[i].id,
+		// translateZ: 0,
 		d: {
 		value: ePaths[i].d,
 		duration: 150,
-		easing: 'easeInCubic'
+		easing
 		},
 		offset: 3500 + 2 * i
 	});
@@ -322,20 +348,22 @@ for(var i = 0; i < l; i++){
 	stagBull.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  1000 + 10 * i
 	});
 	stagBull.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  2600 + 10 * i
 	});
@@ -344,20 +372,22 @@ for(var i = 0; i < l; i++){
 	stagWolf.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	stagWolf.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -366,20 +396,22 @@ for(var i = 0; i < l; i++){
 	stagBoar.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	stagBoar.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset:  2600 + 10 * i
 	});
@@ -388,20 +420,22 @@ for(var i = 0; i < l; i++){
 	wolfBull.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	wolfBull.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -410,20 +444,22 @@ for(var i = 0; i < l; i++){
 	bullWolf.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	bullWolf.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -432,20 +468,22 @@ for(var i = 0; i < l; i++){
 	bullBoar.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	bullBoar.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -454,20 +492,22 @@ for(var i = 0; i < l; i++){
 	boarBull.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	boarBull.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -476,20 +516,22 @@ for(var i = 0; i < l; i++){
 	wolfBoar.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	wolfBoar.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -498,20 +540,22 @@ for(var i = 0; i < l; i++){
 	boarWolf.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	boarWolf.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -520,20 +564,22 @@ for(var i = 0; i < l; i++){
 	wolfStag.add({
 		targets: wPaths[i].id,
 		stroke: blueColor,
+		// translateZ: 0,
 		d: {
 		value: wPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	wolfStag.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
 		duration: 700,
-		easing: 'easeInOutQuad'
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -542,20 +588,22 @@ for(var i = 0; i < l; i++){
 	bullStag.add({
 		targets: bPaths[i].id,
 		stroke: orangeColor,
+		// translateZ: 0,
 		d: {
 		value: bPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing 
 		},
 		offset: 1000 + 10 * i
 	});
 	bullStag.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -564,20 +612,22 @@ for(var i = 0; i < l; i++){
 	boarStag.add({
 		targets: baPaths[i].id,
 		stroke: purpleColor,
+		// translateZ: 0,
 		d: {
 		value: baPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 1000 + 10 * i
 	});
 	boarStag.add({
 		targets: sPaths[i].id,
 		stroke: greenColor,
+		// translateZ: 0,
 		d: {
 		value: sPaths[i].d,
-		duration: 700,
-		easing: 'easeInOutQuad'
+		duration,
+		easing
 		},
 		offset: 2600 + 10 * i
 	});
@@ -589,7 +639,7 @@ fadeBlack.add({
     targets: 'body',
     backgroundColor: '#000',
     duration: 2000,
-    easing: 'easeInCubic',
+    easing,
     offset: 100
 });
 
@@ -599,7 +649,7 @@ curtain.add({
     backgroundColor: '#000',
     opacity: 1,
     duration: 1000,
-    easing: 'easeInCubic',
+    easing,
     offset: 0 
 });
 curtain.add({
@@ -607,7 +657,7 @@ curtain.add({
     backgroundColor: '#fff',
     opacity: 0,
     duration: 1000,
-    easing: 'easeOutCubic',
+    easing,
     offset: 1500 
 });
 
@@ -618,7 +668,7 @@ stagImplode.add({
     // targets: '#pageSelect0C',
     backgroundColor: '#e6e6e6',
     duration: 200,
-    easing: 'easeInCubic',
+    easing,
     offset: 3700
 });
 
@@ -628,7 +678,7 @@ wolfImplode.add({
     // targets: '#pageSelect0C',
     backgroundColor: '#e6e6e6',
     duration: 200,
-    easing: 'easeInCubic',
+    easing,
     offset: 3700
 });
 
@@ -638,7 +688,7 @@ bullImplode.add({
     // targets: '#pageSelect0C',
     backgroundColor: '#e6e6e6',
     duration: 200,
-    easing: 'easeInCubic',
+    easing,
     offset: 3700
 });
 
@@ -648,7 +698,7 @@ boarImplode.add({
     // targets: '#pageSelect0C',
     backgroundColor: '#e6e6e6',
     duration: 200,
-    easing: 'easeInCubic',
+    easing,
     offset: 3700
 });
 
@@ -658,6 +708,6 @@ pictureExpand.add({
   targets: '#carousel',
   scale: 2,
   duration: 200,
-  easing: 'easeInCubic',
+  easing,
   offset: 100
 });
