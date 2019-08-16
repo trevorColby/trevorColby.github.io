@@ -327,11 +327,11 @@ var revealAnimationStage = function(click){
 		showItem(pageSelect2C);	
 		showItem(pageSelect3C);	
 		removeItem('pageTitle');
-		showItem("animationContainer");
-		removeItem("carouselTitle");
-		removeItem("nav");
-		removeItem("carousel");
-		removeItem("infoCard");
+		showItem('animationContainer');
+		removeItem('carouselTitle');
+		removeItem('nav');
+		removeItem('carousel');
+		removeItem('infoCard');
 		fadeBlack.restart();
 		fadeBlack.play();
 
