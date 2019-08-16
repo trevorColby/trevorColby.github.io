@@ -24,19 +24,23 @@ td{
 }*/
 #pageSelect0C:hover{
     color: #00FF00;
+    will-change: transform;
 }
 
 #pageSelect1C:hover{
     color: #00FFFF;
+    will-change: transform;
 }
 
 #pageSelect2C:hover{
     /*color: #ff3d00;*/
     color: #ffa500;
+    will-change: transform;
 }
 
 #pageSelect3C:hover{
     color: #FF00FF;
+    will-change: transform;
 }
 
 .white{
@@ -69,6 +73,7 @@ td.effect-underline:after {
    border-bottom: 1px solid;
    margin-top: 10px;
    opacity: 0;
+   will-change: transform;
    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
    transition: opacity 0.35s, transform 0.35s;
    -webkit-transform: scale(0,1);
@@ -76,6 +81,7 @@ td.effect-underline:after {
 }
 td.effect-underline:hover:after {
    opacity: 1;
+   will-change: transform;
    -webkit-transform: scale(1);
    transform: scale(1);
 }
