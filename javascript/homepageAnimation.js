@@ -262,7 +262,7 @@ var addImage = function(parentId,source){
 
 function setTitle(linkNum){
 	if(linkNum == 0){
-		addItem('floatContainer','h1','pageTitle','Engineering & Design',[`pageTitle${cssSuffix}`]);
+		addItem('floatContainer','h1','pageTitle','Engineering/Design',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 1){
 		addItem('floatContainer','h1','pageTitle','Coding Projects',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 2){
@@ -756,7 +756,7 @@ var carouselLaunch = function(linkNum){
 			}
 		}
 		function updateClickable(cImage){
-			for(var i=0; i < n; i ++){
+			for(var i=0; i < n-1; i ++){
 				var card = document.getElementById('card' + i);
 				if(i == cImage){
 					card.classList.add('clickable');
