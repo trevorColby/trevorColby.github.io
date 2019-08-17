@@ -455,7 +455,7 @@ var imagePreloader = function(){
 	images[21] ='../../media/projects/Carousel/meredith.jpg';
 	images[22] ='../../media/projects/Carousel/opti.jpeg';
 	images[23] ='../../media/projects/Carousel/vivado.jpg';
-	images[24] ='../../media/projects/Carousel/stirling.gif';
+	images[24] ='../../media/projects/Carousel/stirling.png';
 
 	for(var i = 0; i <images.length; i++){
 		imageObj.src = images[i];	
@@ -496,7 +496,7 @@ var stagLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/vivado.jpg');
 	addImage('fig','../../media/projects/Carousel/heartmonitor.jpg');
 	addImage('fig','../../media/projects/Carousel/samara.PNG');
-	addImage('fig','../../media/projects/Carousel/stirling.gif');
+	addImage('fig','../../media/projects/Carousel/stirling.png');
 	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
 }
 
