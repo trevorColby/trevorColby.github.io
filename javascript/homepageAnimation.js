@@ -443,7 +443,7 @@ var imagePreloader = function(){
 	images[9] ='../../media/projects/Carousel/heartmonitor.jpg';
 	images[10] ='../../media/projects/Carousel/numericalapprox.png';
 	images[11] ='../../media/projects/Carousel/threejs.jpg';
-	images[12] ='../../media/projects/Carousel/sidewalkLabs.webp';
+	images[12] ='../../media/projects/Carousel/sidewalk.jpg';
 	images[13] ='../../media/projects/Carousel/lightSphere.PNG';
 	images[14] ='../../media/projects/Carousel/auroraSilhouette.jpg';
 	images[15] ='../../media/projects/Carousel/team.jpg';
@@ -507,7 +507,7 @@ var wolfLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
 	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
 	addImage('fig','../../media/projects/Carousel/threejs.jpg');
-	addImage('fig','../../media/projects/Carousel/sidewalkLabs.webp');
+	addImage('fig','../../media/projects/Carousel/sidewalk.jpg');
 	addImage('fig','../../media/projects/Carousel/arm.png');
 }
 
@@ -656,6 +656,7 @@ var carouselLaunch = function(linkNum){
 			cardElem.classList.add('expand');
 			var translation = cardElem.style.transform;
 			var scaleFactor = isHorizontal ? 5 : 1.5;
+			var transform = cardElem.style.transform;
 			cardElem.style.transform = translation + ` scale(${scaleFactor})`;
 			var infoElem = document.getElementById('infoCard');
 			infoElem.classList.add('showCard');
@@ -737,8 +738,9 @@ var carouselLaunch = function(linkNum){
 			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
-			var shrinkFactor = isHorizontal ? 0.2 : 1/1.5;
-			curCard.style.transform = transf + `scale(${shrinkFactor})`;
+			// var shrinkFactor = isHorizontal ? 0.2 : 1/1.5;
+			var scaleFactor = isHorizontal ? 5 : 1.5;
+			curCard.style.transform = transf.replace(`scale(${scaleFactor})`,'');
 			var cardImg = document.getElementById('cardImgLink');
 			setTimeout(function(){cardImg.src = '';},400);
 		}
