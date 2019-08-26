@@ -262,7 +262,7 @@ var addImage = function(parentId,source){
 
 function setTitle(linkNum){
 	if(linkNum == 0){
-		addItem('floatContainer','h1','pageTitle','Engineering & Design',[`pageTitle${cssSuffix}`]);
+		addItem('floatContainer','h1','pageTitle','Engineering/Design',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 1){
 		addItem('floatContainer','h1','pageTitle','Coding Projects',[`pageTitle${cssSuffix}`]);
 	}else if(linkNum == 2){
@@ -443,7 +443,7 @@ var imagePreloader = function(){
 	images[9] ='../../media/projects/Carousel/heartmonitor.jpg';
 	images[10] ='../../media/projects/Carousel/numericalapprox.png';
 	images[11] ='../../media/projects/Carousel/threejs.jpg';
-	images[12] ='../../media/projects/Carousel/sidewalkLabs.webp';
+	images[12] ='../../media/projects/Carousel/sidewalk.jpg';
 	images[13] ='../../media/projects/Carousel/lightSphere.PNG';
 	images[14] ='../../media/projects/Carousel/auroraSilhouette.jpg';
 	images[15] ='../../media/projects/Carousel/team.jpg';
@@ -455,7 +455,7 @@ var imagePreloader = function(){
 	images[21] ='../../media/projects/Carousel/meredith.jpg';
 	images[22] ='../../media/projects/Carousel/opti.jpeg';
 	images[23] ='../../media/projects/Carousel/vivado.jpg';
-	images[24] ='../../media/projects/Carousel/stirling.gif';
+	images[24] ='../../media/projects/Carousel/stirling.png';
 
 	for(var i = 0; i <images.length; i++){
 		imageObj.src = images[i];	
@@ -496,7 +496,7 @@ var stagLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/vivado.jpg');
 	addImage('fig','../../media/projects/Carousel/heartmonitor.jpg');
 	addImage('fig','../../media/projects/Carousel/samara.PNG');
-	addImage('fig','../../media/projects/Carousel/stirling.gif');
+	addImage('fig','../../media/projects/Carousel/stirling.png');
 	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
 }
 
@@ -507,7 +507,7 @@ var wolfLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
 	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
 	addImage('fig','../../media/projects/Carousel/threejs.jpg');
-	addImage('fig','../../media/projects/Carousel/sidewalkLabs.webp');
+	addImage('fig','../../media/projects/Carousel/sidewalk.jpg');
 	addImage('fig','../../media/projects/Carousel/arm.png');
 }
 
@@ -656,6 +656,7 @@ var carouselLaunch = function(linkNum){
 			cardElem.classList.add('expand');
 			var translation = cardElem.style.transform;
 			var scaleFactor = isHorizontal ? 5 : 1.5;
+			var transform = cardElem.style.transform;
 			cardElem.style.transform = translation + ` scale(${scaleFactor})`;
 			var infoElem = document.getElementById('infoCard');
 			infoElem.classList.add('showCard');
@@ -737,8 +738,9 @@ var carouselLaunch = function(linkNum){
 			var curCard = document.getElementById('card' + num);
 			curCard.classList.remove('expand');	
 			var transf = curCard.style.transform;
-			var shrinkFactor = isHorizontal ? 0.2 : 1/1.5;
-			curCard.style.transform = transf + `scale(${shrinkFactor})`;
+			// var shrinkFactor = isHorizontal ? 0.2 : 1/1.5;
+			var scaleFactor = isHorizontal ? 5 : 1.5;
+			curCard.style.transform = transf.replace(`scale(${scaleFactor})`,'');
 			var cardImg = document.getElementById('cardImgLink');
 			setTimeout(function(){cardImg.src = '';},400);
 		}
@@ -754,7 +756,7 @@ var carouselLaunch = function(linkNum){
 			}
 		}
 		function updateClickable(cImage){
-			for(var i=0; i < n; i ++){
+			for(var i=0; i < n-1; i ++){
 				var card = document.getElementById('card' + i);
 				if(i == cImage){
 					card.classList.add('clickable');
