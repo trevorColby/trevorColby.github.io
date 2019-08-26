@@ -456,6 +456,7 @@ var imagePreloader = function(){
 	images[22] ='../../media/projects/Carousel/opti.jpeg';
 	images[23] ='../../media/projects/Carousel/vivado.jpg';
 	images[24] ='../../media/projects/Carousel/stirling.png';
+	images[25] ='../../media/projects/Carousel/pantherHunter.png';
 
 	for(var i = 0; i <images.length; i++){
 		imageObj.src = images[i];	
@@ -517,7 +518,7 @@ var bullLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/rocks.jpg');
 	addImage('fig','../../media/projects/Carousel/lookout.jpg');
 	addImage('fig','../../media/projects/Carousel/bike.jpg');
-	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/pantherHunter.png');
 	addImage('fig','../../media/projects/Carousel/');
 	addImage('fig','../../media/projects/Carousel/nordic.jpg');
 }
