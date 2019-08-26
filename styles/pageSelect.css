@@ -22,6 +22,31 @@ td{
 /*td:hover{
     color:white;
 }*/
+
+#pageSelect0:hover {
+    text-align:center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pageSelect1:hover {
+    text-align:center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pageSelect2:hover {
+    text-align:center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#pageSelect3:hover {
+    text-align:center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #pageSelect0C:hover{
     color: #00FF00;
     will-change: transform;
