@@ -4,8 +4,8 @@ var stagContent = {
 		title: 'Biomedical',
 		subTitle: "Received a patent for an adaptive crutch design to make traversing stairs easier",
 		content: "- Image",
-		link: '../../../projects/tibet/public/pages/language.html',
-		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+		link: '',
+		linkImg:'',
 	}, 
 	card1:{
 		title:'Control Theory',
@@ -57,8 +57,8 @@ var wolfContent = {
 		title: 'Tibet',
 		subTitle: "Visualizing a Tibetan Nomad's Artwork with ThreeJS",
 		content: "For this project I partnered with Dartmouth's Anthropology department to create a 3D navigable rendition of the Qinghai Province in Tibet. In this 3D creation, users are able to freely navigate throughout the region and explore over 300 different toponyms ranging from regional religious sites to local settlments.<br><br>",
-		link: '../../../projects/tibet/public/pages/language.html',
-		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+		link: 'tibet/language.html',
+		linkImg:'media/projects/Carousel/linkImages/endlessKnot.png',
 	}, 
 	card1:{
 		title:'Search Engine',
@@ -116,8 +116,8 @@ var bullContent = {
 		title: 'Hiking',
 		subTitle: "The Great Outdoors",
 		content: "",
-		link: '../../../projects/tibet/public/pages/language.html',
-		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+		link: '',
+		linkImg:'',
 	}, 
 	card1:{
 		title:'Running',
@@ -149,10 +149,10 @@ var bullContent = {
 	}, 
 	card5:{
 		title: 'Web Development',
-		subTitle: '',
-		content: '',
-		link: '',
-		linkImg:'',
+		subTitle: 'Panther Hunter',
+		content: 'A Three JS Style webpage exhibiting classical style art with HSL color shading parametrized to mouse position',
+		link: 'pantherHunter/hunter.html',
+		linkImg:'media/projects/Carousel/linkImages/pantherHunter.png',
 	}, 
 	card6:{
 		title: 'Front End Design',
@@ -176,8 +176,8 @@ var boarContent = {
 		title: 'Resumé',
 		subTitle: 'Click to Download',
 		content: '',
-		link: '../../../projects/tibet/public/pages/language.html',
-		linkImg:'../../../media/projects/Carousel/endlessKnot.png',
+		link: '',
+		linkImg:'',
 	}, 
 	card1:{
 		title: 'Dartmouth',
