@@ -2,6 +2,7 @@
 var carouselLaunched = 0;
 var isHorizontal = true;
 var verticalOffset;
+var n = 0; //the number of cards we have
 //check for vibrate support
 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
@@ -457,6 +458,9 @@ var imagePreloader = function(){
 	images[23] ='../../media/projects/Carousel/vivado.jpg';
 	images[24] ='../../media/projects/Carousel/stirling.png';
 	images[25] ='../../media/projects/Carousel/pantherHunter.png';
+	//these are the link images (i.e what you click on inside of the card)
+	images[26] ='../../media/projects/Carousel/linkImages/pantherHunter.png';
+	images[27] ='../../media/projects/Carousel/linkImages/endlessKnot.png';
 
 	for(var i = 0; i <images.length; i++){
 		imageObj.src = images[i];	
@@ -575,7 +579,7 @@ var carouselLaunch = function(linkNum){
 		var figure = root.querySelector('#fig');
 		var nav = root.querySelector('nav');
 		var images = figure.children;
-		var n = images.length;
+		n = images.length;
 		var gap = root.dataset.gap || 0;
 		var bfc = 'bfc' in root.dataset;
 		var theta =  360 / n;
@@ -652,8 +656,8 @@ var carouselLaunch = function(linkNum){
 
 		//function to fill the card content on a click event
 		//NOTE: The infoObjects for this are defined near the top of the file
-		function setCardContent(infoObject, numCard){
-			var cardElem = document.getElementById(numCard);
+		function setCardContent(infoObject, cardNumProperty){
+			var cardElem = document.getElementById(cardNumProperty);
 			cardElem.classList.add('expand');
 			var translation = cardElem.style.transform;
 			var scaleFactor = isHorizontal ? 5 : 1.5;
@@ -661,19 +665,19 @@ var carouselLaunch = function(linkNum){
 			cardElem.style.transform = translation + ` scale(${scaleFactor})`;
 			var infoElem = document.getElementById('infoCard');
 			infoElem.classList.add('showCard');
-			document.getElementById('cardLink').href = infoObject[numCard].link;
-			document.getElementById('cardImgLink').src = infoObject[numCard].linkImg;
+			document.getElementById('cardLink').href = infoObject[cardNumProperty].link;
+			document.getElementById('cardImgLink').src = infoObject[cardNumProperty].linkImg;
 			var infoCard = document.getElementById('infoCard');
-			infoCard.childNodes[1].innerHTML = infoObject[numCard].title;	
-			infoCard.childNodes[2].childNodes[0].innerHTML = infoObject[numCard].subTitle;
-			infoCard.childNodes[2].childNodes[1].innerHTML = infoObject[numCard].content;
+			infoCard.childNodes[1].innerHTML = infoObject[cardNumProperty].title;	
+			infoCard.childNodes[2].childNodes[0].innerHTML = infoObject[cardNumProperty].subTitle;
+			infoCard.childNodes[2].childNodes[1].innerHTML = infoObject[cardNumProperty].content;
 		}
 		
 		//helper function to pass in correct object to other helper functions
 		function cardClickSwitchBoard(infoObj, cardID){
 			var num = mod(currImage,n);
 			if(cardID == num){
-				setCardContent(infoObj,'card' + num);
+				setCardContent(infoObj, 'card' + num);
 			}
 		}
 
@@ -692,16 +696,12 @@ var carouselLaunch = function(linkNum){
 				}
 			}else if(linkNum == 2){
 				return function(){
-					cardClickSwitchBoard(wolfContent, cardID);
+					cardClickSwitchBoard(bullContent, cardID);
 				}
 					
 			}else if(linkNum == 3){
 				return function(){
-					cardClickSwitchBoard(wolfContent, cardID);
-				}
-			}else if(linkNum == 3){
-				return function(){
-					cardClickSwitchBoard(wolfContent, cardID);
+					cardClickSwitchBoard(boarContent, cardID);
 				}
 			}
 		}
