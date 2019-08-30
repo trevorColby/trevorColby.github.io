@@ -230,7 +230,9 @@ var showItem = function(eId){
 
 var removeItem = function(elemId){
 	var e = document.getElementById(elemId);
-	e.parentNode.removeChild(e);
+	if (e) {
+		e.parentNode.removeChild(e);
+	}
 }
 
 var addItem = function(parentId,elemTag,elemId,innerHTML,classNames){
@@ -416,7 +418,7 @@ function mobileImplodeHelper(animalNum) {
 	},1500);
 }
 
-var createTile = function(tileId,imageSrc,header,headerDescrip,date){
+var createTile = function(tileId,imageSrc,header,headerDescrip,date) {
 	var div1Classes = ['w3-card-4', 'w3-margin', 'w3-white'];
 	var div2Classes = ['w3-container'];
 	addItem('tileContainer','div',tileId,'',div1Classes);
@@ -427,47 +429,49 @@ var createTile = function(tileId,imageSrc,header,headerDescrip,date){
 	addItem('div2','h5','headerD',headerDescrip,[]);
 	addItem('headerD','span','',date,["w3-opacity"]);
 }
+
 var imagePreloader = function(){
 	var imageObj = new Image();
 
 	var images = new Array();
-	images[0] ='../../media/projects/Carousel/tibetScreenshot.png';
-	images[1] ='../../media/projects/Carousel/HopPhoto.jpg';
-	images[2] ='../../media/projects/Carousel/leaflet.gif';
-	images[3] ='../../media/projects/Carousel/rayTrace.jpg';
-	images[4] ='../../media/projects/Carousel/recursiveRayTracing.png';
-	images[5] ='../../media/projects/Carousel/threeJSSphere.png';
-	images[5] ='../../media/projects/Carousel/teapot.png';
-	images[6] ='../../media/projects/Carousel/arm.png';
-	images[7] ='../../media/projects/Carousel/samara.PNG';
-	images[8] ='../../media/projects/Carousel/fpga.png';
-	images[9] ='../../media/projects/Carousel/heartmonitor.jpg';
-	images[10] ='../../media/projects/Carousel/numericalapprox.png';
-	images[11] ='../../media/projects/Carousel/threejs.jpg';
-	images[12] ='../../media/projects/Carousel/sidewalk.jpg';
-	images[13] ='../../media/projects/Carousel/lightSphere.PNG';
-	images[14] ='../../media/projects/Carousel/auroraSilhouette.jpg';
-	images[15] ='../../media/projects/Carousel/team.jpg';
-	images[16] ='../../media/projects/Carousel/lookout.jpg';
-	images[17] ='../../media/projects/Carousel/bike.jpg';
-	images[18] ='../../media/projects/Carousel/nordic.jpg';
-	images[19] ='../../media/projects/Carousel/rocks.jpg';
-	images[20] ='../../media/projects/Carousel/dartmouth.jpg';
-	images[21] ='../../media/projects/Carousel/meredith.jpg';
-	images[22] ='../../media/projects/Carousel/opti.jpeg';
-	images[23] ='../../media/projects/Carousel/vivado.jpg';
-	images[24] ='../../media/projects/Carousel/stirling.png';
-	images[25] ='../../media/projects/Carousel/pantherHunter.png';
+	images.push('../../media/projects/Carousel/tibetScreenshot.png');
+	images.push('../../media/projects/Carousel/HopPhoto.jpg');
+	images.push('../../media/projects/Carousel/leaflet.gif');
+	images.push('../../media/projects/Carousel/rayTrace.jpg');
+	images.push('../../media/projects/Carousel/recursiveRayTracing.png');
+	images.push('../../media/projects/Carousel/threeJSSphere.png');
+	images.push('../../media/projects/Carousel/teapot.png');
+	images.push('../../media/projects/Carousel/arm.png');
+	images.push('../../media/projects/Carousel/samara.PNG');
+	images.push('../../media/projects/Carousel/fpga.png');
+	images.push('../../media/projects/Carousel/heartmonitor.jpg');
+	images.push('../../media/projects/Carousel/numericalapprox.png');
+	images.push('../../media/projects/Carousel/threejs.jpg');
+	images.push('../../media/projects/Carousel/sidewalk.jpg');
+	images.push('../../media/projects/Carousel/lightSphere.PNG');
+	images.push('../../media/projects/Carousel/auroraSilhouette.jpg');
+	images.push('../../media/projects/Carousel/team.jpg');
+	images.push('../../media/projects/Carousel/lookout.jpg');
+	images.push('../../media/projects/Carousel/bike.jpg');
+	images.push('../../media/projects/Carousel/nordic.jpg');
+	images.push('../../media/projects/Carousel/rocks.jpg');
+	images.push('../../media/projects/Carousel/dartmouth.jpg');
+	images.push('../../media/projects/Carousel/meredith.jpg');
+	images.push('../../media/projects/Carousel/opti.jpeg');
+	images.push('../../media/projects/Carousel/vivado.jpg');
+	images.push('../../media/projects/Carousel/stirling.png');
+	images.push('../../media/projects/Carousel/pantherHunter.png');
+	images.push('../../media/projects/Carousel/biomed.jpg');
 	//these are the link images (i.e what you click on inside of the card)
-	images[26] ='../../media/projects/Carousel/linkImages/pantherHunter.png';
-	images[27] ='../../media/projects/Carousel/linkImages/endlessKnot.png';
+	images.push('../../media/projects/Carousel/linkImages/pantherHunter.png');
+	images.push('../../media/projects/Carousel/linkImages/endlessKnot.png');
 
-	for(var i = 0; i <images.length; i++){
+	for(var i = 0; i <images.length; i++) {
 		imageObj.src = images[i];	
 	}
 }
 
-var hoverSetup = function(){
+var hoverSetup = function() {
 	hoverintent(pS0Container,
 		function() {
 	  		changeState(0);
@@ -494,49 +498,7 @@ var hoverSetup = function(){
 	});
 }
 
-//function collection to load images under stag/wolf/bull/boar links
-var stagLinkImages = function(){
-	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/fpga.png');
-	addImage('fig','../../media/projects/Carousel/vivado.jpg');
-	addImage('fig','../../media/projects/Carousel/heartmonitor.jpg');
-	addImage('fig','../../media/projects/Carousel/samara.PNG');
-	addImage('fig','../../media/projects/Carousel/stirling.png');
-	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
-}
-
-var wolfLinkImages = function(){
-	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
-	addImage('fig','../../media/projects/Carousel/lightSphere.PNG');
-	addImage('fig','../../media/projects/Carousel/leaflet.gif');
-	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
-	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
-	addImage('fig','../../media/projects/Carousel/threejs.jpg');
-	addImage('fig','../../media/projects/Carousel/sidewalk.jpg');
-	addImage('fig','../../media/projects/Carousel/arm.png');
-}
-
-var bullLinkImages = function(){
-	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
-	addImage('fig','../../media/projects/Carousel/team.jpg');
-	addImage('fig','../../media/projects/Carousel/rocks.jpg');
-	addImage('fig','../../media/projects/Carousel/lookout.jpg');
-	addImage('fig','../../media/projects/Carousel/bike.jpg');
-	addImage('fig','../../media/projects/Carousel/pantherHunter.png');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/nordic.jpg');
-}
-
-var boarLinkImages = function(){
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/dartmouth.jpg');
-	addImage('fig','../../media/projects/Carousel/');
-	addImage('fig','../../media/projects/Carousel/opti.jpeg');
-	addImage('fig','../../media/projects/Carousel/meredith.jpg');
-	addImage('fig','../../media/projects/Carousel/');
-}
-
-var carouselLaunch = function(linkNum){
+var carouselLaunch = function(linkNum) {
 	addItem('tileContainer','div','carousel','',[`carousel${cssSuffix}`]);
 	showItem('carousel');
 	document.getElementById('carousel').setAttribute('data-gap',12);
@@ -671,6 +633,20 @@ var carouselLaunch = function(linkNum){
 			infoCard.childNodes[1].innerHTML = infoObject[cardNumProperty].title;	
 			infoCard.childNodes[2].childNodes[0].innerHTML = infoObject[cardNumProperty].subTitle;
 			infoCard.childNodes[2].childNodes[1].innerHTML = infoObject[cardNumProperty].content;
+			if (infoObject[cardNumProperty].video && infoObject[cardNumProperty].video !== '') { 
+				//if our info object has a video, populate our iframe with the neccesary values
+				var video = document.getElementById('cardVideo');
+				video.setAttribute('allowfullscreen', '');
+				video.setAttribute('allow','accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
+				video.setAttribute('src',infoObject[cardNumProperty].video);
+				video.setAttribute('width','560');
+				video.setAttribute('height','315');
+				video.setAttribute('frameborder', '0');
+				//needs to be made visible 
+				video.style.visibility = 'visible';
+				//If we are going to load a video we want it to be the only thing there, but need title to take up space 
+				infoCard.childNodes[1].innerHTML = '.';
+			}
 		}
 		
 		//helper function to pass in correct object to other helper functions
@@ -725,12 +701,14 @@ var carouselLaunch = function(linkNum){
 			addItem('infoCard','div','x','',[`close${cssSuffix}`]);
 			var x = document.getElementById('x');
 			x.addEventListener('click', xClick, true);
-			addItem('infoCard','h2','','John Doe',['cardTitle']);
+			addItem('infoCard','h2','','No Title to Load',['cardTitle']);
 			addItem('infoCard','div','cardBody','',['cardBody']);
-			addItem('cardBody','p','','Architect and Engineer',['cardSubTitle']);
-			addItem('cardBody','p','','Hope this works',['cardContent']);
+			addItem('cardBody','p','','No Subtitle to Load',['cardSubTitle']);
+			addItem('cardBody','p','','No Content to Load',['cardContent']);
 			addItem('cardBody','a','cardLink','',[]);
 			addItem('cardLink','img','cardImgLink','',['cardImgLink']);
+			addItem('infoCard','div','cardVideoContainer','',['video-container']);
+			addItem('cardVideoContainer','iframe','cardVideo','',['video']);
 		}
 
 		function xClick(event){
@@ -744,6 +722,10 @@ var carouselLaunch = function(linkNum){
 			curCard.style.transform = transf.replace(`scale(${scaleFactor})`,'');
 			var cardImg = document.getElementById('cardImgLink');
 			setTimeout(function(){cardImg.src = '';},400);
+			//make sure our video container is hidden
+			var vid = document.getElementById('cardVideo');
+			vid.setAttribute('src','');
+			vid.setAttribute('visibility','hidden');
 		}
 
 		function rotateCarousel(imageIndex) {
