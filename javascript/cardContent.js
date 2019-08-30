@@ -1,11 +1,54 @@
+//function collection to load images under stag/wolf/bull/boar links
+var stagLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/biomed.jpg');
+	addImage('fig','../../media/projects/Carousel/fpga.png');
+	addImage('fig','../../media/projects/Carousel/vivado.jpg');
+	addImage('fig','../../media/projects/Carousel/heartmonitor.jpg');
+	addImage('fig','../../media/projects/Carousel/samara.PNG');
+	addImage('fig','../../media/projects/Carousel/stirling.png');
+	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
+}
+
+var wolfLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
+	addImage('fig','../../media/projects/Carousel/lightSphere.PNG');
+	addImage('fig','../../media/projects/Carousel/leaflet.gif');
+	addImage('fig','../../media/projects/Carousel/rayTrace.jpg');
+	addImage('fig','../../media/projects/Carousel/recursiveRayTracing.png');
+	addImage('fig','../../media/projects/Carousel/threejs.jpg');
+	addImage('fig','../../media/projects/Carousel/sidewalk.jpg');
+	addImage('fig','../../media/projects/Carousel/arm.png');
+}
+
+var bullLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
+	addImage('fig','../../media/projects/Carousel/team.jpg');
+	addImage('fig','../../media/projects/Carousel/rocks.jpg');
+	addImage('fig','../../media/projects/Carousel/lookout.jpg');
+	addImage('fig','../../media/projects/Carousel/bike.jpg');
+	addImage('fig','../../media/projects/Carousel/pantherHunter.png');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/nordic.jpg');
+}
+
+var boarLinkImages = function(){
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/dartmouth.jpg');
+	addImage('fig','../../media/projects/Carousel/');
+	addImage('fig','../../media/projects/Carousel/opti.jpeg');
+	addImage('fig','../../media/projects/Carousel/meredith.jpg');
+	addImage('fig','../../media/projects/Carousel/');
+}
+
 //content of each carousel page
 var stagContent = { 
 	card0: {
-		title: 'Biomedical',
-		subTitle: "Received a patent for an adaptive crutch design to make traversing stairs easier",
-		content: "- Image",
+		title: 'Biomedical Engineering',
+		subTitle: '',
+		content: '',
 		link: '',
 		linkImg:'',
+		video: 'https://www.youtube.com/embed/hT1-QEgtMWA&enablejsapi=1',
 	}, 
 	card1:{
 		title:'Control Theory',
@@ -13,7 +56,7 @@ var stagContent = {
 		content: '',
 		link: ' ',
 		linkImg:' ',
-	}, 
+	},
 	card2:{
 		title: 'VHDL',
 		subTitle: ' ',
@@ -32,8 +75,8 @@ var stagContent = {
 		title: 'Biophysics',
 		subTitle: 'Leading Edge Vortex Analysis',
 		content: 'Maple Samara',
-		link: ' ',
-		linkImg:' ',
+		link: 'samara/samara.html',
+		linkImg:'media/projects/Carousel/linkImages/mapleSamara.png',
 	}, 
 	card5:{
 		title: 'Thermodynamics',
