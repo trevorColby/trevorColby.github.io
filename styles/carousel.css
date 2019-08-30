@@ -124,7 +124,7 @@
 }
 
 .cardSubTitle{
-  font-size: 3vw !important;
+  font-size: 3vh !important;
   margin: 2px !important;
   padding-left: 2vw;
   text-align: left;
@@ -266,4 +266,19 @@
   transition: 0.5s;
   pointer-events: none;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.vidContainer{
+    position: relative;
+    height: 0;
+    width: 100%;
+}
+
+.video {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    visibility: hidden;
 }
