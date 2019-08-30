@@ -48,7 +48,7 @@ var stagContent = {
 		content: '',
 		link: '',
 		linkImg:'',
-		video: 'https://www.youtube.com/embed/hT1-QEgtMWA&enablejsapi=1',
+		video: 'https://www.youtube.com/embed/hT1-QEgtMWA',
 	}, 
 	card1:{
 		title:'Control Theory',
