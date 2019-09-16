@@ -1,5 +1,5 @@
 //function collection to load images under stag/wolf/bull/boar links
-var stagLinkImages = function(){
+var stagLinkImages = function() {
 	addImage('fig','../../media/projects/Carousel/biomed.jpg');
 	addImage('fig','../../media/projects/Carousel/fpga.png');
 	addImage('fig','../../media/projects/Carousel/vivado.jpg');
@@ -9,7 +9,7 @@ var stagLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/numericalapprox.png');
 }
 
-var wolfLinkImages = function(){
+var wolfLinkImages = function() {
 	addImage('fig','../../media/projects/Carousel/tibetScreenshot.png');
 	addImage('fig','../../media/projects/Carousel/lightSphere.PNG');
 	addImage('fig','../../media/projects/Carousel/leaflet.gif');
@@ -20,7 +20,7 @@ var wolfLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/arm.png');
 }
 
-var bullLinkImages = function(){
+var bullLinkImages = function() {
 	addImage('fig','../../media/projects/Carousel/auroraSilhouette.jpg');
 	addImage('fig','../../media/projects/Carousel/team.jpg');
 	addImage('fig','../../media/projects/Carousel/rocks.jpg');
@@ -31,13 +31,54 @@ var bullLinkImages = function(){
 	addImage('fig','../../media/projects/Carousel/nordic.jpg');
 }
 
-var boarLinkImages = function(){
+var boarLinkImages = function() {
 	addImage('fig','../../media/projects/Carousel/');
 	addImage('fig','../../media/projects/Carousel/dartmouth.jpg');
 	addImage('fig','../../media/projects/Carousel/');
 	addImage('fig','../../media/projects/Carousel/opti.jpeg');
 	addImage('fig','../../media/projects/Carousel/meredith.jpg');
 	addImage('fig','../../media/projects/Carousel/');
+}
+
+var imagePreloader = function() {
+	var imageObj = new Image();
+
+	var images = new Array();
+	images.push('../../media/projects/Carousel/tibetScreenshot.png');
+	images.push('../../media/projects/Carousel/HopPhoto.jpg');
+	images.push('../../media/projects/Carousel/leaflet.gif');
+	images.push('../../media/projects/Carousel/rayTrace.jpg');
+	images.push('../../media/projects/Carousel/recursiveRayTracing.png');
+	images.push('../../media/projects/Carousel/threeJSSphere.png');
+	images.push('../../media/projects/Carousel/teapot.png');
+	images.push('../../media/projects/Carousel/arm.png');
+	images.push('../../media/projects/Carousel/samara.PNG');
+	images.push('../../media/projects/Carousel/fpga.png');
+	images.push('../../media/projects/Carousel/heartmonitor.jpg');
+	images.push('../../media/projects/Carousel/numericalapprox.png');
+	images.push('../../media/projects/Carousel/threejs.jpg');
+	images.push('../../media/projects/Carousel/sidewalk.jpg');
+	images.push('../../media/projects/Carousel/lightSphere.PNG');
+	images.push('../../media/projects/Carousel/auroraSilhouette.jpg');
+	images.push('../../media/projects/Carousel/team.jpg');
+	images.push('../../media/projects/Carousel/lookout.jpg');
+	images.push('../../media/projects/Carousel/bike.jpg');
+	images.push('../../media/projects/Carousel/nordic.jpg');
+	images.push('../../media/projects/Carousel/rocks.jpg');
+	images.push('../../media/projects/Carousel/dartmouth.jpg');
+	images.push('../../media/projects/Carousel/meredith.jpg');
+	images.push('../../media/projects/Carousel/opti.jpeg');
+	images.push('../../media/projects/Carousel/vivado.jpg');
+	images.push('../../media/projects/Carousel/stirling.png');
+	images.push('../../media/projects/Carousel/pantherHunter.png');
+	images.push('../../media/projects/Carousel/biomed.jpg');
+	//these are the link images (i.e what you click on inside of the card)
+	images.push('../../media/projects/Carousel/linkImages/pantherHunter.png');
+	images.push('../../media/projects/Carousel/linkImages/endlessKnot.png');
+
+	for(var i = 0; i <images.length; i++) {
+		imageObj.src = images[i];	
+	}
 }
 
 //content of each carousel page
