@@ -257,7 +257,7 @@ var addImage = function(parentId,source){
     newElem.setAttribute('id', 'card' + imageNum);
     imageNum = imageNum + 1;
     newElem.src = source;
-    newElem.alt = "Could not load image";
+    newElem.alt = "";
     newElem.classList.add('cImg');   
     newElem.classList.add('carousel__cell' + cssSuffix);   
     pID.appendChild(newElem);
