@@ -56,6 +56,14 @@
 
   .invert { filter: brightness(0) invert(1); }
 
+  .mvcImg {
+    max-width: 100%;
+  }
+  
+  .list {
+    padding-right: 20px;
+  }
+
 </style>
 <body class="w3-light-grey">
 
@@ -200,13 +208,8 @@
   <div class="w3-container">
     <h5 id="diagram">Diagram</h5>
     <ul class="w3-ul w3-card-4 w3-white">
-      Threaded design diagram (MVC/threads/services).
       <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <img src="/media/MVC Diagram.png" class="mvcImg"/>
       <br>
       <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_t-wxElT5dt3FwhiUcHqE2RNOs6isYG4cKs6pGzc4nfRs4m42xgcMn4XpXN4yPh_oRNZGEj107s2k/embed?start=false&loop=false&delayms=5000"
        frameborder="0" 
@@ -221,24 +224,18 @@
   
   <div class="w3-container">
     <h5 id="work">Distribution of Work</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      Who did what 
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <!-- <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_t-wxElT5dt3FwhiUcHqE2RNOs6isYG4cKs6pGzc4nfRs4m42xgcMn4XpXN4yPh_oRNZGEj107s2k/embed?start=false&loop=false&delayms=5000"
-       frameborder="0" 
-       width="100%" 
-       height="600" 
-       allowfullscreen="true" 
-       mozallowfullscreen="true" 
-       webkitallowfullscreen="true">
-      </iframe> -->
-    </ul>
+    <div class="w3-ul w3-card-4 w3-white">
+      <ul class="list">
+        <br>
+          <li>
+            Ross: database and ML
+          </li>
+          <li>
+            Trevor: UI and ML
+          </li>
+        <br>
+      </ul>
+    </div>
   </div>
   <hr>
 
