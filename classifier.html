@@ -29,6 +29,14 @@
     height: 60px;
   }
   
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: flex-start;
+  }
+  
   .flexSpace {
     display: flex;
     flex-direction: row;
@@ -64,16 +72,34 @@
     padding-right: 20px;
   }
 
+  .downloadText {
+	font-size: 10px;
+  }
+
+  .downloadLink {
+	text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+	margin-right: 10px;
+  }
+
 </style>
 <body class="w3-light-grey">
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <div class="flexRight" >
-    <img class="invert" src="/media/ThayerLogo.png" width="35px" height="40px" />
-    <span class="w3-bar-item w3-right">Classifier</span>
-  </div>
+    <div class="flexRight" >
+      <a class="downloadLink" href="/APKs/classifier-release.apk" download>
+        <img class="invert" src="/media/ThayerLogo.png" width="35px" height="40px" />
+        <div class="flexCol" >
+          <span class="w3-right">Classifier</span>
+          <span class="downloadText">Click To Download</span>
+        </div>
+      </a>
+    </div>
 </div>
 
 <!-- Sidebar/menu -->
